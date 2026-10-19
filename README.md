@@ -1,6 +1,11 @@
 # Springshare-to-Rivet
 A test of visually aligning Shringshare CSS to IU Rivet Design System
 
+## Pages:
+* [Springshare/Rivet CSS Class Conversion Tables](https://nouveaureece.github.io/Springshare-to-Rivet/springshare-to-rivet)
+* [Install Bookmarklet](https://nouveaureece.github.io/Springshare-to-Rivet/dist/bookmarklet)
+
+
 ## Architecture
 `springshare-to-rivet.md` - An attempt to map Springshare classes to Rivet   
 `style-overrides` - The new CSS to use to override Springshare styles   
