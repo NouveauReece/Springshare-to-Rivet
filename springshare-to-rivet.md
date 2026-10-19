@@ -37,6 +37,7 @@
    - `li { float: left }`, `.float-end`
 
 # Typography (`typography.css`)
+
 | Springshare | Rivet |
 | --- | --- |
 | `body.s-lg-guide-body` | `body` (Rivet base font, color, line-height) |
@@ -50,6 +51,7 @@
 | `pre`, `kbd` | no Rivet equivalent (built from Rivet tokens) |
 
 # Breadcrumbs (`breadcrumbs.css`)
+
 | Springshare | Rivet |
 | --- | --- |
 | `ol.breadcrumb#s-lib-bc-list` | `.rvt-breadcrumbs` |
@@ -57,6 +59,7 @@
 | `li.breadcrumb-item.active` | `.rvt-breadcrumbs li:last-child` |
 
 # Buttons (`buttons.css`)
+
 | Springshare | Rivet |
 | --- | --- |
 | `.btn` | `.rvt-button` |
@@ -68,6 +71,7 @@
 | `#mysched_*` (Schedule Appointment; inline `<style>` by ID) | `.rvt-button.rvt-button--plain` with a calendar icon (needs `!important`) |
 
 # Search within guides (`search.css`): Rivet header search panel
+
 | Springshare | Rivet |
 | --- | --- |
 | `#s-lg-guide-header-search` | `.rvt-header-global__search` (lg: white, `--rvt-shadow-heavy`, 4px radius, `1rem 1.5rem` padding, `20rem` wide) |
@@ -78,6 +82,7 @@
 The panel is always visible; Rivet's toggle button (`data-rvt-disclosure="search"`) can't be added without HTML changes.
 
 # Forms (`forms.css`)
+
 | Springshare | Rivet |
 | --- | --- |
 | `.form-control` | `.rvt-text-input` |
@@ -85,6 +90,7 @@ The panel is always visible; Rivet's toggle button (`data-rvt-disclosure="search
 | `.input-group > .btn` | `.rvt-input-group__append .rvt-button` |
 
 # Guide page navigation (`sidenav.css`)
+
 | Springshare | Rivet |
 | --- | --- |
 | `ul.nav-pills.split-button-nav` | `.rvt-sidenav__list` |
@@ -106,6 +112,7 @@ The inline CSS also re-states `font-weight: bold; padding: 4px 5px 4px 10px; wid
 Hover/focus: blue-500 text + underline (also on the current page). Inline CSS gave the active link a 1px border on hover (black flash); borders are 0 and transitions removed. The external stylesheet's `a` underline is overridden with `!important`.
 
 # Boxes (`boxes.css`)
+
 | Springshare | Rivet |
 | --- | --- |
 | `.s-lib-box.s-lib-box-std` | `.rvt-card` |
@@ -116,6 +123,7 @@ Hover/focus: blue-500 text + underline (also on the current page). Inline CSS ga
 | `.s-lib-box` that contains `.s-lib-profile-container` | no chrome: no border, shadow, background or title strip (heading kept, centered, for a11y) |
 
 # Tabs (`tabs.css`)
+
 | Springshare | Rivet |
 | --- | --- |
 | `.s-lib-jqtabs` | `.rvt-tabs` |
@@ -125,6 +133,7 @@ Hover/focus: blue-500 text + underline (also on the current page). Inline CSS ga
 | `.tab-content > .tab-pane` | `.rvt-tabs__panel` |
 
 # Accordion (`accordion.css`)
+
 | Springshare | Rivet |
 | --- | --- |
 | `.accordion` | `.rvt-accordion` |
@@ -135,6 +144,7 @@ Hover/focus: blue-500 text + underline (also on the current page). Inline CSS ga
 | `.accordion-button::after` (Bootstrap chevron) | `.rvt-accordion__toggle-icon`: plus with a vertical bar (`__icon-bar`) that is hidden when expanded (minus), black-400, drawn with gradients |
 
 # Tables (`tables.css`)
+
 | Springshare | Rivet |
 | --- | --- |
 | `table.table` | `.rvt-table` |
@@ -142,6 +152,7 @@ Hover/focus: blue-500 text + underline (also on the current page). Inline CSS ga
 | `.ck_border` (inline-bordered cells) | `.rvt-table-cells` (border color only, `!important`) |
 
 # Link / resource lists (`link-lists.css`)
+
 | Springshare | Rivet |
 | --- | --- |
 | `ul.s-lg-link-list` | `.rvt-list-plain` |
@@ -151,6 +162,7 @@ Hover/focus: blue-500 text + underline (also on the current page). Inline CSS ga
 | `.s-lg-database-desc`, `.s-lg-link-desc`, `.s-lg-content-more-info` | secondary text (`.rvt-ts-14`, black-400) |
 
 # Profile (`profile.css`): modeled on Rivet people-list card
+
 | Springshare | Rivet |
 | --- | --- |
 | `.s-lib-profile-container` | `.rvt-card` (centered stack; no box chrome) |
@@ -163,6 +175,7 @@ Hover/focus: blue-500 text + underline (also on the current page). Inline CSS ga
 Notes: the sidebar column is ~150-280px wide between 768px and 1100px; everything is `min-width: 0` / `max-width: 100%` so it never overlaps the main column (checked at 320-1100px). The two actions had inconsistent states because a generic `.btn` hover rule gave `#mysched_*` a dark border; both now share identical plain-button states.
 
 # Prev/next + guide footer (`pagination.css`, `guide-footer.css`)
+
 | Springshare | Rivet |
 | --- | --- |
 | `nav#s-lg-page-prevnext` | `.rvt-seriesnav` (black-100 rule above and below, 4rem above): https://rivet.iu.edu/layouts/preview/profile-page/single-column/ |
@@ -175,6 +188,7 @@ Notes: the sidebar column is ~150-280px wide between 768px and 1100px; everythin
 The link text contains literal angle brackets (`<< Previous: …`, `Next: … >>`). They're hidden CSS-only with a `@font-face` restricted to `U+003C`/`U+003E` and `size-adjust: 0%` (zero-size glyphs), applied to `#s-lg-page-prevnext .page-link` only (the search-results pagination uses `<<`, `<`, `>`, `>>` as real labels). Browsers without `size-adjust`/`unicode-range` show the brackets next to the arrow icon.
 
 # Layout (`layout.css`)
+
 | Springshare | Rivet |
 | --- | --- |
 | `.container` | `.rvt-container-xl` (max-width 78.75rem) |
@@ -182,6 +196,7 @@ The link text contains literal angle brackets (`<< Previous: …`, `Next: … >>
 | `#s-lg-public-skiplink` | Rivet skip link (hidden until focused, white bg, `z-index: 999`, link focus ring) |
 
 # Search results page (`search-results.css`): `srch.php` / `test3.html`
+
 | Springshare | Rivet |
 | --- | --- |
 | `#s-lg-srch-local nav.navbar.bg-light.border.rounded` | Rivet search panel (`.rvt-header-global__search`): white, `--rvt-shadow-heavy`, 4px radius, `1rem 1.5rem` padding; the form fills it (Bootstrap's `col-md-9`, `pad-top-med`, `mb-3` neutralized). Rivet's other search pattern (people-list *Filter by search*: visible `.rvt-label` over a `.rvt-input`, no panel) has no visible label here because the page's label is `.sr-only` |
@@ -201,6 +216,7 @@ The link text contains literal angle brackets (`<< Previous: …`, `Next: … >>
 Note: `test3.html` renders its results with Springshare JS that is replaced by an empty result set when served locally; the results were checked from a copy with the scripts removed.
 
 # Guide index pages (`guide-index.css`, `alerts.css`): `index4.html`
+
 | Springshare | Rivet |
 | --- | --- |
 | `#s-lg-hp-nav` grey bar (`#e8e8e8`) | neutral panel (black-000, black-100 rule, 4px radius) |
@@ -222,6 +238,7 @@ Note: `test3.html` renders its results with Springshare JS that is replaced by a
 Note: `index4.html` / `index5.html` fill their list with Springshare JS that fails locally (it shows "Sorry, there was a problem loading the list"); the accordion/list was reviewed from a copy with the scripts removed. Rivet's `.rvt-accordion` source only specifies the bar-hiding behavior, not the icon artwork, so the plus is drawn with CSS gradients.
 
 # Dialogs (`dialog.css`) for Springshare and jQuery UI
+
 | Springshare / jQuery UI | Rivet |
 | --- | --- |
 | `.ui-dialog` | `.rvt-dialog` (white, 8px radius, `--rvt-shadow-heavy`, `max-width: 37.5rem`, 90% wide, centered with `top: 40%` + `translateY(-40%)`; jQuery UI's inline top/left/width/height overridden with `!important`) |
@@ -236,6 +253,7 @@ Note: `index4.html` / `index5.html` fill their list with Springshare JS that fai
 `index7.html` (a staff profile page): the page `h1` (`.s-lib-header h1`) follows the Rivet prose h1 (2rem regular); guide rows, profile column and sidebar headings reuse the earlier rules.
 
 # Loading notification (`loading.css`)
+
 | Springshare | Rivet |
 | --- | --- |
 | `#jquery-notification` | `.rvt-card--raised` (white, `--rvt-shadow-heavy`, 8px radius, 1.5rem padding) |
@@ -245,6 +263,7 @@ Note: `index4.html` / `index5.html` fill their list with Springshare JS that fai
 
 # Focus indicators (`focus.css`)
 The Springshare stylesheet forces `outline: #101010 solid 2px !important; border-color: #101010 !important; box-shadow: none !important` on every `a`, `button`, `input`, `select` and `textarea` at `:focus-visible`, which replaced Rivet's rings. `focus.css` (imported last, `body`-prefixed, `!important`) restores the values from Rivet's source:
+
 | Element | Rivet source | Focus style |
 | --- | --- | --- |
 | Links, tabs, sidenav links, breadcrumbs, header menu links, accordion toggle | `links/_base.scss`, `tabs`, `accordion`, `header-system/_header-menu.scss` | `outline: .125rem solid blue-400; outline-offset: .125rem` |
@@ -265,6 +284,7 @@ Also: Bootstrap's `.btn`/`.form-control` `transition` is disabled (Rivet rings a
 
 # Header (`header.css`)
 The markup is already Rivet; Springshare/Bootstrap rules leaked into it (16px links, underlines, extra item margin, arrow on the CTA). `header.css` restores the libraries.indiana.edu look.
+
 | Springshare leak | Fix |
 | --- | --- |
 | `a` 16px / underline (`!important` external rule) | `.rvt-header-menu__link` 14px, no underline |
@@ -278,6 +298,7 @@ The markup is already Rivet; Springshare/Bootstrap rules leaked into it (16px li
 
 # Footer (`footer.css`)
 The markup is already Rivet. Springshare's `a` underline (`!important`) and Rivet's `.rvt-button--plain` (declared after `.rvt-footer-resources__button`) broke the links and buttons.
+
 | Problem | Fix (from rivet.css + libraries.indiana.edu theme CSS) |
 | --- | --- |
 | underlined footer links | `.rvt-footer-*__link/a`: no underline, underline on hover |
