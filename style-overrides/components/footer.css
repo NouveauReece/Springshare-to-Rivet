@@ -1,0 +1,83 @@
+/* Footer (.rvt-footer-social / .rvt-footer-resources / .rvt-footer-base): markup is Rivet's; match libraries.indiana.edu.
+   Values: rivet.css footer rules + the site theme's `.rvt-c-footer-resources__button` rules.
+   Springshare's `a { color; text-decoration: underline !important }` and Rivet's `.rvt-button--plain` (declared after
+   `.rvt-footer-resources__button`) were overriding the footer, hence the underlines and the broken buttons. */
+.rvt-footer-resources :where(a),
+.rvt-footer-social :where(a),
+.rvt-footer-base :where(a) {
+  color: var(--rvt-color-white-base);
+}
+
+/* Links: no underline, underline on hover (list + base links) */
+.rvt-footer-social a,
+.rvt-footer-resources a,
+.rvt-footer-base a {
+  text-decoration: none !important;
+}
+
+.rvt-footer-resources__list-item a:hover,
+.rvt-footer-base__link:hover {
+  color: var(--rvt-color-white-base);
+  text-decoration: underline !important;
+}
+
+.rvt-footer-resources__list-item a {
+  display: block;
+  font-size: var(--rvt-ts-14);
+}
+
+.rvt-footer-base__link {
+  display: inline;
+}
+
+/* "Databases A-Z" / "Give Now": .rvt-button.rvt-button--small.rvt-button--plain restyled as white buttons on crimson */
+.rvt-footer-resources .rvt-c-footer-resources__button {
+  align-items: center;
+  background-color: var(--rvt-color-white-base);
+  border: var(--rvt-color-white-base);
+  color: var(--rvt-color-crimson-500);
+  justify-content: center;
+  margin-top: var(--rvt-spacing-xs);
+  min-width: 12rem;
+  padding: .25rem var(--rvt-spacing-sm);
+  text-align: center;
+  width: auto;
+}
+
+.rvt-footer-resources .rvt-c-footer-resources__button:hover {
+  background-color: var(--rvt-color-gold-500);
+  border: var(--rvt-color-gold-500);
+  color: var(--rvt-color-crimson-500);
+}
+
+/* Focus: Rivet's footer rule is `a:focus { outline-color: #ffffff }` */
+body .rvt-footer-social a:focus-visible,
+body .rvt-footer-resources a:focus-visible,
+body .rvt-footer-base a:focus-visible {
+  outline-color: var(--rvt-color-white-base) !important;
+}
+
+body .rvt-footer-resources .rvt-c-footer-resources__button:focus-visible {
+  border: var(--rvt-color-white-base) !important;
+  display: inline-flex;
+}
+
+/* The external rivet-custom-lb-az.css ("Springshare custom") restyles these Rivet footer parts; restore rivet.css values */
+.rvt-footer-resources .rvt-footer-resources__heading {
+  font-size: var(--rvt-ts-18);
+  font-weight: var(--rvt-font-weight-bold);
+  margin-top: 1.5rem;
+}
+
+@media screen and (min-width: 46.25em) {
+  .rvt-footer-resources .rvt-footer-resources__heading {
+    margin-top: 0;
+  }
+}
+
+/* .rvt-button--small (buttons/_base.scss): 14px, 1.5rem tall, medium weight; the external sheet makes it 19.2px / 600 */
+.rvt-footer-resources .rvt-c-footer-resources__button {
+  font-size: var(--rvt-ts-14);
+  font-weight: var(--rvt-font-weight-medium);
+  height: var(--rvt-spacing-md);
+}

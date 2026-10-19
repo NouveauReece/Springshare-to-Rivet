@@ -1,0 +1,134 @@
+/* Guide meta footer (#s-lib-footer-public) and scroll-top */
+#s-lib-footer-public {
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--rvt-color-black-100);
+  color: var(--rvt-color-black-400);
+  font-size: var(--rvt-ts-14);
+  margin-top: var(--rvt-spacing-lg);
+}
+
+/* Meta rows: Springshare floats (float-start/float-end, li float:left) are replaced by flex rows that stack on narrow viewports */
+#s-lib-footer-public .clearfix::after {
+  display: none;
+}
+
+#s-lib-footer-public #s-lg-guide-header-meta,
+#s-lib-footer-public>.clearfix {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rvt-spacing-xs) var(--rvt-spacing-md);
+  justify-content: space-between;
+  padding: var(--rvt-spacing-sm) 0 0 !important;
+  /* Bootstrap pt-2/ps-3 utilities are !important */
+}
+
+#s-lib-footer-public>.clearfix {
+  padding-bottom: var(--rvt-spacing-sm) !important;
+}
+
+#s-lib-footer-public {
+  text-align: left;
+}
+
+#s-lib-footer-public>.clearfix> :empty {
+  display: none;
+}
+
+#s-lib-footer-public #s-lib-footer-login-link,
+#s-lib-footer-public #s-lib-footer-support-link,
+#s-lib-footer-public #s-lg-guide-header-subjects,
+#s-lib-footer-public #s-lg-guide-header-tags {
+  float: none !important;
+  margin: 0;
+  padding: 0 !important;
+}
+
+#s-lg-guide-header-attributes {
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  gap: var(--rvt-spacing-xs) var(--rvt-spacing-md);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#s-lg-guide-header-attributes li {
+  border: 0;
+  float: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 46.24em) {
+
+  #s-lib-footer-public #s-lg-guide-header-meta,
+  #s-lib-footer-public>.clearfix {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  #s-lg-guide-header-attributes {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.s-lg-guide-label {
+  font-weight: var(--rvt-font-weight-bold);
+  color: var(--rvt-color-black-500);
+}
+
+.s-lg-text-greyout {
+  color: var(--rvt-color-black-400);
+}
+
+.s-lg-h-separator::after {
+  content: none !important;
+}
+
+#s-lib-scroll-top a {
+  color: var(--rvt-color-black-500);
+}
+
+#s-lib-scroll-top a {
+  background: var(--rvt-color-white-base);
+  border: 1px solid var(--rvt-color-black-100);
+  border-radius: var(--rvt-border-radius-md);
+  color: var(--rvt-color-black-500);
+  text-decoration: none;
+}
+
+/* Long guide URL must wrap on very narrow viewports (was causing horizontal scroll at 320px) */
+#s-lg-guide-header-attributes li {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.s-lg-h-separator {
+  border-right: 0;
+  margin-right: 0;
+}
+
+#s-lg-guide-header-attributes .s-lg-text-greyout {
+  overflow-wrap: anywhere;
+}
+
+/* The site's target-size remediation gives these links `padding: 4px 8px` (kept: 24px minimum target). Pull them left so their text aligns with the label text above. */
+#s-lg-guide-print-url a,
+#s-lib-footer-login-link a,
+#s-lib-footer-support-link a {
+  margin-left: -8px;
+}
+/* Index/search pages use a simpler footer: <div><div#s-lib-footer-brand/><div#s-lib-footer-rights/><div#s-lib-footer-login-link/></div><div#s-lib-footer-support-link/>.
+   Same left-aligned flex row as the guide meta rows; stacks below 46.25em. */
+#s-lib-footer-public > div:not([class]):not([id]) { align-items: flex-start; display: flex; flex-wrap: wrap; gap: var(--rvt-spacing-xs) var(--rvt-spacing-md); padding: var(--rvt-spacing-sm) 0 0; text-align: left; }
+#s-lib-footer-public > div:not([class]):not([id]) > div { display: block; margin: 0; padding: 0; text-align: left; }
+#s-lib-footer-public > #s-lib-footer-support-link { padding: var(--rvt-spacing-xs) 0 var(--rvt-spacing-sm); text-align: left; }
+@media screen and (max-width: 46.24em) {
+  #s-lib-footer-public > div:not([class]):not([id]) { flex-direction: column; }
+}
+#s-lib-footer-public > #s-lib-footer-support-link { display: block; text-align: left; width: 100%; }
+#s-lib-footer-public > div:not([class]):not([id]) { align-items: baseline; }

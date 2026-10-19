@@ -1,0 +1,50 @@
+/* Tables: table.table -> .rvt-table, .table-striped -> .rvt-table-stripes, .ck_border -> .rvt-table-cells */
+table.table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: left;
+    width: 100%;
+    --bs-table-striped-bg: var(--rvt-color-black-000);
+    --bs-table-bg: transparent;
+}
+
+table.table caption {
+    color: var(--rvt-color-black-400);
+    font-size: var(--rvt-ts-14);
+    padding: var(--rvt-spacing-xs) 0;
+    text-align: left;
+}
+
+table.table thead {
+    background-color: var(--rvt-color-black-000);
+    border-bottom: 1px solid var(--rvt-color-black-100);
+}
+
+table.table thead th {
+    font-weight: var(--rvt-font-weight-bold);
+    line-height: 1;
+    padding: var(--rvt-spacing-sm);
+}
+
+table.table tr {
+    border-bottom: 1px solid var(--rvt-color-black-100);
+}
+
+table.table td {
+    padding: var(--rvt-spacing-sm);
+}
+
+table.table-striped>tbody>tr:nth-child(even)>* {
+    background-color: var(--rvt-color-black-000);
+    box-shadow: none;
+}
+
+table.table-striped>tbody>tr:nth-child(odd)>* {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+/* Border color on the inline-styled cells (inline style is #ddd; !important required) */
+table.table .ck_border {
+    border-color: var(--rvt-color-black-100) !important;
+}

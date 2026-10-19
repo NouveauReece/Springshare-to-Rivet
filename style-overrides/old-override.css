@@ -1,0 +1,147 @@
+/* layout */
+.container {
+    max-width: 1440px;
+}
+
+/* text */
+    body {
+    color: #181c32;
+        font-family: Poppins, Helvetica, sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        }
+    h1 {
+    color: #181c32;
+        font-family: Poppins, Helvetica, sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        }
+    h2 {
+    color: #181c32;
+        font-family: Poppins, Helvetica, sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        }
+    h3 {
+    color: #181c32;
+        font-family: Poppins, Helvetica, sans-serif;
+        font-size: 1.25rem;
+        font-weight: 400;
+        }
+    h4 {
+    color: #181c32;
+        font-family: Poppins, Helvetica, sans-serif;
+        font-size: 1.125rem;
+        font-weight: 400;
+        }
+    h5 {
+    color: #2d699e;
+        font-family: Poppins, Helvetica, sans-serif;
+        font-size: 1.125rem;
+        font-weight: 400;
+        }
+    h6 {
+    color: #2d699e;
+        font-family: Poppins, Helvetica, sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        }
+
+/* h1 - special cases */
+#s-lg-guide-header-info h1, .s-lib-header h1 {
+    color: #181c32;
+        font-family: Poppins, Helvetica, sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        }
+
+/* h2 - special cases */
+.public-collapsible-box h2.accordion-header > button {
+    color: #181c32;
+        font-family: Poppins, Helvetica, sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        }
+
+h2.s-lib-box-title button {
+    color: #181c32;
+        font-family: Poppins, Helvetica, sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        }
+
+/* links */
+a {
+color: #2d699e;
+}
+.breadcrumb-item > a {
+    text-decoration-line: underline;
+    color: #2d699e;
+}
+a:hover {
+color: #1e657b;
+}
+a:visited {
+color: #2a7993;
+}
+a:visited:hover {
+color: #1e657b;
+}
+
+
+/* buttons */
+    .btn-primary {
+    background-color: #990000;
+        border-color: #990000;
+        border-radius: unset;
+        color: #ffffff;
+        font-size: 0.875rem;
+        font-weight: 500;
+            }
+    .btn-primary:hover {
+    background-color: #edeceb;
+        border-color: #edeceb;
+        color: #990000;
+            }
+    :not(.btn-check)+.btn:active.btn-primary:active {
+    background-color: #edeceb;
+        border-color: #edeceb;
+        color: #990000;
+            }
+    .btn-secondary {
+    background-color: #ffffff;
+        border-color: #ffffff;
+        border-radius: unset;
+        color: #990000;
+        font-size: 0.875rem;
+        font-weight: 400;
+            }
+    .btn-secondary:hover {
+    background-color: #ffffff;
+        border-color: #ffffff;
+        color: #990000;
+            }
+    :not(.btn-check)+.btn:active.btn-secondary:active {
+    background-color: #ffffff;
+        border-color: #ffffff;
+        color: #990000;
+            }
+    .btn-light {
+    background-color: #ffffff;
+        border-color: #ffffff;
+        border-radius: unset;
+        color: #990000;
+        font-size: 0.875rem;
+        font-weight: 400;
+            }
+    .btn-light:hover {
+    background-color: #ffffff;
+        border-color: #ffffff;
+        color: #990000;
+            }
+    :not(.btn-check)+.btn:active.btn-light:active {
+    background-color: #ffffff;
+        border-color: #ffffff;
+        color: #990000;
+            }
+

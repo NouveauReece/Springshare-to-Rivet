@@ -1,0 +1,16 @@
+{
+  "name": "springshare-to-rivet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bookmarklet": "node scripts/bookmarklet.js",
+    "serve": "node scripts/serve.js"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "dependencies": {
+    "rivet-core": "^2.9.1"
+  }
+}

@@ -1,0 +1,165 @@
+/* Typography: values taken from Rivet's defaults/_reset.scss, utilities/_prose.scss, _flow.scss, _elements.scss, links/_base.scss and quote/_base.scss */
+body.s-lg-guide-body {
+  color: var(--rvt-color-black-500);
+  font-family: var(--rvt-font-base);
+  line-height: var(--rvt-line-height-base);
+}
+
+/* Page title (h1) and headings: .rvt-prose heading scale, regular weight, tight line-height */
+/* The external rivet-custom-lb-az.css (loads after this file) sets `#s-lib-public-header-title { 24px / 600 }`, `h2 { 22px }`, `h3 { 18px }`;
+   `body`/ID-prefixed selectors out-rank it. */
+#s-lg-guide-name,
+.s-lib-header h1,
+#s-lg-guide-header-info h1,
+#s-lib-public-header #s-lib-public-header-title,
+body h1 {
+  color: var(--rvt-color-black-500);
+  font-size: var(--rvt-ts-32);
+  font-weight: var(--rvt-font-weight-regular);
+  line-height: var(--rvt-line-height-tight);
+  margin: 0;
+}
+
+body h2 {
+  font-size: var(--rvt-ts-23);
+  font-weight: var(--rvt-font-weight-regular);
+  line-height: var(--rvt-line-height-tight);
+}
+
+body h3 {
+  font-size: var(--rvt-ts-20);
+  font-weight: var(--rvt-font-weight-regular);
+  line-height: var(--rvt-line-height-tight);
+}
+
+body h4,
+body h5,
+body h6 {
+  font-size: var(--rvt-ts-18);
+  font-weight: var(--rvt-font-weight-regular);
+  line-height: var(--rvt-line-height-tight);
+}
+
+/* .rvt-prose: loose line-height, black-400 body text; .rvt-flow: 1rem between siblings, 3rem before headings */
+.s-lib-box-content .clearfix {
+  line-height: var(--rvt-line-height-loose);
+}
+
+.s-lib-box-content .clearfix :where(p, li, td) {
+  color: var(--rvt-color-black-400);
+}
+
+.s-lib-box-content .clearfix>* {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.s-lib-box-content .clearfix>*+* {
+  margin-top: var(--rvt-spacing-sm);
+}
+
+.s-lib-box-content .clearfix> :where(h1, h2, h3, h4, h5, h6) {
+  margin-top: 3rem;
+}
+
+.s-lib-box-content .clearfix> :where(h1, h2, h3, h4, h5, h6):first-child {
+  margin-top: 0;
+}
+
+.s-lib-box-content .clearfix>hr {
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+}
+
+.s-lib-box-content p {
+  margin: 0;
+}
+
+/* Links: .rvt-link (blue-500, hover blue-700, :focus outline .125rem blue-400 offset .125rem) */
+.s-lib-box-content a,
+#s-lib-footer-public a,
+#s-lg-guide-header-info a {
+  color: var(--rvt-color-blue-500);
+  text-decoration: underline;
+}
+
+.s-lib-box-content a:hover,
+#s-lib-footer-public a:hover {
+  color: var(--rvt-color-blue-700);
+}
+
+.s-lib-box-content a:focus,
+#s-lib-footer-public a:focus {
+  outline: .125rem solid var(--rvt-color-blue-400);
+  outline-offset: .125rem;
+}
+
+/* .rvt-hr */
+hr {
+  background-color: var(--rvt-color-black-100);
+  border: none;
+  height: 1px;
+  opacity: 1;
+}
+
+/* blockquote -> .rvt-quote__text (serif, 26px, black-400) */
+blockquote {
+  margin: 0;
+}
+
+blockquote,
+blockquote p {
+  color: var(--rvt-color-black-400);
+  font-family: var(--rvt-font-serif);
+  font-size: var(--rvt-ts-26);
+  margin: 0;
+}
+
+/* code -> .rvt-code */
+code {
+  background-color: var(--rvt-color-black-000);
+  border: 0;
+  border-radius: var(--rvt-border-radius-md);
+  color: var(--rvt-color-crimson-400);
+  display: inline-block;
+  font-family: monospace;
+  font-size: var(--rvt-ts-16);
+  padding: .125rem .25rem;
+}
+
+/* No Rivet equivalent for pre/kbd: built from Rivet tokens only */
+pre {
+  background-color: var(--rvt-color-black-000);
+  border: 1px solid var(--rvt-color-black-100);
+  border-radius: var(--rvt-border-radius-md);
+  color: var(--rvt-color-black-500);
+  font-family: monospace;
+  font-size: var(--rvt-ts-16);
+  padding: var(--rvt-spacing-sm);
+}
+
+kbd {
+  background-color: var(--rvt-color-black-500);
+  border-radius: var(--rvt-border-radius-md);
+  color: var(--rvt-color-white-base);
+  font-family: monospace;
+  font-size: var(--rvt-ts-16);
+  padding: .125rem .25rem;
+}
+
+/* Lists: .rvt-list (padding-left 2rem; .5rem/1rem gap) */
+.s-lib-box-content ul, .s-lib-box-content ol {
+  padding-left: var(--rvt-spacing-lg);
+}
+
+.s-lib-box-content li+li {
+  margin-top: var(--rvt-spacing-xs);
+}
+
+/* Inline links stay inline (Rivet `a` is inline). The site's target-size remediation makes links `display: inline-block`, which made
+   wrapped list-item links sit as a block with the bullet aligned to its last line. Inline text links are exempt from WCAG 2.2 target size. */
+.s-lib-box-content .clearfix a:not(.btn) {
+  display: inline;
+}
+/* Page header on profile/index pages: room between the breadcrumbs and the title (above) and the description/pronouns line (below) */
+#s-lib-public-header #s-lib-public-header-title { margin-bottom: var(--rvt-spacing-xs); margin-top: var(--rvt-spacing-md); }

@@ -1,0 +1,77 @@
+/* Accordion: .accordion -> .rvt-accordion, .accordion-item -> .rvt-accordion__summary, button.accordion-button -> .rvt-accordion__toggle, .accordion-body -> .rvt-accordion__panel */
+.accordion {
+    border-bottom: 1px solid var(--rvt-color-black-100);
+}
+
+.accordion .accordion-item {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    border-top: 1px solid var(--rvt-color-black-100);
+}
+
+.accordion .accordion-header {
+    margin: 0;
+}
+
+.accordion .accordion-button {
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    color: var(--rvt-color-black-500);
+    display: flex;
+    font-family: var(--rvt-font-base);
+    font-size: var(--rvt-ts-20);
+    font-weight: var(--rvt-font-weight-regular);
+    line-height: 1.3;
+    padding: var(--rvt-spacing-md) var(--rvt-spacing-sm);
+    text-align: left;
+    width: 100%;
+}
+
+.accordion .accordion-button:not(.collapsed) {
+    background-color: transparent;
+    color: var(--rvt-color-black-500);
+    box-shadow: none;
+}
+
+.accordion .accordion-button:hover {
+    background-color: var(--rvt-color-black-000);
+    cursor: pointer;
+}
+
+.accordion .accordion-button:focus {
+    box-shadow: none;
+    outline: .125rem solid var(--rvt-color-blue-400);
+    outline-offset: .125rem;
+}
+
+.accordion .accordion-button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.accordion .accordion-button:focus-visible {
+    background-color: var(--rvt-color-blue-000);
+}
+
+
+.accordion .accordion-body {
+    padding: var(--rvt-spacing-xs) var(--rvt-spacing-sm) var(--rvt-spacing-md);
+}
+/* Rivet's toggle icon is a plus (.rvt-accordion__toggle-icon, black-400) whose vertical bar (.rvt-accordion__icon-bar) is hidden when
+   expanded (accordion/_base.scss). Bootstrap's rotating chevron is replaced by the same plus/minus, drawn with two gradient bars. */
+.accordion .accordion-button::after {
+  background-image: linear-gradient(currentColor, currentColor), linear-gradient(currentColor, currentColor);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1rem .125rem, .125rem 1rem;
+  color: var(--rvt-color-black-400);
+  height: 1rem;
+  margin-left: auto;
+  transform: none;
+  transition: none;
+  width: 1rem;
+}
+.accordion .accordion-button:not(.collapsed)::after { background-size: 1rem .125rem, 0 0; transform: none; }

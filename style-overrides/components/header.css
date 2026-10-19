@@ -1,0 +1,183 @@
+/* Global header (Rivet markup already in the page; match libraries.indiana.edu).
+   Springshare/Bootstrap `a` rules and the external `a { text-decoration: underline !important }` leak into the header, so
+   these are scoped to .rvt-header-wrapper and use !important only for text-decoration. */
+.rvt-header-wrapper {
+  background-color: var(--rvt-color-white-base);
+  box-shadow: 0 3px 6px 0 rgba(36, 49, 66, .07);
+  position: relative;
+  z-index: 500;
+  /* theme: .rvt-header-wrapper z-index */
+}
+
+.rvt-header-wrapper .rvt-header-global {
+  background-color: var(--rvt-color-white-base);
+  padding: var(--rvt-spacing-sm) 0;
+}
+
+.rvt-header-wrapper .rvt-header-global__logo-slot {
+  margin-right: var(--rvt-spacing-lg);
+}
+
+/* Lockup (logo + title) */
+.rvt-header-wrapper .rvt-lockup,
+.rvt-header-wrapper .rvt-lockup:hover {
+  color: var(--rvt-color-black-500);
+  text-decoration: none !important;
+}
+
+.rvt-header-wrapper .rvt-lockup__title {
+  font-size: inherit;
+  font-weight: var(--rvt-font-weight-bold);
+  line-height: 1.1;
+}
+
+.rvt-header-wrapper .rvt-lockup__subtitle {
+  font-size: var(--rvt-ts-12);
+  font-weight: var(--rvt-font-weight-regular);
+  line-height: 1.1;
+  margin-top: .125rem;
+}
+
+/* Lockup tab + trident (rivet.css). The external rivet-custom-lb-az.css ("Springshare custom") sets .rvt-lockup__tab to a 64x64
+   square and the trident to 48x40, and loads after this file, so these need the extra .rvt-header-wrapper specificity. */
+.rvt-header-wrapper .rvt-lockup__tab {
+  height: 2.125rem;
+  width: 1.75rem;
+}
+
+.rvt-header-wrapper .rvt-lockup__trident {
+  height: 1.4375rem;
+  width: 1.1875rem;
+}
+
+@media screen and (min-width: 46.25em) {
+  .rvt-header-wrapper .rvt-lockup__title {
+    font-size: var(--rvt-ts-20);
+  }
+
+  .rvt-header-wrapper .rvt-lockup__subtitle {
+    font-size: var(--rvt-ts-14);
+  }
+
+  .rvt-header-wrapper .rvt-lockup__tab {
+    height: 2.75rem;
+    width: 2.25rem;
+  }
+
+  .rvt-header-wrapper .rvt-lockup__trident {
+    height: 1.875rem;
+    width: 1.5rem;
+  }
+}
+
+/* Menu links */
+.rvt-header-wrapper .rvt-header-menu__link {
+  color: var(--rvt-color-black-500);
+  font-size: var(--rvt-ts-14);
+  font-weight: var(--rvt-font-weight-regular);
+  text-decoration: none !important;
+}
+
+/* Below 67.5em Rivet's mobile menu padding (.5rem 0 .5rem .25rem), full-width flex links and row dividers apply untouched.
+   Desktop-only link metrics (rivet.css @media min-width 67.5em + theme `.rvt-c-header-menu .rvt-header-menu__link`) */
+@media screen and (min-width: 67.5em) {
+  .rvt-header-wrapper .rvt-header-menu__link {
+    line-height: 1.5;
+    padding: 0;
+  }
+
+  .rvt-header-wrapper .rvt-lockup__title {
+    font-size: var(--rvt-ts-20);
+  }
+
+  .rvt-header-wrapper .rvt-lockup__subtitle {
+    font-size: var(--rvt-ts-14);
+  }
+}
+
+/* Theme: line breaks in the menu labels only apply at desktop width */
+.rvt-header-wrapper .rvt-c-header-menu .rvt-header-menu__link br {
+  display: none;
+}
+
+@media screen and (min-width: 67.5em) {
+  .rvt-header-wrapper .rvt-c-header-menu .rvt-header-menu__link br {
+    display: block;
+  }
+}
+
+.rvt-header-wrapper .rvt-header-menu__link:hover,
+.rvt-header-wrapper .rvt-header-menu__link:focus {
+  color: var(--rvt-color-blue-500);
+  outline: .125rem solid var(--rvt-color-blue-400);
+  outline-offset: .125rem;
+  text-decoration: none !important;
+}
+
+.rvt-header-wrapper .rvt-header-menu__link:hover {
+  outline: .125rem solid var(--rvt-color-blue-400);
+  outline-offset: .125rem;
+}
+
+/* IUCAT call-to-action button (no arrow) */
+.rvt-header-wrapper .rvt-header-menu__link.rvt-cta--button {
+  background-color: var(--rvt-color-crimson-500);
+  border: .125rem solid var(--rvt-color-crimson-500);
+  border-radius: var(--rvt-border-radius-md);
+  box-shadow: 0 .25rem .5rem 0 rgba(36, 49, 66, .16);
+  color: var(--rvt-color-white-base);
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--rvt-ts-14);
+  font-weight: var(--rvt-font-weight-medium);
+  height: var(--rvt-spacing-xl);
+  padding: 0 .75rem;
+}
+
+.rvt-header-wrapper .rvt-header-menu__link.rvt-cta--button::after {
+  display: none;
+}
+
+.rvt-header-wrapper .rvt-header-menu__link.rvt-cta--button:hover {
+  background-color: var(--rvt-color-crimson-600);
+  border-color: var(--rvt-color-crimson-600);
+  box-shadow: none;
+  color: var(--rvt-color-white-base);
+}
+
+/* Item spacing is 1rem (Rivet `margin-left`); neutralize extra list gap leaking from Springshare/Bootstrap */
+.rvt-header-wrapper .rvt-header-menu__list {
+  gap: 0;
+}
+
+.rvt-header-wrapper .rvt-header-menu__item {
+  margin-right: 0;
+}
+
+/* .rvt-cta--button:focus ring (cta/_base.scss): white .125rem + crimson-400 .25rem; must follow the hover rule */
+.rvt-header-wrapper .rvt-header-menu__link.rvt-cta--button:focus {
+  box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-crimson-400);
+  outline: none;
+}
+
+/* Trident artwork: the page's inline SVG path is a different tracing of the IU trident than libraries.indiana.edu uses.
+   The HTML can't change, so the path geometry is replaced from CSS with the live site's path (same 28x34 viewBox).
+   The original <path fill="currentColor"> keeps its fill, so the glyph stays white on the crimson tab and sizing is Rivet's. */
+.rvt-header-wrapper .rvt-lockup__trident path {
+  d: path("M18 4.5V7h2v14h-4V2.5h2V0H9v2.5h2V21H7V7h2V4.5H0V7h2v16.6L5.5 27H11v4H9v3h9v-3h-2v-4h5.7l3.3-3.4V7h2V4.5h-9z");
+}
+
+/* Fallback for browsers without the CSS `d` property (e.g. Safari): hide the original path and draw the live trident as the
+   SVG's background (percent-encoded data URI). Only applies when `d` is unsupported, so the two never conflict. */
+@supports not (d: path("M0 0")) {
+  .rvt-header-wrapper .rvt-lockup__trident path {
+    display: none;
+  }
+
+  .rvt-header-wrapper .rvt-lockup__trident {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 34'%3E%3Cpath fill='%23ffffff' d='M18 4.5V7h2v14h-4V2.5h2V0H9v2.5h2V21H7V7h2V4.5H0V7h2v16.6L5.5 27H11v4H9v3h9v-3h-2v-4h5.7l3.3-3.4V7h2V4.5h-9z'/%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+}

@@ -1,0 +1,287 @@
+/* Profile box -> centered Rivet-style person card (.rvt-avatar--lg, .rvt-card__title with arrow, .rvt-card__content, plain icon buttons)
+   https://rivet.iu.edu/layouts/preview/people-list-page/single-column/ */
+
+/* No box chrome on the profile box: no border, background or title strip (title stays as a plain heading for a11y) */
+.s-lib-box.s-lib-box-std:has(.s-lib-profile-container) {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.s-lib-box.s-lib-box-std:has(.s-lib-profile-container) .s-lib-box-title {
+  background: transparent;
+  border: 0;
+  padding: 0 0 var(--rvt-spacing-sm);
+  text-align: center;
+}
+
+.s-lib-box.s-lib-box-std:has(.s-lib-profile-container) .s-lib-box-content {
+  padding: 0;
+}
+
+.s-lib-profile-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  text-align: center;
+}
+
+.s-lib-profile-div {
+  margin: 0;
+}
+
+/* Avatar: .s-lib-profile-image -> .rvt-avatar.rvt-avatar--lg (128px circle) */
+.s-lib-profile-container>a {
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.s-lib-profile-image {
+  display: block;
+  text-align: center;
+}
+
+.s-lib-profile-image img {
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: var(--rvt-border-radius-circle);
+  box-shadow: none;
+  display: block;
+  height: 8rem;
+  margin: 0 auto;
+  max-width: none;
+  object-fit: cover;
+  padding: 0;
+  width: 8rem;
+}
+
+/* Name: .s-lib-profile-name -> .rvt-card__title; arrow circle follows the name inline */
+.s-lib-profile-name {
+  align-items: center;
+  color: var(--rvt-color-black-500);
+  display: flex;
+  font-size: var(--rvt-ts-20);
+  font-weight: var(--rvt-font-weight-regular);
+  gap: var(--rvt-spacing-xs);
+  justify-content: center;
+  line-height: 1.3;
+  margin-top: var(--rvt-spacing-md) !important;
+  text-align: center;
+}
+
+.s-lib-profile-name::after {
+  content: "";
+  background-color: var(--rvt-color-blue-000);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1rem 1rem;
+  border-radius: var(--rvt-border-radius-circle);
+  box-sizing: content-box;
+  /* Bootstrap sets border-box; Rivet's 1rem icon + .5rem padding makes a 2rem circle */
+  flex-shrink: 0;
+  height: 1rem;
+  padding: var(--rvt-spacing-xs);
+  transition: background-color .2s ease, transform .2s ease;
+  width: 1rem;
+}
+
+.s-lib-profile-container>a:hover .s-lib-profile-name {
+  color: var(--rvt-color-blue-500);
+  text-decoration: underline;
+}
+
+.s-lib-profile-container>a:hover .s-lib-profile-name::after {
+  background-color: var(--rvt-color-blue-100);
+  transform: translateX(var(--rvt-spacing-xxs));
+}
+
+.s-lib-box-content .s-lib-profile-container>a, .s-lib-box-content .s-lib-profile-container>a:hover {
+  text-decoration: none !important;
+}
+
+/* ties with the external `.s-lib-box-content a { underline !important }` otherwise */
+
+/* Pronouns: .s-lib-profile-pronouns -> .rvt-card__content (top rule, secondary text) */
+.s-lib-profile-pronouns {
+  border-top: 1px solid var(--rvt-color-black-100);
+  color: var(--rvt-color-black-400);
+  margin-top: var(--rvt-spacing-md);
+  padding-top: var(--rvt-spacing-md);
+  text-align: center;
+  width: 100%;
+}
+
+/* Actions: plain icon buttons side by side (.rvt-button--plain); icons added with ::before */
+.s-lib-profile-email,
+.s-lib-profile-widget-la,
+.s-lib-profile-widget-la .s-lib-profile-widget {
+  display: block;
+  width: auto;
+}
+
+.s-lib-profile-container {
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.s-lib-profile-container>a,
+.s-lib-profile-pronouns {
+  flex: 0 0 100%;
+}
+
+.s-lib-profile-email,
+.s-lib-profile-widget-la {
+  margin-top: var(--rvt-spacing-sm) !important;
+}
+
+.s-lib-profile-email a.btn,
+.s-lib-profile-widget button[id^="mysched_"] {
+  align-items: center;
+  background-color: transparent !important;
+  border: .125rem solid transparent !important;
+  border-radius: var(--rvt-border-radius-md) !important;
+  box-sizing: border-box;
+  color: var(--rvt-color-blue-500) !important;
+  display: inline-flex !important;
+  font-family: var(--rvt-font-base) !important;
+  font-size: var(--rvt-ts-16) !important;
+  font-weight: var(--rvt-font-weight-medium) !important;
+  gap: var(--rvt-spacing-xs);
+  justify-content: center;
+  line-height: 1 !important;
+  min-height: var(--rvt-spacing-xl);
+  padding: 0 .625rem !important;
+  text-decoration: none !important;
+  width: auto;
+}
+
+.s-lib-profile-email a.btn:hover,
+.s-lib-profile-widget button[id^="mysched_"]:hover {
+  border-color: transparent !important;
+  background-color: var(--rvt-color-blue-000) !important;
+  color: var(--rvt-color-blue-600) !important;
+  opacity: 1 !important;
+}
+
+.s-lib-profile-email a.btn::before,
+.s-lib-profile-widget button[id^="mysched_"]::before {
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  flex-shrink: 0;
+  height: 1rem;
+  width: 1rem;
+}
+
+/* mail icon */
+.s-lib-profile-email a.btn::before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16"><path d="M0 2h16v12H0V2Zm2 2v.5l6 4 6-4V4H2Zm12 2.9-6 4-6-4V12h12V6.9Z"></path></svg>');
+}
+
+/* calendar icon */
+.s-lib-profile-widget button[id^="mysched_"]::before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16"><path d="M4 0h2v1h4V0h2v1h3v15H1V1h3V0Zm-1 3H3v2h10V3h-1v1h-2V3H6v1H4V3H3Zm10 4H3v7h10V7Z"></path></svg>');
+}
+
+/* Stack the two actions tightly (sidebar is narrow) and give the chrome-less box room below the page nav */
+.s-lib-profile-container {
+  flex-direction: column;
+}
+
+.s-lib-profile-email {
+  margin-top: var(--rvt-spacing-sm) !important;
+}
+
+.s-lib-profile-widget-la {
+  margin-top: 0 !important;
+}
+
+.s-lg-tabs-side .s-lib-box-container:has(.s-lib-profile-container) {
+  margin-top: var(--rvt-spacing-lg);
+}
+
+/* Same states as .rvt-button--plain */
+.s-lib-profile-email a.btn:active,
+.s-lib-profile-widget button[id^="mysched_"]:active {
+  border-color: transparent !important;
+  background-color: var(--rvt-color-blue-100) !important;
+}
+
+.s-lib-profile-email a.btn:focus,
+.s-lib-profile-widget button[id^="mysched_"]:focus {
+  box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-400) !important;
+  outline: none !important;
+}
+
+/* Narrow sidebars (e.g. 769px viewport, ~150px column): never exceed the column, wrap text and buttons */
+.s-lib-profile-container {
+  box-sizing: border-box;
+  min-width: 0;
+  width: 100%;
+}
+
+.s-lib-profile-container>*,
+.s-lib-profile-widget,
+.s-lib-profile-email,
+.s-lib-profile-widget-la {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.s-lib-profile-image img {
+  height: auto;
+  width: min(8rem, 100%);
+}
+
+.s-lib-profile-name {
+  flex-wrap: wrap;
+  overflow-wrap: anywhere;
+}
+
+.s-lib-profile-email a.btn,
+.s-lib-profile-widget button[id^="mysched_"] {
+  height: auto;
+  line-height: 1.25 !important;
+  max-width: 100%;
+  padding-bottom: .5rem !important;
+  padding-top: .5rem !important;
+  text-align: center;
+  white-space: normal;
+}
+
+/* The scheduling button can sit in any of the widget slots (-la, -lc, -other) depending on the profile; every slot gets the same spacing.
+   Contact details / subjects (.rvt-card__meta: 14px, centered, 1rem above) */
+.s-lib-profile-widget-lc,
+.s-lib-profile-widget-other {
+  margin-top: 0 !important;
+}
+
+.s-lib-profile-contact,
+.s-lib-profile-subjects,
+.s-lib-profile-social {
+  color: var(--rvt-color-black-400);
+  font-size: var(--rvt-ts-14);
+  line-height: 1.5;
+  margin-top: var(--rvt-spacing-sm) !important;
+  text-align: center;
+  width: 100%;
+}
+
+.s-lib-profile-contact:empty,
+.s-lib-profile-subjects:empty,
+.s-lib-profile-social:empty {
+  display: none;
+}
+
+.s-lib-profile-contact strong,
+.s-lib-profile-subjects strong {
+  color: var(--rvt-color-black-500);
+  font-weight: var(--rvt-font-weight-bold);
+}

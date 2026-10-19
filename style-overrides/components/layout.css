@@ -1,0 +1,50 @@
+/* Page layout: container, header block, side borders */
+.container {
+   max-width: 78.75rem;
+   /* rvt-container-xl */
+   padding-left: var(--rvt-spacing-md);
+   padding-right: var(--rvt-spacing-md);
+}
+
+.s-lib-side-borders {
+   border-left: 0 !important;
+   border-right: 0 !important;
+   box-shadow: none !important;
+   background: transparent !important;
+}
+
+#s-lg-guide-header {
+   padding-top: var(--rvt-spacing-md);
+   padding-bottom: var(--rvt-spacing-md);
+   background: transparent;
+}
+
+#s-lg-guide-header-info {
+   margin-top: var(--rvt-spacing-sm);
+}
+
+#s-lg-guide-header-info #s-lg-guide-name {
+   margin: 0;
+}
+
+#s-lg-side-nav-content {
+   padding-top: var(--rvt-spacing-md) !important;
+}
+
+#s-lg-public-skiplink {
+   background: var(--rvt-color-white-base);
+   border: 1px solid var(--rvt-color-black-100);
+   color: var(--rvt-color-blue-500);
+   border-radius: var(--rvt-border-radius-md);
+   padding: var(--rvt-spacing-xs) var(--rvt-spacing-sm);
+}
+
+/* Skip link: shown on focus (Rivet .rvt-header-wrapper__skip-link: white bg, top 0) with Rivet's link focus ring.
+   Springshare removes the outline with `outline: 0 !important` on :focus-visible, so !important is needed here. */
+#s-lg-public-skiplink:focus,
+#s-lg-public-skiplink:focus-visible {
+   z-index: 999;
+   background-color: var(--rvt-color-white-base);
+   outline: .125rem solid var(--rvt-color-blue-400) !important;
+   outline-offset: .125rem;
+}

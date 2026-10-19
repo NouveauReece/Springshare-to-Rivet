@@ -1,0 +1,9 @@
+/* Bootstrap alerts -> Rivet alerts (alerts/_base.scss): .rvt-alert (black-000, 4px left rule, 1rem padding, 14px message)
+   .alert-info/-success/-warning/-danger -> .rvt-alert--info/--success/--warning/--danger.
+   Scoped to `.alert.alert-*`: the skip link has a bare `.alert-info` class and is not an alert. */
+.alert { background-color: var(--rvt-color-black-000); border: 0; border-left: var(--rvt-spacing-xxs) solid var(--rvt-color-black-500); border-radius: 0; color: var(--rvt-color-black-500); font-size: var(--rvt-ts-14); margin: 0 0 var(--rvt-spacing-sm); padding: var(--rvt-spacing-sm); position: relative; }
+.alert.alert-info { background-color: var(--rvt-color-blue-000); border-left-color: var(--rvt-color-blue-500); color: var(--rvt-color-blue-700); }
+.alert.alert-success { background-color: var(--rvt-color-green-000); border-left-color: var(--rvt-color-green-500); color: var(--rvt-color-green-700); }
+.alert.alert-warning { background-color: var(--rvt-color-gold-000); border-left-color: var(--rvt-color-gold-500); color: var(--rvt-color-gold-700); }
+.alert.alert-danger { background-color: var(--rvt-color-orange-000); border-left-color: var(--rvt-color-orange-500); color: var(--rvt-color-orange-700); }
+.alert a { color: inherit; font-weight: var(--rvt-font-weight-medium); }

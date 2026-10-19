@@ -1,0 +1,63 @@
+/* Breadcrumbs -> .rvt-breadcrumbs */
+#s-lib-bc {
+    margin: 0;
+}
+
+#s-lib-bc-list.breadcrumb {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    background: transparent;
+}
+
+#s-lib-bc-list .breadcrumb-item {
+    font-size: var(--rvt-ts-14);
+    line-height: 1.25rem;
+    margin-right: var(--rvt-spacing-xs);
+    padding: 0;
+    color: var(--rvt-color-black-400);
+}
+
+#s-lib-bc-list .breadcrumb-item::before {
+    content: "/";
+    float: none;
+    padding-right: var(--rvt-spacing-xs);
+    color: var(--rvt-color-black-200);
+}
+
+#s-lib-bc-list .breadcrumb-item:first-child {
+    color: var(--rvt-color-black-500);
+}
+
+#s-lib-bc-list .breadcrumb-item:first-child::before {
+    content: none;
+}
+
+#s-lib-bc-list .breadcrumb-item+.breadcrumb-item {
+    padding-left: 0;
+}
+
+#s-lib-bc-list .breadcrumb-item a {
+    color: var(--rvt-color-blue-500);
+    text-decoration: none;
+}
+
+#s-lib-bc-list .breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+
+#s-lib-bc-list .breadcrumb-item.active {
+    color: var(--rvt-color-black-400);
+    font-weight: var(--rvt-font-weight-regular);
+}
+
+/* External `a { text-decoration: underline !important }` must be beaten with !important */
+#s-lib-bc-list .breadcrumb-item a {
+    text-decoration: none !important;
+}
+
+#s-lib-bc-list .breadcrumb-item a:hover {
+    text-decoration: underline !important;
+}

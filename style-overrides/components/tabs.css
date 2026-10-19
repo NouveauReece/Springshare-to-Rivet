@@ -1,0 +1,111 @@
+/* Tabbed box: ul.nav-tabs -> .rvt-tabs__tablist, a.nav-link -> .rvt-tabs__tab ([aria-selected=true]), .tab-content > .tab-pane -> .rvt-tabs__panel */
+.s-lib-jqtabs {
+    border: 1px solid var(--rvt-color-black-100);
+    border-radius: var(--rvt-spacing-xs);
+    background: var(--rvt-color-white-base);
+}
+
+.s-lib-jqtabs>.nav-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.s-lib-jqtabs>.nav-tabs>.nav-item {
+    flex-grow: 1;
+    margin: 0;
+}
+
+.s-lib-jqtabs>.nav-tabs .nav-link {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--rvt-color-black-100);
+    border-radius: 0;
+    color: var(--rvt-color-black-500);
+    display: block;
+    line-height: 1;
+    padding: var(--rvt-spacing-sm);
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    margin: 0;
+}
+
+.s-lib-jqtabs>.nav-tabs .nav-item:not(:first-child) .nav-link {
+    border-left: 1px solid var(--rvt-color-black-100);
+}
+
+.s-lib-jqtabs>.nav-tabs .nav-link:hover {
+    background-color: var(--rvt-color-blue-000);
+    color: var(--rvt-color-blue-500);
+}
+
+.s-lib-jqtabs>.nav-tabs .nav-link:hover::after,
+.s-lib-jqtabs>.nav-tabs .nav-link.active::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: .25rem;
+    background-color: var(--rvt-color-blue-500);
+}
+
+.s-lib-jqtabs>.nav-tabs .nav-link.active {
+    background-color: var(--rvt-color-orange-000);
+    color: var(--rvt-color-black-500);
+}
+
+.s-lib-jqtabs>.nav-tabs .nav-link.active::after {
+    background-color: var(--rvt-color-crimson-500);
+}
+
+.s-lib-jqtabs>.nav-tabs .nav-link:focus {
+    background-color: var(--rvt-color-blue-000);
+    outline: .125rem solid var(--rvt-color-blue-400);
+    outline-offset: .125rem;
+}
+
+.s-lib-jqtabs>.nav-tabs .nav-link:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.s-lib-jqtabs>.tab-content>.tab-pane:focus {
+    outline: .125rem solid var(--rvt-color-blue-500);
+    outline-offset: -.125rem;
+}
+
+.s-lib-jqtabs>.tab-content>.tab-pane:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.s-lib-jqtabs>.tab-content>.tab-pane {
+    padding: var(--rvt-spacing-sm);
+}
+
+.s-lib-jqtabs>.nav-tabs .nav-link,
+.s-lib-jqtabs>.nav-tabs .nav-link:hover {
+    text-decoration: none;
+}
+
+
+.s-lib-jqtabs>div.tab-content {
+    border: 0;
+    padding: 0;
+}
+
+.s-lib-jqtabs>.nav-tabs>.nav-item>a.nav-link,
+.s-lib-jqtabs>.nav-tabs>.nav-item>a.nav-link:hover {
+    text-decoration: none;
+}
+
+/* External `a { text-decoration: underline !important }` must be beaten with !important */
+.s-lib-jqtabs>.nav-tabs>.nav-item>a.nav-link,
+.s-lib-jqtabs>.nav-tabs>.nav-item>a.nav-link:hover {
+    text-decoration: none !important;
+}

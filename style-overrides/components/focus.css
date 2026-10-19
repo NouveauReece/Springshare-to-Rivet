@@ -1,0 +1,113 @@
+/* Focus indicators, from Rivet source.
+   The Springshare stylesheet sets, for ALL links/buttons/inputs on :focus-visible:
+     outline: #101010 solid 2px !important; border-color: #101010 !important; box-shadow: none !important
+   which replaces Rivet's focus rings. These rules restore them. They must be !important, and are prefixed with `body`
+   (+1 type selector) so they out-rank the Springshare rule. Keep this file imported last.
+
+   Rivet values:
+   - links/_base.scss, tabs, accordion, sidenav, header menu: outline .125rem solid blue-400; outline-offset .125rem
+   - buttons/_base.scss: box-shadow 0 0 0 .1rem white, 0 0 0 .25rem blue-400 (primary), .125rem white ring for secondary/plain; outline none
+   - cta/_base.scss (.rvt-cta--button): .125rem white + .25rem crimson-400
+   - inputs/_base.scss: outline none; box-shadow 0 0 0 .125rem blue-400
+   - tabs panel: outline .125rem solid blue-500; offset -.125rem */
+
+/* Links (+ tabs, sidenav links, breadcrumbs, header menu links, accordion toggles) */
+body a:focus-visible,
+body .accordion-button:focus-visible {
+  outline: .125rem solid var(--rvt-color-blue-400) !important;
+  outline-offset: .125rem !important;
+  box-shadow: none !important;
+}
+
+/* Springshare also forces a:focus-visible to inline-block, which would shift block/flex links on focus */
+body .rvt-header-menu__link:focus-visible {
+  display: block;
+}
+
+body .rvt-header-menu__link.rvt-cta--button:focus-visible {
+  display: inline-flex;
+}
+
+body .rvt-lockup:focus-visible {
+  display: inline-flex;
+}
+
+/* Tab links keep their Rivet divider color instead of the forced #101010 */
+body .s-lib-jqtabs>.nav-tabs .nav-link:focus-visible {
+  border-color: var(--rvt-color-black-100) !important;
+}
+
+body .s-lib-jqtabs>.tab-content>.tab-pane:focus-visible {
+  outline: .125rem solid var(--rvt-color-blue-500) !important;
+  outline-offset: -.125rem !important;
+}
+
+/* Buttons: box-shadow ring, no outline */
+body .btn:focus-visible,
+body .rvt-button:focus-visible {
+  box-shadow: 0 0 0 .1rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-400) !important;
+  outline: none !important;
+  border-color: var(--rvt-color-blue-500) !important;
+}
+
+body .btn-outline-secondary:focus-visible,
+body .rvt-button--secondary:focus-visible {
+  border-color: var(--rvt-color-blue-100) !important;
+  box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-400) !important;
+}
+
+body .rvt-button--plain:focus-visible,
+body .s-lib-profile-email a.btn:focus-visible,
+body .s-lib-profile-widget button[id^="mysched_"]:focus-visible {
+  border-color: transparent !important;
+  box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-400) !important;
+  outline: none !important;
+}
+
+body .s-lib-profile-email a.btn:focus-visible,
+body .s-lib-profile-widget button[id^="mysched_"]:focus-visible {
+  display: inline-flex !important;
+}
+
+body .rvt-header-wrapper .rvt-header-menu__link.rvt-cta--button:focus-visible {
+  border-color: var(--rvt-color-crimson-500) !important;
+  box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-crimson-400) !important;
+  outline: none !important;
+}
+
+/* .rvt-button--link has no focus rule of its own: it inherits the base .rvt-button ring (.1rem) */
+body .btn-link:focus-visible {
+  border-color: transparent !important;
+}
+
+/* Springshare forces a:focus-visible to inline-block; Rivet buttons are inline-flex */
+body a.btn:focus-visible,
+body .rvt-button:focus-visible {
+  display: inline-flex;
+}
+
+/* Inputs */
+body .form-control:focus-visible,
+body .form-select:focus-visible {
+  border-color: var(--rvt-color-black-300) !important;
+  box-shadow: 0 0 0 .125rem var(--rvt-color-blue-400) !important;
+  outline: none !important;
+}
+
+/* Bootstrap animates .btn/.form-control box-shadow and border-color (.15s); Rivet's rings appear immediately */
+.form-control,
+.btn {
+  transition: none;
+}
+
+/* Bootstrap fills .btn-outline-secondary on :focus; Rivet's secondary button keeps its white fill */
+body .btn-outline-secondary:focus,
+body .btn-outline-secondary:focus-visible {
+  background-color: var(--rvt-color-white-base);
+  color: var(--rvt-color-blue-500);
+}
+
+body .btn-outline-secondary:focus:hover {
+  background-color: var(--rvt-color-blue-000);
+  color: var(--rvt-color-blue-600);
+}

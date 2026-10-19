@@ -1,0 +1,104 @@
+/* "Search within guides" -> Rivet header search panel (.rvt-header-global__search, lg breakpoint) containing
+   .rvt-input-group > .rvt-text-input.rvt-input-group__input + .rvt-input-group__append > .rvt-button
+   (sass/header-system/_header-global.scss, sass/input-group/_base.scss, sass/inputs/_base.scss, sass/buttons/_base.scss) */
+#s-lg-guide-header-search {
+  background-color: var(--rvt-color-white-base);
+  border-radius: var(--rvt-spacing-xxs);
+  padding: var(--rvt-spacing-sm) 0 var(--rvt-spacing-sm) var(--rvt-spacing-md);
+  width: var(--rvt-width-lg);
+  margin: 0 !important;
+}
+
+#s-lg-guide-search-form .input-group {
+  display: flex;
+  flex-wrap: nowrap;
+  position: relative;
+}
+
+/* .rvt-text-input.rvt-input-group__input (white background inside the panel) */
+#s-lg-guide-search-form .form-control {
+  background-color: var(--rvt-color-white-base);
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  display: block;
+  width: 100%;
+  z-index: 100;
+}
+
+#s-lg-guide-search-form .form-control:focus {
+  z-index: 300;
+}
+
+/* .rvt-input-group__append .rvt-button (primary) */
+#s-lg-guide-search-form .btn,
+#s-lg-guide-search-form .btn-outline-secondary {
+  background-color: var(--rvt-color-blue-500);
+  border: .125rem solid var(--rvt-color-blue-500);
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  color: var(--rvt-color-white-base);
+  display: flex;
+  flex-grow: 1;
+  font-size: var(--rvt-ts-16);
+  font-weight: var(--rvt-font-weight-medium);
+  height: var(--rvt-spacing-xl);
+  margin-left: -1px;
+  padding: 0 .625rem;
+  white-space: nowrap;
+  z-index: 200;
+}
+
+#s-lg-guide-search-form .btn:hover,
+#s-lg-guide-search-form .btn-outline-secondary:hover {
+  background-color: var(--rvt-color-blue-600);
+  border-color: var(--rvt-color-blue-600);
+  color: var(--rvt-color-white-base);
+}
+
+#s-lg-guide-search-form .btn:active,
+#s-lg-guide-search-form .btn-outline-secondary:active {
+  background-color: var(--rvt-color-blue-700);
+  border-color: var(--rvt-color-blue-700);
+  color: var(--rvt-color-white-base);
+}
+
+/* focus: primary .rvt-button ring (overrides the secondary variant rules in focus.css) */
+body #s-lg-guide-search-form .btn:focus,
+body #s-lg-guide-search-form .btn:focus-visible {
+  background-color: var(--rvt-color-blue-500);
+  color: var(--rvt-color-white-base);
+}
+
+body #s-lg-guide-search-form .btn:focus-visible {
+  border-color: var(--rvt-color-blue-500) !important;
+  box-shadow: 0 0 0 .1rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-400) !important;
+  outline: none !important;
+}
+
+/* Fill the panel: input grows, button takes the remaining space (.rvt-input-group__append { flex-grow: 1 }) */
+#s-lg-guide-search-box,
+#s-lg-guide-search-form,
+#s-lg-guide-search-form .input-group {
+  width: 100%;
+}
+
+#s-lg-guide-search-form .form-control {
+  flex: 0 1 auto;
+}
+
+/* Springshare gives the search box margin-left: 15px / margin-bottom: 5px and the button a `.border` utility (`border: 1px solid #dee2e6 !important`) */
+#s-lg-guide-search-box {
+  margin: 0;
+}
+
+#s-lg-guide-search-form .btn.border {
+  border: .125rem solid var(--rvt-color-blue-500) !important;
+}
+
+#s-lg-guide-search-form .btn.border:hover {
+  border-color: var(--rvt-color-blue-600) !important;
+}
+
+#s-lg-guide-search-form .btn.border:active {
+  border-color: var(--rvt-color-blue-700) !important;
+}

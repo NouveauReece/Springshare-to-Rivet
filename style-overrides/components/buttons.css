@@ -1,0 +1,142 @@
+/* Buttons: .btn -> .rvt-button, .btn-outline-secondary -> .rvt-button--secondary, .btn-link -> .rvt-link */
+.btn,
+.s-lib-profile-widget button {
+  align-items: center;
+  background-color: var(--rvt-color-blue-500);
+  border: .125rem solid var(--rvt-color-blue-500);
+  border-radius: var(--rvt-border-radius-md);
+  color: var(--rvt-color-white-base);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--rvt-font-base);
+  font-size: var(--rvt-ts-16);
+  font-weight: var(--rvt-font-weight-medium);
+  gap: var(--rvt-spacing-xs);
+  justify-content: center;
+  line-height: 1;
+  min-height: var(--rvt-spacing-xl);
+  padding: 0 .625rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn:hover,
+.s-lib-profile-widget button:hover {
+  background-color: var(--rvt-color-blue-600);
+  border-color: var(--rvt-color-blue-600);
+  color: var(--rvt-color-white-base);
+  opacity: 1;
+}
+
+.btn:active,
+.s-lib-profile-widget button:active {
+  background-color: var(--rvt-color-blue-700);
+  border-color: var(--rvt-color-blue-700);
+}
+
+.btn:focus,
+.s-lib-profile-widget button:focus {
+  box-shadow: 0 0 0 .1rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-400);
+  outline: none;
+}
+
+/* Secondary */
+.btn-outline-secondary {
+  background-color: var(--rvt-color-white-base);
+  border-color: var(--rvt-color-blue-100);
+  color: var(--rvt-color-blue-500);
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--rvt-color-blue-000);
+  border-color: var(--rvt-color-blue-100);
+  color: var(--rvt-color-blue-600);
+}
+
+.btn-outline-secondary:focus {
+  box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-400);
+  outline: none;
+}
+
+.btn-outline-secondary:active {
+  background-color: var(--rvt-color-blue-100);
+  border-color: var(--rvt-color-blue-200);
+  color: var(--rvt-color-blue-600);
+}
+
+#s-lg-guide-search-form .btn.border {
+  border-width: .125rem !important;
+}
+
+/* Small (.rvt-button--small: 14px, 1.5rem tall, .375rem padding) */
+.btn-sm {
+  font-size: var(--rvt-ts-14);
+  min-height: var(--rvt-spacing-md);
+  height: var(--rvt-spacing-md);
+  padding: 0 .375rem;
+}
+
+/* Link-style button ("more..." / "less...") */
+.btn.btn-link {
+  background: transparent;
+  border-color: transparent;
+  color: var(--rvt-color-blue-500);
+  text-decoration: underline;
+  font-weight: var(--rvt-font-weight-regular);
+  padding: 0;
+  min-height: 0;
+}
+
+.btn.btn-link:hover {
+  color: var(--rvt-color-blue-700);
+  background: transparent;
+}
+
+/* Profile "Email Me" (label label-info btn text-white) */
+.s-lib-profile-email a.btn {
+  color: var(--rvt-color-white-base) !important;
+  font-weight: var(--rvt-font-weight-medium) !important;
+}
+
+/* Springshare scheduler button has an inline #id style block; !important needed to beat it */
+.s-lib-profile-widget button[id^="mysched_"] {
+  background-color: var(--rvt-color-blue-500) !important;
+  border: .125rem solid var(--rvt-color-blue-500) !important;
+  border-radius: var(--rvt-border-radius-md) !important;
+  color: var(--rvt-color-white-base) !important;
+  font: inherit !important;
+  font-weight: var(--rvt-font-weight-medium) !important;
+  min-height: var(--rvt-spacing-xl);
+  padding: 0 .625rem !important;
+}
+
+.s-lib-profile-widget button[id^="mysched_"]:hover {
+  background-color: var(--rvt-color-blue-600) !important;
+  border-color: var(--rvt-color-blue-600) !important;
+  color: var(--rvt-color-white-base) !important;
+  opacity: 1 !important;
+}
+
+/* Profile "Email Me" carries .label (inline badge) styles and a link underline from the content-link rule; reset them */
+.s-lib-profile-email a.btn {
+  background-color: var(--rvt-color-blue-500);
+  border-radius: var(--rvt-border-radius-md);
+  font-size: var(--rvt-ts-16);
+  line-height: 1;
+  padding: 0 .625rem !important;
+  text-decoration: none !important;
+}
+
+.s-lib-profile-email a.btn:hover {
+  background-color: var(--rvt-color-blue-600);
+}
+
+/* External `a { text-decoration: underline !important }` must be beaten with !important */
+a.btn, a.btn:hover, a.btn:focus {
+  text-decoration: none !important;
+}
+/* Springshare's `.btn-primary` paints a blue gradient (#00a5ff -> #006399, `background-repeat: repeat-x`) and forces `background-color: #006599 !important`;
+   Rivet's primary button is a flat blue-500 fill (hence the !important here) */
+.btn.btn-primary { background-color: var(--rvt-color-blue-500) !important; background-image: none; border-color: var(--rvt-color-blue-500); color: var(--rvt-color-white-base); text-shadow: none; }
+.btn.btn-primary:hover { background-color: var(--rvt-color-blue-600) !important; background-image: none; border-color: var(--rvt-color-blue-600); }
+.btn.btn-primary:active { background-color: var(--rvt-color-blue-700) !important; border-color: var(--rvt-color-blue-700); }

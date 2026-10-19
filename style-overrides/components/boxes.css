@@ -1,0 +1,81 @@
+/* Boxes: .s-lib-box -> .rvt-card, .s-lib-box-title -> .rvt-card__title, .s-lib-box-content -> .rvt-card__content
+   Chained classes out-rank the guide's inline `.s-lib-box .s-lib-box-title` rules (which load after this file). */
+.s-lib-box-container {
+   margin-bottom: var(--rvt-spacing-md);
+}
+
+.s-lib-box.s-lib-box-std {
+   background-color: var(--rvt-color-white-base);
+   border: 1px solid var(--rvt-color-black-100);
+   border-radius: var(--rvt-border-radius-md);
+   box-shadow: none;
+   display: block;
+   overflow: hidden;
+}
+
+.s-lib-box.s-lib-box-std .s-lib-box-title {
+   background-color: var(--rvt-color-black-000);
+   background-image: none;
+   border: 0;
+   border-bottom: 1px solid var(--rvt-color-black-100);
+   border-radius: 0;
+   color: var(--rvt-color-black-500);
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-20);
+   font-weight: var(--rvt-font-weight-regular);
+   line-height: 1.3;
+   margin: 0;
+   padding: var(--rvt-spacing-sm);
+}
+
+.s-lib-box.s-lib-box-std .s-lib-box-content {
+   padding: var(--rvt-spacing-sm);
+}
+/* Collapsible boxes: h2.s-lib-box-title-collapsible > button.s-lib-box-collapse-toggle (title text + chevron icon, `data-bs-toggle="collapse"`) controlling `.collapse.show` content.
+   Rivet's precedent is the Accordion (accordion/_base.scss): the toggle fills the header row (`padding`, `width: 100%`, text left), title text 1.25rem / regular / black-500 / line-height 1.3,
+   a plus icon (black-400, vertical bar hidden when expanded = minus), hover black-000 → the header strip is already black-000, so hover steps up to black-100, keyboard focus blue-000 with
+   Rivet's ring (drawn inside the box, since the box clips overflow), and no divider under the header while collapsed (an accordion row has only its outer rules). The box keeps its border,
+   radius and header strip. Springshare/inline CSS paints this button crimson on grey (`#edeceb`) with a Font Awesome chevron. */
+.s-lib-box.s-lib-box-std .s-lib-box-title.s-lib-box-title-collapsible { padding: 0; }
+.s-lib-box-title-collapsible .s-lib-box-collapse-toggle {
+  align-items: center;
+  appearance: none;
+  background-color: transparent !important;
+  border: 0 !important;
+  border-radius: 0;
+  box-shadow: none;
+  color: var(--rvt-color-black-500) !important;
+  cursor: pointer;
+  display: flex;
+  font-family: var(--rvt-font-base);
+  font-size: var(--rvt-ts-20);
+  font-weight: var(--rvt-font-weight-regular);
+  gap: var(--rvt-spacing-sm);
+  justify-content: space-between;
+  line-height: 1.3;
+  padding: var(--rvt-spacing-sm) !important;
+  text-align: left;
+  transition: none;
+  width: 100%;
+}
+.s-lib-box-title-collapsible .s-lib-box-collapse-toggle:hover { background-color: var(--rvt-color-black-100) !important; }
+.s-lib-box-title-collapsible .s-lib-box-collapse-toggle:focus-visible { background-color: var(--rvt-color-blue-000) !important; }
+body .s-lib-box-title-collapsible .s-lib-box-collapse-toggle:focus-visible { outline: .125rem solid var(--rvt-color-blue-400) !important; outline-offset: -.125rem !important; box-shadow: none !important; }
+.s-lib-box-title-collapsible .s-lib-box-collapse-icon { align-items: center; display: inline-flex; flex-shrink: 0; margin: 0 !important; }
+.s-lib-box-title-collapsible .s-lib-box-collapse-icon i { display: none; }
+.s-lib-box-title-collapsible .s-lib-box-collapse-icon::after {
+  background-image: linear-gradient(currentColor, currentColor), linear-gradient(currentColor, currentColor);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1rem .125rem, .125rem 1rem;
+  color: var(--rvt-color-black-400);
+  content: "";
+  display: block;
+  height: 1rem;
+  width: 1rem;
+}
+.s-lib-box-title-collapsible .s-lib-box-collapse-toggle[aria-expanded="true"] .s-lib-box-collapse-icon::after { background-size: 1rem .125rem, 0 0; }
+.s-lib-box.s-lib-box-std .s-lib-box-title.s-lib-box-title-collapsible:has(> .s-lib-box-collapse-toggle[aria-expanded="false"]) { border-bottom-color: transparent; }
+
+/* the chrome-less profile box keeps no strip: an accordion-style row with rules above and below, left-aligned text */
+.s-lib-box.s-lib-box-std:has(.s-lib-profile-container) .s-lib-box-title.s-lib-box-title-collapsible { border-bottom: 1px solid var(--rvt-color-black-100); border-top: 1px solid var(--rvt-color-black-100); padding: 0; text-align: left; }

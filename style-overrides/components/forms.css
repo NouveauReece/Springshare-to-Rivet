@@ -1,0 +1,63 @@
+/* Forms: .form-control -> .rvt-text-input, .input-group -> .rvt-input-group */
+.form-control {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--rvt-color-white-base);
+  border: 1px solid var(--rvt-color-black-300);
+  border-radius: var(--rvt-border-radius-md);
+  color: var(--rvt-color-black-500);
+  font-family: var(--rvt-font-base);
+  font-size: var(--rvt-ts-16);
+  height: var(--rvt-spacing-xl);
+  line-height: 1.1;
+  padding: var(--rvt-spacing-xs);
+}
+
+.form-control:focus {
+  border-color: var(--rvt-color-black-300);
+  box-shadow: 0 0 0 .125rem var(--rvt-color-blue-400);
+  outline: none;
+}
+
+.input-group {
+  display: flex;
+  flex-wrap: nowrap;
+  position: relative;
+}
+
+.input-group>.form-control {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  z-index: 100;
+}
+
+.input-group>.btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: -1px;
+  z-index: 200;
+  height: var(--rvt-spacing-xl);
+}
+
+.input-group>.form-control:focus {
+  z-index: 300;
+}
+/* .form-select -> .rvt-select (inputs/_base.scss): 2.5rem, black-300 border, appearance none, chevron at the right, `padding-right: 2.5rem` */
+.form-select {
+  -webkit-appearance: none; appearance: none;
+  background-color: var(--rvt-color-white-base);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23333333" viewBox="0 0 16 16"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>');
+  background-position: right var(--rvt-spacing-sm) center;
+  background-repeat: no-repeat;
+  background-size: var(--rvt-spacing-sm) var(--rvt-spacing-sm);
+  border: 1px solid var(--rvt-color-black-300);
+  border-radius: var(--rvt-border-radius-md);
+  color: var(--rvt-color-black-500);
+  font-family: var(--rvt-font-base);
+  font-size: var(--rvt-ts-16);
+  height: var(--rvt-spacing-xl);
+  line-height: 1.1;
+  padding: var(--rvt-spacing-xs) var(--rvt-spacing-xl) var(--rvt-spacing-xs) var(--rvt-spacing-xs);
+}
+.form-select:focus { border-color: var(--rvt-color-black-300); box-shadow: 0 0 0 .125rem var(--rvt-color-blue-400); outline: none; }
+.form-select:disabled { background-color: var(--rvt-color-black-100); border-color: var(--rvt-color-black-300); cursor: not-allowed; }

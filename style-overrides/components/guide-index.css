@@ -1,0 +1,83 @@
+/* Guide index pages (index.php: All Guides / By Subject / By Type / By Subject Specialist) */
+
+/* Type switcher (#s-lg-hp-nav, buttons role="tab") -> Rivet segmented buttons (.rvt-button-segmented, buttons-segmented/_base.scss):
+   secondary buttons joined with -2px overlap, selected = primary. The grey bar becomes a neutral panel. */
+#s-lg-hp-nav { background: var(--rvt-color-black-000); border: 1px solid var(--rvt-color-black-100); border-radius: var(--rvt-border-radius-md); color: var(--rvt-color-black-500); margin-bottom: var(--rvt-spacing-md); padding: var(--rvt-spacing-sm); }
+#s-lg-hp-nav .nav-pills { align-items: center; display: flex; flex-wrap: wrap; gap: var(--rvt-spacing-xs) 0; }
+#s-lg-hp-nav .s-lg-index-nav-btn { margin: 0; }
+#s-lg-hp-nav .s-lg-index-nav-btn + .s-lg-index-nav-btn { margin-left: -2px; }
+#s-lg-hp-nav .s-lg-index-nav-btn > .btn {
+  align-items: center;
+  background-color: var(--rvt-color-white-base);
+  border: .125rem solid var(--rvt-color-blue-100);
+  border-radius: 0;
+  color: var(--rvt-color-blue-500);
+  display: inline-flex;
+  font-size: var(--rvt-ts-16);
+  font-weight: var(--rvt-font-weight-medium);
+  height: var(--rvt-spacing-xl);
+  margin: 0;
+  padding: 0 .625rem;
+  position: relative;
+}
+#s-lg-hp-nav .s-lg-index-nav-btn:first-child > .btn { border-bottom-left-radius: var(--rvt-border-radius-md); border-top-left-radius: var(--rvt-border-radius-md); }
+#s-lg-hp-nav .s-lg-index-nav-btn:nth-child(4) > .btn { border-bottom-right-radius: var(--rvt-border-radius-md); border-top-right-radius: var(--rvt-border-radius-md); }
+#s-lg-hp-nav .s-lg-index-nav-btn > .btn:hover { background-color: var(--rvt-color-blue-000); color: var(--rvt-color-blue-600); }
+#s-lg-hp-nav .s-lg-index-nav-btn > .btn:active { background-color: var(--rvt-color-blue-100); border-color: var(--rvt-color-blue-200); color: var(--rvt-color-blue-600); }
+#s-lg-hp-nav .s-lg-index-nav-btn > .btn[aria-selected="true"],
+#s-lg-hp-nav .s-lg-index-nav-btn.active > .btn { background-color: var(--rvt-color-blue-500); border-color: var(--rvt-color-blue-500); color: var(--rvt-color-white-base); }
+#s-lg-hp-nav .s-lg-index-nav-btn > .btn[aria-selected="true"]:hover { background-color: var(--rvt-color-blue-600); border-color: var(--rvt-color-blue-600); color: var(--rvt-color-white-base); }
+/* focus (Rivet: ring, z-index 1000 so it isn't covered by the neighbour) */
+body #s-lg-hp-nav .s-lg-index-nav-btn > .btn:focus-visible { border-color: var(--rvt-color-blue-100) !important; box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-400) !important; outline: none !important; z-index: 1000; }
+body #s-lg-hp-nav .s-lg-index-nav-btn > .btn[aria-selected="true"]:focus-visible { border-color: var(--rvt-color-blue-500) !important; }
+
+/* Search in the bar: label + .rvt-input-group (white input, primary appended button) */
+#search-guides { margin-left: auto; }
+#search-guides form > span { color: var(--rvt-color-black-500); font-size: var(--rvt-ts-14); }
+#search-guides .form-control { background-color: var(--rvt-color-white-base); border-bottom-right-radius: 0; border-top-right-radius: 0; }
+#search-guides .btn.border { background-color: var(--rvt-color-blue-500); border: .125rem solid var(--rvt-color-blue-500) !important; border-bottom-left-radius: 0; border-top-left-radius: 0; color: var(--rvt-color-white-base); margin-left: -1px; }
+#search-guides .btn.border:hover { background-color: var(--rvt-color-blue-600); border-color: var(--rvt-color-blue-600) !important; }
+#search-guides .btn.border:active { background-color: var(--rvt-color-blue-700); border-color: var(--rvt-color-blue-700) !important; }
+
+/* "Showing N Guide Types" (.text-muted is `color: ... !important`) */
+#s-lg-index-list-header { color: var(--rvt-color-black-500) !important; font-size: var(--rvt-ts-18); font-weight: var(--rvt-font-weight-regular); margin-bottom: var(--rvt-spacing-sm) !important; }
+
+/* Guide-type accordions -> Rivet accordion (rule above and below each item, 1.25rem regular toggle text, plus/minus icon) with the
+   count as .rvt-badge. Springshare forces the grey cards with !important (`display: block`, `background-color: #f1f1f1`). */
+#s-lg-index-list .accordion { border-bottom: 1px solid var(--rvt-color-black-100); margin-bottom: 0; }
+#s-lg-index-list .accordion .accordion-item { border: 0; border-radius: 0; border-top: 1px solid var(--rvt-color-black-100); margin-bottom: 0; }
+#s-lg-index-list .accordion .accordion-button { align-items: center; background-color: transparent !important; border-radius: 0; display: flex !important; padding: var(--rvt-spacing-md) var(--rvt-spacing-sm); }
+#s-lg-index-list .accordion .accordion-button:hover { background-color: var(--rvt-color-black-000) !important; text-decoration: none; }
+#s-lg-index-list .accordion .accordion-button:not(.collapsed) { background-color: transparent !important; }
+#s-lg-index-list .accordion .accordion-button::after { display: block !important; order: 3; }
+#s-lg-index-list .accordion .accordion-button > .bold { color: var(--rvt-color-black-500); flex-grow: 1; font-size: var(--rvt-ts-20); font-weight: var(--rvt-font-weight-regular); line-height: 1.3; order: 1; padding-right: var(--rvt-spacing-sm); text-align: left; }
+#s-lg-index-list .accordion .accordion-button > .badge { background-color: var(--rvt-color-black-100); border: .125rem solid var(--rvt-color-black-100); border-radius: 999rem; color: var(--rvt-color-black-500); display: inline-block; float: none; font-size: var(--rvt-ts-14); font-weight: var(--rvt-font-weight-medium); letter-spacing: .02rem; line-height: 1; margin-right: var(--rvt-spacing-sm); order: 2; padding: .1875rem .5rem; white-space: nowrap; }
+#s-lg-index-list .s-lg-guide-list { list-style: none; margin: 0; padding-left: 0; }
+#s-lg-index-list .s-lg-guide-list > li + li { margin-top: var(--rvt-spacing-xs); }
+#s-lg-index-list .s-lg-gtitle a.bold { font-weight: var(--rvt-font-weight-medium); }
+.s-lib-color-lt-grey { color: var(--rvt-color-black-400); }
+
+/* Sidebar blocks ("Help is Just a Click Away"): heading = 1.25rem regular with a black-100 rule; text black-400; CTA = primary button */
+.s-lib-public-side-header h2 { border-bottom: 1px solid var(--rvt-color-black-100); color: var(--rvt-color-black-500); font-family: var(--rvt-font-base); font-size: var(--rvt-ts-20); font-weight: var(--rvt-font-weight-regular); line-height: var(--rvt-line-height-tight); padding-bottom: var(--rvt-spacing-xs); }
+.margin-bottom-xlg { margin-bottom: var(--rvt-spacing-lg); }
+.s-lib-public-side-header + .txt { color: var(--rvt-color-black-400); line-height: var(--rvt-line-height-loose); padding-top: var(--rvt-spacing-sm); }
+.s-lg-hp-btn-section { margin-top: var(--rvt-spacing-sm); }
+
+/* Display control ("Display [Alphabetically] [Go]"): label black-500, .rvt-select, primary button; clear of the sidebar below */
+#s-lg-guide-list-controls { margin-bottom: var(--rvt-spacing-md); }
+#s-lg-guide-list-controls .text-muted { color: var(--rvt-color-black-500) !important; }
+#s-lg-guide-list-controls .col-form-label { color: var(--rvt-color-black-500); font-size: var(--rvt-ts-14); }
+#form-group-s-lg-guide-order .btn.border { background-color: var(--rvt-color-blue-500); border: .125rem solid var(--rvt-color-blue-500) !important; color: var(--rvt-color-white-base); }
+#form-group-s-lg-guide-order .btn.border:hover { background-color: var(--rvt-color-blue-600); border-color: var(--rvt-color-blue-600) !important; }
+#form-group-s-lg-guide-order .btn.border:active { background-color: var(--rvt-color-blue-700); border-color: var(--rvt-color-blue-700) !important; }
+
+/* Guide list rows (.s-lib-box.s-lib-box-idx-guide-list: bordered, shadowed cards) -> plain list rows separated by a black-100 rule;
+   title = link, meta (updated date, views) = 14px black-400 on the right */
+.s-lib-box.s-lib-box-idx-guide-list { background: transparent; border: 0; border-bottom: 1px solid var(--rvt-color-black-100); border-radius: 0; box-shadow: none; display: block; margin: 0; }
+.s-lib-box-idx-guide-list .s-lib-box-content { padding: var(--rvt-spacing-sm) 0; }
+.s-lib-box.s-lib-box-idx-guide-list .s-lib-box-content .s-lg-gtitle { align-items: baseline; column-gap: var(--rvt-spacing-xs); display: flex; flex-wrap: wrap; }
+.s-lib-box-idx-guide-list .s-lg-gtitle a.bold { font-size: var(--rvt-ts-16); font-weight: var(--rvt-font-weight-medium); }
+.s-lib-box-idx-guide-list .s-ui-helptip { display: inline-block; }
+.s-lib-box-idx-guide-list .btn-help-popover { color: var(--rvt-color-blue-500); min-height: 0; padding: 0 .25rem; }
+.s-lib-box-idx-guide-list .s-lg-gmeta { color: var(--rvt-color-black-400); display: flex; float: none !important; font-size: var(--rvt-ts-14); gap: var(--rvt-spacing-sm); margin-left: auto; white-space: nowrap; }
+.s-lib-box-idx-guide-list .s-lg-gmeta .pad-left-med { padding-left: 0; }

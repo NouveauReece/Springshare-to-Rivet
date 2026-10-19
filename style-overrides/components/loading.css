@@ -1,0 +1,76 @@
+/* "Working..." notification (#jquery-notification) -> Rivet raised card (.rvt-card--raised) containing .rvt-loader.rvt-loader--lg
+   Springshare JS positions it with inline `position: fixed; top/left; z-index: 99999` (left untouched) and swaps the content for
+   <img src=".../ajax-loader.gif" alt="Working...">. The GIF is hidden visually (kept for screen readers via its alt text) and
+   the Rivet spinner (loading-indicator/_base.scss) is drawn instead. */
+#jquery-notification {
+  background-color: var(--rvt-color-white-base);
+  border: 0;
+  border-radius: var(--rvt-border-radius-lg);
+  box-shadow: var(--rvt-shadow-heavy);
+  color: var(--rvt-color-black-500);
+  cursor: default;
+  padding: var(--rvt-spacing-md);
+}
+
+#jquery-notification-message {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--rvt-font-base);
+  font-size: var(--rvt-ts-16);
+  font-weight: var(--rvt-font-weight-regular);
+  gap: var(--rvt-spacing-xs);
+  justify-content: center;
+}
+
+/* .rvt-loader--lg: 2.75rem, .34375rem border, blue-500 on three sides, .8s linear infinite rotation */
+#jquery-notification-message:has(> img)::before {
+  animation: .8s linear infinite rvt-loader-spin;
+  border: .34375rem solid transparent;
+  border-bottom-color: var(--rvt-color-blue-500);
+  border-radius: 50%;
+  border-right-color: var(--rvt-color-blue-500);
+  border-top-color: var(--rvt-color-blue-500);
+  box-sizing: content-box;
+  content: "";
+  display: inline-block;
+  height: 2.75rem;
+  position: relative;
+  width: 2.75rem;
+}
+
+@keyframes rvt-loader-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Visually hide the animated GIF but keep its alt text ("Working...") available (cf. .rvt-sr-only) */
+#jquery-notification-message>img {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* Error variant -> Rivet orange (danger) tones */
+#jquery-notification.jquery-notification-error {
+  background-color: var(--rvt-color-orange-000);
+  border: .125rem solid var(--rvt-color-orange-100);
+  color: var(--rvt-color-orange-600);
+}
+
+/* Center in the viewport. Springshare JS sets inline `top`/`left` pixel values (from the click position/page size), so !important is needed. */
+#jquery-notification {
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%);
+}
