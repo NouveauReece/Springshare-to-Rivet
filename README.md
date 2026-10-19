@@ -12,4 +12,5 @@ Use the bookmarklet to test rivet on different pages. To build, run:
 ```
 npm run bookmarklet
 ```
-Then copy/paste `./scripts/bookmarklet.js` into your browsers bookmarks
+Then copy/paste `./dist/bookmarklet.txt` into your browsers bookmarks
+`./dist/overrides_bundle.css` - the CSS bundle to use as "full" override
