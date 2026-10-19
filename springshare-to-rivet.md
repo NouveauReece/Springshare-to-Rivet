@@ -1,6 +1,4 @@
-# Springshare Classes to Rivet Components
-
-# Known limitations
+## Known limitations
 
 - **Sidenav dropdowns (`index6.html`)** use Bootstrap's behavior, not Rivet's. Visuals and focus/hover styles match `sidenav/_base.scss`, but Rivet's `Sidenav` class (`js/rivet-esm.js`) opens each list independently via `aria-expanded` + `hidden`, with no close on outside click or Escape. Bootstrap closes the other group, closes on outside click/Escape, and supports arrow-key focus. 
    > Matching Rivet would required a custom `<script>` that overrides Bootstrap's handlers.
