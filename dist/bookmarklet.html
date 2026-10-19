@@ -3,10 +3,10 @@
 <style>body{font:16px/1.5 system-ui,sans-serif;max-width:40rem;margin:3rem auto;padding:0 1rem}a.bm{display:inline-block;background:#900;color:#fff;padding:.5rem 1rem;border-radius:4px;text-decoration:none;font-weight:600}</style>
 <h1>Rivet overrides bookmarklet</h1>
 <p>Drag this link to your bookmarks bar:</p>
-<p><a class="bm" href="javascript:(function()%7Bvar%20id%3D%22springshare-to-rivet-overrides%22%2Ce%3Ddocument.getElementById(id)%3Bif(e)%7Be.remove()%3Breturn%7Dvar%20l%3Ddocument.createElement('link')%3Bl.id%3Did%3Bl.rel%3D'stylesheet'%3Bl.href%3D'http%3A%2F%2Flocalhost%3A8777%2Foverrides.css%3F'%2BDate.now()%3Bl.onerror%3Dfunction()%7Bl.remove()%3Balert('Could%20not%20load%20overrides%20from%20localhost%3A8777.%20Is%20%22npm%20run%20serve%22%20running%3F%20(Pages%20with%20a%20strict%20CSP%20may%20also%20block%20it.)')%7D%3Bdocument.head.appendChild(l)%7D)()%3B">Rivet overrides</a></p>
+<p><a class="bm" href="javascript:(function()%7Bvar%20id%3D%22springshare-to-rivet-overrides%22%2Ce%3Ddocument.getElementById(id)%3Bif(e)%7Be.remove()%3Breturn%7Dfetch(%22https%3A%2F%2Fraw.githubusercontent.com%2FNouveauReece%2FSpringshare-to-Rivet%2Frefs%2Fheads%2Fmain%2Fdist%2Foverrides.bundle.css%22%2B'%3F'%2BDate.now()).then(function(r)%7Bif(!r.ok)throw%200%3Breturn%20r.text()%7D).then(function(t)%7Bvar%20s%3Ddocument.createElement('style')%3Bs.id%3Did%3Bs.textContent%3Dt%3Bdocument.head.appendChild(s)%7D).catch(function()%7Balert('Could%20not%20load%20overrides%20from%20GitHub.%20(Pages%20with%20a%20strict%20Content-Security-Policy%20may%20block%20it.)')%7D)%7D)()%3B">Rivet overrides</a></p>
 <ol>
-<li>Run <code>npm run serve</code> (serves the CSS at <code>http://localhost:8777/overrides.css</code>, rebuilt on every request).</li>
+
 <li>Open any page and click the bookmark to apply the overrides; click again to remove them.</li>
-<li>After editing a CSS file, click twice (off, on) to reload the latest version.</li>
+<li>The CSS comes from the pushed copy of <code>dist/overrides.bundle.css</code> on GitHub (main); after changes, rebuild, commit and push, then click twice (off, on). GitHub may cache for a few minutes.</li>
 </ol>
-<p>Mode: <strong>server (localhost:8777)</strong>. Pages with a strict Content-Security-Policy can block injected styles.</p>
+<p>Mode: <strong>GitHub (https://raw.githubusercontent.com/NouveauReece/Springshare-to-Rivet/refs/heads/main/dist/overrides.bundle.css)</strong>. Pages with a strict Content-Security-Policy can block injected styles.</p>
