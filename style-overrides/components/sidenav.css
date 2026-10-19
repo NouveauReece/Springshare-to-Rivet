@@ -169,110 +169,209 @@
 #s-lg-tabs-container .split-button-nav .s-lg-subtab-ul>li {
    width: 100%;
 }
+
 /* Dropdown variant (index6): li.nav-item.dropdown > a.nav-link.s-lg-tab-top-link + a.s-lg-tab-drop.dropdown-toggle[role=button] + ul.s-lg-subtab-ul.dropdown-menu
    = Rivet's "sidenav with dropdown" (`.rvt-sidenav__item-wrapper` link + `.rvt-sidenav__toggle`, nested `.rvt-sidenav__list` hidden until expanded).
    Bootstrap's dropdown JS toggles `.show` / aria-expanded; the menu is shown inline (not as a floating popup) while open. */
-#s-lg-tabs-container .split-button-nav > .nav-item.dropdown { align-items: center; display: flex; flex-wrap: wrap; }
-#s-lg-tabs-container .split-button-nav > .nav-item.dropdown > .nav-link { flex: 1 1 0; min-width: 0; }
-#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul.dropdown-menu { display: none; }
-#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul.dropdown-menu.show { display: block; }
+#s-lg-tabs-container .split-button-nav>.nav-item.dropdown {
+   align-items: center;
+   display: flex;
+   flex-wrap: wrap;
+}
+
+#s-lg-tabs-container .split-button-nav>.nav-item.dropdown>.nav-link {
+   flex: 1 1 0;
+   min-width: 0;
+}
+
+#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul.dropdown-menu {
+   display: none;
+}
+
+#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul.dropdown-menu.show {
+   display: block;
+}
+
 /* neutralize Bootstrap/Popper popup chrome (inline position/transform from Popper need !important) */
-#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul.dropdown-menu { background: transparent; border: 0; border-radius: 0; box-shadow: none; float: none; inset: auto !important; min-width: 0; position: static !important; transform: none !important; }
+#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul.dropdown-menu {
+   background: transparent;
+   border: 0;
+   border-radius: 0;
+   box-shadow: none;
+   float: none;
+   inset: auto !important;
+   min-width: 0;
+   position: static !important;
+   transform: none !important;
+}
+
 /* toggle (.rvt-sidenav__toggle): black-200 chevron, 1rem, `padding: 0 .5rem`, stretches to the link height, rotates 180° when expanded */
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop {
-  align-self: stretch;
-  background-color: transparent;
-  border: 0;
-  border-radius: 0;
-  color: var(--rvt-color-black-200);
-  display: flex;
-  float: none;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0 var(--rvt-spacing-xs);
-  position: relative;
-  right: auto;
-  text-decoration: none !important;
-  transition: none;
-  width: auto;
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop {
+   align-self: stretch;
+   background-color: transparent;
+   border: 0;
+   border-radius: 0;
+   color: var(--rvt-color-black-200);
+   display: flex;
+   float: none;
+   align-items: center;
+   justify-content: center;
+   margin: 0;
+   padding: 0 var(--rvt-spacing-xs);
+   position: relative;
+   right: auto;
+   text-decoration: none !important;
+   transition: none;
+   width: auto;
 }
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop::after {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23a0abb4" viewBox="0 0 16 16"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 1rem 1rem;
-  border: 0;
-  content: "";
-  display: block;
-  height: 1rem;
-  margin: 0;
-  vertical-align: middle;
-  width: 1rem;
+
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop::after {
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23a0abb4" viewBox="0 0 16 16"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>');
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 1rem 1rem;
+   border: 0;
+   content: "";
+   display: block;
+   height: 1rem;
+   margin: 0;
+   vertical-align: middle;
+   width: 1rem;
 }
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop[aria-expanded="true"] { transform: rotate(180deg); }
+
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop[aria-expanded="true"] {
+   transform: rotate(180deg);
+}
+
 /* Toggle states (sidenav/_base.scss `&__toggle`): `:focus` -> blue-000 bg + blue-500 icon; `:hover` -> blue-000 bg + blue-600 icon (declared after, so it wins
    when both apply); hover AND focus both draw `outline: .125rem solid blue-400; outline-offset: .125rem`. Rivet uses :focus (not :focus-visible), so the ring
    also shows after a mouse click. The icon colour comes from the chevron SVG's fill. */
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop:focus { background-color: var(--rvt-color-blue-000); }
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop:focus::after { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>'); }
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop:hover { background-color: var(--rvt-color-blue-000); }
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop:hover::after { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23004f80" viewBox="0 0 16 16"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>'); }
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop:hover,
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop:focus { outline: .125rem solid var(--rvt-color-blue-400); outline-offset: .125rem; z-index: 100; }
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop:focus {
+   background-color: var(--rvt-color-blue-000);
+}
+
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop:focus::after {
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>');
+}
+
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop:hover {
+   background-color: var(--rvt-color-blue-000);
+}
+
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop:hover::after {
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23004f80" viewBox="0 0 16 16"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>');
+}
+
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop:hover,
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop:focus {
+   outline: .125rem solid var(--rvt-color-blue-400);
+   outline-offset: .125rem;
+   z-index: 100;
+}
+
 /* current page: `[aria-current] + toggle` orange-000 + crimson icon; on hover/focus blue-000 + blue-500 icon */
-#s-lg-tabs-container .split-button-nav > .nav-item > a.nav-link.active + a.s-lg-tab-drop { background-color: var(--rvt-color-orange-000); }
-#s-lg-tabs-container .split-button-nav > .nav-item > a.nav-link.active + a.s-lg-tab-drop::after { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23990000" viewBox="0 0 16 16"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>'); }
-#s-lg-tabs-container .split-button-nav > .nav-item > a.nav-link.active + a.s-lg-tab-drop:hover,
-#s-lg-tabs-container .split-button-nav > .nav-item > a.nav-link.active + a.s-lg-tab-drop:focus { background-color: var(--rvt-color-blue-000); }
-#s-lg-tabs-container .split-button-nav > .nav-item > a.nav-link.active + a.s-lg-tab-drop:hover::after,
-#s-lg-tabs-container .split-button-nav > .nav-item > a.nav-link.active + a.s-lg-tab-drop:focus::after { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16"><path d="M15.146 6.263l-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>'); }
+#s-lg-tabs-container .split-button-nav>.nav-item>a.nav-link.active+a.s-lg-tab-drop {
+   background-color: var(--rvt-color-orange-000);
+}
+
+#s-lg-tabs-container .split-button-nav>.nav-item>a.nav-link.active+a.s-lg-tab-drop::after {
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23990000" viewBox="0 0 16 16"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>');
+}
+
+#s-lg-tabs-container .split-button-nav>.nav-item>a.nav-link.active+a.s-lg-tab-drop:hover,
+#s-lg-tabs-container .split-button-nav>.nav-item>a.nav-link.active+a.s-lg-tab-drop:focus {
+   background-color: var(--rvt-color-blue-000);
+}
+
+#s-lg-tabs-container .split-button-nav>.nav-item>a.nav-link.active+a.s-lg-tab-drop:hover::after,
+#s-lg-tabs-container .split-button-nav>.nav-item>a.nav-link.active+a.s-lg-tab-drop:focus::after {
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16"><path d="M15.146 6.263l-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>');
+}
+
 /* the link next to a toggle also stacks above its neighbours on focus (`&__link:focus { z-index: 100 }`) */
-#s-lg-tabs-container .split-button-nav > .nav-item > .nav-link:focus { z-index: 100; }
+#s-lg-tabs-container .split-button-nav>.nav-item>.nav-link:focus {
+   z-index: 100;
+}
 
 /* Popper writes an inline `margin: 0` on the open menu; Rivet's nested list margin is `1rem 0 1rem 1rem` */
-#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul.dropdown-menu { margin: var(--rvt-spacing-sm) 0 var(--rvt-spacing-sm) var(--rvt-spacing-sm) !important; }
+#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul.dropdown-menu {
+   margin: var(--rvt-spacing-sm) 0 var(--rvt-spacing-sm) var(--rvt-spacing-sm) !important;
+}
 
 /* Third level (index8): the current sub-page's `li.dropdown-item.active` also contains the page's box links, `ul.list-group.s-lg-boxnav > li.list-group-item > a`.
    Rivet's nested sidenav applies at every depth (sidenav/_base.scss): an item is `display: flex; flex-wrap: wrap` so its nested `__list` (`flex-basis: 100%`) drops BELOW the
    link, the list gets `margin: 1rem 0 1rem 1rem`, and each nested item has a 4px black-100 left rule with `.3rem 0.5rem .3rem 1rem` link padding. Without `flex-wrap` the level-3 list
    sat beside the level-2 link (squeezing it) and Bootstrap's list-group boxes (grey fill, borders, bold underlined links) showed through. */
-#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul > li { flex-wrap: wrap; }
-#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul > li > a.d-block { flex: 1 1 0; min-width: 0; }
-#s-lg-tabs-container .split-button-nav .s-lg-boxnav { display: block; flex-basis: 100%; list-style: none; margin: var(--rvt-spacing-sm) 0 var(--rvt-spacing-sm) var(--rvt-spacing-sm); padding: 0; width: auto; }
-#s-lg-tabs-container .split-button-nav .s-lg-boxnav > li.list-group-item { background: transparent; border: 0; border-left: var(--rvt-spacing-xxs) solid var(--rvt-color-black-100); border-radius: 0; display: flex; margin: 0 !important; padding: 0; }
-#s-lg-tabs-container .split-button-nav .s-lg-boxnav > li.list-group-item > a {
-  background-color: transparent;
-  color: var(--rvt-color-black-500);
-  flex-grow: 1;
-  font-size: var(--rvt-ts-14);
-  font-weight: var(--rvt-font-weight-regular);
-  padding: calc(var(--rvt-spacing-xxs) * 1.2) var(--rvt-spacing-xs) calc(var(--rvt-spacing-xxs) * 1.2) var(--rvt-spacing-sm);
-  position: relative;
-  text-decoration: none !important;
+#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul>li {
+   flex-wrap: wrap;
 }
-#s-lg-tabs-container .split-button-nav .s-lg-boxnav > li.list-group-item > a:hover,
-#s-lg-tabs-container .split-button-nav .s-lg-boxnav > li.list-group-item > a:focus { color: var(--rvt-color-blue-500); text-decoration: underline !important; z-index: 100; }
+
+#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul>li>a.d-block {
+   flex: 1 1 0;
+   min-width: 0;
+}
+
+#s-lg-tabs-container .split-button-nav .s-lg-boxnav {
+   display: block;
+   flex-basis: 100%;
+   list-style: none;
+   margin: var(--rvt-spacing-sm) 0 var(--rvt-spacing-sm) var(--rvt-spacing-sm);
+   padding: 0;
+   width: auto;
+}
+
+#s-lg-tabs-container .split-button-nav .s-lg-boxnav>li.list-group-item {
+   background: transparent;
+   border: 0;
+   border-left: var(--rvt-spacing-xxs) solid var(--rvt-color-black-100);
+   border-radius: 0;
+   display: flex;
+   margin: 0 !important;
+   padding: 0;
+}
+
+#s-lg-tabs-container .split-button-nav .s-lg-boxnav>li.list-group-item>a {
+   background-color: transparent;
+   color: var(--rvt-color-black-500);
+   flex-grow: 1;
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-regular);
+   padding: calc(var(--rvt-spacing-xxs) * 1.2) var(--rvt-spacing-xs) calc(var(--rvt-spacing-xxs) * 1.2) var(--rvt-spacing-sm);
+   position: relative;
+   text-decoration: none !important;
+}
+
+#s-lg-tabs-container .split-button-nav .s-lg-boxnav>li.list-group-item>a:hover,
+#s-lg-tabs-container .split-button-nav .s-lg-boxnav>li.list-group-item>a:focus {
+   color: var(--rvt-color-blue-500);
+   text-decoration: underline !important;
+   z-index: 100;
+}
 
 /* The guide's inline CSS adds `border-left: 1px solid #bbb` (and re-states the padding) to `#s-lg-tabs-container .nav-pills > li > a.s-lg-tab-drop:hover`, which out-ranks the toggle rules above
    (specificity 1,3,2 vs 1,3,1), so a divider flashed in on hover. Rivet's `.rvt-sidenav__toggle` has no border in any state (`border: none`; hover only changes background, icon colour and outline),
    and keeps `padding: 0 .5rem`; the doubled class out-ranks the inline rule. */
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop.s-lg-tab-drop,
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop.s-lg-tab-drop:hover,
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop.s-lg-tab-drop:focus,
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop.s-lg-tab-drop:active { border: 0; border-radius: 0; padding: 0 var(--rvt-spacing-xs); transition: none; }
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop.s-lg-tab-drop,
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop.s-lg-tab-drop:hover,
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop.s-lg-tab-drop:focus,
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop.s-lg-tab-drop:active {
+   border: 0;
+   border-radius: 0;
+   padding: 0 var(--rvt-spacing-xs);
+   transition: none;
+}
 
 /* The guide's inline CSS re-states `font-weight: bold; padding: 4px 5px 4px 10px; width: 100%; float: left` for `a.s-lg-tab-top-link` **and its :hover**
    (`#s-lg-tabs-container .nav-pills > li > a.s-lg-tab-top-link:hover`, specificity 1,3,2), which out-ranks the sidenav link rules, so a dropdown parent such as "Artists" turned bold
    (wider text) and shifted its padding on hover. Rivet's `.rvt-sidenav__link` keeps `font-size: .875rem`, regular weight and `padding: .5rem .5rem .5rem 1rem` in every state
    (hover/focus only change colour and underline); the doubled class out-ranks the inline rule. */
-#s-lg-tabs-container .split-button-nav > .nav-item > .nav-link.nav-link,
-#s-lg-tabs-container .split-button-nav > .nav-item > .nav-link.nav-link:hover,
-#s-lg-tabs-container .split-button-nav > .nav-item > .nav-link.nav-link:focus,
-#s-lg-tabs-container .split-button-nav > .nav-item > .nav-link.nav-link:active {
-  float: none;
-  font-size: var(--rvt-ts-14);
-  font-weight: var(--rvt-font-weight-regular);
-  padding: var(--rvt-spacing-xs) var(--rvt-spacing-xs) var(--rvt-spacing-xs) var(--rvt-spacing-sm);
-  width: auto;
+#s-lg-tabs-container .split-button-nav>.nav-item>.nav-link.nav-link,
+#s-lg-tabs-container .split-button-nav>.nav-item>.nav-link.nav-link:hover,
+#s-lg-tabs-container .split-button-nav>.nav-item>.nav-link.nav-link:focus,
+#s-lg-tabs-container .split-button-nav>.nav-item>.nav-link.nav-link:active {
+   float: none;
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-regular);
+   padding: var(--rvt-spacing-xs) var(--rvt-spacing-xs) var(--rvt-spacing-xs) var(--rvt-spacing-sm);
+   width: auto;
 }

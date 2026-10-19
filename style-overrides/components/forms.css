@@ -42,9 +42,11 @@
 .input-group>.form-control:focus {
   z-index: 300;
 }
+
 /* .form-select -> .rvt-select (inputs/_base.scss): 2.5rem, black-300 border, appearance none, chevron at the right, `padding-right: 2.5rem` */
 .form-select {
-  -webkit-appearance: none; appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
   background-color: var(--rvt-color-white-base);
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23333333" viewBox="0 0 16 16"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>');
   background-position: right var(--rvt-spacing-sm) center;
@@ -59,5 +61,15 @@
   line-height: 1.1;
   padding: var(--rvt-spacing-xs) var(--rvt-spacing-xl) var(--rvt-spacing-xs) var(--rvt-spacing-xs);
 }
-.form-select:focus { border-color: var(--rvt-color-black-300); box-shadow: 0 0 0 .125rem var(--rvt-color-blue-400); outline: none; }
-.form-select:disabled { background-color: var(--rvt-color-black-100); border-color: var(--rvt-color-black-300); cursor: not-allowed; }
+
+.form-select:focus {
+  border-color: var(--rvt-color-black-300);
+  box-shadow: 0 0 0 .125rem var(--rvt-color-blue-400);
+  outline: none;
+}
+
+.form-select:disabled {
+  background-color: var(--rvt-color-black-100);
+  border-color: var(--rvt-color-black-300);
+  cursor: not-allowed;
+}

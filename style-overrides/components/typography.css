@@ -161,5 +161,9 @@ kbd {
 .s-lib-box-content .clearfix a:not(.btn) {
   display: inline;
 }
+
 /* Page header on profile/index pages: room between the breadcrumbs and the title (above) and the description/pronouns line (below) */
-#s-lib-public-header #s-lib-public-header-title { margin-bottom: var(--rvt-spacing-xs); margin-top: var(--rvt-spacing-md); }
+#s-lib-public-header #s-lib-public-header-title {
+  margin-bottom: var(--rvt-spacing-xs);
+  margin-top: var(--rvt-spacing-md);
+}

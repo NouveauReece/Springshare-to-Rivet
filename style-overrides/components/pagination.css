@@ -3,64 +3,117 @@
    (50% wide each, 1.5rem vertical padding, black-500 text, black-000 on hover), strong = __label (black-400), page title = __item,
    and the circular arrow = __icon (2rem, black-200 border, black-300 arrow). The second row of the pair is a Springshare placeholder <li> that is
    empty when there is no previous/next page. */
-#s-lg-page-prevnext { border-bottom: 1px solid var(--rvt-color-black-100); border-top: 1px solid var(--rvt-color-black-100); margin-top: 4rem; }
-#s-lg-page-prevnext .pagination { display: flex; flex-direction: column; list-style: none; margin: 0; padding: 0; }
-#s-lg-page-prevnext .page-item { flex: none; margin: 0; padding: 0; }
-#s-lg-page-prevnext .page-item:not(:has(> a)) { display: none; }
+#s-lg-page-prevnext {
+   border-bottom: 1px solid var(--rvt-color-black-100);
+   border-top: 1px solid var(--rvt-color-black-100);
+   margin-top: 4rem;
+}
+
+#s-lg-page-prevnext .pagination {
+   display: flex;
+   flex-direction: column;
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+#s-lg-page-prevnext .page-item {
+   flex: none;
+   margin: 0;
+   padding: 0;
+}
+
+#s-lg-page-prevnext .page-item:not(:has(> a)) {
+   display: none;
+}
 
 #s-lg-page-prevnext .page-link {
-  background-color: transparent;
-  border: 0;
-  border-radius: 0;
-  color: var(--rvt-color-black-500);
-  display: block;
-  font-weight: var(--rvt-font-weight-regular);
-  line-height: var(--rvt-line-height-base);
-  min-height: 0;
-  padding: var(--rvt-spacing-md) 5rem var(--rvt-spacing-md) var(--rvt-spacing-md); /* 1.5rem edge + 2rem icon + 1.5rem gap on the icon side; 1.5rem on the other side */
-  position: relative;
-  text-decoration: none !important;
-  transition: none;
+   background-color: transparent;
+   border: 0;
+   border-radius: 0;
+   color: var(--rvt-color-black-500);
+   display: block;
+   font-weight: var(--rvt-font-weight-regular);
+   line-height: var(--rvt-line-height-base);
+   min-height: 0;
+   padding: var(--rvt-spacing-md) 5rem var(--rvt-spacing-md) var(--rvt-spacing-md);
+   /* 1.5rem edge + 2rem icon + 1.5rem gap on the icon side; 1.5rem on the other side */
+   position: relative;
+   text-decoration: none !important;
+   transition: none;
 }
-#s-lg-page-prevnext .page-link:hover { background-color: var(--rvt-color-black-000); color: var(--rvt-color-black-500); }
-#s-lg-page-prevnext .page-link strong { color: var(--rvt-color-black-400); display: block; font-weight: var(--rvt-font-weight-regular); }
+
+#s-lg-page-prevnext .page-link:hover {
+   background-color: var(--rvt-color-black-000);
+   color: var(--rvt-color-black-500);
+}
+
+#s-lg-page-prevnext .page-link strong {
+   color: var(--rvt-color-black-400);
+   display: block;
+   font-weight: var(--rvt-font-weight-regular);
+}
 
 /* __icon: 2rem circle, 1px black-200 border, 1rem black-300 arrow (the Rivet arrow paths), vertically centered at the outer edge */
 #s-lg-page-prevnext .page-link::before,
-#s-lg-page-prevnext .page-link::after { content: none; }
+#s-lg-page-prevnext .page-link::after {
+   content: none;
+}
+
 #s-lg-page-prevnext .page-item:first-child .page-link::before,
 #s-lg-page-prevnext .page-item:last-child .page-link::after {
-  background-color: transparent;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 1rem 1rem;
-  border: 1px solid var(--rvt-color-black-200);
-  border-radius: 999rem;
-  box-sizing: border-box;
-  content: "";
-  height: var(--rvt-spacing-lg);
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: var(--rvt-spacing-lg);
+   background-color: transparent;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 1rem 1rem;
+   border: 1px solid var(--rvt-color-black-200);
+   border-radius: 999rem;
+   box-sizing: border-box;
+   content: "";
+   height: var(--rvt-spacing-lg);
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   width: var(--rvt-spacing-lg);
 }
-#s-lg-page-prevnext .page-item:first-child .page-link::before { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%2375838f" viewBox="0 0 16 16"><path d="M15 7H4.156l4.107-4.854L6.737.854.69 8l6.047 7.146 1.526-1.292L4.156 9H15V7Z"></path></svg>'); left: var(--rvt-spacing-md); }
-#s-lg-page-prevnext .page-item:last-child .page-link::after { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%2375838f" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>'); right: var(--rvt-spacing-md); }
+
+#s-lg-page-prevnext .page-item:first-child .page-link::before {
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%2375838f" viewBox="0 0 16 16"><path d="M15 7H4.156l4.107-4.854L6.737.854.69 8l6.047 7.146 1.526-1.292L4.156 9H15V7Z"></path></svg>');
+   left: var(--rvt-spacing-md);
+}
+
+#s-lg-page-prevnext .page-item:last-child .page-link::after {
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%2375838f" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
+   right: var(--rvt-spacing-md);
+}
 
 /* Previous: icon on the left, text after it; Next: text, icon on the right */
-#s-lg-page-prevnext .page-item:first-child .page-link { padding: var(--rvt-spacing-md) var(--rvt-spacing-md) var(--rvt-spacing-md) 5rem; }
+#s-lg-page-prevnext .page-item:first-child .page-link {
+   padding: var(--rvt-spacing-md) var(--rvt-spacing-md) var(--rvt-spacing-md) 5rem;
+}
 
 @media screen and (min-width: 46.25em) {
-  #s-lg-page-prevnext .pagination { flex-direction: row; }
-  /* Rivet: `.rvt-seriesnav__previous/__next { flex: 1 1 50% }`, so a lone link stretches across the whole bar (checked on rivet.iu.edu: 776px of a 776px bar).
+   #s-lg-page-prevnext .pagination {
+      flex-direction: row;
+   }
+
+   /* Rivet: `.rvt-seriesnav__previous/__next { flex: 1 1 50% }`, so a lone link stretches across the whole bar (checked on rivet.iu.edu: 776px of a 776px bar).
      Deliberate deviation: here a lone link keeps its half (`flex: 0 1 50%`) — previous on the left, next on the right. */
-  #s-lg-page-prevnext .page-item { flex: 0 1 50%; }
-  #s-lg-page-prevnext .page-item:last-child { margin-left: auto; }
-  /* Deviation from Rivet: Rivet pads the halves (`__previous { padding-right: 1.5rem }`, `__next { padding-left: 1.5rem }`) so the hover fill leaves an unfilled gap on either side of the
+   #s-lg-page-prevnext .page-item {
+      flex: 0 1 50%;
+   }
+
+   #s-lg-page-prevnext .page-item:last-child {
+      margin-left: auto;
+   }
+
+   /* Deviation from Rivet: Rivet pads the halves (`__previous { padding-right: 1.5rem }`, `__next { padding-left: 1.5rem }`) so the hover fill leaves an unfilled gap on either side of the
      divider, and its icons touch the bar's outer edges. Here that padding is inside the link (hover fills the whole half) and the icons are inset 1.5rem from the edges.
   /* The divider (Rivet: `__previous { border-right }`, removed by `:only-child`) is drawn on the left of the second link, and only when BOTH links exist
      (`:has()` can't be nested, so it can't be keyed off the first item). */
-  #s-lg-page-prevnext .page-item:has(> a) + .page-item:has(> a) { border-left: 1px solid var(--rvt-color-black-100); }
+   #s-lg-page-prevnext .page-item:has(> a)+.page-item:has(> a) {
+      border-left: 1px solid var(--rvt-color-black-100);
+   }
 }
 
 /* The link text contains literal angle brackets ("<< Previous: …", "Next: … >>") which would double up with the arrow icon, and the HTML can't change.
@@ -69,14 +122,20 @@
    Scoped to #s-lg-page-prevnext on purpose: the search-results pagination uses "<<", "<", ">", ">>" as its real button labels. Where a browser lacks
    `size-adjust`/`unicode-range` support the brackets simply stay visible (the layout still works). */
 @font-face {
-  font-family: "rvt-no-angle-brackets";
-  size-adjust: 0%;
-  src: local("Arial"), local("Helvetica"), local("Liberation Sans"), local("DejaVu Sans");
-  unicode-range: U+003C, U+003E;
+   font-family: "rvt-no-angle-brackets";
+   size-adjust: 0%;
+   src: local("Arial"), local("Helvetica"), local("Liberation Sans"), local("DejaVu Sans");
+   unicode-range: U+003C, U+003E;
 }
-#s-lg-page-prevnext .page-link { font-family: "rvt-no-angle-brackets", var(--rvt-font-base); }
+
+#s-lg-page-prevnext .page-link {
+   font-family: "rvt-no-angle-brackets", var(--rvt-font-base);
+}
 
 /* The Previous link's text starts with "<< " followed by a block-level <strong>, so the brackets sit alone on an extra (empty) line above "Previous:" —
    that line made the bar 24px taller than Rivet's (122px vs 98px). It is the link's first line, so collapse it with ::first-line.
    (Scoped to the first <li> — the previous slot; "Next" lives in the last <li> and starts with the <strong>, so its first line is the label and is left alone.) */
-#s-lg-page-prevnext .page-item:first-child .page-link::first-line { font-size: 0; line-height: 0; }
+#s-lg-page-prevnext .page-item:first-child .page-link::first-line {
+   font-size: 0;
+   line-height: 0;
+}

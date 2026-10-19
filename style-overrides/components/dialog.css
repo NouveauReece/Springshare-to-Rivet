@@ -25,12 +25,38 @@
   width: 90% !important;
   z-index: 1000;
 }
-/* data-rvt-dialog-darken-page: the page behind is darkened with black-base at .85 */
-.ui-widget-overlay { background: rgba(36, 49, 66, .85); opacity: 1; }
-.ui-dialog .ui-resizable-handle { display: none; }
 
-.ui-dialog .ui-dialog-titlebar { align-items: center; background: transparent; border: 0; border-bottom: 1px solid var(--rvt-color-black-100); border-radius: 0; box-shadow: none; cursor: default; display: block; padding: var(--rvt-spacing-md) var(--rvt-spacing-sm); position: relative; }
-.ui-dialog .ui-dialog-title { color: var(--rvt-color-black-500); float: none; font-size: var(--rvt-ts-20); font-weight: var(--rvt-font-weight-bold); line-height: 1; margin: 0; }
+/* data-rvt-dialog-darken-page: the page behind is darkened with black-base at .85 */
+.ui-widget-overlay {
+  background: rgba(36, 49, 66, .85);
+  opacity: 1;
+}
+
+.ui-dialog .ui-resizable-handle {
+  display: none;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rvt-color-black-100);
+  border-radius: 0;
+  box-shadow: none;
+  cursor: default;
+  display: block;
+  padding: var(--rvt-spacing-md) var(--rvt-spacing-sm);
+  position: relative;
+}
+
+.ui-dialog .ui-dialog-title {
+  color: var(--rvt-color-black-500);
+  float: none;
+  font-size: var(--rvt-ts-20);
+  font-weight: var(--rvt-font-weight-bold);
+  line-height: 1;
+  margin: 0;
+}
 
 /* close: transparent 2rem square (icon .5 line-height + .5rem padding), blue-500 fill on hover, white + blue-600 focus ring */
 .ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close {
@@ -49,38 +75,110 @@
   top: 1.1rem;
   width: auto;
 }
-.ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close:hover { background-color: var(--rvt-color-blue-500); color: var(--rvt-color-white-base); }
-.ui-dialog .ui-dialog-titlebar-close i { display: none; } /* Font Awesome "close" glyph replaced by the Rivet x icon below */
+
+.ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close:hover {
+  background-color: var(--rvt-color-blue-500);
+  color: var(--rvt-color-white-base);
+}
+
+.ui-dialog .ui-dialog-titlebar-close i {
+  display: none;
+}
+
+/* Font Awesome "close" glyph replaced by the Rivet x icon below */
 .ui-dialog .ui-dialog-titlebar-close::before {
   background-color: currentColor;
   content: "";
   display: inline-block;
   height: 1rem;
   -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"></path></svg>') center / contain no-repeat;
-          mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"></path></svg>') center / contain no-repeat;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"></path></svg>') center / contain no-repeat;
   vertical-align: middle;
   width: 1rem;
 }
 
-.ui-dialog .ui-dialog-content { background: transparent; border: 0; height: auto !important; min-height: 0 !important; overflow: auto; padding: var(--rvt-spacing-sm); }
-.ui-dialog .ui-dialog-content .alert:last-child { margin-bottom: 0; }
+.ui-dialog .ui-dialog-content {
+  background: transparent;
+  border: 0;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: auto;
+  padding: var(--rvt-spacing-sm);
+}
+
+.ui-dialog .ui-dialog-content .alert:last-child {
+  margin-bottom: 0;
+}
 
 /* controls: padding 1rem, black-100 rule above, black-000 background, buttons right-aligned (stacked full-width on narrow screens) */
-.ui-dialog .ui-dialog-buttonpane { background-color: var(--rvt-color-black-000); border: 0; border-top: 1px solid var(--rvt-color-black-100); margin: 0; padding: var(--rvt-spacing-sm); }
-.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset { display: flex; flex-wrap: wrap; float: none; gap: var(--rvt-spacing-sm); padding: 0; }
-.ui-dialog .ui-dialog-buttonpane .btn { justify-content: center; margin: 0; width: 100%; }
-@media screen and (min-width: 30em) {
-  .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset { justify-content: flex-end; }
-  .ui-dialog .ui-dialog-buttonpane .btn { width: auto; }
+.ui-dialog .ui-dialog-buttonpane {
+  background-color: var(--rvt-color-black-000);
+  border: 0;
+  border-top: 1px solid var(--rvt-color-black-100);
+  margin: 0;
+  padding: var(--rvt-spacing-sm);
 }
+
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+  display: flex;
+  flex-wrap: wrap;
+  float: none;
+  gap: var(--rvt-spacing-sm);
+  padding: 0;
+}
+
+.ui-dialog .ui-dialog-buttonpane .btn {
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+}
+
+@media screen and (min-width: 30em) {
+  .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+    justify-content: flex-end;
+  }
+
+  .ui-dialog .ui-dialog-buttonpane .btn {
+    width: auto;
+  }
+}
+
 /* .btn-sm (Springshare marks these buttons small) is normal size inside .rvt-dialog__controls */
-.ui-dialog .ui-dialog-buttonpane .btn-sm { font-size: var(--rvt-ts-16); height: var(--rvt-spacing-xl); min-height: var(--rvt-spacing-xl); padding: 0 .625rem; }
+.ui-dialog .ui-dialog-buttonpane .btn-sm {
+  font-size: var(--rvt-ts-16);
+  height: var(--rvt-spacing-xl);
+  min-height: var(--rvt-spacing-xl);
+  padding: 0 .625rem;
+}
+
 /* secondary/default buttons in the dialog */
-.ui-dialog .ui-dialog-buttonpane .btn-default:not(.btn-primary) { background-color: var(--rvt-color-white-base); border-color: var(--rvt-color-blue-100); color: var(--rvt-color-blue-500); }
-.ui-dialog .ui-dialog-buttonpane .btn-default:not(.btn-primary):hover { background-color: var(--rvt-color-blue-000); color: var(--rvt-color-blue-600); }
+.ui-dialog .ui-dialog-buttonpane .btn-default:not(.btn-primary) {
+  background-color: var(--rvt-color-white-base);
+  border-color: var(--rvt-color-blue-100);
+  color: var(--rvt-color-blue-500);
+}
+
+.ui-dialog .ui-dialog-buttonpane .btn-default:not(.btn-primary):hover {
+  background-color: var(--rvt-color-blue-000);
+  color: var(--rvt-color-blue-600);
+}
 
 /* Focus ring for the close button (dialog/_base.scss `&__close:focus`): white .125rem + blue-600 .25rem. Beats the site's forced #101010 outline. */
-body .ui-dialog .ui-dialog-titlebar-close:focus-visible { box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-600) !important; outline: none !important; border-color: transparent !important; }
+body .ui-dialog .ui-dialog-titlebar-close:focus-visible {
+  box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-600) !important;
+  outline: none !important;
+  border-color: transparent !important;
+}
 
 /* close button: exactly 2rem square like `.rvt-dialog__close` (8px padding + 16px icon); the inline ::before had added line-height */
-.ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close { align-items: center; box-sizing: border-box; display: flex; height: var(--rvt-spacing-lg); justify-content: center; line-height: 1; min-height: 0; padding: 0; width: var(--rvt-spacing-lg); }
+.ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  height: var(--rvt-spacing-lg);
+  justify-content: center;
+  line-height: 1;
+  min-height: 0;
+  padding: 0;
+  width: var(--rvt-spacing-lg);
+}

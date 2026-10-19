@@ -122,13 +122,42 @@
 #s-lib-footer-support-link a {
   margin-left: -8px;
 }
+
 /* Index/search pages use a simpler footer: <div><div#s-lib-footer-brand/><div#s-lib-footer-rights/><div#s-lib-footer-login-link/></div><div#s-lib-footer-support-link/>.
    Same left-aligned flex row as the guide meta rows; stacks below 46.25em. */
-#s-lib-footer-public > div:not([class]):not([id]) { align-items: flex-start; display: flex; flex-wrap: wrap; gap: var(--rvt-spacing-xs) var(--rvt-spacing-md); padding: var(--rvt-spacing-sm) 0 0; text-align: left; }
-#s-lib-footer-public > div:not([class]):not([id]) > div { display: block; margin: 0; padding: 0; text-align: left; }
-#s-lib-footer-public > #s-lib-footer-support-link { padding: var(--rvt-spacing-xs) 0 var(--rvt-spacing-sm); text-align: left; }
-@media screen and (max-width: 46.24em) {
-  #s-lib-footer-public > div:not([class]):not([id]) { flex-direction: column; }
+#s-lib-footer-public>div:not([class]):not([id]) {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rvt-spacing-xs) var(--rvt-spacing-md);
+  padding: var(--rvt-spacing-sm) 0 0;
+  text-align: left;
 }
-#s-lib-footer-public > #s-lib-footer-support-link { display: block; text-align: left; width: 100%; }
-#s-lib-footer-public > div:not([class]):not([id]) { align-items: baseline; }
+
+#s-lib-footer-public>div:not([class]):not([id])>div {
+  display: block;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+#s-lib-footer-public>#s-lib-footer-support-link {
+  padding: var(--rvt-spacing-xs) 0 var(--rvt-spacing-sm);
+  text-align: left;
+}
+
+@media screen and (max-width: 46.24em) {
+  #s-lib-footer-public>div:not([class]):not([id]) {
+    flex-direction: column;
+  }
+}
+
+#s-lib-footer-public>#s-lib-footer-support-link {
+  display: block;
+  text-align: left;
+  width: 100%;
+}
+
+#s-lib-footer-public>div:not([class]):not([id]) {
+  align-items: baseline;
+}
