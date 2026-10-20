@@ -133,9 +133,9 @@
 }
 
 /* The Previous link's text starts with "<< " followed by a block-level <strong>, so the brackets sit alone on an extra (empty) line above "Previous:" —
-   that line made the bar 24px taller than Rivet's (122px vs 98px). It is the link's first line, so collapse it with ::first-line.
-   (Scoped to the first <li> — the previous slot; "Next" lives in the last <li> and starts with the <strong>, so its first line is the label and is left alone.) */
-#s-lg-page-prevnext .page-item:first-child .page-link::first-line {
-   font-size: 0;
-   line-height: 0;
+   that line made the bar 24px taller than Rivet's (122px vs 98px). The line is exactly one `line-height` tall (the brackets are zero-width), so pull the label up by that much.
+   (`::first-line { font-size: 0 }` did this in Chrome/Safari but not in Firefox/Brave, which left the label a line too low.)
+   Scoped to the first <li> — the previous slot; "Next" lives in the last <li> and starts with the <strong>, so there is no extra line to remove. */
+#s-lg-page-prevnext .page-item:first-child .page-link strong {
+   margin-top: calc(var(--rvt-line-height-base) * -1em);
 }
