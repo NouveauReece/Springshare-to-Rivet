@@ -13067,6 +13067,11 @@ body.s-lg-guide-body {
   font-family: var(--rvt-font-base);
   line-height: var(--rvt-line-height-base);
 }
+/* text */
+  body, h1, h2, h3, h4,  h5, h6, #s-lg-guide-header-info h1, .s-lib-header h1, .public-collapsible-box h2.accordion-header > button, h2.s-lib-box-title button { 
+    font-family: var(--rvt-font-base)!important;
+  }
+
 
 /* Page title (h1) and headings: .rvt-prose heading scale, regular weight, tight line-height */
 /* The external rivet-custom-lb-az.css (loads after this file) sets `#s-lib-public-header-title { 24px / 600 }`, `h2 { 22px }`, `h3 { 18px }`;
@@ -13224,9 +13229,12 @@ kbd {
 .s-lib-box-content .clearfix a:not(.btn) {
   display: inline;
 }
-/* Page header on profile/index pages: room between the breadcrumbs and the title (above) and the description/pronouns line (below) */
-#s-lib-public-header #s-lib-public-header-title { margin-bottom: var(--rvt-spacing-xs); margin-top: var(--rvt-spacing-md); }
 
+/* Page header on profile/index pages: room between the breadcrumbs and the title (above) and the description/pronouns line (below) */
+#s-lib-public-header #s-lib-public-header-title {
+  margin-bottom: var(--rvt-spacing-xs);
+  margin-top: var(--rvt-spacing-md);
+}
 
 /* style-overrides/components/layout.css */
 /* Page layout: container, header block, side borders */
@@ -13535,9 +13543,11 @@ a.btn, a.btn:hover, a.btn:focus {
 .input-group>.form-control:focus {
   z-index: 300;
 }
+
 /* .form-select -> .rvt-select (inputs/_base.scss): 2.5rem, black-300 border, appearance none, chevron at the right, `padding-right: 2.5rem` */
 .form-select {
-  -webkit-appearance: none; appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
   background-color: var(--rvt-color-white-base);
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23333333" viewBox="0 0 16 16"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>');
   background-position: right var(--rvt-spacing-sm) center;
@@ -13552,9 +13562,18 @@ a.btn, a.btn:hover, a.btn:focus {
   line-height: 1.1;
   padding: var(--rvt-spacing-xs) var(--rvt-spacing-xl) var(--rvt-spacing-xs) var(--rvt-spacing-xs);
 }
-.form-select:focus { border-color: var(--rvt-color-black-300); box-shadow: 0 0 0 .125rem var(--rvt-color-blue-400); outline: none; }
-.form-select:disabled { background-color: var(--rvt-color-black-100); border-color: var(--rvt-color-black-300); cursor: not-allowed; }
 
+.form-select:focus {
+  border-color: var(--rvt-color-black-300);
+  box-shadow: 0 0 0 .125rem var(--rvt-color-blue-400);
+  outline: none;
+}
+
+.form-select:disabled {
+  background-color: var(--rvt-color-black-100);
+  border-color: var(--rvt-color-black-300);
+  cursor: not-allowed;
+}
 
 /* style-overrides/components/sidenav.css */
 /* Guide page nav: ul.nav-pills -> .rvt-sidenav__list, li.nav-item -> .rvt-sidenav__item, a.nav-link -> .rvt-sidenav__link, .active -> [aria-current="page"]
@@ -13728,114 +13747,212 @@ a.btn, a.btn:hover, a.btn:focus {
 #s-lg-tabs-container .split-button-nav .s-lg-subtab-ul>li {
    width: 100%;
 }
+
 /* Dropdown variant (index6): li.nav-item.dropdown > a.nav-link.s-lg-tab-top-link + a.s-lg-tab-drop.dropdown-toggle[role=button] + ul.s-lg-subtab-ul.dropdown-menu
    = Rivet's "sidenav with dropdown" (`.rvt-sidenav__item-wrapper` link + `.rvt-sidenav__toggle`, nested `.rvt-sidenav__list` hidden until expanded).
    Bootstrap's dropdown JS toggles `.show` / aria-expanded; the menu is shown inline (not as a floating popup) while open. */
-#s-lg-tabs-container .split-button-nav > .nav-item.dropdown { align-items: center; display: flex; flex-wrap: wrap; }
-#s-lg-tabs-container .split-button-nav > .nav-item.dropdown > .nav-link { flex: 1 1 0; min-width: 0; }
-#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul.dropdown-menu { display: none; }
-#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul.dropdown-menu.show { display: block; }
+#s-lg-tabs-container .split-button-nav>.nav-item.dropdown {
+   align-items: center;
+   display: flex;
+   flex-wrap: wrap;
+}
+
+#s-lg-tabs-container .split-button-nav>.nav-item.dropdown>.nav-link {
+   flex: 1 1 0;
+   min-width: 0;
+}
+
+#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul.dropdown-menu {
+   display: none;
+}
+
+#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul.dropdown-menu.show {
+   display: block;
+}
+
 /* neutralize Bootstrap/Popper popup chrome (inline position/transform from Popper need !important) */
-#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul.dropdown-menu { background: transparent; border: 0; border-radius: 0; box-shadow: none; float: none; inset: auto !important; min-width: 0; position: static !important; transform: none !important; }
+#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul.dropdown-menu {
+   background: transparent;
+   border: 0;
+   border-radius: 0;
+   box-shadow: none;
+   float: none;
+   inset: auto !important;
+   min-width: 0;
+   position: static !important;
+   transform: none !important;
+}
+
 /* toggle (.rvt-sidenav__toggle): black-200 chevron, 1rem, `padding: 0 .5rem`, stretches to the link height, rotates 180° when expanded */
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop {
-  align-self: stretch;
-  background-color: transparent;
-  border: 0;
-  border-radius: 0;
-  color: var(--rvt-color-black-200);
-  display: flex;
-  float: none;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0 var(--rvt-spacing-xs);
-  position: relative;
-  right: auto;
-  text-decoration: none !important;
-  transition: none;
-  width: auto;
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop {
+   align-self: stretch;
+   background-color: transparent;
+   border: 0;
+   border-radius: 0;
+   color: var(--rvt-color-black-200);
+   display: flex;
+   float: none;
+   align-items: center;
+   justify-content: center;
+   margin: 0;
+   padding: 0 var(--rvt-spacing-xs);
+   position: relative;
+   right: auto;
+   text-decoration: none !important;
+   transition: none;
+   width: auto;
 }
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop::after {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23a0abb4" viewBox="0 0 16 16"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 1rem 1rem;
-  border: 0;
-  content: "";
-  display: block;
-  height: 1rem;
-  margin: 0;
-  vertical-align: middle;
-  width: 1rem;
+
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop::after {
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23a0abb4" viewBox="0 0 16 16"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>');
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 1rem 1rem;
+   border: 0;
+   content: "";
+   display: block;
+   height: 1rem;
+   margin: 0;
+   vertical-align: middle;
+   width: 1rem;
 }
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop[aria-expanded="true"] { transform: rotate(180deg); }
+
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop[aria-expanded="true"] {
+   transform: rotate(180deg);
+}
+
 /* Toggle states (sidenav/_base.scss `&__toggle`): `:focus` -> blue-000 bg + blue-500 icon; `:hover` -> blue-000 bg + blue-600 icon (declared after, so it wins
    when both apply); hover AND focus both draw `outline: .125rem solid blue-400; outline-offset: .125rem`. Rivet uses :focus (not :focus-visible), so the ring
    also shows after a mouse click. The icon colour comes from the chevron SVG's fill. */
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop:focus { background-color: var(--rvt-color-blue-000); }
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop:focus::after { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>'); }
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop:hover { background-color: var(--rvt-color-blue-000); }
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop:hover::after { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23004f80" viewBox="0 0 16 16"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>'); }
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop:hover,
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop:focus { outline: .125rem solid var(--rvt-color-blue-400); outline-offset: .125rem; z-index: 100; }
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop:focus {
+   background-color: var(--rvt-color-blue-000);
+}
+
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop:focus::after {
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>');
+}
+
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop:hover {
+   background-color: var(--rvt-color-blue-000);
+}
+
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop:hover::after {
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23004f80" viewBox="0 0 16 16"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>');
+}
+
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop:hover,
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop:focus {
+   outline: .125rem solid var(--rvt-color-blue-400);
+   outline-offset: .125rem;
+   z-index: 100;
+}
+
 /* current page: `[aria-current] + toggle` orange-000 + crimson icon; on hover/focus blue-000 + blue-500 icon */
-#s-lg-tabs-container .split-button-nav > .nav-item > a.nav-link.active + a.s-lg-tab-drop { background-color: var(--rvt-color-orange-000); }
-#s-lg-tabs-container .split-button-nav > .nav-item > a.nav-link.active + a.s-lg-tab-drop::after { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23990000" viewBox="0 0 16 16"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>'); }
-#s-lg-tabs-container .split-button-nav > .nav-item > a.nav-link.active + a.s-lg-tab-drop:hover,
-#s-lg-tabs-container .split-button-nav > .nav-item > a.nav-link.active + a.s-lg-tab-drop:focus { background-color: var(--rvt-color-blue-000); }
-#s-lg-tabs-container .split-button-nav > .nav-item > a.nav-link.active + a.s-lg-tab-drop:hover::after,
-#s-lg-tabs-container .split-button-nav > .nav-item > a.nav-link.active + a.s-lg-tab-drop:focus::after { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16"><path d="M15.146 6.263l-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>'); }
+#s-lg-tabs-container .split-button-nav>.nav-item>a.nav-link.active+a.s-lg-tab-drop {
+   background-color: var(--rvt-color-orange-000);
+}
+
+#s-lg-tabs-container .split-button-nav>.nav-item>a.nav-link.active+a.s-lg-tab-drop::after {
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23990000" viewBox="0 0 16 16"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>');
+}
+
+#s-lg-tabs-container .split-button-nav>.nav-item>a.nav-link.active+a.s-lg-tab-drop:hover,
+#s-lg-tabs-container .split-button-nav>.nav-item>a.nav-link.active+a.s-lg-tab-drop:focus {
+   background-color: var(--rvt-color-blue-000);
+}
+
+#s-lg-tabs-container .split-button-nav>.nav-item>a.nav-link.active+a.s-lg-tab-drop:hover::after,
+#s-lg-tabs-container .split-button-nav>.nav-item>a.nav-link.active+a.s-lg-tab-drop:focus::after {
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16"><path d="M15.146 6.263l-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>');
+}
+
 /* the link next to a toggle also stacks above its neighbours on focus (`&__link:focus { z-index: 100 }`) */
-#s-lg-tabs-container .split-button-nav > .nav-item > .nav-link:focus { z-index: 100; }
+#s-lg-tabs-container .split-button-nav>.nav-item>.nav-link:focus {
+   z-index: 100;
+}
 
 /* Popper writes an inline `margin: 0` on the open menu; Rivet's nested list margin is `1rem 0 1rem 1rem` */
-#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul.dropdown-menu { margin: var(--rvt-spacing-sm) 0 var(--rvt-spacing-sm) var(--rvt-spacing-sm) !important; }
+#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul.dropdown-menu {
+   margin: var(--rvt-spacing-sm) 0 var(--rvt-spacing-sm) var(--rvt-spacing-sm) !important;
+}
 
 /* Third level (index8): the current sub-page's `li.dropdown-item.active` also contains the page's box links, `ul.list-group.s-lg-boxnav > li.list-group-item > a`.
    Rivet's nested sidenav applies at every depth (sidenav/_base.scss): an item is `display: flex; flex-wrap: wrap` so its nested `__list` (`flex-basis: 100%`) drops BELOW the
    link, the list gets `margin: 1rem 0 1rem 1rem`, and each nested item has a 4px black-100 left rule with `.3rem 0.5rem .3rem 1rem` link padding. Without `flex-wrap` the level-3 list
    sat beside the level-2 link (squeezing it) and Bootstrap's list-group boxes (grey fill, borders, bold underlined links) showed through. */
-#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul > li { flex-wrap: wrap; }
-#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul > li > a.d-block { flex: 1 1 0; min-width: 0; }
-#s-lg-tabs-container .split-button-nav .s-lg-boxnav { display: block; flex-basis: 100%; list-style: none; margin: var(--rvt-spacing-sm) 0 var(--rvt-spacing-sm) var(--rvt-spacing-sm); padding: 0; width: auto; }
-#s-lg-tabs-container .split-button-nav .s-lg-boxnav > li.list-group-item { background: transparent; border: 0; border-left: var(--rvt-spacing-xxs) solid var(--rvt-color-black-100); border-radius: 0; display: flex; margin: 0 !important; padding: 0; }
-#s-lg-tabs-container .split-button-nav .s-lg-boxnav > li.list-group-item > a {
-  background-color: transparent;
-  color: var(--rvt-color-black-500);
-  flex-grow: 1;
-  font-size: var(--rvt-ts-14);
-  font-weight: var(--rvt-font-weight-regular);
-  padding: calc(var(--rvt-spacing-xxs) * 1.2) var(--rvt-spacing-xs) calc(var(--rvt-spacing-xxs) * 1.2) var(--rvt-spacing-sm);
-  position: relative;
-  text-decoration: none !important;
+#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul>li {
+   flex-wrap: wrap;
 }
-#s-lg-tabs-container .split-button-nav .s-lg-boxnav > li.list-group-item > a:hover,
-#s-lg-tabs-container .split-button-nav .s-lg-boxnav > li.list-group-item > a:focus { color: var(--rvt-color-blue-500); text-decoration: underline !important; z-index: 100; }
+
+#s-lg-tabs-container .split-button-nav .s-lg-subtab-ul>li>a.d-block {
+   flex: 1 1 0;
+   min-width: 0;
+}
+
+#s-lg-tabs-container .split-button-nav .s-lg-boxnav {
+   display: block;
+   flex-basis: 100%;
+   list-style: none;
+   margin: var(--rvt-spacing-sm) 0 var(--rvt-spacing-sm) var(--rvt-spacing-sm);
+   padding: 0;
+   width: auto;
+}
+
+#s-lg-tabs-container .split-button-nav .s-lg-boxnav>li.list-group-item {
+   background: transparent;
+   border: 0;
+   border-left: var(--rvt-spacing-xxs) solid var(--rvt-color-black-100);
+   border-radius: 0;
+   display: flex;
+   margin: 0 !important;
+   padding: 0;
+}
+
+#s-lg-tabs-container .split-button-nav .s-lg-boxnav>li.list-group-item>a {
+   background-color: transparent;
+   color: var(--rvt-color-black-500);
+   flex-grow: 1;
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-regular);
+   padding: calc(var(--rvt-spacing-xxs) * 1.2) var(--rvt-spacing-xs) calc(var(--rvt-spacing-xxs) * 1.2) var(--rvt-spacing-sm);
+   position: relative;
+   text-decoration: none !important;
+}
+
+#s-lg-tabs-container .split-button-nav .s-lg-boxnav>li.list-group-item>a:hover,
+#s-lg-tabs-container .split-button-nav .s-lg-boxnav>li.list-group-item>a:focus {
+   color: var(--rvt-color-blue-500);
+   text-decoration: underline !important;
+   z-index: 100;
+}
 
 /* The guide's inline CSS adds `border-left: 1px solid #bbb` (and re-states the padding) to `#s-lg-tabs-container .nav-pills > li > a.s-lg-tab-drop:hover`, which out-ranks the toggle rules above
    (specificity 1,3,2 vs 1,3,1), so a divider flashed in on hover. Rivet's `.rvt-sidenav__toggle` has no border in any state (`border: none`; hover only changes background, icon colour and outline),
    and keeps `padding: 0 .5rem`; the doubled class out-ranks the inline rule. */
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop.s-lg-tab-drop,
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop.s-lg-tab-drop:hover,
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop.s-lg-tab-drop:focus,
-#s-lg-tabs-container .split-button-nav > .nav-item > a.s-lg-tab-drop.s-lg-tab-drop:active { border: 0; border-radius: 0; padding: 0 var(--rvt-spacing-xs); transition: none; }
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop.s-lg-tab-drop,
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop.s-lg-tab-drop:hover,
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop.s-lg-tab-drop:focus,
+#s-lg-tabs-container .split-button-nav>.nav-item>a.s-lg-tab-drop.s-lg-tab-drop:active {
+   border: 0;
+   border-radius: 0;
+   padding: 0 var(--rvt-spacing-xs);
+   transition: none;
+}
 
 /* The guide's inline CSS re-states `font-weight: bold; padding: 4px 5px 4px 10px; width: 100%; float: left` for `a.s-lg-tab-top-link` **and its :hover**
    (`#s-lg-tabs-container .nav-pills > li > a.s-lg-tab-top-link:hover`, specificity 1,3,2), which out-ranks the sidenav link rules, so a dropdown parent such as "Artists" turned bold
    (wider text) and shifted its padding on hover. Rivet's `.rvt-sidenav__link` keeps `font-size: .875rem`, regular weight and `padding: .5rem .5rem .5rem 1rem` in every state
    (hover/focus only change colour and underline); the doubled class out-ranks the inline rule. */
-#s-lg-tabs-container .split-button-nav > .nav-item > .nav-link.nav-link,
-#s-lg-tabs-container .split-button-nav > .nav-item > .nav-link.nav-link:hover,
-#s-lg-tabs-container .split-button-nav > .nav-item > .nav-link.nav-link:focus,
-#s-lg-tabs-container .split-button-nav > .nav-item > .nav-link.nav-link:active {
-  float: none;
-  font-size: var(--rvt-ts-14);
-  font-weight: var(--rvt-font-weight-regular);
-  padding: var(--rvt-spacing-xs) var(--rvt-spacing-xs) var(--rvt-spacing-xs) var(--rvt-spacing-sm);
-  width: auto;
+#s-lg-tabs-container .split-button-nav>.nav-item>.nav-link.nav-link,
+#s-lg-tabs-container .split-button-nav>.nav-item>.nav-link.nav-link:hover,
+#s-lg-tabs-container .split-button-nav>.nav-item>.nav-link.nav-link:focus,
+#s-lg-tabs-container .split-button-nav>.nav-item>.nav-link.nav-link:active {
+   float: none;
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-regular);
+   padding: var(--rvt-spacing-xs) var(--rvt-spacing-xs) var(--rvt-spacing-xs) var(--rvt-spacing-sm);
+   width: auto;
 }
-
 
 /* style-overrides/components/boxes.css */
 /* Boxes: .s-lib-box -> .rvt-card, .s-lib-box-title -> .rvt-card__title, .s-lib-box-content -> .rvt-card__content
@@ -14118,13 +14235,46 @@ body .s-lib-box-title-collapsible .s-lib-box-collapse-toggle:focus-visible { out
 /* Bootstrap alerts -> Rivet alerts (alerts/_base.scss): .rvt-alert (black-000, 4px left rule, 1rem padding, 14px message)
    .alert-info/-success/-warning/-danger -> .rvt-alert--info/--success/--warning/--danger.
    Scoped to `.alert.alert-*`: the skip link has a bare `.alert-info` class and is not an alert. */
-.alert { background-color: var(--rvt-color-black-000); border: 0; border-left: var(--rvt-spacing-xxs) solid var(--rvt-color-black-500); border-radius: 0; color: var(--rvt-color-black-500); font-size: var(--rvt-ts-14); margin: 0 0 var(--rvt-spacing-sm); padding: var(--rvt-spacing-sm); position: relative; }
-.alert.alert-info { background-color: var(--rvt-color-blue-000); border-left-color: var(--rvt-color-blue-500); color: var(--rvt-color-blue-700); }
-.alert.alert-success { background-color: var(--rvt-color-green-000); border-left-color: var(--rvt-color-green-500); color: var(--rvt-color-green-700); }
-.alert.alert-warning { background-color: var(--rvt-color-gold-000); border-left-color: var(--rvt-color-gold-500); color: var(--rvt-color-gold-700); }
-.alert.alert-danger { background-color: var(--rvt-color-orange-000); border-left-color: var(--rvt-color-orange-500); color: var(--rvt-color-orange-700); }
-.alert a { color: inherit; font-weight: var(--rvt-font-weight-medium); }
+.alert {
+   background-color: var(--rvt-color-black-000);
+   border: 0;
+   border-left: var(--rvt-spacing-xxs) solid var(--rvt-color-black-500);
+   border-radius: 0;
+   color: var(--rvt-color-black-500);
+   font-size: var(--rvt-ts-14);
+   margin: 0 0 var(--rvt-spacing-sm);
+   padding: var(--rvt-spacing-sm);
+   position: relative;
+}
 
+.alert.alert-info {
+   background-color: var(--rvt-color-blue-000);
+   border-left-color: var(--rvt-color-blue-500);
+   color: var(--rvt-color-blue-700);
+}
+
+.alert.alert-success {
+   background-color: var(--rvt-color-green-000);
+   border-left-color: var(--rvt-color-green-500);
+   color: var(--rvt-color-green-700);
+}
+
+.alert.alert-warning {
+   background-color: var(--rvt-color-gold-000);
+   border-left-color: var(--rvt-color-gold-500);
+   color: var(--rvt-color-gold-700);
+}
+
+.alert.alert-danger {
+   background-color: var(--rvt-color-orange-000);
+   border-left-color: var(--rvt-color-orange-500);
+   color: var(--rvt-color-orange-700);
+}
+
+.alert a {
+   color: inherit;
+   font-weight: var(--rvt-font-weight-medium);
+}
 
 /* style-overrides/components/tables.css */
 /* Tables: table.table -> .rvt-table, .table-striped -> .rvt-table-stripes, .ck_border -> .rvt-table-cells */
@@ -14246,38 +14396,88 @@ table.table .ck_border {
 /* Lock/access icon after a resource link (.s-lg-icons > ul > li > img.s-lg-icon). Springshare adds `margin-top: 16px` to the wrapper, `padding: 5px 2px 0 0` to the
    li and `margin-bottom: 2px` to the img, which pushed the icon below the link's baseline. Rivet's inline icon + text pattern (`.rvt-inline-alert`-style, icon 1rem,
    .5rem gap, vertically centered on the text) is used instead; the link's own trailing space (inside the <a>) supplies the rest of the gap. */
-.s-lg-icons { display: inline-flex; margin: 0 0 0 var(--rvt-spacing-xxs) !important; padding: 0 !important; vertical-align: middle; } /* !important: Springshare's .s-lg-link-list rules and .pad-left-sm utility */
-.s-lg-icons ul { align-items: center; display: inline-flex; gap: var(--rvt-spacing-xs); margin: 0; padding: 0; }
-.s-lg-icons li { align-items: center; display: flex; margin: 0 !important; padding: 0 !important; }
-.s-lg-icons .s-lg-icon { display: block; height: 1rem; margin: 0; width: 1rem; }
+.s-lg-icons {
+    display: inline-flex;
+    margin: 0 0 0 var(--rvt-spacing-xxs) !important;
+    padding: 0 !important;
+    vertical-align: middle;
+}
+
+/* !important: Springshare's .s-lg-link-list rules and .pad-left-sm utility */
+.s-lg-icons ul {
+    align-items: center;
+    display: inline-flex;
+    gap: var(--rvt-spacing-xs);
+    margin: 0;
+    padding: 0;
+}
+
+.s-lg-icons li {
+    align-items: center;
+    display: flex;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.s-lg-icons .s-lg-icon {
+    display: block;
+    height: 1rem;
+    margin: 0;
+    width: 1rem;
+}
+
 /* description sits a half-rem under the title, and the "more..." control directly under the description it belongs to */
-.s-lg-database-desc, .s-lg-link-desc { margin-top: var(--rvt-spacing-xs); }
-.s-lg-label-moreinfo { margin: var(--rvt-spacing-xs) 0 0; }
-.s-lg-content-more-info { margin: var(--rvt-spacing-xs) 0 0; }
+.s-lg-database-desc, .s-lg-link-desc {
+    margin-top: var(--rvt-spacing-xs);
+}
+
+.s-lg-label-moreinfo {
+    margin: var(--rvt-spacing-xs) 0 0;
+}
+
+.s-lg-content-more-info {
+    margin: var(--rvt-spacing-xs) 0 0;
+}
 
 /* "more..." / "less..." (`button.s-lg-label-more` / `-less`, Bootstrap btn-link) -> .rvt-button.rvt-button--small.rvt-button--secondary
    (buttons/_base.scss: 14px, 1.5rem tall, `0 .375rem` padding, white fill, blue-100 border, blue-500 text). jQuery toggles the pair with inline
    `display: block` / `display: none`, which is left alone so only one shows at a time. */
 .s-lg-label-moreinfo button.btn.btn-link {
-  background-color: var(--rvt-color-white-base);
-  border: .125rem solid var(--rvt-color-blue-100);
-  border-radius: var(--rvt-border-radius-md);
-  color: var(--rvt-color-blue-500);
-  font-size: var(--rvt-ts-14);
-  font-style: normal;
-  font-weight: var(--rvt-font-weight-medium);
-  height: var(--rvt-spacing-md);
-  line-height: 1.25rem;
-  margin: 0;
-  min-height: 0;
-  padding: 0 .375rem;
-  text-decoration: none;
-  white-space: nowrap;
+    background-color: var(--rvt-color-white-base);
+    border: .125rem solid var(--rvt-color-blue-100);
+    border-radius: var(--rvt-border-radius-md);
+    color: var(--rvt-color-blue-500);
+    font-size: var(--rvt-ts-14);
+    font-style: normal;
+    font-weight: var(--rvt-font-weight-medium);
+    height: var(--rvt-spacing-md);
+    line-height: 1.25rem;
+    margin: 0;
+    min-height: 0;
+    padding: 0 .375rem;
+    text-decoration: none;
+    white-space: nowrap;
 }
-.s-lg-label-moreinfo button.btn.btn-link:hover { background-color: var(--rvt-color-blue-000); border-color: var(--rvt-color-blue-100); color: var(--rvt-color-blue-600); text-decoration: none; }
-.s-lg-label-moreinfo button.btn.btn-link:active { background-color: var(--rvt-color-blue-100); border-color: var(--rvt-color-blue-200); color: var(--rvt-color-blue-600); }
+
+.s-lg-label-moreinfo button.btn.btn-link:hover {
+    background-color: var(--rvt-color-blue-000);
+    border-color: var(--rvt-color-blue-100);
+    color: var(--rvt-color-blue-600);
+    text-decoration: none;
+}
+
+.s-lg-label-moreinfo button.btn.btn-link:active {
+    background-color: var(--rvt-color-blue-100);
+    border-color: var(--rvt-color-blue-200);
+    color: var(--rvt-color-blue-600);
+}
+
 /* focus: secondary-button ring (white .125rem + blue-400 .25rem); beats the site's forced #101010 outline */
-body .s-lg-label-moreinfo button.btn.btn-link:focus-visible { border-color: var(--rvt-color-blue-100) !important; box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-400) !important; outline: none !important; }
+body .s-lg-label-moreinfo button.btn.btn-link:focus-visible {
+    border-color: var(--rvt-color-blue-100) !important;
+    box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-400) !important;
+    outline: none !important;
+}
 
 
 /* Resource items with a cover/thumbnail: `li.s-lg-tn-li > div#s-lg-content-… > div.s-lg-tn.pad-right-sm.float-start > img.lg-tn.pull-left.margin-right-sm`, followed by the link,
@@ -14285,12 +14485,27 @@ body .s-lg-label-moreinfo button.btn.btn-link:focus-visible { border-color: var(
    outside the list's left edge and touched the tab/box border, with 5px right margins and a stray `padding-top: 5px` on each row. The thumbnail now sits on the list's own left edge,
    1rem from the text and .5rem below (when text wraps under it), rows are 1.5rem apart (Rivet flow rhythm) with the 4px radius on the image. The thumbnail stays a float because the
    text isn't wrapped in its own element. Items without a thumbnail are not `.s-lg-tn-li` and keep the plain list styling above. */
-.s-lg-link-list > li.s-lg-tn-li { padding: 0 !important; }
-.s-lg-link-list > li + li.s-lg-tn-li,
-.s-lg-link-list > li.s-lg-tn-li + li { margin-top: var(--rvt-spacing-md); }
-.s-lg-tn-li .s-lg-tn { margin: 0 var(--rvt-spacing-sm) var(--rvt-spacing-xs) 0 !important; padding: 0 !important; }
-.s-lg-tn-li .s-lg-tn img.lg-tn { border-radius: var(--rvt-border-radius-md); display: block; height: auto; margin: 0 !important; max-width: 100%; }
+.s-lg-link-list>li.s-lg-tn-li {
+    padding: 0 !important;
+}
 
+.s-lg-link-list>li+li.s-lg-tn-li,
+.s-lg-link-list>li.s-lg-tn-li+li {
+    margin-top: var(--rvt-spacing-md);
+}
+
+.s-lg-tn-li .s-lg-tn {
+    margin: 0 var(--rvt-spacing-sm) var(--rvt-spacing-xs) 0 !important;
+    padding: 0 !important;
+}
+
+.s-lg-tn-li .s-lg-tn img.lg-tn {
+    border-radius: var(--rvt-border-radius-md);
+    display: block;
+    height: auto;
+    margin: 0 !important;
+    max-width: 100%;
+}
 
 /* style-overrides/components/profile.css */
 /* Profile box -> centered Rivet-style person card (.rvt-avatar--lg, .rvt-card__title with arrow, .rvt-card__content, plain icon buttons)
@@ -14587,64 +14802,117 @@ body .s-lg-label-moreinfo button.btn.btn-link:focus-visible { border-color: var(
    (50% wide each, 1.5rem vertical padding, black-500 text, black-000 on hover), strong = __label (black-400), page title = __item,
    and the circular arrow = __icon (2rem, black-200 border, black-300 arrow). The second row of the pair is a Springshare placeholder <li> that is
    empty when there is no previous/next page. */
-#s-lg-page-prevnext { border-bottom: 1px solid var(--rvt-color-black-100); border-top: 1px solid var(--rvt-color-black-100); margin-top: 4rem; }
-#s-lg-page-prevnext .pagination { display: flex; flex-direction: column; list-style: none; margin: 0; padding: 0; }
-#s-lg-page-prevnext .page-item { flex: none; margin: 0; padding: 0; }
-#s-lg-page-prevnext .page-item:not(:has(> a)) { display: none; }
+#s-lg-page-prevnext {
+   border-bottom: 1px solid var(--rvt-color-black-100);
+   border-top: 1px solid var(--rvt-color-black-100);
+   margin-top: 4rem;
+}
+
+#s-lg-page-prevnext .pagination {
+   display: flex;
+   flex-direction: column;
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+#s-lg-page-prevnext .page-item {
+   flex: none;
+   margin: 0;
+   padding: 0;
+}
+
+#s-lg-page-prevnext .page-item:not(:has(> a)) {
+   display: none;
+}
 
 #s-lg-page-prevnext .page-link {
-  background-color: transparent;
-  border: 0;
-  border-radius: 0;
-  color: var(--rvt-color-black-500);
-  display: block;
-  font-weight: var(--rvt-font-weight-regular);
-  line-height: var(--rvt-line-height-base);
-  min-height: 0;
-  padding: var(--rvt-spacing-md) 5rem var(--rvt-spacing-md) var(--rvt-spacing-md); /* 1.5rem edge + 2rem icon + 1.5rem gap on the icon side; 1.5rem on the other side */
-  position: relative;
-  text-decoration: none !important;
-  transition: none;
+   background-color: transparent;
+   border: 0;
+   border-radius: 0;
+   color: var(--rvt-color-black-500);
+   display: block;
+   font-weight: var(--rvt-font-weight-regular);
+   line-height: var(--rvt-line-height-base);
+   min-height: 0;
+   padding: var(--rvt-spacing-md) 5rem var(--rvt-spacing-md) var(--rvt-spacing-md);
+   /* 1.5rem edge + 2rem icon + 1.5rem gap on the icon side; 1.5rem on the other side */
+   position: relative;
+   text-decoration: none !important;
+   transition: none;
 }
-#s-lg-page-prevnext .page-link:hover { background-color: var(--rvt-color-black-000); color: var(--rvt-color-black-500); }
-#s-lg-page-prevnext .page-link strong { color: var(--rvt-color-black-400); display: block; font-weight: var(--rvt-font-weight-regular); }
+
+#s-lg-page-prevnext .page-link:hover {
+   background-color: var(--rvt-color-black-000);
+   color: var(--rvt-color-black-500);
+}
+
+#s-lg-page-prevnext .page-link strong {
+   color: var(--rvt-color-black-400);
+   display: block;
+   font-weight: var(--rvt-font-weight-regular);
+}
 
 /* __icon: 2rem circle, 1px black-200 border, 1rem black-300 arrow (the Rivet arrow paths), vertically centered at the outer edge */
 #s-lg-page-prevnext .page-link::before,
-#s-lg-page-prevnext .page-link::after { content: none; }
+#s-lg-page-prevnext .page-link::after {
+   content: none;
+}
+
 #s-lg-page-prevnext .page-item:first-child .page-link::before,
 #s-lg-page-prevnext .page-item:last-child .page-link::after {
-  background-color: transparent;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 1rem 1rem;
-  border: 1px solid var(--rvt-color-black-200);
-  border-radius: 999rem;
-  box-sizing: border-box;
-  content: "";
-  height: var(--rvt-spacing-lg);
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: var(--rvt-spacing-lg);
+   background-color: transparent;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 1rem 1rem;
+   border: 1px solid var(--rvt-color-black-200);
+   border-radius: 999rem;
+   box-sizing: border-box;
+   content: "";
+   height: var(--rvt-spacing-lg);
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   width: var(--rvt-spacing-lg);
 }
-#s-lg-page-prevnext .page-item:first-child .page-link::before { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%2375838f" viewBox="0 0 16 16"><path d="M15 7H4.156l4.107-4.854L6.737.854.69 8l6.047 7.146 1.526-1.292L4.156 9H15V7Z"></path></svg>'); left: var(--rvt-spacing-md); }
-#s-lg-page-prevnext .page-item:last-child .page-link::after { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%2375838f" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>'); right: var(--rvt-spacing-md); }
+
+#s-lg-page-prevnext .page-item:first-child .page-link::before {
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%2375838f" viewBox="0 0 16 16"><path d="M15 7H4.156l4.107-4.854L6.737.854.69 8l6.047 7.146 1.526-1.292L4.156 9H15V7Z"></path></svg>');
+   left: var(--rvt-spacing-md);
+}
+
+#s-lg-page-prevnext .page-item:last-child .page-link::after {
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%2375838f" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
+   right: var(--rvt-spacing-md);
+}
 
 /* Previous: icon on the left, text after it; Next: text, icon on the right */
-#s-lg-page-prevnext .page-item:first-child .page-link { padding: var(--rvt-spacing-md) var(--rvt-spacing-md) var(--rvt-spacing-md) 5rem; }
+#s-lg-page-prevnext .page-item:first-child .page-link {
+   padding: var(--rvt-spacing-md) var(--rvt-spacing-md) var(--rvt-spacing-md) 5rem;
+}
 
 @media screen and (min-width: 46.25em) {
-  #s-lg-page-prevnext .pagination { flex-direction: row; }
-  /* Rivet: `.rvt-seriesnav__previous/__next { flex: 1 1 50% }`, so a lone link stretches across the whole bar (checked on rivet.iu.edu: 776px of a 776px bar).
+   #s-lg-page-prevnext .pagination {
+      flex-direction: row;
+   }
+
+   /* Rivet: `.rvt-seriesnav__previous/__next { flex: 1 1 50% }`, so a lone link stretches across the whole bar (checked on rivet.iu.edu: 776px of a 776px bar).
      Deliberate deviation: here a lone link keeps its half (`flex: 0 1 50%`) — previous on the left, next on the right. */
-  #s-lg-page-prevnext .page-item { flex: 0 1 50%; }
-  #s-lg-page-prevnext .page-item:last-child { margin-left: auto; }
-  /* Deviation from Rivet: Rivet pads the halves (`__previous { padding-right: 1.5rem }`, `__next { padding-left: 1.5rem }`) so the hover fill leaves an unfilled gap on either side of the
+   #s-lg-page-prevnext .page-item {
+      flex: 0 1 50%;
+   }
+
+   #s-lg-page-prevnext .page-item:last-child {
+      margin-left: auto;
+   }
+
+   /* Deviation from Rivet: Rivet pads the halves (`__previous { padding-right: 1.5rem }`, `__next { padding-left: 1.5rem }`) so the hover fill leaves an unfilled gap on either side of the
      divider, and its icons touch the bar's outer edges. Here that padding is inside the link (hover fills the whole half) and the icons are inset 1.5rem from the edges.
   /* The divider (Rivet: `__previous { border-right }`, removed by `:only-child`) is drawn on the left of the second link, and only when BOTH links exist
      (`:has()` can't be nested, so it can't be keyed off the first item). */
-  #s-lg-page-prevnext .page-item:has(> a) + .page-item:has(> a) { border-left: 1px solid var(--rvt-color-black-100); }
+   #s-lg-page-prevnext .page-item:has(> a)+.page-item:has(> a) {
+      border-left: 1px solid var(--rvt-color-black-100);
+   }
 }
 
 /* The link text contains literal angle brackets ("<< Previous: …", "Next: … >>") which would double up with the arrow icon, and the HTML can't change.
@@ -14653,17 +14921,23 @@ body .s-lg-label-moreinfo button.btn.btn-link:focus-visible { border-color: var(
    Scoped to #s-lg-page-prevnext on purpose: the search-results pagination uses "<<", "<", ">", ">>" as its real button labels. Where a browser lacks
    `size-adjust`/`unicode-range` support the brackets simply stay visible (the layout still works). */
 @font-face {
-  font-family: "rvt-no-angle-brackets";
-  size-adjust: 0%;
-  src: local("Arial"), local("Helvetica"), local("Liberation Sans"), local("DejaVu Sans");
-  unicode-range: U+003C, U+003E;
+   font-family: "rvt-no-angle-brackets";
+   size-adjust: 0%;
+   src: local("Arial"), local("Helvetica"), local("Liberation Sans"), local("DejaVu Sans");
+   unicode-range: U+003C, U+003E;
 }
-#s-lg-page-prevnext .page-link { font-family: "rvt-no-angle-brackets", var(--rvt-font-base); }
+
+#s-lg-page-prevnext .page-link {
+   font-family: "rvt-no-angle-brackets", var(--rvt-font-base);
+}
 
 /* The Previous link's text starts with "<< " followed by a block-level <strong>, so the brackets sit alone on an extra (empty) line above "Previous:" —
-   that line made the bar 24px taller than Rivet's (122px vs 98px). It is the link's first line, so collapse it with ::first-line.
-   (Scoped to the first <li> — the previous slot; "Next" lives in the last <li> and starts with the <strong>, so its first line is the label and is left alone.) */
-#s-lg-page-prevnext .page-item:first-child .page-link::first-line { font-size: 0; line-height: 0; }
+   that line made the bar 24px taller than Rivet's (122px vs 98px). The line is exactly one `line-height` tall (the brackets are zero-width), so pull the label up by that much.
+   (`::first-line { font-size: 0 }` did this in Chrome/Safari but not in Firefox/Brave, which left the label a line too low.)
+   Scoped to the first <li> — the previous slot; "Next" lives in the last <li> and starts with the <strong>, so there is no extra line to remove. */
+#s-lg-page-prevnext .page-item:first-child .page-link strong {
+   margin-top: calc(var(--rvt-line-height-base) * -1em);
+}
 
 
 /* style-overrides/components/guide-footer.css */
@@ -14791,17 +15065,45 @@ body .s-lg-label-moreinfo button.btn.btn-link:focus-visible { border-color: var(
 #s-lib-footer-support-link a {
   margin-left: -8px;
 }
+
 /* Index/search pages use a simpler footer: <div><div#s-lib-footer-brand/><div#s-lib-footer-rights/><div#s-lib-footer-login-link/></div><div#s-lib-footer-support-link/>.
    Same left-aligned flex row as the guide meta rows; stacks below 46.25em. */
-#s-lib-footer-public > div:not([class]):not([id]) { align-items: flex-start; display: flex; flex-wrap: wrap; gap: var(--rvt-spacing-xs) var(--rvt-spacing-md); padding: var(--rvt-spacing-sm) 0 0; text-align: left; }
-#s-lib-footer-public > div:not([class]):not([id]) > div { display: block; margin: 0; padding: 0; text-align: left; }
-#s-lib-footer-public > #s-lib-footer-support-link { padding: var(--rvt-spacing-xs) 0 var(--rvt-spacing-sm); text-align: left; }
-@media screen and (max-width: 46.24em) {
-  #s-lib-footer-public > div:not([class]):not([id]) { flex-direction: column; }
+#s-lib-footer-public>div:not([class]):not([id]) {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rvt-spacing-xs) var(--rvt-spacing-md);
+  padding: var(--rvt-spacing-sm) 0 0;
+  text-align: left;
 }
-#s-lib-footer-public > #s-lib-footer-support-link { display: block; text-align: left; width: 100%; }
-#s-lib-footer-public > div:not([class]):not([id]) { align-items: baseline; }
 
+#s-lib-footer-public>div:not([class]):not([id])>div {
+  display: block;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+#s-lib-footer-public>#s-lib-footer-support-link {
+  padding: var(--rvt-spacing-xs) 0 var(--rvt-spacing-sm);
+  text-align: left;
+}
+
+@media screen and (max-width: 46.24em) {
+  #s-lib-footer-public>div:not([class]):not([id]) {
+    flex-direction: column;
+  }
+}
+
+#s-lib-footer-public>#s-lib-footer-support-link {
+  display: block;
+  text-align: left;
+  width: 100%;
+}
+
+#s-lib-footer-public>div:not([class]):not([id]) {
+  align-items: baseline;
+}
 
 /* style-overrides/components/search.css */
 /* "Search within guides" -> Rivet header search panel (.rvt-header-global__search, lg breakpoint) containing
@@ -15268,16 +15570,23 @@ body #s-lg-guide-search-form .btn:focus-visible {
     padding: 0;
     width: auto;
 }
+
 /* Facet lists (`.s-lg-facet-div-content`) are fixed-height scroll areas (max-height 300px, `overflow: auto`) with 60+ checkboxes: a thin Rivet-style border (black-100, .5rem radius, like
    the scrollable table region in tables/_base.scss) marks the box, and the inner padding keeps the checkbox focus ring (.25rem) from being clipped by its left/top edge. */
 .s-lg-facet-div-content {
-  background-color: var(--rvt-color-white-base);
-  border: 1px solid var(--rvt-color-black-100);
-  border-radius: var(--rvt-spacing-xs);
-  padding: var(--rvt-spacing-xs) var(--rvt-spacing-xs) var(--rvt-spacing-xs) var(--rvt-spacing-sm);
+    background-color: var(--rvt-color-white-base);
+    border: 1px solid var(--rvt-color-black-100);
+    border-radius: var(--rvt-spacing-xs);
+    padding: var(--rvt-spacing-xs) var(--rvt-spacing-xs) var(--rvt-spacing-xs) var(--rvt-spacing-sm);
 }
-.s-lg-facet-div-content .form-check:first-child { margin-top: 0; }
-.s-lg-facet-div-content .form-check:last-child { margin-bottom: var(--rvt-spacing-xs); }
+
+.s-lg-facet-div-content .form-check:first-child {
+    margin-top: 0;
+}
+
+.s-lg-facet-div-content .form-check:last-child {
+    margin-bottom: var(--rvt-spacing-xs);
+}
 
 /* Pagination icons (Rivet pagination docs: first / previous / next / last are 1rem chevron SVGs in the link, black-500, black-200 when there is no such page).
    The page's links carry the glyphs "<<", "<", ">", ">>" as text with aria-labels ("First page"...), so the text is collapsed (font-size 0; the aria-label still names the link)
@@ -15285,143 +15594,491 @@ body #s-lg-guide-search-form .btn:focus-visible {
 .s-srch-resultlist .page-link[aria-label="First page"],
 .s-srch-resultlist .page-link[aria-label="Previous page"],
 .s-srch-resultlist .page-link[aria-label="Next page"],
-.s-srch-resultlist .page-link[aria-label="Last page"] { font-size: 0; }
+.s-srch-resultlist .page-link[aria-label="Last page"] {
+    font-size: 0;
+}
+
 .s-srch-resultlist .page-link[aria-label="First page"]::before,
 .s-srch-resultlist .page-link[aria-label="Previous page"]::before,
 .s-srch-resultlist .page-link[aria-label="Next page"]::before,
-.s-srch-resultlist .page-link[aria-label="Last page"]::before { background-color: currentColor; content: ""; display: block; flex-shrink: 0; height: 1rem; -webkit-mask-position: center; mask-position: center; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-size: contain; mask-size: contain; width: 1rem; }
-.s-srch-resultlist .page-link[aria-label="First page"]::before { -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M.586 8 7 14.414 8.414 13l-5-5 5-5L7 1.586.586 8Z"/><path d="M6.586 8 13 14.414 14.414 13l-5-5 5-5L13 1.586 6.586 8Z"/></svg>'); mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M.586 8 7 14.414 8.414 13l-5-5 5-5L7 1.586.586 8Z"/><path d="M6.586 8 13 14.414 14.414 13l-5-5 5-5L13 1.586 6.586 8Z"/></svg>'); }
-.s-srch-resultlist .page-link[aria-label="Previous page"]::before { -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.737.854 3.69 8l6.047 7.146 1.526-1.292L6.31 8l4.953-5.854L9.737.854Z"/></svg>'); mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.737.854 3.69 8l6.047 7.146 1.526-1.292L6.31 8l4.953-5.854L9.737.854Z"/></svg>'); }
-.s-srch-resultlist .page-link[aria-label="Next page"]::before { -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.263 15.146 12.31 8 6.263.854 4.737 2.146 9.69 8l-4.953 5.854 1.526 1.292Z"/></svg>'); mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.263 15.146 12.31 8 6.263.854 4.737 2.146 9.69 8l-4.953 5.854 1.526 1.292Z"/></svg>'); }
-.s-srch-resultlist .page-link[aria-label="Last page"]::before { -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.414 8 3 1.586 1.586 3l5 5-5 5L3 14.414 9.414 8Z"/><path d="M15.414 8 9 1.586 7.586 3l5 5-5 5L9 14.414 15.414 8Z"/></svg>'); mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.414 8 3 1.586 1.586 3l5 5-5 5L3 14.414 9.414 8Z"/><path d="M15.414 8 9 1.586 7.586 3l5 5-5 5L9 14.414 15.414 8Z"/></svg>'); }
+.s-srch-resultlist .page-link[aria-label="Last page"]::before {
+    background-color: currentColor;
+    content: "";
+    display: block;
+    flex-shrink: 0;
+    height: 1rem;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    width: 1rem;
+}
+
+.s-srch-resultlist .page-link[aria-label="First page"]::before {
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M.586 8 7 14.414 8.414 13l-5-5 5-5L7 1.586.586 8Z"/><path d="M6.586 8 13 14.414 14.414 13l-5-5 5-5L13 1.586 6.586 8Z"/></svg>');
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M.586 8 7 14.414 8.414 13l-5-5 5-5L7 1.586.586 8Z"/><path d="M6.586 8 13 14.414 14.414 13l-5-5 5-5L13 1.586 6.586 8Z"/></svg>');
+}
+
+.s-srch-resultlist .page-link[aria-label="Previous page"]::before {
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.737.854 3.69 8l6.047 7.146 1.526-1.292L6.31 8l4.953-5.854L9.737.854Z"/></svg>');
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.737.854 3.69 8l6.047 7.146 1.526-1.292L6.31 8l4.953-5.854L9.737.854Z"/></svg>');
+}
+
+.s-srch-resultlist .page-link[aria-label="Next page"]::before {
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.263 15.146 12.31 8 6.263.854 4.737 2.146 9.69 8l-4.953 5.854 1.526 1.292Z"/></svg>');
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.263 15.146 12.31 8 6.263.854 4.737 2.146 9.69 8l-4.953 5.854 1.526 1.292Z"/></svg>');
+}
+
+.s-srch-resultlist .page-link[aria-label="Last page"]::before {
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.414 8 3 1.586 1.586 3l5 5-5 5L3 14.414 9.414 8Z"/><path d="M15.414 8 9 1.586 7.586 3l5 5-5 5L9 14.414 15.414 8Z"/></svg>');
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.414 8 3 1.586 1.586 3l5 5-5 5L3 14.414 9.414 8Z"/><path d="M15.414 8 9 1.586 7.586 3l5 5-5 5L9 14.414 15.414 8Z"/></svg>');
+}
+
 /* disabled (no such page): Rivet's `> *:not(a) { color: black-200 }` */
-.s-srch-resultlist .page-item.disabled .page-link { color: var(--rvt-color-black-200); pointer-events: none; }
+.s-srch-resultlist .page-item.disabled .page-link {
+    color: var(--rvt-color-black-200);
+    pointer-events: none;
+}
 
 /* Sort control ("Sorted By [Relevance v]", Bootstrap dropdown: `a.dropdown-toggle` + `ul.dropdown-menu > li > a.dropdown-item`) -> Rivet dropdown (dropdown/_base.scss + docs):
    toggle = `.rvt-button` (here the small secondary variant, so it sits inline in the sentence) with a 1rem chevron that rotates 180deg when open;
    menu = `.rvt-dropdown__menu` (white, 4px radius, `--rvt-shadow-standard`, min-width 12.5rem, .5rem vertical padding), items `padding: .375rem 1rem`, hover blue-000 / blue-500,
    selected (`aria-current` / `.active`) = 4px crimson inset bar, orange-000, crimson text, keyboard focus = inset 2px blue-500 ring. */
-.s-srch-resultlist .row.m-auto { align-items: center; display: flex; flex-wrap: wrap; gap: var(--rvt-spacing-xs); margin: 0 !important; }
-.s-srch-resultlist .row.m-auto { font-weight: var(--rvt-font-weight-regular); }
-.s-srch-resultlist .dropdown-toggle {
-  align-items: center;
-  background-color: var(--rvt-color-white-base);
-  border: .125rem solid var(--rvt-color-blue-100);
-  border-radius: var(--rvt-border-radius-md);
-  color: var(--rvt-color-blue-500);
-  display: inline-flex;
-  font-size: var(--rvt-ts-14);
-  font-weight: var(--rvt-font-weight-medium);
-  gap: var(--rvt-spacing-xxs);
-  height: var(--rvt-spacing-md);
-  line-height: 1;
-  padding: 0 .375rem;
-  text-decoration: none !important;
-  white-space: nowrap;
+.s-srch-resultlist .row.m-auto {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rvt-spacing-xs);
+    margin: 0 !important;
 }
-.s-srch-resultlist .dropdown-toggle:hover { background-color: var(--rvt-color-blue-000); color: var(--rvt-color-blue-600); }
-.s-srch-resultlist .dropdown-toggle:active { background-color: var(--rvt-color-blue-100); border-color: var(--rvt-color-blue-200); color: var(--rvt-color-blue-600); }
-.s-srch-resultlist .dropdown-toggle .dropdown-toggle-icon { align-items: center; display: inline-flex; left: 0 !important; position: static !important; }
-.s-srch-resultlist .dropdown-toggle .caret { margin: 0; }
-.s-srch-resultlist .dropdown-toggle[aria-expanded="true"] .caret { transform: rotate(180deg); }
-body .s-srch-resultlist .dropdown-toggle:focus-visible { border-color: var(--rvt-color-blue-100) !important; box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-400) !important; outline: none !important; }
 
-.s-srch-resultlist .dropdown-menu { background-color: var(--rvt-color-white-base); border: 0; border-radius: var(--rvt-spacing-xxs); box-shadow: var(--rvt-shadow-standard); /* Popper writes an inline `margin: 0` on the open menu, so the .5rem gap under the toggle (Rivet `__menu { margin-top: .5rem }`) needs !important; the menu text inherits the surrounding size like Rivet's (Bootstrap sets 1rem) */
-  margin-top: var(--rvt-spacing-xs) !important; min-width: 12.5rem; padding: var(--rvt-spacing-xs) 0; z-index: 1000; font-size: inherit; }
-.s-srch-resultlist .dropdown-menu li { margin: 0; }
-.s-srch-resultlist .dropdown-item { background-color: transparent; border: 0; color: var(--rvt-color-black-500); display: block; font-size: inherit; padding: .375rem var(--rvt-spacing-sm); text-align: left; text-decoration: none !important; white-space: normal; width: 100%; }
-.s-srch-resultlist .dropdown-item:hover { background-color: var(--rvt-color-blue-000); color: var(--rvt-color-blue-500); }
+.s-srch-resultlist .row.m-auto {
+    font-weight: var(--rvt-font-weight-regular);
+}
+
+.s-srch-resultlist .dropdown-toggle {
+    align-items: center;
+    background-color: var(--rvt-color-white-base);
+    border: .125rem solid var(--rvt-color-blue-100);
+    border-radius: var(--rvt-border-radius-md);
+    color: var(--rvt-color-blue-500);
+    display: inline-flex;
+    font-size: var(--rvt-ts-14);
+    font-weight: var(--rvt-font-weight-medium);
+    gap: var(--rvt-spacing-xxs);
+    height: var(--rvt-spacing-md);
+    line-height: 1;
+    padding: 0 .375rem;
+    text-decoration: none !important;
+    white-space: nowrap;
+}
+
+.s-srch-resultlist .dropdown-toggle:hover {
+    background-color: var(--rvt-color-blue-000);
+    color: var(--rvt-color-blue-600);
+}
+
+.s-srch-resultlist .dropdown-toggle:active {
+    background-color: var(--rvt-color-blue-100);
+    border-color: var(--rvt-color-blue-200);
+    color: var(--rvt-color-blue-600);
+}
+
+.s-srch-resultlist .dropdown-toggle .dropdown-toggle-icon {
+    align-items: center;
+    display: inline-flex;
+    left: 0 !important;
+    position: static !important;
+}
+
+.s-srch-resultlist .dropdown-toggle .caret {
+    margin: 0;
+}
+
+.s-srch-resultlist .dropdown-toggle[aria-expanded="true"] .caret {
+    transform: rotate(180deg);
+}
+
+body .s-srch-resultlist .dropdown-toggle:focus-visible {
+    border-color: var(--rvt-color-blue-100) !important;
+    box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-400) !important;
+    outline: none !important;
+}
+
+.s-srch-resultlist .dropdown-menu {
+    background-color: var(--rvt-color-white-base);
+    border: 0;
+    border-radius: var(--rvt-spacing-xxs);
+    box-shadow: var(--rvt-shadow-standard);
+    /* Popper writes an inline `margin: 0` on the open menu, so the .5rem gap under the toggle (Rivet `__menu { margin-top: .5rem }`) needs !important; the menu text inherits the surrounding size like Rivet's (Bootstrap sets 1rem) */
+    margin-top: var(--rvt-spacing-xs) !important;
+    min-width: 12.5rem;
+    padding: var(--rvt-spacing-xs) 0;
+    z-index: 1000;
+    font-size: inherit;
+}
+
+.s-srch-resultlist .dropdown-menu li {
+    margin: 0;
+}
+
+.s-srch-resultlist .dropdown-item {
+    background-color: transparent;
+    border: 0;
+    color: var(--rvt-color-black-500);
+    display: block;
+    font-size: inherit;
+    padding: .375rem var(--rvt-spacing-sm);
+    text-align: left;
+    text-decoration: none !important;
+    white-space: normal;
+    width: 100%;
+}
+
+.s-srch-resultlist .dropdown-item:hover {
+    background-color: var(--rvt-color-blue-000);
+    color: var(--rvt-color-blue-500);
+}
+
 .s-srch-resultlist .dropdown-item.active,
-.s-srch-resultlist .dropdown-item[aria-current]:not([aria-current="false"]) { background-color: var(--rvt-color-orange-000); box-shadow: inset var(--rvt-spacing-xxs) 0 0 var(--rvt-color-crimson-500); color: var(--rvt-color-crimson-500); }
-body .s-srch-resultlist .dropdown-item:focus-visible { box-shadow: inset 0 0 0 .125rem var(--rvt-color-blue-500) !important; outline: none !important; }
-body .s-srch-resultlist .dropdown-item.active:focus-visible { box-shadow: inset var(--rvt-spacing-xxs) 0 0 var(--rvt-color-blue-500), inset 0 0 0 .125rem var(--rvt-color-blue-500) !important; }
+.s-srch-resultlist .dropdown-item[aria-current]:not([aria-current="false"]) {
+    background-color: var(--rvt-color-orange-000);
+    box-shadow: inset var(--rvt-spacing-xxs) 0 0 var(--rvt-color-crimson-500);
+    color: var(--rvt-color-crimson-500);
+}
 
+body .s-srch-resultlist .dropdown-item:focus-visible {
+    box-shadow: inset 0 0 0 .125rem var(--rvt-color-blue-500) !important;
+    outline: none !important;
+}
+
+body .s-srch-resultlist .dropdown-item.active:focus-visible {
+    box-shadow: inset var(--rvt-spacing-xxs) 0 0 var(--rvt-color-blue-500), inset 0 0 0 .125rem var(--rvt-color-blue-500) !important;
+}
 
 /* style-overrides/components/guide-index.css */
 /* Guide index pages (index.php: All Guides / By Subject / By Type / By Subject Specialist) */
 
 /* Type switcher (#s-lg-hp-nav, buttons role="tab") -> Rivet segmented buttons (.rvt-button-segmented, buttons-segmented/_base.scss):
    secondary buttons joined with -2px overlap, selected = primary. The grey bar becomes a neutral panel. */
-#s-lg-hp-nav { background: var(--rvt-color-black-000); border: 1px solid var(--rvt-color-black-100); border-radius: var(--rvt-border-radius-md); color: var(--rvt-color-black-500); margin-bottom: var(--rvt-spacing-md); padding: var(--rvt-spacing-sm); }
-#s-lg-hp-nav .nav-pills { align-items: center; display: flex; flex-wrap: wrap; gap: var(--rvt-spacing-xs) 0; }
-#s-lg-hp-nav .s-lg-index-nav-btn { margin: 0; }
-#s-lg-hp-nav .s-lg-index-nav-btn + .s-lg-index-nav-btn { margin-left: -2px; }
-#s-lg-hp-nav .s-lg-index-nav-btn > .btn {
-  align-items: center;
-  background-color: var(--rvt-color-white-base);
-  border: .125rem solid var(--rvt-color-blue-100);
-  border-radius: 0;
-  color: var(--rvt-color-blue-500);
-  display: inline-flex;
-  font-size: var(--rvt-ts-16);
-  font-weight: var(--rvt-font-weight-medium);
-  height: var(--rvt-spacing-xl);
-  margin: 0;
-  padding: 0 .625rem;
-  position: relative;
+#s-lg-hp-nav {
+   background: var(--rvt-color-black-000);
+   border: 1px solid var(--rvt-color-black-100);
+   border-radius: var(--rvt-border-radius-md);
+   color: var(--rvt-color-black-500);
+   margin-bottom: var(--rvt-spacing-md);
+   padding: var(--rvt-spacing-sm);
 }
-#s-lg-hp-nav .s-lg-index-nav-btn:first-child > .btn { border-bottom-left-radius: var(--rvt-border-radius-md); border-top-left-radius: var(--rvt-border-radius-md); }
-#s-lg-hp-nav .s-lg-index-nav-btn:nth-child(4) > .btn { border-bottom-right-radius: var(--rvt-border-radius-md); border-top-right-radius: var(--rvt-border-radius-md); }
-#s-lg-hp-nav .s-lg-index-nav-btn > .btn:hover { background-color: var(--rvt-color-blue-000); color: var(--rvt-color-blue-600); }
-#s-lg-hp-nav .s-lg-index-nav-btn > .btn:active { background-color: var(--rvt-color-blue-100); border-color: var(--rvt-color-blue-200); color: var(--rvt-color-blue-600); }
-#s-lg-hp-nav .s-lg-index-nav-btn > .btn[aria-selected="true"],
-#s-lg-hp-nav .s-lg-index-nav-btn.active > .btn { background-color: var(--rvt-color-blue-500); border-color: var(--rvt-color-blue-500); color: var(--rvt-color-white-base); }
-#s-lg-hp-nav .s-lg-index-nav-btn > .btn[aria-selected="true"]:hover { background-color: var(--rvt-color-blue-600); border-color: var(--rvt-color-blue-600); color: var(--rvt-color-white-base); }
+
+#s-lg-hp-nav .nav-pills {
+   align-items: center;
+   display: flex;
+   flex-wrap: wrap;
+   gap: var(--rvt-spacing-xs) 0;
+}
+
+#s-lg-hp-nav .s-lg-index-nav-btn {
+   margin: 0;
+}
+
+#s-lg-hp-nav .s-lg-index-nav-btn+.s-lg-index-nav-btn {
+   margin-left: -2px;
+}
+
+#s-lg-hp-nav .s-lg-index-nav-btn>.btn {
+   align-items: center;
+   background-color: var(--rvt-color-white-base);
+   border: .125rem solid var(--rvt-color-blue-100);
+   border-radius: 0;
+   color: var(--rvt-color-blue-500);
+   display: inline-flex;
+   font-size: var(--rvt-ts-16);
+   font-weight: var(--rvt-font-weight-medium);
+   height: var(--rvt-spacing-xl);
+   margin: 0;
+   padding: 0 .625rem;
+   position: relative;
+}
+
+#s-lg-hp-nav .s-lg-index-nav-btn:first-child>.btn {
+   border-bottom-left-radius: var(--rvt-border-radius-md);
+   border-top-left-radius: var(--rvt-border-radius-md);
+}
+
+#s-lg-hp-nav .s-lg-index-nav-btn:nth-child(4)>.btn {
+   border-bottom-right-radius: var(--rvt-border-radius-md);
+   border-top-right-radius: var(--rvt-border-radius-md);
+}
+
+#s-lg-hp-nav .s-lg-index-nav-btn>.btn:hover {
+   background-color: var(--rvt-color-blue-000);
+   color: var(--rvt-color-blue-600);
+}
+
+#s-lg-hp-nav .s-lg-index-nav-btn>.btn:active {
+   background-color: var(--rvt-color-blue-100);
+   border-color: var(--rvt-color-blue-200);
+   color: var(--rvt-color-blue-600);
+}
+
+#s-lg-hp-nav .s-lg-index-nav-btn>.btn[aria-selected="true"],
+#s-lg-hp-nav .s-lg-index-nav-btn.active>.btn {
+   background-color: var(--rvt-color-blue-500);
+   border-color: var(--rvt-color-blue-500);
+   color: var(--rvt-color-white-base);
+}
+
+#s-lg-hp-nav .s-lg-index-nav-btn>.btn[aria-selected="true"]:hover {
+   background-color: var(--rvt-color-blue-600);
+   border-color: var(--rvt-color-blue-600);
+   color: var(--rvt-color-white-base);
+}
+
 /* focus (Rivet: ring, z-index 1000 so it isn't covered by the neighbour) */
-body #s-lg-hp-nav .s-lg-index-nav-btn > .btn:focus-visible { border-color: var(--rvt-color-blue-100) !important; box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-400) !important; outline: none !important; z-index: 1000; }
-body #s-lg-hp-nav .s-lg-index-nav-btn > .btn[aria-selected="true"]:focus-visible { border-color: var(--rvt-color-blue-500) !important; }
+body #s-lg-hp-nav .s-lg-index-nav-btn>.btn:focus-visible {
+   border-color: var(--rvt-color-blue-100) !important;
+   box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-400) !important;
+   outline: none !important;
+   z-index: 1000;
+}
+
+body #s-lg-hp-nav .s-lg-index-nav-btn>.btn[aria-selected="true"]:focus-visible {
+   border-color: var(--rvt-color-blue-500) !important;
+}
 
 /* Search in the bar: label + .rvt-input-group (white input, primary appended button) */
-#search-guides { margin-left: auto; }
-#search-guides form > span { color: var(--rvt-color-black-500); font-size: var(--rvt-ts-14); }
-#search-guides .form-control { background-color: var(--rvt-color-white-base); border-bottom-right-radius: 0; border-top-right-radius: 0; }
-#search-guides .btn.border { background-color: var(--rvt-color-blue-500); border: .125rem solid var(--rvt-color-blue-500) !important; border-bottom-left-radius: 0; border-top-left-radius: 0; color: var(--rvt-color-white-base); margin-left: -1px; }
-#search-guides .btn.border:hover { background-color: var(--rvt-color-blue-600); border-color: var(--rvt-color-blue-600) !important; }
-#search-guides .btn.border:active { background-color: var(--rvt-color-blue-700); border-color: var(--rvt-color-blue-700) !important; }
+#search-guides {
+   margin-left: auto;
+}
+
+#search-guides form>span {
+   color: var(--rvt-color-black-500);
+   font-size: var(--rvt-ts-14);
+}
+
+#search-guides .form-control {
+   background-color: var(--rvt-color-white-base);
+   border-bottom-right-radius: 0;
+   border-top-right-radius: 0;
+}
+
+#search-guides .btn.border {
+   background-color: var(--rvt-color-blue-500);
+   border: .125rem solid var(--rvt-color-blue-500) !important;
+   border-bottom-left-radius: 0;
+   border-top-left-radius: 0;
+   color: var(--rvt-color-white-base);
+   margin-left: -1px;
+}
+
+#search-guides .btn.border:hover {
+   background-color: var(--rvt-color-blue-600);
+   border-color: var(--rvt-color-blue-600) !important;
+}
+
+#search-guides .btn.border:active {
+   background-color: var(--rvt-color-blue-700);
+   border-color: var(--rvt-color-blue-700) !important;
+}
 
 /* "Showing N Guide Types" (.text-muted is `color: ... !important`) */
-#s-lg-index-list-header { color: var(--rvt-color-black-500) !important; font-size: var(--rvt-ts-18); font-weight: var(--rvt-font-weight-regular); margin-bottom: var(--rvt-spacing-sm) !important; }
+#s-lg-index-list-header {
+   color: var(--rvt-color-black-500) !important;
+   font-size: var(--rvt-ts-18);
+   font-weight: var(--rvt-font-weight-regular);
+   margin-bottom: var(--rvt-spacing-sm) !important;
+}
 
 /* Guide-type accordions -> Rivet accordion (rule above and below each item, 1.25rem regular toggle text, plus/minus icon) with the
    count as .rvt-badge. Springshare forces the grey cards with !important (`display: block`, `background-color: #f1f1f1`). */
-#s-lg-index-list .accordion { border-bottom: 1px solid var(--rvt-color-black-100); margin-bottom: 0; }
-#s-lg-index-list .accordion .accordion-item { border: 0; border-radius: 0; border-top: 1px solid var(--rvt-color-black-100); margin-bottom: 0; }
-#s-lg-index-list .accordion .accordion-button { align-items: center; background-color: transparent !important; border-radius: 0; display: flex !important; padding: var(--rvt-spacing-md) var(--rvt-spacing-sm); }
-#s-lg-index-list .accordion .accordion-button:hover { background-color: var(--rvt-color-black-000) !important; text-decoration: none; }
-#s-lg-index-list .accordion .accordion-button:not(.collapsed) { background-color: transparent !important; }
-#s-lg-index-list .accordion .accordion-button::after { display: block !important; order: 3; }
-#s-lg-index-list .accordion .accordion-button > .bold { color: var(--rvt-color-black-500); flex-grow: 1; font-size: var(--rvt-ts-20); font-weight: var(--rvt-font-weight-regular); line-height: 1.3; order: 1; padding-right: var(--rvt-spacing-sm); text-align: left; }
-#s-lg-index-list .accordion .accordion-button > .badge { background-color: var(--rvt-color-black-100); border: .125rem solid var(--rvt-color-black-100); border-radius: 999rem; color: var(--rvt-color-black-500); display: inline-block; float: none; font-size: var(--rvt-ts-14); font-weight: var(--rvt-font-weight-medium); letter-spacing: .02rem; line-height: 1; margin-right: var(--rvt-spacing-sm); order: 2; padding: .1875rem .5rem; white-space: nowrap; }
-#s-lg-index-list .s-lg-guide-list { list-style: none; margin: 0; padding-left: 0; }
-#s-lg-index-list .s-lg-guide-list > li + li { margin-top: var(--rvt-spacing-xs); }
-#s-lg-index-list .s-lg-gtitle a.bold { font-weight: var(--rvt-font-weight-medium); }
-.s-lib-color-lt-grey { color: var(--rvt-color-black-400); }
+#s-lg-index-list .accordion {
+   border-bottom: 1px solid var(--rvt-color-black-100);
+   margin-bottom: 0;
+}
+
+#s-lg-index-list .accordion .accordion-item {
+   border: 0;
+   border-radius: 0;
+   border-top: 1px solid var(--rvt-color-black-100);
+   margin-bottom: 0;
+}
+
+#s-lg-index-list .accordion .accordion-button {
+   align-items: center;
+   background-color: transparent !important;
+   border-radius: 0;
+   display: flex !important;
+   padding: var(--rvt-spacing-md) var(--rvt-spacing-sm);
+}
+
+#s-lg-index-list .accordion .accordion-button:hover {
+   background-color: var(--rvt-color-black-000) !important;
+   text-decoration: none;
+}
+
+#s-lg-index-list .accordion .accordion-button:not(.collapsed) {
+   background-color: transparent !important;
+}
+
+#s-lg-index-list .accordion .accordion-button::after {
+   display: block !important;
+   order: 3;
+}
+
+#s-lg-index-list .accordion .accordion-button>.bold {
+   color: var(--rvt-color-black-500);
+   flex-grow: 1;
+   font-size: var(--rvt-ts-20);
+   font-weight: var(--rvt-font-weight-regular);
+   line-height: 1.3;
+   order: 1;
+   padding-right: var(--rvt-spacing-sm);
+   text-align: left;
+}
+
+#s-lg-index-list .accordion .accordion-button>.badge {
+   background-color: var(--rvt-color-black-100);
+   border: .125rem solid var(--rvt-color-black-100);
+   border-radius: 999rem;
+   color: var(--rvt-color-black-500);
+   display: inline-block;
+   float: none;
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-medium);
+   letter-spacing: .02rem;
+   line-height: 1;
+   margin-right: var(--rvt-spacing-sm);
+   order: 2;
+   padding: .1875rem .5rem;
+   white-space: nowrap;
+}
+
+#s-lg-index-list .s-lg-guide-list {
+   list-style: none;
+   margin: 0;
+   padding-left: 0;
+}
+
+#s-lg-index-list .s-lg-guide-list>li+li {
+   margin-top: var(--rvt-spacing-xs);
+}
+
+#s-lg-index-list .s-lg-gtitle a.bold {
+   font-weight: var(--rvt-font-weight-medium);
+}
+
+.s-lib-color-lt-grey {
+   color: var(--rvt-color-black-400);
+}
 
 /* Sidebar blocks ("Help is Just a Click Away"): heading = 1.25rem regular with a black-100 rule; text black-400; CTA = primary button */
-.s-lib-public-side-header h2 { border-bottom: 1px solid var(--rvt-color-black-100); color: var(--rvt-color-black-500); font-family: var(--rvt-font-base); font-size: var(--rvt-ts-20); font-weight: var(--rvt-font-weight-regular); line-height: var(--rvt-line-height-tight); padding-bottom: var(--rvt-spacing-xs); }
-.margin-bottom-xlg { margin-bottom: var(--rvt-spacing-lg); }
-.s-lib-public-side-header + .txt { color: var(--rvt-color-black-400); line-height: var(--rvt-line-height-loose); padding-top: var(--rvt-spacing-sm); }
-.s-lg-hp-btn-section { margin-top: var(--rvt-spacing-sm); }
+.s-lib-public-side-header h2 {
+   border-bottom: 1px solid var(--rvt-color-black-100);
+   color: var(--rvt-color-black-500);
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-20);
+   font-weight: var(--rvt-font-weight-regular);
+   line-height: var(--rvt-line-height-tight);
+   padding-bottom: var(--rvt-spacing-xs);
+}
+
+.margin-bottom-xlg {
+   margin-bottom: var(--rvt-spacing-lg);
+}
+
+.s-lib-public-side-header+.txt {
+   color: var(--rvt-color-black-400);
+   line-height: var(--rvt-line-height-loose);
+   padding-top: var(--rvt-spacing-sm);
+}
+
+.s-lg-hp-btn-section {
+   margin-top: var(--rvt-spacing-sm);
+}
 
 /* Display control ("Display [Alphabetically] [Go]"): label black-500, .rvt-select, primary button; clear of the sidebar below */
-#s-lg-guide-list-controls { margin-bottom: var(--rvt-spacing-md); }
-#s-lg-guide-list-controls .text-muted { color: var(--rvt-color-black-500) !important; }
-#s-lg-guide-list-controls .col-form-label { color: var(--rvt-color-black-500); font-size: var(--rvt-ts-14); }
-#form-group-s-lg-guide-order .btn.border { background-color: var(--rvt-color-blue-500); border: .125rem solid var(--rvt-color-blue-500) !important; color: var(--rvt-color-white-base); }
-#form-group-s-lg-guide-order .btn.border:hover { background-color: var(--rvt-color-blue-600); border-color: var(--rvt-color-blue-600) !important; }
-#form-group-s-lg-guide-order .btn.border:active { background-color: var(--rvt-color-blue-700); border-color: var(--rvt-color-blue-700) !important; }
+#s-lg-guide-list-controls {
+   margin-bottom: var(--rvt-spacing-md);
+}
+
+#s-lg-guide-list-controls .text-muted {
+   color: var(--rvt-color-black-500) !important;
+}
+
+#s-lg-guide-list-controls .col-form-label {
+   color: var(--rvt-color-black-500);
+   font-size: var(--rvt-ts-14);
+}
+
+#form-group-s-lg-guide-order .btn.border {
+   background-color: var(--rvt-color-blue-500);
+   border: .125rem solid var(--rvt-color-blue-500) !important;
+   color: var(--rvt-color-white-base);
+}
+
+#form-group-s-lg-guide-order .btn.border:hover {
+   background-color: var(--rvt-color-blue-600);
+   border-color: var(--rvt-color-blue-600) !important;
+}
+
+#form-group-s-lg-guide-order .btn.border:active {
+   background-color: var(--rvt-color-blue-700);
+   border-color: var(--rvt-color-blue-700) !important;
+}
 
 /* Guide list rows (.s-lib-box.s-lib-box-idx-guide-list: bordered, shadowed cards) -> plain list rows separated by a black-100 rule;
    title = link, meta (updated date, views) = 14px black-400 on the right */
-.s-lib-box.s-lib-box-idx-guide-list { background: transparent; border: 0; border-bottom: 1px solid var(--rvt-color-black-100); border-radius: 0; box-shadow: none; display: block; margin: 0; }
-.s-lib-box-idx-guide-list .s-lib-box-content { padding: var(--rvt-spacing-sm) 0; }
-.s-lib-box.s-lib-box-idx-guide-list .s-lib-box-content .s-lg-gtitle { align-items: baseline; column-gap: var(--rvt-spacing-xs); display: flex; flex-wrap: wrap; }
-.s-lib-box-idx-guide-list .s-lg-gtitle a.bold { font-size: var(--rvt-ts-16); font-weight: var(--rvt-font-weight-medium); }
-.s-lib-box-idx-guide-list .s-ui-helptip { display: inline-block; }
-.s-lib-box-idx-guide-list .btn-help-popover { color: var(--rvt-color-blue-500); min-height: 0; padding: 0 .25rem; }
-.s-lib-box-idx-guide-list .s-lg-gmeta { color: var(--rvt-color-black-400); display: flex; float: none !important; font-size: var(--rvt-ts-14); gap: var(--rvt-spacing-sm); margin-left: auto; white-space: nowrap; }
-.s-lib-box-idx-guide-list .s-lg-gmeta .pad-left-med { padding-left: 0; }
+.s-lib-box.s-lib-box-idx-guide-list {
+   background: transparent;
+   border: 0;
+   border-bottom: 1px solid var(--rvt-color-black-100);
+   border-radius: 0;
+   box-shadow: none;
+   display: block;
+   margin: 0;
+}
 
+.s-lib-box-idx-guide-list .s-lib-box-content {
+   padding: var(--rvt-spacing-sm) 0;
+}
+
+.s-lib-box.s-lib-box-idx-guide-list .s-lib-box-content .s-lg-gtitle {
+   align-items: baseline;
+   column-gap: var(--rvt-spacing-xs);
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.s-lib-box-idx-guide-list .s-lg-gtitle a.bold {
+   font-size: var(--rvt-ts-16);
+   font-weight: var(--rvt-font-weight-medium);
+}
+
+.s-lib-box-idx-guide-list .s-ui-helptip {
+   display: inline-block;
+}
+
+.s-lib-box-idx-guide-list .btn-help-popover {
+   color: var(--rvt-color-blue-500);
+   min-height: 0;
+   padding: 0 .25rem;
+}
+
+.s-lib-box-idx-guide-list .s-lg-gmeta {
+   color: var(--rvt-color-black-400);
+   display: flex;
+   float: none !important;
+   font-size: var(--rvt-ts-14);
+   gap: var(--rvt-spacing-sm);
+   margin-left: auto;
+   white-space: nowrap;
+}
+
+.s-lib-box-idx-guide-list .s-lg-gmeta .pad-left-med {
+   padding-left: 0;
+}
 
 /* style-overrides/components/footer.css */
 /* Footer (.rvt-footer-social / .rvt-footer-resources / .rvt-footer-base): markup is Rivet's; match libraries.indiana.edu.
@@ -15536,12 +16193,38 @@ body .rvt-footer-resources .rvt-c-footer-resources__button:focus-visible {
   width: 90% !important;
   z-index: 1000;
 }
-/* data-rvt-dialog-darken-page: the page behind is darkened with black-base at .85 */
-.ui-widget-overlay { background: rgba(36, 49, 66, .85); opacity: 1; }
-.ui-dialog .ui-resizable-handle { display: none; }
 
-.ui-dialog .ui-dialog-titlebar { align-items: center; background: transparent; border: 0; border-bottom: 1px solid var(--rvt-color-black-100); border-radius: 0; box-shadow: none; cursor: default; display: block; padding: var(--rvt-spacing-md) var(--rvt-spacing-sm); position: relative; }
-.ui-dialog .ui-dialog-title { color: var(--rvt-color-black-500); float: none; font-size: var(--rvt-ts-20); font-weight: var(--rvt-font-weight-bold); line-height: 1; margin: 0; }
+/* data-rvt-dialog-darken-page: the page behind is darkened with black-base at .85 */
+.ui-widget-overlay {
+  background: rgba(36, 49, 66, .85);
+  opacity: 1;
+}
+
+.ui-dialog .ui-resizable-handle {
+  display: none;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rvt-color-black-100);
+  border-radius: 0;
+  box-shadow: none;
+  cursor: default;
+  display: block;
+  padding: var(--rvt-spacing-md) var(--rvt-spacing-sm);
+  position: relative;
+}
+
+.ui-dialog .ui-dialog-title {
+  color: var(--rvt-color-black-500);
+  float: none;
+  font-size: var(--rvt-ts-20);
+  font-weight: var(--rvt-font-weight-bold);
+  line-height: 1;
+  margin: 0;
+}
 
 /* close: transparent 2rem square (icon .5 line-height + .5rem padding), blue-500 fill on hover, white + blue-600 focus ring */
 .ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close {
@@ -15560,42 +16243,113 @@ body .rvt-footer-resources .rvt-c-footer-resources__button:focus-visible {
   top: 1.1rem;
   width: auto;
 }
-.ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close:hover { background-color: var(--rvt-color-blue-500); color: var(--rvt-color-white-base); }
-.ui-dialog .ui-dialog-titlebar-close i { display: none; } /* Font Awesome "close" glyph replaced by the Rivet x icon below */
+
+.ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close:hover {
+  background-color: var(--rvt-color-blue-500);
+  color: var(--rvt-color-white-base);
+}
+
+.ui-dialog .ui-dialog-titlebar-close i {
+  display: none;
+}
+
+/* Font Awesome "close" glyph replaced by the Rivet x icon below */
 .ui-dialog .ui-dialog-titlebar-close::before {
   background-color: currentColor;
   content: "";
   display: inline-block;
   height: 1rem;
   -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"></path></svg>') center / contain no-repeat;
-          mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"></path></svg>') center / contain no-repeat;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"></path></svg>') center / contain no-repeat;
   vertical-align: middle;
   width: 1rem;
 }
 
-.ui-dialog .ui-dialog-content { background: transparent; border: 0; height: auto !important; min-height: 0 !important; overflow: auto; padding: var(--rvt-spacing-sm); }
-.ui-dialog .ui-dialog-content .alert:last-child { margin-bottom: 0; }
+.ui-dialog .ui-dialog-content {
+  background: transparent;
+  border: 0;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: auto;
+  padding: var(--rvt-spacing-sm);
+}
+
+.ui-dialog .ui-dialog-content .alert:last-child {
+  margin-bottom: 0;
+}
 
 /* controls: padding 1rem, black-100 rule above, black-000 background, buttons right-aligned (stacked full-width on narrow screens) */
-.ui-dialog .ui-dialog-buttonpane { background-color: var(--rvt-color-black-000); border: 0; border-top: 1px solid var(--rvt-color-black-100); margin: 0; padding: var(--rvt-spacing-sm); }
-.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset { display: flex; flex-wrap: wrap; float: none; gap: var(--rvt-spacing-sm); padding: 0; }
-.ui-dialog .ui-dialog-buttonpane .btn { justify-content: center; margin: 0; width: 100%; }
-@media screen and (min-width: 30em) {
-  .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset { justify-content: flex-end; }
-  .ui-dialog .ui-dialog-buttonpane .btn { width: auto; }
+.ui-dialog .ui-dialog-buttonpane {
+  background-color: var(--rvt-color-black-000);
+  border: 0;
+  border-top: 1px solid var(--rvt-color-black-100);
+  margin: 0;
+  padding: var(--rvt-spacing-sm);
 }
+
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+  display: flex;
+  flex-wrap: wrap;
+  float: none;
+  gap: var(--rvt-spacing-sm);
+  padding: 0;
+}
+
+.ui-dialog .ui-dialog-buttonpane .btn {
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+}
+
+@media screen and (min-width: 30em) {
+  .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+    justify-content: flex-end;
+  }
+
+  .ui-dialog .ui-dialog-buttonpane .btn {
+    width: auto;
+  }
+}
+
 /* .btn-sm (Springshare marks these buttons small) is normal size inside .rvt-dialog__controls */
-.ui-dialog .ui-dialog-buttonpane .btn-sm { font-size: var(--rvt-ts-16); height: var(--rvt-spacing-xl); min-height: var(--rvt-spacing-xl); padding: 0 .625rem; }
+.ui-dialog .ui-dialog-buttonpane .btn-sm {
+  font-size: var(--rvt-ts-16);
+  height: var(--rvt-spacing-xl);
+  min-height: var(--rvt-spacing-xl);
+  padding: 0 .625rem;
+}
+
 /* secondary/default buttons in the dialog */
-.ui-dialog .ui-dialog-buttonpane .btn-default:not(.btn-primary) { background-color: var(--rvt-color-white-base); border-color: var(--rvt-color-blue-100); color: var(--rvt-color-blue-500); }
-.ui-dialog .ui-dialog-buttonpane .btn-default:not(.btn-primary):hover { background-color: var(--rvt-color-blue-000); color: var(--rvt-color-blue-600); }
+.ui-dialog .ui-dialog-buttonpane .btn-default:not(.btn-primary) {
+  background-color: var(--rvt-color-white-base);
+  border-color: var(--rvt-color-blue-100);
+  color: var(--rvt-color-blue-500);
+}
+
+.ui-dialog .ui-dialog-buttonpane .btn-default:not(.btn-primary):hover {
+  background-color: var(--rvt-color-blue-000);
+  color: var(--rvt-color-blue-600);
+}
 
 /* Focus ring for the close button (dialog/_base.scss `&__close:focus`): white .125rem + blue-600 .25rem. Beats the site's forced #101010 outline. */
-body .ui-dialog .ui-dialog-titlebar-close:focus-visible { box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-600) !important; outline: none !important; border-color: transparent !important; }
+body .ui-dialog .ui-dialog-titlebar-close:focus-visible {
+  box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-600) !important;
+  outline: none !important;
+  border-color: transparent !important;
+}
 
 /* close button: exactly 2rem square like `.rvt-dialog__close` (8px padding + 16px icon); the inline ::before had added line-height */
-.ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close { align-items: center; box-sizing: border-box; display: flex; height: var(--rvt-spacing-lg); justify-content: center; line-height: 1; min-height: 0; padding: 0; width: var(--rvt-spacing-lg); }
-
+.ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  height: var(--rvt-spacing-lg);
+  justify-content: center;
+  line-height: 1;
+  min-height: 0;
+  padding: 0;
+  width: var(--rvt-spacing-lg);
+}
 
 /* style-overrides/components/loading.css */
 /* "Working..." notification (#jquery-notification) -> Rivet raised card (.rvt-card--raised) containing .rvt-loader.rvt-loader--lg
