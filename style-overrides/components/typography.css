@@ -4,6 +4,11 @@ body.s-lg-guide-body {
   font-family: var(--rvt-font-base);
   line-height: var(--rvt-line-height-base);
 }
+/* text */
+  body, h1, h2, h3, h4,  h5, h6, #s-lg-guide-header-info h1, .s-lib-header h1, .public-collapsible-box h2.accordion-header > button, h2.s-lib-box-title button { 
+    font-family: var(--rvt-font-base);
+  }
+
 
 /* Page title (h1) and headings: .rvt-prose heading scale, regular weight, tight line-height */
 /* The external rivet-custom-lb-az.css (loads after this file) sets `#s-lib-public-header-title { 24px / 600 }`, `h2 { 22px }`, `h3 { 18px }`;
