@@ -1,0 +1,1499 @@
+<html lang="en"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="icon" href="https://libraries.indiana.edu/themes/custom/iul/favicon.ico" type="image/x-icon">
+    
+<title>All UI Test - Testing Guide - Library Research Guides at Indiana University</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<link rel="icon" href="https://libraries.indiana.edu/themes/custom/iul/favicon.ico" type="image/x-icon">
+
+
+<!-- public_metadata.twig -->
+
+    <!-- auto generated dublin core metadata -->
+    <meta name="DC.Title" content="Library Research Guides: Testing Guide: All UI Test">
+    <meta name="DC.Creator" content="James Henry Smith">
+    <meta name="DC.Subject" content="">
+    <meta name="DC.Description" content="">
+    <meta name="DC.Publishers" content="Indiana University">
+    <meta name="DC.Rights" content="Copyright Indiana University 2026">
+    <meta name="DC.Language" content="en">
+    <meta name="DC.Identifier" content="https://guides.libraries.indiana.edu/c.php?g=1527272&amp;p=11710160">
+    <meta name="DC.Date.Created" content="Apr 16, 2026">
+    <meta name="DC.Date.Modified" content="Oct 20, 2026">
+    
+
+<meta property="og:title" content="Library Research Guides: Testing Guide: All UI Test">
+<meta property="og:description" content="Library Research Guides: Testing Guide: All UI Test">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://guides.libraries.indiana.edu/c.php?g=1527272&amp;p=11710160">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@springshare">
+
+
+<!-- Required -->
+<link rel="stylesheet" href="./required/bootstrap.css">
+<link rel="stylesheet" href="./required/font-awesome.css">
+<link rel="stylesheet" href="./required/jquery-ui.css">
+<link rel="stylesheet" href="./required/slick.css">
+<link rel="stylesheet" href="./required/slick-theme.css">
+<link rel="stylesheet" href="./required/springshare-styles.css">
+
+<!-- Overrides -->
+<link rel="stylesheet" href="./style-overrides/new-overrides.css">
+
+
+<script type="text/javascript" src="https://static-assets-us.libguides.com/web/jquery/js/jquery-3.7.1.min.js"></script>
+<script>
+    jQuery(document).ready(function () {
+                        var s_lg_guide_name = jQuery('#s-lg-guide-name');
+        if (s_lg_guide_name.length) {
+            if (jQuery.trim(s_lg_guide_name.text()) === '') {
+                s_lg_guide_name.remove();
+            }
+        }
+    });
+</script>
+
+    <script src="//code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script>
+        jQuery.ui ||
+        document.write('<script src="https://static-assets-us.libguides.com/web/jquery/js/jquery-ui.min.js?2691">\x3C/script>');
+    </script>
+
+    <script type="text/javascript" src="https://static-assets-us.libguides.com/web/js3.30.4/lg-public-bs535.min.js"></script>
+<style>/** bs5/bootstrap_tab_box_css.twig **/
+
+            
+#s-lg-tabs-container .nav-tabs > li > a,
+#s-lg-tabs-container .nav-tabs > li > button,
+#s-lg-tabs-container .nav-pills > li > a,
+#s-lg-tabs-container .nav-pills > li > button {
+    border: 1px solid transparent;
+         -webkit-border-radius: 0;
+         -moz-border-radius: 0;
+         border-radius: 0;
+    background-color: #edeceb;
+    color: #990000;
+    font-weight: bold;
+    padding: 4px 15px;
+}
+
+#s-lg-tabs-container .nav-tabs {
+    border-bottom: 0;
+}
+
+#s-lg-tabs-container .nav-tabs > li#s-lg-admin-tab-add > a {
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+}
+
+#s-lg-tabs-container .nav-tabs > li > a:hover,
+#s-lg-tabs-container .nav-tabs > li > button:hover,
+#s-lg-tabs-container .nav-pills > li > a:hover,
+#s-lg-tabs-container .nav-pills > li > button:hover {
+    border: 1px solid transparent;
+         -webkit-border-radius: 0;
+         -moz-border-radius: 0;
+         border-radius: 0;
+    background-color: #990000;
+    color: #ffffff;
+}
+
+#s-lg-tabs-container .nav-tabs > .active > a,
+#s-lg-tabs-container .nav-tabs > .active > button,
+#s-lg-tabs-container .nav-pills > .active > a,
+#s-lg-tabs-container .nav-pills > .active > button {
+    color: #ffffff;
+    cursor: default;
+    background-color: #990000;
+    border: 1px solid transparent;
+         -webkit-border-radius: 0;
+         -moz-border-radius: 0;
+         border-radius: 0;
+    border-bottom-color: transparent;
+    font-weight: bold;
+}
+
+#s-lg-tabs-container .nav-tabs > .active > .s-lg-subtab-ul > .active > a,
+#s-lg-tabs-container .nav-tabs > .active > .s-lg-subtab-ul > .active > button {
+    color: #ffffff;
+    cursor: default;
+    background-color: #990000;
+    border-bottom-color: transparent;
+}
+
+#s-lg-tabs-container .dropdown-item.active {
+    background-color: #990000;
+}
+
+#s-lg-tabs-container .nav-tabs > .active > a:hover,
+#s-lg-tabs-container .nav-pills > .active > a:hover,
+#s-lg-tabs-container .nav-tabs > .active > button:hover,
+#s-lg-tabs-container .nav-pills > .active > button:hover {
+    color: #ffffff;
+    cursor: pointer;
+    background-color: #990000;
+    border: 1px solid transparent;
+         -webkit-border-radius: 0;
+         -moz-border-radius: 0;
+         border-radius: 0;
+    border-bottom-color: transparent;
+    font-weight: bold;
+}
+
+#s-lg-tabs-container .nav .dropdown-toggle .caret {
+    border-top-color: #e1e1e1;
+}
+
+#s-lg-tabs-container .nav-tabs button.dropdown-toggle .caret {
+    margin-left: 2px;
+    margin-top: -3px;
+}
+
+#s-lg-tabs-container .nav-tabs > li > a.s-lg-tab-drop {
+    border-radius: 0;
+    padding: 4px 6px 4px 3px;
+    border-left: 1px solid transparent;
+}
+
+#s-lg-tabs-container .nav-tabs > li > button.s-lg-tab-drop {
+    border-radius: 0;
+    padding: 4px 6px 0px 3px;
+    border-left: 1px solid transparent;
+    margin-right: 2px;
+}
+
+#s-lg-tabs-container .nav-tabs > li > a.s-lg-tab-drop:hover {
+    border-radius: 0;
+    border-left: 1px solid #bbb;
+    padding: 4px 6px 4px 3px;
+}
+
+#s-lg-tabs-container .nav-tabs > li > button.s-lg-tab-drop:hover {
+    border-radius: 0;
+    border-left: 1px solid #bbb;
+    padding: 4px 6px 0px 3px;
+}
+
+#s-lg-tabs-container .nav-tabs > li > a.s-lg-tab-top-link,
+#s-lg-tabs-container .nav-tabs > li > a.s-lg-tab-top-link:hover,
+#s-lg-tabs-container .nav-tabs > li > button.s-lg-tab-top-link,
+#s-lg-tabs-container .nav-tabs > li > button.s-lg-tab-top-link:hover {
+    border-radius: 0;
+    font-weight: bold;
+    padding: 4px 5px 4px 10px;
+}
+
+.nav-tabs > li > a.s-lg-tab-top-link,
+.nav-tabs > li > button.s-lg-tab-top-link {
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+#s-lg-tabs-container .nav-pills > li > a.s-lg-tab-drop,
+#s-lg-tabs-container .nav-pills > li > button.s-lg-tab-drop {
+    border-radius: 0;
+    padding: 4px 8px 4px 8px;
+    border-left: 1px solid transparent;
+    right: 0;
+}
+
+#s-lg-tabs-container .nav-pills > li > a.s-lg-tab-drop:hover,
+#s-lg-tabs-container .nav-pills > li > button.s-lg-tab-drop:hover {
+    border-radius: 0;
+    border-left: 1px solid #bbb;
+    padding: 4px 8px 4px 8px;
+}
+
+#s-lg-tabs-container .nav-pills > li > a.s-lg-tab-top-link,
+#s-lg-tabs-container .nav-pills > li > a.s-lg-tab-top-link:hover,
+#s-lg-tabs-container .nav-pills > li > button.s-lg-tab-top-link,
+#s-lg-tabs-container .nav-pills > li > button.s-lg-tab-top-link:hover {
+    width: 100%;
+    float: left;
+    border-radius: 0;
+    font-weight: bold;
+    padding: 4px 15px 4px 15px;
+}
+
+.s-lib-box {
+            border-color: #ffffff;
+        border-width: 1px;
+    box-shadow: 0 8px 6px -6px #AAAAAA;
+    border-radius: 0;
+    background-color: #ffffff;
+}
+
+.s-lib-box-std .s-lib-box-title {
+            background-color: #edeceb;
+        background-image: none;
+        color: #990000;
+    border-bottom: 1px solid
+        #ffffff;
+}
+
+.s-lib-box .s-lib-box-title {
+            background-color: #edeceb;
+        background-image: none;
+        color: #990000;
+    border-bottom: 1px solid
+        #ffffff;
+    border-radius: 0;
+}
+
+.s-lib-box .s-lib-box-title button {
+            background-color: #edeceb;
+        color: #990000;
+}
+
+.s-lib-box .s-lg-box-footer {
+    border-radius: 0;
+}
+
+/** !bs5/bootstrap_tab_box_css.twig **/
+</style><link rel="stylesheet" type="text/css" href="https://webapp1.dlib.indiana.edu/libapps/springshare/css/rivet-core-2.9.1.css">
+<link rel="stylesheet" type="text/css" href="https://webapp1.dlib.indiana.edu/libapps/springshare/css/rivet-custom-lb-az.css">
+<link rel="stylesheet" type="text/css" href="https://webapp1.dlib.indiana.edu/libapps/springshare/css/libchat.css">
+<link rel="shortcut icon" href="https://www.iu.edu/favicon.ico">
+<style>
+/* remove crimson fill in third-level nav items sidebar */
+.dropdown-item.active {
+    background-color: unset !important;
+}
+</style>
+
+<script>
+    var springStats = springStats || {};
+    springStats.saConfig = springStats.saConfig || {
+        site_id: 2263,
+        tracking_parameters: {"_st_guide_id":1527272,"_st_page_id":11710160,"_st_site_id":2263},
+        tracking_server_host: "guides.libraries.indiana.edu"
+    };
+</script>
+<script src="https://static-assets-us.libguides.com/web/js/sa.min.js?3116"></script>
+<script>
+			springSpace.Common = springSpace.Common || { };
+			springSpace.Common.constant = {
+					PROCESSING: {
+						ACTION_DISPLAY_POLL: 159
+					}
+			};
+			springSpace.Common.baseURL = "https://guides.libraries.indiana.edu/";
+			
+			handleScroll=function() {
+                if (false) {
+					var target_elt = "#s-lg-page-section-11710160";
+					jQuery("html, body").animate({ scrollTop: jQuery(target_elt).offset().top }, 750);
+					if (jQuery(this).scrollTop() > 220) {
+						jQuery("#s-lib-scroll-top").fadeIn(750);
+					}
+				}
+			}
+	   </script>
+        <script>
+            // Enable tooltips.
+            jQuery(function () {
+                try {
+                    springSpace.UI.initPopOvers(true);
+                    jQuery(".az-bs-tooltip").tooltip();
+                } catch (e) { }
+            });
+        jQuery(document).ready(function () {
+            springSpace.springTrack.trackPage({_st_type_id: '1',_st_guide_id: '1527272',_st_page_id: '11710160'});
+        });
+            jQuery(document).ready(function() {
+                handleScroll();
+            });
+        </script><!-- BEGIN: Analytics code --><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-S820YKQER1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S820YKQER1');
+</script>
+<script async="" src="https://siteimproveanalytics.com/js/siteanalyze_11378.js"></script><!-- END: Analytics code -->
+    <style>/* LibChat Widget CSS */
+            .s-lch-widget-float { position: fixed; bottom: 1px; right: 1px; z-index: 1000; padding: 1em; font-size: clamp(16px, 1rem, 3rem); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-end; align-content: flex-end; align-items: flex-end; box-sizing: border-box; pointer-events: none; }
+            .s-lch-widget-float.open { top: 1px; width: 375px; height: 100%; }
+            .s-lch-widget-float > * { pointer-events: auto; }
+            .s-lch-widget-float-load { flex: 0 1 auto; display: none; transition: flex-grow 2s; border-radius: 5px; border: 1px solid rgb(221, 221, 221); box-shadow: 0.1em 0.2em 0.5em #ccc; min-height: 200px; width: 100%; height: 200px; z-index: 501; position: relative; }
+            .s-lch-widget-float-load.expanded {flex: 2 1 auto; min-height: 0; }
+            .s-lch-widget-float.open .s-lch-widget-float-load { display: block; }
+            .s-lch-widget-float-btn { border: none; padding: .75em .75em .5em .75em; border-radius: 5px; position: relative; bottom: 0; right: 0; flex: 0 0 auto; box-shadow: 0.1em 0.2em 0.5em #ccc; font-size: .9rem; background-color: #75838F; color: #FFFFFF; ; width: 64px; z-index: 501; }
+            .s-lch-widget-float.open .s-lch-widget-float-btn { margin-top: 1em; }
+            .s-lch-widget-float-btn.online { background-color: #328BB8; color: #FFFFFF; }
+            .s-lch-widget-float-btn.bot { background-color: #286090; color: #FFFFFF; }
+            .s-lch-widget-float-btn svg .dots { display: none; }
+            .s-lch-widget-float-btn.online svg .dots,
+            .s-lch-widget-float-btn.bot svg .dots { display: block; }
+            .s-lch-widget-float-btn.s-lch-widget-img-btn, .s-lch-widget-float-btn img { padding: 0; height: auto; width: auto; }
+            #s-lch-widget-float-indicator { position: absolute; top: -.5em; right: -.5em; background-color: red; border-radius: 1em; width: 1em; height: 1em; }
+            .s-lch-widget-float div.tab_overlay { position: fixed; background-color: rgb(0, 0, 0); top: 0; left: 0; bottom: 0; right: 0; opacity: 0.0; z-index: 500; display: none; }
+            @media (max-width: 550px) {
+            .s-lch-widget-float { left: 0; width: 100%; }
+            .s-lch-widget-float.open .s-lch-widget-float-load { width: 100%; }
+            .s-lch-widget-float.open .s-lch-widget-float-btn { display: none; }
+            }</style></head>
+<body class="s-lg-guide-body">
+    <a id="s-lg-public-skiplink" class="alert-info" href="#s-lg-guide-main">Skip to Main Content</a>
+    
+    <header>
+    <!-- HEADER BEGIN -->
+<header class="rvt-header-wrapper">
+<div class="rvt-header-global">
+  <div class="rvt-c-container-xl">
+    <div class="rvt-header-global__inner">
+     <div class="rvt-header-global__logo-slot [ rvt-m-right-lg ]">       
+    <a class="rvt-lockup" href="https://libraries.indiana.edu" rel="home">
+    <div class="rvt-lockup__tab">
+      <svg xmlns="http://www.w3.org/2000/svg" class="rvt-lockup__trident" viewBox="0 0 28 34">
+        <path d="M-3.34344e-05 4.70897H8.83308V7.174H7.1897V21.1426H10.6134V2.72321H8.83308V0.121224H18.214V2.65476H16.2283V21.1426H19.7889V7.174H18.214V4.64047H27.0471V7.174H25.0614V23.6761L21.7746 26.8944H16.2967V30.455H18.214V33.8787H8.76463V30.592H10.6819V26.8259H5.20403L1.91726 23.6077V7.174H-3.34344e-05V4.70897Z" fill="currentColor"></path>
+      </svg>
+    </div>
+        <div class="rvt-lockup__body [ rvt-text-nobr ]">
+      <span class="rvt-lockup__title">Libraries</span>
+            <span class="rvt-lockup__subtitle">Indiana University Bloomington</span>
+        </div>
+      </a>
+  </div>
+    <div class="rvt-header-global__controls">
+          <div data-rvt-disclosure="menu" data-rvt-close-click-outside="">
+            <button aria-expanded="false" class="rvt-global-toggle rvt-global-toggle--menu rvt-hide-lg-up" data-rvt-disclosure-toggle="menu">
+              <span class="rvt-sr-only">Menu</span>
+              <svg class="rvt-global-toggle__open" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" focusable="false">
+                <path d="M15 4H1V2h14v2Zm0 5H1V7h14v2ZM1 14h14v-2H1v2Z"></path>
+              </svg>
+              <svg class="rvt-global-toggle__close" fill="currentColor" width="16" height="16" viewBox="0 0 16 16">
+                <path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"></path>
+              </svg>
+            </button>
+        <nav aria-label="Main" class="rvt-header-menu rvt-c-header-menu" data-rvt-disclosure-target="menu" hidden="">
+            
+            <h2 class="rvt-sr-only">Main navigation</h2>
+                <ul class="rvt-header-menu__list">
+                    <li class="rvt-header-menu__item">
+                        <a href="https://libraries.indiana.edu/finding-borrowing" target="_self" class="rvt-header-menu__link" title="Finding &amp; Borrowing">Finding <br>&amp; Borrowing</a>
+                    </li>
+                    <li class="rvt-header-menu__item">
+                        <a href="https://libraries.indiana.edu/researching-teaching" target="_self" class="rvt-header-menu__link" title="Researching &amp; Teaching">Researching <br>&amp; Teaching</a>
+                    </li>
+                    <li class="rvt-header-menu__item">
+                        <a href="https://libraries.indiana.edu/visiting-studying" target="_self" class="rvt-header-menu__link" title="Visiting &amp; Studying">Visiting <br>&amp; Studying</a>
+                    </li>
+                    <li class="rvt-header-menu__item">
+                        <a href="https://libraries.indiana.edu/news-events" target="_self" class="rvt-header-menu__link" title="News &amp; Events">News <br>&amp; Events</a>
+                    </li>
+                    <li class="rvt-header-menu__item">
+                        <a href="https://libraries.indiana.edu/about-us" target="_self" class="rvt-header-menu__link" title="About Us">About Us</a>
+                    </li>
+                    <li class="rvt-header-menu__item">
+                        <a href="https://libraries.indiana.edu/need-help" target="_self" class="rvt-header-menu__link">Need Help?</a>
+                    </li>
+                    <li class="rvt-header-menu__item">
+                        <a href="https://iucat.iu.edu/" target="_blank" class="rvt-cta rvt-cta--button rvt-header-menu__link">IUCAT</a>
+                    </li>
+                </ul>
+        </nav>
+      </div>
+     </div>
+   </div>
+  </div>
+ </div>
+</header>
+<!-- HEADER END -->
+</header>
+    <div id="s-lg-guide-header" class="container s-lib-header s-lib-side-borders">
+        <nav id="s-lib-bc" aria-label="breadcrumb">
+            <ol id="s-lib-bc-list" class="breadcrumb"><li id="s-lib-bc-customer" class="breadcrumb-item"><a href="https://libraries.indiana.edu">IU Libraries</a></li><li id="s-lib-bc-site" class="breadcrumb-item"><a href="https://guides.libraries.indiana.edu/">Library Research Guides</a></li><li id="s-lib-bc-guide" class="breadcrumb-item"><a href="https://guides.libraries.indiana.edu/UserTesting">Testing Guide</a></li><li id="s-lib-bc-page" class="active breadcrumb-item">All UI Test</li></ol>
+        </nav>
+        <div class="float-end">
+            <div id="s-lg-guide-header-search" class="me-3">
+                
+<div id="s-lg-guide-search-box">
+    <form role="search" id="s-lg-guide-search-form" action="https://guides.libraries.indiana.edu/srch.php" method="GET">
+        <div class="input-group input-group-sm">
+            <input type="text" id="s-lg-guide-search-terms" name="q" class="form-control" maxlength="260" placeholder="Search within guides">
+                
+            <label class="visually-hidden" for="s-lg-guide-search-terms">
+                Search within guides
+            </label>
+
+            
+            
+            <button class="btn btn-outline-secondary border" type="submit">
+                Search
+            </button>
+        </div>
+    </form>
+</div>
+
+            </div>
+        </div>
+        <div id="s-lg-guide-header-info">
+            <h1 id="s-lg-guide-name">Testing Guide: All UI Test</h1>
+            <div id="s-lg-guide-desc-container">
+                <span id="s-lg-guide-description"></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="s-lg-guide-tabs-title-bar" class="container s-lib-side-borders"></div>
+
+    <div id="s-lg-side-nav-content" class="container s-lib-side-borders pt-3">
+        <div class="row">
+            <div class="col-md-3 s-lg-tabs-side pb-3">
+                <div id="s-lg-tabs-container">
+                    <div id="s-lg-guide-tabs" role="navigation" aria-label="Guide Pages">
+                        <ul class="nav nav-pills flex-column split-button-nav">
+                            
+    
+
+
+    <li class="nav-item mb-1 text-wrap">
+        <a title="" class="nav-link " href="https://guides.libraries.indiana.edu/c.php?g=1527272&amp;p=11440065">
+            <span>Home</span>
+            
+        </a>
+        
+    </li>
+
+    
+
+
+    <li class="nav-item mb-1 text-wrap">
+        <a title="" class="nav-link " href="https://guides.libraries.indiana.edu/c.php?g=1527272&amp;p=11440069">
+            <span>Option A</span>
+            
+        </a>
+        
+    </li>
+
+    
+
+
+    <li class="nav-item mb-1 text-wrap">
+        <a title="" class="nav-link " href="https://guides.libraries.indiana.edu/c.php?g=1527272&amp;p=11440068">
+            <span>Option B</span>
+            
+        </a>
+        
+    </li>
+
+    
+
+
+    <li class="nav-item mb-1 text-wrap">
+        <a title="" class="nav-link " href="https://guides.libraries.indiana.edu/c.php?g=1527272&amp;p=11477967">
+            <span>Box Test Page</span>
+            
+        </a>
+        
+    </li>
+
+    
+
+
+    <li class="nav-item mb-1 text-wrap">
+        <a title="" class="nav-link " href="https://guides.libraries.indiana.edu/c.php?g=1527272&amp;p=11477968">
+            <span>Box Test Page</span>
+            
+        </a>
+        
+    </li>
+
+    
+
+
+    <li class="nav-item mb-1 active text-wrap">
+        <a title="" class="nav-link active" href="https://guides.libraries.indiana.edu/c.php?g=1527272&amp;p=11710160">
+            <span>All UI Test</span>
+            
+        </a>
+        
+    </li>
+
+                        </ul>
+                        <div class="s-lg-row margin-top-med"><div id="s-lg-col-0"><div class="s-lg-col-boxes"><div id="s-lg-box-wrapper-43232550" class="s-lg-box-wrapper-43232550">
+
+
+
+
+    <div id="s-lg-box-36721063-container" class="s-lib-box-container">
+        <div id="s-lg-box-36721063" class="s-lib-box s-lib-box-std">
+                            <h2 class="s-lib-box-title">
+                                            Profile Box
+                                                            </h2>
+                        <div id="s-lg-box-collapse-36721063">
+                <div class="s-lib-box-content">
+                    <!-- bs5/box/profile_box_content.twig -->
+<div id="s-lib-profile-223690" class="s-lib-profile-container">
+        <a href="//guides.libraries.indiana.edu/prf.php?id=5da62c3b-7cdb-11ed-9922-0ad758b798c3">
+        
+        <div id="s-lib-profile-image-223690" class="s-lib-profile-div s-lib-profile-center s-lib-profile-image">
+            <img loading="lazy" src="//d2jv02qf7xgjwx.cloudfront.net/accounts/224792/profiles/223690/SmithJamesHenry.jpg.jpg" alt="">
+        </div>
+
+                    <div id="s-lib-profile-name-223690" class="s-lib-profile-div s-lib-profile-center s-lib-profile-name" style="margin-bottom:0 !important;">
+                James Henry Smith
+            </div>
+        
+            </a>
+    
+    <div id="s-lib-profile-pronouns-223690" class="s-lib-profile-div s-lib-profile-center s-lib-profile-pronouns">
+        They/He
+    </div>
+
+    <div id="s-lib-profile-email-223690" class="s-lib-profile-div s-lib-profile-center s-lib-profile-email">
+        <a title="smithjh@iu.edu" href="mailto:smithjh@iu.edu" class="label label-info btn text-white fw-bold">Email Me</a>
+    </div>
+
+    <div id="s-lib-profile-widget-la-223690" class="s-lib-profile-div s-lib-profile-widget-la">
+        <div class="s-lib-profile-widget"><script>
+jQuery.getScript("https://api3.libcal.com/js/myscheduler.min.js", function() {
+    jQuery("#mysched_120361").LibCalMySched({iid: 3021, lid: 0, gid: 0, uid: 120361, width: 560, height: 680, title: 'Make an Appointment', domain: 'https://api3.libcal.com'});
+});
+</script>
+<button id="mysched_120361" href="#">Schedule Appointment</button>
+<!-- Below is optional button styling  //-->
+<style>
+#mysched_120361{
+  background: #990000;
+  border: 2px solid #990000;
+  border-radius: 2px;
+  color: #FFFFFF;
+  font: 20px Arial, Helvetica, Verdana;
+  padding: 8px 20px;
+  cursor: pointer;
+}
+#mysched_120361:hover {
+  opacity: 0.9;
+background-color: #FFFFFF;
+color: #990000;
+}
+</style></div>
+    </div>
+
+    <div id="s-lib-profile-widget-lc-223690" class="s-lib-profile-div s-lib-profile-widget-lc">
+        <div class="s-lib-profile-widget"></div>
+    </div>
+
+    <div id="s-lib-profile-widget-other-223690" class="s-lib-profile-div s-lib-profile-widget-other">
+        <div class="s-lib-profile-widget"></div>
+    </div>
+
+    <div id="s-lib-profile-contact-223690" class="s-lib-profile-div s-lib-profile-contact">
+            </div>
+
+    <div id="s-lib-profile-social-223690" class="s-lib-profile-div s-lib-profile-social">
+            </div>
+
+    <div id="s-lib-profile-subjects-223690" class="s-lib-profile-div s-lib-profile-subjects">
+            </div>
+</div>
+<!-- !bs5/box/profile_box_content.twig -->
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+</div></div></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="s-lg-tab-content">
+                    <div id="s-lg-guide-main" class="tab-pane active" tabindex="-1">
+                        <div class="row s-lg-row"><div id="s-lg-col-1" class="col-md-12"><div class="s-lg-col-boxes"><div id="s-lg-box-wrapper-43232539" class="s-lg-box-wrapper-43232539">
+
+
+
+
+    <div id="s-lg-box-36721052-container" class="s-lib-box-container">
+        <div id="s-lg-box-36721052" class="s-lib-box s-lib-box-std">
+                            <h2 class="s-lib-box-title">
+                                            Standard Box
+                                                            </h2>
+                        <div id="s-lg-box-collapse-36721052">
+                <div class="s-lib-box-content">
+                    <div id="s-lg-content-86626287" class="  clearfix">
+    <h3>Heading 3</h3>
+
+<p>Text</p>
+
+<h4>Heading 4</h4>
+
+<p>Text</p>
+
+<h5>Heading 5</h5>
+
+<p>Text</p>
+
+<h6>Heading 6</h6>
+
+<p>Text</p>
+
+<p>&nbsp;</p>
+
+<pre>Example of pre element</pre>
+
+<p>&nbsp;</p>
+
+<table class="table table-striped" style="border: 1px solid rgb(221, 221, 221);" summary="Table Summary&nbsp;Example">
+	<caption>Table Caption&nbsp;Example</caption>
+	<thead>
+		<tr>
+			<th class="ck_border" scope="col" style="border: 1px solid rgb(221, 221, 221);">Header 1</th>
+			<th class="ck_border" scope="col" style="border: 1px solid rgb(221, 221, 221);">Header 2</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="ck_border" style="border: 1px solid rgb(221, 221, 221);">Hello</td>
+			<td class="ck_border" style="border: 1px solid rgb(221, 221, 221);">Hola</td>
+		</tr>
+		<tr>
+			<td class="ck_border" style="border: 1px solid rgb(221, 221, 221);">Goodbye</td>
+			<td class="ck_border" style="border: 1px solid rgb(221, 221, 221);">Adios</td>
+		</tr>
+	</tbody>
+</table>
+
+<ol>
+	<li>This</li>
+	<li>is an</li>
+	<li>ordered list</li>
+</ol>
+
+<ul>
+	<li>This</li>
+	<li>is an&nbsp;</li>
+	<li>unordered list</li>
+</ul>
+
+<hr>
+<blockquote>
+<p>This is a blockquote!</p>
+</blockquote>
+
+<p><code>Computer Code (code element)</code></p>
+
+<p><kbd>kbd</kbd></p>
+
+    </div>
+
+    <div class="">
+        <ul id="s-lg-link-list-89074323" class="s-lg-link-list s-lg-link-list-10">
+
+<li class="">
+    <div id="s-lg-content-42468522" class="w-100 clearfix">
+
+    
+
+    <a href="https://guides.libraries.indiana.edu/cincinnati-enquirer" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '42468522',_st_inc_return: this});">
+        Cincinnati Enquirer (ProQuest Historical Newspapers)
+    </a> 
+
+    
+
+    
+    <div class="s-lg-icons pad-left-sm"><ul class=""><li><img loading="lazy" alt="Resource available to authorized IU Bloomington users (on or off campus)" class="s-lg-icon" src="//d2jv02qf7xgjwx.cloudfront.net/sites/2263/icons/6300/rvt-icon--lock-closed-solid.png"></li></ul></div>
+
+    
+            <div id="s-lg-database-desc-42468522" class="s-lg-database-desc">
+            <p>Provides full text access to The Cincinnati Enquirer from 1841 to 2009.</p>
+        </div>
+    
+            
+
+<div class="s-lg-label-moreinfo s-lg-label-more-info">
+    <button class="s-lg-label-more btn btn-sm btn-link" aria-expanded="false" id="s-lg-0-more-info-database-more-42468522" style="display:block;" onclick="    var $parent = jQuery(this).closest('#s-lg-content-42468522');
+    $parent.find('#s-lg-0-more-info-database-moreinfo-42468522').toggle();
+    $parent.find('#s-lg-0-more-info-database-less-42468522').toggle();
+    $parent.find('#s-lg-0-more-info-database-more-42468522').toggle();
+">
+        more...
+    </button>
+    <button class="s-lg-label-less btn btn-sm btn-link" aria-expanded="true" id="s-lg-0-more-info-database-less-42468522" style="display:none;" onclick="    var $parent = jQuery(this).closest('#s-lg-content-42468522');
+    $parent.find('#s-lg-0-more-info-database-moreinfo-42468522').toggle();
+    $parent.find('#s-lg-0-more-info-database-less-42468522').toggle();
+    $parent.find('#s-lg-0-more-info-database-more-42468522').toggle();
+">
+        less...
+    </button>
+</div>
+<div id="s-lg-0-more-info-database-moreinfo-42468522" class="s-lg-content-more-info " style="display:none;">
+    <p>When The Cincinnati Enquirer printed its first issue 1841, Cincinnati was the nation’s 6th largest city and was known as “The Queen of the West.” This resource covers a range of studies, including history, political science, economics and genealogy, with reports on world affairs, national events and a record of regional topics related to agriculture, manufacturing, government and people from the dynamic viewpoint of a quintessential western boomtown.</p>
+</div>
+    </div>
+
+</li>
+
+        </ul>
+
+        
+    </div>
+
+
+    <div class="">
+        <ul id="s-lg-link-list-89074325" class="s-lg-link-list s-lg-link-list-2">
+
+<li class="">
+    
+
+
+<div id="s-lg-content-86626289" class="">
+    <span>
+                    <a href="https://www.duckduckgo.com" target="" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '2',_st_content_id: '86626289',_st_inc_return: this});">
+                This is a text link to DuckDuckGo            </a>
+        
+            </span>
+
+    
+    
+                <div id="s-lg-link-desc-86626289" class="s-lg-link-desc">
+            This is a link description
+        </div>
+    
+    </div>
+
+</li>
+
+        </ul>
+
+        
+    </div>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+</div><div id="s-lg-box-wrapper-43232540" class="s-lg-box-wrapper-43232540">
+
+
+
+
+    <div id="s-lg-box-36721053-container" class="s-lib-box-container">
+        <div id="s-lg-box-36721053" class="s-lib-box s-lib-box-std">
+                            <h2 class="s-lib-box-title">
+                                            Tabbed Box
+                                                            </h2>
+                        <div id="s-lg-box-collapse-36721053">
+                <div class="s-lib-box-content">
+                    
+<div id="s-lib-ctabs-36721053" class="s-lib-jqtabs" role="navigation" aria-label="Tabbed content - Box 36721053">
+    <ul class="nav nav-tabs" id="tabs-36721053" role="tablist">
+                    <li class="nav-item" role="presentation">
+                <a href="#s-lib-ctab-36721053-0" class="nav-link active" id="tab-s-lib-ctab-36721053-0-tab" data-bs-toggle="tab" data-bs-target="#s-lib-ctab-36721053-0" type="button" role="tab" aria-controls="s-lib-ctab-36721053-0" aria-selected="true">
+                    Tab 1
+                </a>
+            </li>
+                    <li class="nav-item" role="presentation">
+                <a href="#s-lib-ctab-36721053-1" class="nav-link " id="tab-s-lib-ctab-36721053-1-tab" data-bs-toggle="tab" data-bs-target="#s-lib-ctab-36721053-1" type="button" role="tab" aria-controls="s-lib-ctab-36721053-1" aria-selected="false" tabindex="-1">
+                    Tab 2
+                </a>
+            </li>
+            </ul>
+
+    <div class="tab-content" id="tabs-content-36721053">
+                    <div class="tab-pane fade show active" id="s-lib-ctab-36721053-0" role="tabpanel" aria-labelledby="tab-s-lib-ctab-36721053-0-tab" tabindex="0">
+                <div id="s-lg-content-86626291" class="  clearfix">
+    <p>This is the content of tab 1</p>
+
+    </div>
+            </div>
+                    <div class="tab-pane fade " id="s-lib-ctab-36721053-1" role="tabpanel" aria-labelledby="tab-s-lib-ctab-36721053-1-tab" tabindex="-1">
+                <div id="s-lg-content-86626292" class="  clearfix">
+    <p>This is the content of tab 2</p>
+
+    </div>
+            </div>
+            </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var tabsContainer = document.getElementById('s-lib-ctabs-36721053');
+        if (tabsContainer) {
+            // Keep tab panels reachable via sequential Tab navigation and
+            // announced by assistive technology once their tab is activated.
+            tabsContainer.addEventListener('shown.bs.tab', function (e) {
+                tabsContainer.querySelectorAll('.tab-content > [role="tabpanel"]').forEach(function (panel) {
+                    panel.setAttribute('tabindex', '-1');
+                });
+
+                var targetSelector = e.target.getAttribute('data-bs-target') || e.target.getAttribute('href');
+                var activePanel = targetSelector ? tabsContainer.querySelector(targetSelector) : null;
+                if (activePanel) {
+                    activePanel.setAttribute('tabindex', '0');
+                }
+            });
+        }
+
+        var hash = window.location.hash;
+        if (!hash) return;
+
+        function activateTabForHash(hash) {
+            var tabTriggerEl = document.querySelector(
+                '.s-lib-jqtabs a[data-bs-target="' + hash + '"]'
+            );
+
+            if (!tabTriggerEl) {
+                tabTriggerEl = document.querySelector(
+                    '.s-lib-jqtabs a[href="' + hash + '"]'
+                );
+            }
+            if (tabTriggerEl && typeof bootstrap !== 'undefined' && bootstrap.Tab) {
+                var tab = new bootstrap.Tab(tabTriggerEl);
+                tab.show();
+                tabTriggerEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                return true;
+            }
+            return false;
+        }
+
+        if (!activateTabForHash(hash)) {
+            setTimeout(function () {
+                activateTabForHash(hash);
+            }, 0);
+        }
+    });
+</script>
+
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+</div><div id="s-lg-box-wrapper-43232549" class="s-lg-box-wrapper-43232549">
+
+
+
+
+    <div id="s-lg-box-36721062-container" class="s-lib-box-container">
+        <div id="s-lg-box-36721062" class="s-lib-box s-lib-box-std">
+                            <h2 class="s-lib-box-title">
+                                            Accordion Box
+                                                            </h2>
+                        <div id="s-lg-box-collapse-36721062">
+                <div class="s-lib-box-content">
+                    
+<div class="accordion" id="accordion-36721062" aria-label="Accordion content - Box 36721062">
+                    <div class="accordion-item">
+            <h2 class="accordion-header" id="accordion-heading-s-lib-ctab-36721062-0">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-collapse-s-lib-ctab-36721062-0" aria-expanded="false" aria-controls="accordion-collapse-s-lib-ctab-36721062-0">
+                    Accordion Item 1
+                </button>
+            </h2>
+            <div id="accordion-collapse-s-lib-ctab-36721062-0" class="accordion-collapse collapse " data-bs-parent="#accordion-36721062" aria-labelledby="accordion-heading-s-lib-ctab-36721062-0">
+                <div class="accordion-body">
+                    <div id="s-lg-content-86626296" class="  clearfix">
+    <p>This is the content in Accordion Item 1</p>
+
+    </div>
+                </div>
+            </div>
+        </div>
+                    <div class="accordion-item">
+            <h2 class="accordion-header" id="accordion-heading-s-lib-ctab-36721062-1">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-collapse-s-lib-ctab-36721062-1" aria-expanded="false" aria-controls="accordion-collapse-s-lib-ctab-36721062-1">
+                    Accordion Item 2
+                </button>
+            </h2>
+            <div id="accordion-collapse-s-lib-ctab-36721062-1" class="accordion-collapse collapse " data-bs-parent="#accordion-36721062" aria-labelledby="accordion-heading-s-lib-ctab-36721062-1">
+                <div class="accordion-body">
+                    <div id="s-lg-content-86626297" class="  clearfix">
+    <p>This is the content in Accordion Item 2</p>
+
+    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+</div><div id="s-lg-box-wrapper-43244121" class="s-lg-box-wrapper-43244121">
+
+
+
+
+    <div id="s-lg-box-36730800-container" class="s-lib-box-container">
+        <div id="s-lg-box-36730800" class="s-lib-box s-lib-box-std">
+                            <h2 class="s-lib-box-title">
+                                            Links
+                                                            </h2>
+                        <div id="s-lg-box-collapse-36730800">
+                <div class="s-lib-box-content">
+                    
+
+    <div class="">
+        <ul id="s-lg-link-list-89096711" class="s-lg-link-list s-lg-link-list-2">
+
+<li class="">
+    
+
+
+<div id="s-lg-content-28629547" class="">
+    <span>
+                    <a href="https://libraries.indiana.edu/government-information" target="" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '2',_st_content_id: '28629547',_st_inc_return: this});">
+                Accessing Government Information            </a>
+        
+            </span>
+
+    
+    
+                <div id="s-lg-link-desc-28629547" class="s-lg-link-desc">
+            Provides several links and resources for state and federal government information.
+        </div>
+    
+    </div>
+
+</li>
+
+
+
+
+<li class="">
+    
+
+
+<div id="s-lg-content-76302370" class="">
+    <span>
+                    <a href="https://sandbox.acrl.org/" target="" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '2',_st_content_id: '76302370',_st_inc_return: this});">
+                ACRL Framework for Information Literacy Sandbox            </a>
+        
+            </span>
+
+    
+    
+                <div id="s-lg-link-desc-76302370" class="s-lg-link-desc">
+            Welcome to the ACRL Framework for Information Literacy Sandbox, a place to discover ways to use the Framework for Information Literacy for Higher Education in instructional settings, as well as share your own activities and teaching resources related to the Framework. Searching is open to everyone – a user login is not required. (from website)
+        </div>
+    
+    </div>
+
+</li>
+
+
+
+
+<li class="">
+    
+
+
+<div id="s-lg-content-63884974" class="">
+    <span>
+                    <a href="https://lsa.umich.edu/sweetland/instructors/teaching-resources/teaching-multimodal-composition/adapting-the-framework--infographics.html" target="" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '2',_st_content_id: '63884974',_st_inc_return: this});">
+                Adapting the Framework: Infographics            </a>
+        
+            </span>
+
+    
+    
+                <div id="s-lg-link-desc-63884974" class="s-lg-link-desc">
+            This links to a library research guide from the University of Michigan. The first section of the guide will probably be the most helpful when thinking through reading and analyzing infographics.
+        </div>
+    
+    </div>
+
+</li>
+
+        </ul>
+
+        
+    </div>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+</div><div id="s-lg-box-wrapper-43244127" class="s-lg-box-wrapper-43244127">
+
+
+
+
+    <div id="s-lg-box-36730805-container" class="s-lib-box-container">
+        <div id="s-lg-box-36730805" class="s-lib-box s-lib-box-std">
+                            <h2 class="s-lib-box-title">
+                                            Databases
+                                                            </h2>
+                        <div id="s-lg-box-collapse-36730805">
+                <div class="s-lib-box-content">
+                    
+
+    <div class="">
+        <ul id="s-lg-link-list-89096734" class="s-lg-link-list s-lg-link-list-10">
+
+<li class="">
+    <div id="s-lg-content-7567878" class="w-100 clearfix">
+
+    
+
+    <a href="https://guides.libraries.indiana.edu/abi-inform-collection" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '7567878',_st_inc_return: this});">
+        ABI/INFORM Collection
+    </a> 
+
+    
+
+    
+    <div class="s-lg-icons pad-left-sm"><ul class=""><li><img loading="lazy" alt="Resource available to authorized IU Bloomington users (on or off campus)" class="s-lg-icon" src="//d2jv02qf7xgjwx.cloudfront.net/sites/2263/icons/6300/rvt-icon--lock-closed-solid.png"></li></ul></div>
+
+    
+            <div id="s-lg-database-desc-7567878" class="s-lg-database-desc">
+            <p>Access to thousands of full-text journals, dissertations, working papers, key business and economics periodicals, country-and industry-focused reports, and major news sources. Its international coverage gives researchers a complete picture of companies and business trends around the world.</p>
+        </div>
+    
+            
+
+<div class="s-lg-label-moreinfo s-lg-label-more-info">
+    <button class="s-lg-label-more btn btn-sm btn-link" aria-expanded="false" id="s-lg-0-more-info-database-more-7567878" style="display: block;" onclick="    var $parent = jQuery(this).closest('#s-lg-content-7567878');
+    $parent.find('#s-lg-0-more-info-database-moreinfo-7567878').toggle();
+    $parent.find('#s-lg-0-more-info-database-less-7567878').toggle();
+    $parent.find('#s-lg-0-more-info-database-more-7567878').toggle();
+">
+        more...
+    </button>
+    <button class="s-lg-label-less btn btn-sm btn-link" aria-expanded="true" id="s-lg-0-more-info-database-less-7567878" style="display: none;" onclick="    var $parent = jQuery(this).closest('#s-lg-content-7567878');
+    $parent.find('#s-lg-0-more-info-database-moreinfo-7567878').toggle();
+    $parent.find('#s-lg-0-more-info-database-less-7567878').toggle();
+    $parent.find('#s-lg-0-more-info-database-more-7567878').toggle();
+">
+        less...
+    </button>
+</div>
+<div id="s-lg-0-more-info-database-moreinfo-7567878" class="s-lg-content-more-info " style="display: none;">
+    <p>Comprised of ABI/INFORM Global, ABI/INFORM Trade &amp; Industry, and ABI/INFORM Dateline. Notable periodicals include The Economist, Sloan Management Review, and the Wall Street Journal.</p>
+</div>
+    </div>
+
+</li>
+
+
+
+
+<li class="">
+    <div id="s-lg-content-7569150" class="w-100 clearfix">
+
+    
+
+    <a href="https://guides.libraries.indiana.edu/apa-psycinfo" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '7569150',_st_inc_return: this});">
+        APA PsycINFO
+    </a> 
+
+    
+
+    
+    <div class="s-lg-icons pad-left-sm"><ul class=""><li><img loading="lazy" alt="Resource available to authorized IU Bloomington users (on or off campus)" class="s-lg-icon" src="//d2jv02qf7xgjwx.cloudfront.net/sites/2263/icons/6300/rvt-icon--lock-closed-solid.png"></li></ul></div>
+
+    
+            <div id="s-lg-database-desc-7569150" class="s-lg-database-desc">
+            <p>Indexes journal articles, books, dissertations and technical reports from the world literature on psychology and related fields.</p>
+        </div>
+    
+            
+
+<div class="s-lg-label-moreinfo s-lg-label-more-info">
+    <button class="s-lg-label-more btn btn-sm btn-link" aria-expanded="false" id="s-lg-0-more-info-database-more-7569150" style="display:block;" onclick="    var $parent = jQuery(this).closest('#s-lg-content-7569150');
+    $parent.find('#s-lg-0-more-info-database-moreinfo-7569150').toggle();
+    $parent.find('#s-lg-0-more-info-database-less-7569150').toggle();
+    $parent.find('#s-lg-0-more-info-database-more-7569150').toggle();
+">
+        more...
+    </button>
+    <button class="s-lg-label-less btn btn-sm btn-link" aria-expanded="true" id="s-lg-0-more-info-database-less-7569150" style="display:none;" onclick="    var $parent = jQuery(this).closest('#s-lg-content-7569150');
+    $parent.find('#s-lg-0-more-info-database-moreinfo-7569150').toggle();
+    $parent.find('#s-lg-0-more-info-database-less-7569150').toggle();
+    $parent.find('#s-lg-0-more-info-database-more-7569150').toggle();
+">
+        less...
+    </button>
+</div>
+<div id="s-lg-0-more-info-database-moreinfo-7569150" class="s-lg-content-more-info " style="display:none;">
+    <p>Provides access to the international journal literature of psychology and related fields, to dissertations, and to technical reports from approximately 50 countries. More than 2200 journals in 29 languages are indexed. This database includes material relevant to psychology from such related disciplines as education, medicine, business, sociology, linguistics, law, psychiatry and anthropology.</p>
+</div>
+    </div>
+
+</li>
+
+
+
+
+<li class="">
+    <div id="s-lg-content-16099522" class="w-100 clearfix">
+
+    
+
+    <a href="https://guides.libraries.indiana.edu/geographic-names-information-system" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '16099522',_st_inc_return: this});">
+        Geographic Names Information System
+    </a> 
+
+    
+
+    
+    <div class="s-lg-icons pad-left-sm"><ul class=""><li><img loading="lazy" alt="Resource available without restriction" class="s-lg-icon" src="//d2jv02qf7xgjwx.cloudfront.net/sites/2263/icons/6303/rvt-icon--globe-solid.png"></li></ul></div>
+
+    
+            <div id="s-lg-database-desc-16099522" class="s-lg-database-desc">
+            <p>Contains place name information for features in the United States, and location information, including state, county, topographic map name, and coordinates.</p>
+        </div>
+    
+            
+
+<div class="s-lg-label-moreinfo s-lg-label-more-info">
+    <button class="s-lg-label-more btn btn-sm btn-link" aria-expanded="false" id="s-lg-0-more-info-database-more-16099522" style="display:block;" onclick="    var $parent = jQuery(this).closest('#s-lg-content-16099522');
+    $parent.find('#s-lg-0-more-info-database-moreinfo-16099522').toggle();
+    $parent.find('#s-lg-0-more-info-database-less-16099522').toggle();
+    $parent.find('#s-lg-0-more-info-database-more-16099522').toggle();
+">
+        more...
+    </button>
+    <button class="s-lg-label-less btn btn-sm btn-link" aria-expanded="true" id="s-lg-0-more-info-database-less-16099522" style="display:none;" onclick="    var $parent = jQuery(this).closest('#s-lg-content-16099522');
+    $parent.find('#s-lg-0-more-info-database-moreinfo-16099522').toggle();
+    $parent.find('#s-lg-0-more-info-database-less-16099522').toggle();
+    $parent.find('#s-lg-0-more-info-database-more-16099522').toggle();
+">
+        less...
+    </button>
+</div>
+<div id="s-lg-0-more-info-database-moreinfo-16099522" class="s-lg-content-more-info " style="display:none;">
+    <p>The U.S. Board on Geographic Names is a Federal body created in 1890 and established in its present form by Public Law in 1947 to maintain uniform geographic name usage throughout the Federal Government. The Board comprises representatives of Federal agencies concerned with geographic information, population, ecology, and management of public lands. Sharing its responsibilities with the Secretary of the Interior, the Board promulgates official geographic feature names with locative attributes as well as principles, policies, and procedures governing the use of domestic names, foreign names, Antarctic names, and undersea feature names.</p>
+</div>
+    </div>
+
+</li>
+
+        </ul>
+
+        
+    </div>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+</div><div id="s-lg-box-wrapper-43244134" class="s-lg-box-wrapper-43244134">
+
+
+
+
+    <div id="s-lg-box-36730812-container" class="s-lib-box-container">
+        <div id="s-lg-box-36730812" class="s-lib-box s-lib-box-std">
+                            <h2 class="s-lib-box-title">
+                                            Books
+                                                            </h2>
+                        <div id="s-lg-box-collapse-36730812">
+                <div class="s-lib-box-content">
+                    
+
+    <div class="">
+        <ul id="s-lg-link-list-89096759" class="s-lg-link-list s-lg-link-list-5">
+
+<li class="">
+    
+<div id="s-lg-content-77824405" class="s-lg-book clearfix">
+    <div class="s-lg-book-props">
+
+                            <a href="https://iucat.iu.edu/catalog/16786015/&quot;target=&quot;_blank" target="" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '3',_st_content_id: '77824405',_st_inc_return: this});">
+        
+        <span id="s-lg-book-cover-77824405" class="s-lg-book-cover">
+                                        
+                
+                <img loading="lazy" alt="" src="//syndetics.com/index.aspx?isbn=9781479849949/LC.GIF&amp;client=springshare" class="float-start s-lg-book-cover-img-0">
+                    </span>
+
+        <span id="s-lg-book-title-77824405" class="s-lg-book-title">
+            Algorithms of Oppression: How Search Engine Reinforce Racism
+        </span>
+
+                    <span id="s-lg-book-by-77824405" class="s-lg-book-by">
+                by
+            </span>
+        
+        <span id="s-lg-book-author-77824405" class="s-lg-book-author">
+            Safiya Umoja Noble <i class="fa fa-external-link-square" title="This link opens in a new window" aria-hidden="true"></i>
+        </span>
+
+                    </a>
+        
+                
+                            
+        
+        
+        
+                    <div class="s-lg-book-prop-isbn">
+                ISBN: 9781479849949
+            </div>
+        
+                    <div class="s-lg-book-prop-pubdate">
+                Publication Date: 2018-02-20
+            </div>
+        
+                
+                            <div id="s-lg-book-desc-77824405" class="s-lg-book-desc">
+                A revealing look at how negative biases against women of color are embedded in search engine results and algorithms. Run a Google search for "black girls"—what will you find? "Big Booty" and other sexually explicit terms are likely to come up as top search terms. But, if you type in "white girls," the results are radically different. In Algorithms of Oppression, Safiya Umoja Noble challenges the idea that search engines like Google offer an equal playing field for all forms of ideas, identities, and activities. Data discrimination is a real social problem; Noble argues that the combination of private interests in promoting certain sites, along with the monopoly status of a relatively small number of Internet search engines, leads to a biased set of search algorithms that privilege whiteness and discriminate against people of color, specifically women of color. As search engines and their related companies grow in importance--operating as a source for email, a major vehicle for primary and secondary school learning, and beyond--understanding and reversing these disquieting trends and discriminatory practices is of utmost importance.
+            </div>
+        
+    </div>
+</div>
+</li>
+
+
+
+
+<li class="">
+    
+<div id="s-lg-content-71972582" class="s-lg-book clearfix">
+    <div class="s-lg-book-props">
+
+                            <a href="https://iucat.iu.edu/catalog/19421401/&quot;target=&quot;_blank" target="" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '3',_st_content_id: '71972582',_st_inc_return: this});">
+        
+        <span id="s-lg-book-cover-71972582" class="s-lg-book-cover">
+                                        
+                
+                <img loading="lazy" alt="" src="//syndetics.com/index.aspx?isbn=9780838919811/LC.GIF&amp;client=springshare" class="float-start s-lg-book-cover-img-0">
+                    </span>
+
+        <span id="s-lg-book-title-71972582" class="s-lg-book-title">
+            A Trauma-Informed Approach to Library Services
+        </span>
+
+                    <span id="s-lg-book-by-71972582" class="s-lg-book-by">
+                by
+            </span>
+        
+        <span id="s-lg-book-author-71972582" class="s-lg-book-author">
+            Rebecca Tolley <i class="fa fa-external-link-square" title="This link opens in a new window" aria-hidden="true"></i>
+        </span>
+
+                    </a>
+        
+                
+                            
+        
+        
+        
+                    <div class="s-lg-book-prop-isbn">
+                ISBN: 9780838919811
+            </div>
+        
+                    <div class="s-lg-book-prop-pubdate">
+                Publication Date: 2020-07-14
+            </div>
+        
+                
+                            <div id="s-lg-book-desc-71972582" class="s-lg-book-desc">
+                We are only now coming to terms with how common trauma really is; a landmark Kaiser study that surveyed patients receiving physicals found that almost two-thirds had experienced at least one form of abuse, neglect, or other trauma as a child. Though originating in the fields of health and social services, trauma-informed care is a framework that holds great promise for application to library work. Empathetic service, positive patron encounters, and a more trusting workplace are only a few of the benefits that this approach offers. In this important book Tolley, experienced in both academic and public libraries, brings&nbsp;these ideas into the library context. Library administrators, directors, and reference and user services staff will all benefit from learning&nbsp;  the six key principles of trauma-informed care; characteristics of a trusting and transparent library organization, plus discussion questions to promote a sense of psychological safety among library workers; how certain language and labels can undermine mutuality, with suggested phrases that will help library staff demonstrate neutrality to patron ideas and views during information requests; delivery models that empower patrons;&nbsp; advice on balancing free speech on campus with students' need for safety; how appropriate&nbsp;furniture arrangement can help people suffering from PTSD feel safe; guidance on creating safe zones for LGBTQIA+ children, teens, and adults; and self-assessment tools to support change toward trauma-responsive library services.
+            </div>
+        
+    </div>
+</div>
+</li>
+
+
+
+
+<li class="">
+    
+<div id="s-lg-content-60273083" class="s-lg-book clearfix">
+    <div class="s-lg-book-props">
+
+                            <a href="https://iucat.iu.edu/catalog/18718286" target="" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '3',_st_content_id: '60273083',_st_inc_return: this});">
+        
+        <span id="s-lg-book-cover-60273083" class="s-lg-book-cover">
+                                        
+                
+                <img loading="lazy" alt="" src="//syndetics.com/index.aspx?isbn=9783030342579/LC.GIF&amp;client=springshare" class="float-start s-lg-book-cover-img-0">
+                    </span>
+
+        <span id="s-lg-book-title-60273083" class="s-lg-book-title">
+            Collaboration in Designing a Pedagogical Approach in Information Literacy
+        </span>
+
+                    <span id="s-lg-book-by-60273083" class="s-lg-book-by">
+                by
+            </span>
+        
+        <span id="s-lg-book-author-60273083" class="s-lg-book-author">
+            Ane Landøy; Daniela Popa; Angela Repanovici
+        </span>
+
+                    </a>
+        
+                
+                            
+        
+        
+        
+                    <div class="s-lg-book-prop-isbn">
+                ISBN: 9783030342579
+            </div>
+        
+                    <div class="s-lg-book-prop-pubdate">
+                Publication Date: 2019-12-03
+            </div>
+        
+                
+                            <div id="s-lg-book-desc-60273083" class="s-lg-book-desc">
+                &ZeroWidthSpace;This Open Access book combines expertise in information literacy with expertise in education and teaching to share tips and tricks for the development of good information literacy teaching and training in universities and libraries. It draws on research, knowledge and pedagogical practice from academia, to teach students how to sift through information to be able to distinguish the important and correct from the unusable. It discusses basic concepts and models of information literacy, as well as strategies for accessing, locating and retrieving information and methods suitable for the assessment and management of information. The book explains many concepts connected to information literacy and discusses pedagogical issues with a view to supporting the practitioner. Each chapter examines one aspect of information literacy, discusses the pedagogical challenges involved and provides suggestions for best practice.
+            </div>
+        
+    </div>
+</div>
+</li>
+
+        </ul>
+
+        
+    </div>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+</div></div></div></div>
+                    </div>
+                </div>
+                <nav id="s-lg-page-prevnext">
+    <ul class="pagination justify-content-between s-lib-hide">
+        <li class="page-item">
+            <a class="page-link" href="https://guides.libraries.indiana.edu/c.php?g=1527272&amp;p=11477968">&lt;&lt; <strong>Previous:</strong> Box Test Page</a>
+        </li>
+        <li class="page-item">
+            
+        </li>
+    </ul>
+</nav>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div id="s-lib-footer-public" class="s-lib-footer footer container s-lib-side-borders">
+        <div id="s-lg-guide-header-meta" class="pt-2 ps-3 clearfix">
+            <ul id="s-lg-guide-header-attributes">
+                <li id="s-lg-guide-header-updated" class="s-lg-h-separator">
+                    <span class="s-lg-guide-label">Last Updated:</span> <span class="s-lg-text-greyout">Oct 20, 2026 2:40 PM</span>
+                </li>
+                <li id="s-lg-guide-header-url" class="s-lg-h-separator">
+                    <span class="s-lg-guide-label">URL:</span> <span class="s-lg-text-greyout">https://guides.libraries.indiana.edu/UserTesting</span>
+                </li>
+                <li id="s-lg-guide-print-url">
+                    <a href="javascript: window.print();"><i class="fa fa-print" aria-hidden="true" title="Print Page"></i> Print Page</a>
+                </li>
+            </ul>
+            <div id="s-lib-footer-login-link" class="float-end pe-3">
+                <a href="https://iub.libapps.com/libapps/login.php?site_id=2263&amp;target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTE1MjcyNzImcD0xMTcxMDE2MA==">Login to LibApps</a>
+            </div>
+        </div>
+        <div class="pb-2 clearfix">
+            <div id="s-lib-footer-support-link" class="float-end pe-3">
+                <a href="mailto:libref@iu.edu">Report a problem</a>
+            </div>
+            <div id="s-lg-guide-header-subjects" class="pt-2 ps-3 pe-3 float-start">
+                
+            </div>
+            <div id="s-lg-guide-header-tags" class="pt-2 ps-3 float-start">
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- scroll_top.twig -->
+<div id="s-lib-scroll-top" style="display: none;">
+    <a href="javascript:void(0);" onclick="jQuery('body').focus();" title="Back to Top" aria-label="Back to Top">
+        <span class="fa-stack fa-lg" aria-hidden="true">
+            <i class="fa fa-square-o fa-stack-2x"></i>
+            <i class="fa fa-angle-double-up fa-stack-1x" style="position:relative; bottom:2px;"></i>
+        </span>
+    </a>
+</div>
+<!-- !scroll_top.twig -->
+
+    <div id="s-lib-alert" title=""><div id="s-lib-alert-content"></div></div>
+
+    
+<!-- FOOTER BEGIN -->
+<div aria-labelledby="social-heading" class="rvt-footer-social rvt-c-region rvt-c-region--footer-social" role="complementary"><h2 class="rvt-sr-only" id="social-heading">Social media</h2><div class="rvt-c-region__inner rvt-container-xl"><div class="settings-tray-editable block block-menu-block block-menu-blockmenu-footer-social-media" data-drupal-settingstray="editable"><ul class="rvt-footer-social__list"><li><a href="https://twitter.com/iulibraries" target="_self" class="icon-twitter" title="IU Libraries on Twitter"><span class="rvt-sr-only rvt-color-white">Twitter</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" height="40" viewBox="0 0 40 40" width="40"><path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="#7A1705"></path><path d="M30.0002 13.7998C29.3002 14.0998 28.5002 14.2998 27.6002 14.3998C28.4002 13.8998 29.1002 13.0998 29.4002 12.0998C28.6002 12.5998 27.7002 12.8998 26.8002 13.0998C26.1002 12.2998 25.0002 11.7998 23.8002 11.7998C21.5002 11.7998 19.7002 13.5998 19.7002 15.8998C19.7002 16.1998 19.7002 16.4998 19.8002 16.7998C16.4002 16.5998 13.4002 14.9998 11.3002 12.4998C10.9002 13.0998 10.7002 13.7998 10.7002 14.5998C10.7002 15.9998 11.4002 17.2998 12.5002 17.9998C11.8002 17.9998 11.2002 17.7998 10.6002 17.4998C10.6002 17.4998 10.6002 17.4998 10.6002 17.5998C10.6002 19.5998 12.0002 21.1998 13.9002 21.5998C13.6002 21.6998 13.2002 21.6998 12.8002 21.6998C12.5002 21.6998 12.3002 21.6998 12.0002 21.5998C12.5002 23.1998 14.0002 24.3998 15.8002 24.3998C14.4002 25.4998 12.6002 26.1998 10.7002 26.1998C10.4002 26.1998 10.0002 26.1998 9.7002 26.0998C11.5002 27.2998 13.7002 27.8998 16.0002 27.8998C23.5002 27.8998 27.7002 21.5998 27.7002 16.1998C27.7002 15.9998 27.7002 15.7998 27.7002 15.6998C28.8002 15.2998 29.4002 14.5998 30.0002 13.7998Z" fill="#F7F7F8"></path></svg></a></li><li><a href="https://www.instagram.com/hermanbwells/" target="_self" class="icon-instagram" title="Herman B Wells Library on Instagram"><span class="rvt-sr-only rvt-color-white">Instagram</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" height="40" viewBox="0 0 40 40" width="40"><path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="#7A1705"></path><path d="M24.3004 29.9999H15.6004C12.5004 29.9999 9.90039 27.4999 9.90039 24.2999V15.5999C9.90039 12.4999 12.4004 9.8999 15.6004 9.8999H24.3004C27.4004 9.8999 30.0004 12.3999 30.0004 15.5999V24.2999C30.0004 27.4999 27.5004 29.9999 24.3004 29.9999ZM24.3004 28.4999C25.4004 28.4999 26.5004 28.0999 27.2004 27.2999C27.9004 26.4999 28.4004 25.4999 28.4004 24.3999V15.6999C28.4004 14.5999 28.0004 13.4999 27.2004 12.7999C26.4004 11.9999 25.4004 11.5999 24.3004 11.5999H15.6004C14.5004 11.5999 13.4004 11.9999 12.7004 12.7999C11.9004 13.5999 11.5004 14.5999 11.5004 15.6999V24.3999C11.5004 25.4999 11.9004 26.5999 12.7004 27.2999C13.5004 27.9999 14.5004 28.4999 15.6004 28.4999H24.3004Z" fill="#F7F7F8"></path><path d="M25.4006 19.9C25.4006 22.9 23.0006 25.3 20.0006 25.3C17.0006 25.3 14.6006 22.9 14.6006 19.9C14.6006 16.9 17.0006 14.5 20.0006 14.5C23.0006 14.5 25.4006 17 25.4006 19.9ZM20.0006 16.4C18.1006 16.4 16.5006 18 16.5006 19.9C16.5006 21.8 18.1006 23.4 20.0006 23.4C21.9006 23.4 23.5006 21.8 23.5006 19.9C23.5006 18 21.9006 16.4 20.0006 16.4Z" fill="#F7F7F8"></path><path d="M25.5002 15.8002C26.2182 15.8002 26.8002 15.2182 26.8002 14.5002C26.8002 13.7822 26.2182 13.2002 25.5002 13.2002C24.7822 13.2002 24.2002 13.7822 24.2002 14.5002C24.2002 15.2182 24.7822 15.8002 25.5002 15.8002Z" fill="#F7F7F8"></path></svg></a></li><li><a href="https://www.facebook.com/pages/IU-Libraries/237699996274633" target="_self" class="icon-facebook" title="IU Libraries on Facebook"><span class="rvt-sr-only rvt-color-white">Facebook</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" height="40" viewBox="0 0 40 40" width="40"><path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="#7A1705"></path><path d="M24.8996 9.99982V13.1998H23.0996C23.0996 13.1998 21.4996 12.9998 21.4996 14.4998V16.9998H24.7996L24.3996 20.3998H21.4996V29.9998H17.6996V20.2998H15.0996V16.9998H17.7996V14.0998C17.7996 14.0998 17.4996 12.4998 18.8996 11.1998C20.2996 9.89982 22.1996 9.99982 22.1996 9.99982H24.8996Z" fill="#F7F7F8"></path></svg></a></li><li><a href="/news-events/rss.xml" target="_self" class="icon-rss" title="IU Libraries - All News &amp; Events content (rss feed)"><span class="rvt-sr-only rvt-color-white">RSS</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" height="40" viewBox="0 0 40 40" width="40"><path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="#7A1705"></path><path d="M26.8665 26.9734C26.8857 27.5472 27.3574 27.9998 27.9269 27.9998C27.9397 27.9998 27.9524 27.9998 27.9641 27.9987C28.5506 27.9796 29.0107 27.4887 28.9894 26.9012C28.6983 18.2811 21.7177 11.3005 13.0976 11.0104C12.5313 10.9679 12.0202 11.4492 12 12.0357C11.9798 12.6222 12.4388 13.1131 13.0253 13.1333C20.5319 13.3872 26.6126 19.4658 26.8665 26.9734Z" fill="#F7F7F8"></path><path d="M22.6102 27.9998C22.0492 27.9998 21.5795 27.5599 21.5498 26.9925C21.3097 22.3632 17.6366 18.6902 13.0073 18.45C12.4208 18.4182 11.9714 17.9199 12.0011 17.3334C12.0319 16.7469 12.5292 16.2942 13.1178 16.3272C18.8383 16.6247 23.3752 21.1626 23.6737 26.8831C23.7035 27.4696 23.253 27.9679 22.6675 27.9998H22.6102Z" fill="#F7F7F8"></path><path d="M14.6563 27.9998C16.1233 27.9998 17.3125 26.8106 17.3125 25.3436C17.3125 23.8765 16.1233 22.6873 14.6563 22.6873C13.1893 22.6873 12 23.8765 12 25.3436C12 26.8106 13.1893 27.9998 14.6563 27.9998Z" fill="#F7F7F8"></path></svg></a></li></ul></div></div></div>
+
+<div aria-labelledby="resources-heading" class="rvt-footer-resources rvt-c-region rvt-c-region--footer-resources" role="complementary"><h2 class="rvt-sr-only" id="resources-heading">Additional resources</h2><div class="rvt-container-xl"><div class="rvt-row"><div class="rvt-c-region__inner rvt-cols-md"><div id="block-rivet-iul-featured-databases" class="settings-tray-editable" data-drupal-settingstray="editable"><h3 class="rvt-footer-resources__heading">
+Featured Databases
+</h3><div class="rvt-prose rvt-flow clearfix rvt-c-field rvt-c-field--body rvt-c-field--text-with-summary"><div class="rvt-row rvt-m-tb-xxs"><div class="rvt-cols-lg"><ul class="rvt-footer-resources__list rvt-m-top-none rvt-m-bottom-none"><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/databases/onesearch">OneSearch@IU</a></li><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/databases/googlescholar">Google Scholar</a></li><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/databases/jstor">JSTOR</a></li></ul></div><div class="rvt-cols-lg"><ul class="rvt-footer-resources__list rvt-m-top-none rvt-m-bottom-none"><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/databases/worldcat">WorldCat</a></li><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/databases/nexisuni">Nexis Uni</a></li><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/databases/hathitrust">HathiTrust Digital Library</a></li></ul></div></div><div><a class="rvt-button rvt-button--small rvt-c-footer-resources__button rvt-button--plain" href="https://libraries.indiana.edu/databases">Databases A-Z</a></div></div></div></div><div class="rvt-c-region__inner rvt-cols-md"><div id="block-rivet-iul-footer-resources" class="settings-tray-editable" data-drupal-settingstray="editable"><h3 class="rvt-footer-resources__heading">
+IU Libraries
+</h3><div class="rvt-prose rvt-flow clearfix rvt-c-field rvt-c-field--body rvt-c-field--text-with-summary"><div class="rvt-row rvt-m-tb-xxs"><div class="rvt-cols-lg"><ul class="rvt-footer-resources__list rvt-m-top-none rvt-m-bottom-none"><li class="rvt-footer-resources__list-item"><a href="https://iub.libcal.com/reserve/wells">Spaces</a></li><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/team">Our Team</a></li><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/departments">Our Departments</a></li></ul></div><div class="rvt-cols-lg"><ul class="rvt-footer-resources__list rvt-m-top-none rvt-m-bottom-none"><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/contact-us">Contact Us</a></li><li class="rvt-footer-resources__list-item"><a href="https://indiana.sharepoint.com/sites/iub-libraries/SitePages/Home.aspx">Intranet SharePoint (Staff)</a></li>
+<li class="rvt-footer-resources__list-item"></li></ul></div></div>
+
+<div><a class="rvt-button rvt-button--small rvt-c-footer-resources__button rvt-button--plain" href="https://give.myiu.org/givenow?account=I320004179%2CP370008414%2CI320004210&amp;sc=IU21GAN1IUOTGNWE00024&amp;utm_source=Indiana_University&amp;utm_medium=referral&amp;utm_campaign=give_now&amp;utm_content=IU21GAN1IUOTGNWE00024">Give Now</a></div></div></div></div></div></div></div>
+
+<!-- Base footer -->
+<footer class="rvt-footer-base ">
+  <div class="rvt-container-xl">
+    <div class="rvt-footer-base__inner">
+      <!-- IU trident -->
+      <div class="rvt-footer-base__logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <polygon fill="currentColor" points="15.3 3.19 15.3 5 16.55 5 16.55 15.07 13.9 15.07 13.9 1.81 15.31 1.81 15.31 0 8.72 0 8.72 1.81 10.12 1.81 10.12 15.07 7.45 15.07 7.45 5 8.7 5 8.7 3.19 2.5 3.19 2.5 5 3.9 5 3.9 16.66 6.18 18.98 10.12 18.98 10.12 21.67 8.72 21.67 8.72 24 15.3 24 15.3 21.67 13.9 21.67 13.9 18.98 17.82 18.98 20.09 16.66 20.09 5 21.5 5 21.5 3.19 15.3 3.19"></polygon>
+        </svg>
+      </div>
+       <!-- List of links -->
+      <ul class="rvt-footer-base__list">
+        <li class="rvt-footer-base__item" style="font-size:14px;">
+          <a class="rvt-footer-base__link" href="https://accessibility.iu.edu/assistance/">Accessibility</a>
+        </li>
+       <li class="rvt-footer-base__item" style="font-size:14px;">
+        <a class="rvt-footer-base__link" href="https://www.iu.edu/college-scorecard.html">College Scorecard</a>
+       </li>
+       <li class="rvt-footer-base__item" style="font-size:14px;">
+         <a class="rvt-footer-base__link" href="https://www.iu.edu/open-to-all.html">Open to All</a>
+      </li>
+        <li class="rvt-footer-base__item" style="font-size:14px;">
+          <a class="rvt-footer-base__link" href="https://libraries.indiana.edu/privacy">Privacy Notice</a>
+        </li>
+        <li class="rvt-footer-base__item" style="font-size:14px;">
+          <a class="rvt-footer-base__link" href="https://www.iu.edu/copyright/index.html">Copyright</a> ©2026 The Trustees of <a class="rvt-footer-base__link" href="https://www.iu.edu">Indiana University</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- FOOTER END --><script type="text/javascript" src="https://webapp1.dlib.indiana.edu/libapps/springshare/js/rivet-2.9.1.js"></script>
+<script type="text/javascript" src="https://webapp1.dlib.indiana.edu/libapps/springshare/js/label-combobox-span.js"></script>
+<script src="https://iub.libanswers.com/load_chat.php?hash=68eb5f56ad6f453d36d016d8645b35ec"></script>
+<script>Rivet.init();</script>
+
+
+            
+    
+
+<div id="s-lch-widget-22494" role="region" aria-label="Chat Widget" class="s-lch-widget-float"><div class="tab_overlay" style="display: none;"></div><iframe id="iframe_68eb5f56ad6f453d36d016d8645b35ec" name="iframe_68eb5f56ad6f453d36d016d8645b35ec" src="https://iub.libanswers.com/chat/widget/68eb5f56ad6f453d36d016d8645b35ec?referer=https%3A%2F%2Fguides.libraries.indiana.edu%2Fc.php%3Fg%3D1527272%26p%3D11710160&amp;referer_title=All%20UI%20Test%20-%20Testing%20Guide%20-%20Library%20Research%20Guides%20at%20Indiana%20University&amp;auth_id=0&amp;auto=true" title="Chat Widget" scrolling="no" class="s-lch-widget-float-load expanded" aria-hidden="true" style="min-height: 0px;">Content is loading...</iframe><button aria-controls="s-lch-widget-22494" aria-expanded="false" type="button" class="s-lch-widget-float-btn online" aria-label="Open chat" title="Open chat"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 85 78" role="img" aria-labelledby="s-lch-widget-float-img-title"><title id="s-lch-widget-float-img-title">Ask Us</title><path fill="#FFF" stroke="#000" stroke-width="4.365" stroke-linecap="round" stroke-linejoin="round" d="M18.116 3.513h48.766c7.875 0 14.282 6.407 14.282 14.28v29.684c0 7.875-6.407 14.28-14.282 14.28H33.22l-12.17 12.17c-.366.367-.855.56-1.344.56-.245 0-.49-.052-.733-.14-.716-.297-1.17-.994-1.17-1.764V61.758c-7.734-.175-13.968-6.513-13.968-14.28V17.793c.017-7.874 6.406-14.28 14.28-14.28z"></path><g class="dots"><path d="M24.664 28.48c2.356 0 4.276 1.92 4.276 4.278 0 2.373-1.92 4.276-4.276 4.276-2.357 0-4.277-1.92-4.277-4.276-.018-2.357 1.903-4.28 4.277-4.28zM42.508 28.48c2.356 0 4.277 1.92 4.277 4.278 0 2.373-1.92 4.276-4.277 4.276s-4.277-1.92-4.277-4.276c0-2.357 1.904-4.28 4.278-4.28zM60.352 28.48c2.356 0 4.277 1.92 4.277 4.278 0 2.373-1.922 4.276-4.278 4.276s-4.278-1.92-4.278-4.276c0-2.357 1.92-4.28 4.278-4.28z"></path></g></svg></button></div><div id="icons-container-chrome-extension" style="
+    position: fixed;
+    right: 0;
+    top: 35vh;
+    border: 0;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    border-radius: 40px 0 0 40px;
+  "></div><browser-mcp-container data-wxt-shadow-root=""></browser-mcp-container></body></html>

@@ -1,0 +1,189 @@
+/* TEST (index11.html): link / database / book lists as the Rivet horizontal card feed (rivet.iu.edu/components/preview/horizontal-card-feed/).
+   Rivet: ul.rvt-list-plain.rvt-flow > li.rvt-card.rvt-card--horizontal > .rvt-card__image + .rvt-card__body (__eyebrow, __title > a, __content, __meta).
+   Mapping (CSS only, the markup can't change):
+     li                                   -> .rvt-card.rvt-card--horizontal
+     .s-lg-book-cover                     -> __image (25% / max 180px on Rivet; a fixed width here because the covers are tiny GIFs)
+     link / database title <a>, book title-> __title (1.25rem, black-500, no underline until hover, circled arrow at the right)
+     .s-lg-database-desc / .s-lg-link-desc / .s-lg-book-desc -> __content (black-100 rule above, black-400 text)
+     .s-lg-book-prop-isbn / -pubdate      -> __meta (14px)
+   */
+
+.s-lib-box-content .s-lg-link-list {
+   --card-cover-width: 4rem;
+   display: flex;
+   flex-direction: column;
+   gap: var(--rvt-spacing-lg);
+}
+
+/* li = card. `float`/`width`: Springshare's `li { float: left }` */
+.s-lib-box-content .s-lg-link-list > li {
+   float: none;
+   margin: 0;
+   padding: 0;
+   position: relative;
+   width: auto;
+}
+
+.s-lib-box-content .s-lg-link-list > li + li {
+   margin-top: 0;
+}
+
+/* each Springshare link list is its own <ul> (often one item); space the lists like the cards */
+.s-lib-box-content div:has(> .s-lg-link-list) + div:has(> .s-lg-link-list) {
+   margin-top: var(--rvt-spacing-lg);
+}
+
+/* __title */
+.s-lib-box-content .s-lg-link-list > li a {
+   color: var(--rvt-color-black-500);
+   font-size: var(--rvt-ts-18);
+   font-weight: var(--rvt-font-weight-regular);
+   line-height: 1.3;
+   text-decoration: none !important; /* rivet-custom-lb-az.css: a { text-decoration: underline !important } */
+}
+
+.s-lib-box-content .s-lg-link-list > li a:hover {
+   color: var(--rvt-color-blue-500);
+   text-decoration: underline !important;
+}
+
+/* __title a::before: 2rem circle (blue-000) with the Rivet arrow at the card's right edge; moves .5rem and darkens on hover.
+   The book's trailing "external link" icon (`i.fa`) is hidden inside it, because the arrow already says "go". */
+.s-lib-box-content .s-lg-link-list > li a::before {
+   background-color: var(--rvt-color-blue-000);
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: .75rem .75rem;
+   border-radius: 999rem;
+   box-sizing: content-box;
+   content: "";
+   display: block;
+   height: .75rem;
+   width: .75rem;
+   padding: var(--rvt-spacing-xs);
+   position: absolute;
+   right: var(--rvt-spacing-xs);
+   top: 0;
+   transition: all 0.2s ease;
+}
+
+.s-lib-box-content .s-lg-link-list > li a:hover::before {
+   background-color: var(--rvt-color-blue-100);
+   transform: translate(var(--rvt-spacing-xs), 0);
+}
+
+/* room for the arrow, like `.rvt-card__title { padding-right: 2.5rem }` (the titles are inline, so the card body gets it) */
+.s-lib-box-content .s-lg-link-list > li > div:not(.s-lg-book),
+.s-lib-box-content .s-lg-link-list .s-lg-book-props {
+   padding-right: var(--rvt-spacing-xl);
+}
+
+/* __content: black-100 rule, 1.5rem above and below it, black-400 text */
+.s-lib-box-content .s-lg-link-list .s-lg-database-desc,
+.s-lib-box-content .s-lg-link-list .s-lg-link-desc,
+.s-lib-box-content .s-lg-link-list .s-lg-book-desc {
+   border-top: 1px solid var(--rvt-color-black-100);
+   color: var(--rvt-color-black-400);
+   font-size: var(--rvt-ts-14);
+   margin-top: var(--rvt-spacing-xs);
+   padding-top: var(--rvt-spacing-xs); 
+}
+
+.s-lib-box-content .s-lg-link-list .s-lg-database-desc p {
+   margin: 0;
+}
+
+/* "more..." stays under the description */
+.s-lib-box-content .s-lg-link-list .s-lg-label-moreinfo {
+   margin-top: var(--rvt-spacing-xs);
+}
+.s-lib-box-content .s-lg-link-list .s-lg-label-moreinfo button {
+   font-size: var(--rvt-ts-14);
+}
+
+/* ---- books: the cover is the card image, on the left ---- */
+.s-lib-box-content .s-lg-link-list .s-lg-book {
+   float: none;
+   width: auto;
+}
+
+.s-lib-box-content .s-lg-link-list .s-lg-book-props {
+   min-height: calc(var(--card-cover-width) * 1.5);
+   padding-left: calc(var(--card-cover-width) + var(--rvt-spacing-md));
+   position: static;
+}
+
+.s-lib-box-content .s-lg-link-list .s-lg-book-cover {
+   display: block;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: var(--card-cover-width);
+}
+
+.s-lib-box-content .s-lg-link-list .s-lg-book-cover-img-0,
+.s-lib-box-content .s-lg-link-list .s-lg-book-cover img {
+   border-radius: var(--rvt-border-radius-md);
+   display: block;
+   float: none;
+   height: auto;
+   margin: 0;
+   width: 100%;
+}
+
+.s-lib-box-content .s-lg-link-list .s-lg-book-title {
+   display: block;
+   font-weight: var(--rvt-font-weight-regular);
+}
+
+/* Springshare outputs ISBN / date before the description; Rivet's __meta comes last, so reorder (the title link keeps order 0) */
+.s-lib-box-content .s-lg-link-list .s-lg-book-props {
+   display: flex;
+   flex-direction: column;
+}
+
+.s-lib-box-content .s-lg-link-list .s-lg-book-desc {
+   order: 1;
+}
+
+.s-lib-box-content .s-lg-link-list .s-lg-book-prop-isbn,
+.s-lib-box-content .s-lg-link-list .s-lg-book-prop-pubdate {
+   order: 2;
+}
+
+/* "by Author": a small line under the title (Rivet's __eyebrow sits above the title in crimson; the author reads better after it) */
+.s-lib-box-content .s-lg-link-list .s-lg-book-by,
+.s-lib-box-content .s-lg-link-list .s-lg-book-author {
+   color: var(--rvt-color-black-400);
+   font-size: var(--rvt-ts-14);
+}
+
+.s-lib-box-content .s-lg-link-list .s-lg-book-author .fa {
+   display: none;
+}
+
+/* __meta */
+.s-lib-box-content .s-lg-link-list .s-lg-book-prop-isbn,
+.s-lib-box-content .s-lg-link-list .s-lg-book-prop-pubdate {
+   color: var(--rvt-color-black-400);
+   font-size: var(--rvt-ts-14);
+   margin: 0;
+}
+
+.s-lib-box-content .s-lg-link-list .s-lg-book-prop-isbn {
+   margin-top: var(--rvt-spacing-md);
+}
+
+/* Rivet: below 30em a horizontal card stacks (image above the body) */
+@media screen and (max-width: 30em) {
+   .s-lib-box-content .s-lg-link-list .s-lg-book-props {
+      min-height: 0;
+      padding-left: 0;
+   }
+
+   .s-lib-box-content .s-lg-link-list .s-lg-book-cover {
+      margin-bottom: var(--rvt-spacing-sm);
+      position: static;
+   }
+}

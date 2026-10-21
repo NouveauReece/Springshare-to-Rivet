@@ -1,0 +1,139 @@
+/* TEST (index11.html): link / database / book lists as the Rivet stacked link hub (rivet.iu.edu/components/preview/stacked-link-hub/).
+   Rivet: ul.rvt-link-hub.rvt-link-hub--stacked > li.rvt-link-hub__item > a.rvt-link-hub__link > span.__text + span.__description
+   (black-100 rule above each item, 1.25rem regular title that underlines on hover, 14px black-400 description, light-blue arrow at the right).
+   Mapping (CSS only, the markup can't change): li -> __item; the title <a> -> __text; .s-lg-*-desc -> __description.
+   Rivet's whole item is the link; here the title link is stretched over the item (`a::after`) and the "more..." button sits above it.
+   Book covers are decorative (empty alt), so they are hidden to match the text-only hub.
+   Use it instead of test-card-feed.css, not with it (they style the same elements). */
+
+.s-lib-box-content .s-lg-link-list {
+   display: block;
+}
+
+/* li = __item (`float`/`width`: Springshare's `li { float: left }`) */
+.s-lib-box-content .s-lg-link-list > li {
+   border-top: 1px solid var(--rvt-color-black-100);
+   float: none;
+   margin: 0;
+   padding: var(--rvt-spacing-sm) var(--rvt-spacing-xl) var(--rvt-spacing-sm) 0;
+   position: relative;
+   width: auto;
+}
+
+.s-lib-box-content .s-lg-link-list > li + li {
+   margin-top: 0;
+}
+
+/* __text */
+.s-lib-box-content .s-lg-link-list > li a {
+   color: var(--rvt-color-blue-500);
+   font-size: var(--rvt-ts-20);
+   font-weight: var(--rvt-font-weight-regular);
+   line-height: 1.25;
+   text-decoration: none !important; /* rivet-custom-lb-az.css: a { text-decoration: underline !important } */
+}
+
+.s-lib-box-content .s-lg-link-list > li:hover a {
+   text-decoration: underline !important;
+}
+
+/* the whole item is clickable */
+.s-lib-box-content .s-lg-link-list > li a::after {
+   content: "";
+   inset: 0;
+   position: absolute;
+}
+
+/* __link::after: 1rem blue-200 arrow, 1.25rem from the top, 1rem from the right */
+.s-lib-box-content .s-lg-link-list > li a::before {
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%2394D2E7" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
+   background-position: center;
+   background-repeat: no-repeat;
+   content: "";
+   display: inline-block;
+   height: 1rem;
+   position: absolute;
+   right: var(--rvt-spacing-sm);
+   top: 1.25rem;
+   width: 1rem;
+}
+
+.s-lib-box-content .s-lg-link-list > li div {
+   float: none;
+}
+
+/* __description */
+.s-lib-box-content .s-lg-link-list .s-lg-database-desc,
+.s-lib-box-content .s-lg-link-list .s-lg-link-desc,
+.s-lib-box-content .s-lg-link-list .s-lg-book-desc {
+   color: var(--rvt-color-black-400);
+   font-size: var(--rvt-ts-14);
+   margin-top: var(--rvt-spacing-xs);
+}
+
+.s-lib-box-content .s-lg-link-list .s-lg-database-desc p {
+   margin: 0;
+}
+
+/* the lock icon, "more..." and the revealed text stay above the stretched link */
+.s-lib-box-content .s-lg-link-list .s-lg-icons,
+.s-lib-box-content .s-lg-link-list .s-lg-label-moreinfo,
+.s-lib-box-content .s-lg-link-list .s-lg-content-more-info {
+   position: relative;
+   z-index: 1;
+}
+
+.s-lib-box-content .s-lg-link-list .s-lg-content-more-info {
+   font-size: var(--rvt-ts-14);
+}
+
+/* ---- books ---- */
+.s-lib-box-content .s-lg-link-list .s-lg-book {
+   float: none;
+   width: auto;
+}
+
+.s-lib-box-content .s-lg-link-list .s-lg-book-cover {
+   display: none;
+}
+
+.s-lib-box-content .s-lg-link-list .s-lg-book-title {
+   display: block;
+   font-weight: var(--rvt-font-weight-regular);
+}
+
+.s-lib-box-content .s-lg-link-list .s-lg-book-by,
+.s-lib-box-content .s-lg-link-list .s-lg-book-author {
+   color: var(--rvt-color-black-400);
+   font-size: var(--rvt-ts-14);
+}
+
+.s-lib-box-content .s-lg-link-list .s-lg-book-author .fa {
+   display: none;
+}
+
+.s-lib-box-content .s-lg-link-list .s-lg-book-prop-isbn,
+.s-lib-box-content .s-lg-link-list .s-lg-book-prop-pubdate {
+   color: var(--rvt-color-black-400);
+   font-size: var(--rvt-ts-14);
+   margin-top: var(--rvt-spacing-xs);
+}
+
+.s-lib-box-content .s-lg-link-list .s-lg-book-prop-isbn + .s-lg-book-prop-pubdate {
+   margin-top: 0;
+}
+
+/* Springshare outputs ISBN / date before the description; the hub reads title, description, then the small print */
+.s-lib-box-content .s-lg-link-list .s-lg-book-props {
+   display: flex;
+   flex-direction: column;
+}
+
+.s-lib-box-content .s-lg-link-list .s-lg-book-desc {
+   order: 1;
+}
+
+.s-lib-box-content .s-lg-link-list .s-lg-book-prop-isbn,
+.s-lib-box-content .s-lg-link-list .s-lg-book-prop-pubdate {
+   order: 2;
+}

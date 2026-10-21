@@ -100,52 +100,78 @@
     margin-top: var(--rvt-spacing-xs);
 }
 
+/* "more..." / "less..." -> Rivet default disclosure (disclosure/_base.scss): `.rvt-disclosure__toggle` is a borderless blue text button with a 1rem chevron at the left
+   (padding `.25rem .5rem .25rem 1.5rem`) that turns 90deg when `aria-expanded="true"`, underlined on hover; `.rvt-disclosure__content` is indented 1.5rem with a .25rem
+   black-100 bar down its left edge, .5rem below the toggle. Springshare renders a "more..." button (aria-expanded="false") and a "less..." button (aria-expanded="true")
+   and jQuery shows one at a time with inline `display`, which is left alone, so the chevron points right on "more..." and down on "less...". The revealed text is
+   `.s-lg-content-more-info`. */
 .s-lg-label-moreinfo {
     margin: var(--rvt-spacing-xs) 0 0;
 }
 
-.s-lg-content-more-info {
-    margin: var(--rvt-spacing-xs) 0 0;
-}
-
-/* "more..." / "less..." (`button.s-lg-label-more` / `-less`, Bootstrap btn-link) -> .rvt-button.rvt-button--small.rvt-button--secondary
-   (buttons/_base.scss: 14px, 1.5rem tall, `0 .375rem` padding, white fill, blue-100 border, blue-500 text). jQuery toggles the pair with inline
-   `display: block` / `display: none`, which is left alone so only one shows at a time. */
 .s-lg-label-moreinfo button.btn.btn-link {
-    background-color: var(--rvt-color-white-base);
-    border: .125rem solid var(--rvt-color-blue-100);
-    border-radius: var(--rvt-border-radius-md);
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
     color: var(--rvt-color-blue-500);
     font-size: var(--rvt-ts-14);
     font-style: normal;
-    font-weight: var(--rvt-font-weight-medium);
-    height: var(--rvt-spacing-md);
-    line-height: 1.25rem;
+    font-weight: var(--rvt-font-weight-regular);
+    height: auto;
+    line-height: var(--rvt-line-height-base);
     margin: 0;
     min-height: 0;
-    padding: 0 .375rem;
+    padding: .25rem var(--rvt-spacing-xs) .25rem var(--rvt-spacing-md);
+    position: relative;
     text-decoration: none;
     white-space: nowrap;
 }
 
-.s-lg-label-moreinfo button.btn.btn-link:hover {
-    background-color: var(--rvt-color-blue-000);
-    border-color: var(--rvt-color-blue-100);
-    color: var(--rvt-color-blue-600);
-    text-decoration: none;
+.s-lg-label-moreinfo button.btn.btn-link::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16"><path d="M6.263 15.146 12.31 8 6.263.854 4.737 2.146 9.69 8l-4.953 5.854 1.526 1.292Z"></path></svg>');
+    background-position: center;
+    background-repeat: no-repeat;
+    content: "";
+    height: 1rem;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1rem;
 }
 
+.s-lg-label-moreinfo button.btn.btn-link[aria-expanded="true"]::before {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+.s-lg-label-moreinfo button.btn.btn-link:hover,
 .s-lg-label-moreinfo button.btn.btn-link:active {
-    background-color: var(--rvt-color-blue-100);
-    border-color: var(--rvt-color-blue-200);
-    color: var(--rvt-color-blue-600);
+    background-color: transparent;
+    color: var(--rvt-color-blue-500);
+    text-decoration: underline;
 }
 
-/* focus: secondary-button ring (white .125rem + blue-400 .25rem); beats the site's forced #101010 outline */
+/* focus: Rivet's .125rem blue-400 outline and blue-000 fill; beats the site's forced #101010 outline */
 body .s-lg-label-moreinfo button.btn.btn-link:focus-visible {
-    border-color: var(--rvt-color-blue-100) !important;
-    box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-400) !important;
-    outline: none !important;
+    background-color: var(--rvt-color-blue-000);
+    border-color: transparent !important;
+    box-shadow: none !important;
+    outline: .125rem solid var(--rvt-color-blue-400) !important;
+}
+
+.s-lg-content-more-info {
+    box-shadow: .25rem 0 0 var(--rvt-color-black-100) inset;
+    margin: var(--rvt-spacing-xs) 0 0;
+    padding: .25rem 0 .25rem var(--rvt-spacing-md);
+}
+
+.s-lg-content-more-info > :first-child {
+    margin-top: 0;
+}
+
+.s-lg-content-more-info > :last-child {
+    margin-bottom: 0;
 }
 
 
