@@ -1,0 +1,847 @@
+<html lang="en"><head>
+    <!-- iid: 3021 -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            
+            <link href="https://static-assets-us.libcal.com/bootstrap_23/bootstrap3_16.min.css" rel="stylesheet">
+    
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://static-assets-us.libcal.com/css_165/LibCal_public.min.css" rel="stylesheet">
+    <link href="https://static-assets-us.libcal.com/css_165/print.min.css" rel="stylesheet" media="print">
+    
+<script src="https://static-assets-us.libcal.com/jquery_16/jquery.min.js"></script>
+
+
+    <script src="https://static-assets-us.libcal.com/bootstrap_23/bootstrap3.min.js"></script>
+    <script src="https://static-assets-us.libcal.com/js_165/LibCal_public.min.js"></script>
+        <script>
+    springSpace.dateFormat = "dddd, MMMM D, YYYY";
+    springSpace.dateShortFormat = "dddd, MMMM D, YYYY";
+    springSpace.timeFormat = "h:mma";
+    springSpace.timezone = 'America/Detroit';
+    springSpace.currency = "USD";
+
+    springSpace.language = 'en'; // en
+    springSpace.locale = 'en-US'; // en-US
+
+    springSpace.phpTimeFormat = 'g:ia';
+
+    springSpace.bootstrapAsset = 'https://static-assets-us.libcal.com/bootstrap_23/bootstrap3_16.min.css';
+    springSpace.publicCssAsset = 'https://static-assets-us.libcal.com/css_165/LibCal_public.min.css';
+    springSpace.adminCssAsset = 'https://static-assets-us.libcal.com/css_165/LibCal_admin.min.css';
+</script>
+        <title>
+                                        Make an Appointment
+     -
+                Space Booking  -
+        IU Libraries
+    </title>
+    <style>
+            #s-lc-public-banner {
+            padding: 0;
+            margin: 0;
+        }
+
+        .s-lc-public-footer {
+            margin: 0;
+        }
+    </style>
+        <style>
+        .datepicker-inline {
+            border: 1px solid #888888;
+        }
+
+        .s-lc-app-timeb-loc, .s-lc-app-timeb-et {
+            display: none;
+        }
+
+        #s-lc-app-asub {
+            margin: 10px 0px 150px 0px;
+        }
+
+        #s-lc-app-slist .panel-body {
+            padding: 5px 10px;
+        }
+
+        #s-lc-app-slist .panel {
+            margin-bottom: 10px;
+        }
+
+        .panel-heading {
+            cursor: pointer;
+        }
+
+        @media (min-width: 992px) {
+            .s-lc-app-s3-alignment {
+                margin-right: 75px;
+            }
+        }
+
+        .s-lc-appointment-success-intro {
+            font-size: 120%!important;
+            margin-bottom: 30px;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://webapp1.dlib.indiana.edu/libapps/springshare/css/rivet-core-2.9.1.css">
+<link rel="stylesheet" type="text/css" href="https://webapp1.dlib.indiana.edu/libapps/springshare/css/rivet-custom-libcal.css">
+<style>.s-lc-public-footer {background-color:#ffffff;}</style>
+<style>#s-lib-admin-main .dataTables_paginate > ul.pagination > li.paginate_button:not(.disabled):not(.active) > a, #s-lib-public-main .dataTables_paginate > ul.pagination > li.paginate_button:not(.disabled):not(.active) > a, .s-lg-link-contrast, .ui-widget-content a, a { color: #2d699e; } .form-inline > span { display:none; } #s-lib-footer-login-link a, #s-lib-footer-support-link a { color: #2d699e; }.rvt-footer-resources__list-item a { font-size: 14px; }</style>
+<link rel="shortcut icon" href="https://www.iu.edu/favicon.ico">
+<script src="https://webapp1.dlib.indiana.edu/libapps/springshare/js/rivet-2.9.1.js"></script>
+<script>Rivet.init();</script>
+
+<!-- Overrides -->
+<link rel="stylesheet" href="./style-overrides/new-overrides.css">
+</head>
+<body id="app" class="s-lc-public s-lc-public-page-5">
+
+
+<a id="s-lc-public-skiplink" class="s-lc-skiplink alert-info" href="#s-lc-public-title-area">Skip to Main Content</a>
+
+<div id="s-lc-public-cust-header" role="banner"><!-- HEADER BEGIN -->
+<header class="rvt-header-wrapper">
+<div class="rvt-header-global">
+  <div class="rvt-container-xl">
+    <div class="rvt-header-global__inner">
+     <div class="rvt-header-global__logo-slot [ rvt-m-right-lg ]">       
+    <a class="rvt-lockup" href="https://libraries.indiana.edu" rel="home">
+    <div class="rvt-lockup__tab">
+      <svg xmlns="http://www.w3.org/2000/svg" class="rvt-lockup__trident" viewBox="0 0 28 34">
+        <path d="M-3.34344e-05 4.70897H8.83308V7.174H7.1897V21.1426H10.6134V2.72321H8.83308V0.121224H18.214V2.65476H16.2283V21.1426H19.7889V7.174H18.214V4.64047H27.0471V7.174H25.0614V23.6761L21.7746 26.8944H16.2967V30.455H18.214V33.8787H8.76463V30.592H10.6819V26.8259H5.20403L1.91726 23.6077V7.174H-3.34344e-05V4.70897Z" fill="currentColor"></path>
+      </svg>
+    </div>
+        <div class="rvt-lockup__body [ rvt-text-nobr ]">
+      <span class="rvt-lockup__title">Libraries</span>
+            <span class="rvt-lockup__subtitle">Indiana University Bloomington</span>
+        </div>
+      </a>
+  </div>
+    <div class="rvt-header-global__controls">
+          <div data-rvt-disclosure="menu" data-rvt-close-click-outside="">
+            <button aria-expanded="false" class="rvt-global-toggle rvt-global-toggle--menu rvt-hide-lg-up" data-rvt-disclosure-toggle="menu">
+              <span class="rvt-sr-only">Menu</span>
+              <svg class="rvt-global-toggle__open" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" focusable="false">
+                <path d="M15 4H1V2h14v2Zm0 5H1V7h14v2ZM1 14h14v-2H1v2Z"></path>
+              </svg>
+              <svg class="rvt-global-toggle__close" fill="currentColor" width="16" height="16" viewBox="0 0 16 16">
+                <path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"></path>
+              </svg>
+            </button>
+        <nav aria-label="Main" class="rvt-header-menu rvt-c-header-menu" data-rvt-disclosure-target="menu" hidden="">
+            
+            <h2 class="rvt-sr-only">Main navigation</h2>
+                <ul class="rvt-header-menu__list">
+                    <li class="rvt-header-menu__item">
+                        <a href="https://libraries.indiana.edu/finding-borrowing" target="_self" class="rvt-header-menu__link" title="Finding &amp; Borrowing">Finding <br>&amp; Borrowing</a>
+                    </li>
+                    <li class="rvt-header-menu__item">
+                        <a href="https://libraries.indiana.edu/researching-teaching" target="_self" class="rvt-header-menu__link" title="Researching &amp; Teaching">Researching <br>&amp; Teaching</a>
+                    </li>
+                    <li class="rvt-header-menu__item">
+                        <a href="https://libraries.indiana.edu/visiting-studying" target="_self" class="rvt-header-menu__link" title="Visiting &amp; Studying">Visiting <br>&amp; Studying</a>
+                    </li>
+                    <li class="rvt-header-menu__item">
+                        <a href="https://libraries.indiana.edu/news-events" target="_self" class="rvt-header-menu__link" title="News &amp; Events">News <br>&amp; Events</a>
+                    </li>
+                    <li class="rvt-header-menu__item">
+                        <a href="https://libraries.indiana.edu/about-us" target="_self" class="rvt-header-menu__link" title="About Us">About Us</a>
+                    </li>
+                    <li class="rvt-header-menu__item">
+                        <a href="https://libraries.indiana.edu/need-help" target="_self" class="rvt-header-menu__link">Need Help?</a>
+                    </li>
+                    <li class="rvt-header-menu__item">
+                        <a href="https://iucat.iu.edu/" target="_blank" class="rvt-cta rvt-cta--button rvt-header-menu__link">IUCAT</a>
+                    </li>
+                </ul>
+        </nav>
+      </div>
+     </div>
+   </div>
+  </div>
+ </div>
+</header>
+<!-- HEADER END --></div>
+<div class="container">
+    
+    <div id="s-lc-public-bc" class="row">
+        <div class="col-md-12">
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="https://libraries.indiana.edu/">IU Libraries</a></li>
+
+                    <li class="s-lc-desktop-only"><a href="https://iub.libcal.com">Space Booking </a></li>
+
+                                            <li><a href="/appointments" aria-current="page">Appointments</a></li>
+                    
+                    
+                                                        </ol>
+            </nav>
+        </div>
+    </div>
+
+    <noscript>
+        <div class="alert alert-danger" id="noscript">Your browser has javascript disabled. Without javascript some functions will not work.</div>
+    </noscript>
+
+    <main aria-label="Main Content">
+        <div id="s-lc-public-title-area">
+                <div id="s-lc-public-title" class="row">
+        <div class="col-md-12">
+            <h1 id="s-lc-public-pt" class="s-lc-app-booking-header">
+                                                        Make an Appointment
+    
+                            </h1>
+                        <span class="sr-only">
+                Make an appointment in 3 steps.                Step 1: Select a staff member.                Step 2: Select an available date.                Step 3: Select an available timeslot.            </span>
+        </div>
+    </div>
+
+            </div>
+
+            <div id="s-lc-public-main" class="s-lc-public-main">
+        <div id="s-lc-public-page-content" class="row">
+            <div id="col1" class="col-md-12 center">
+                <div class="row">
+                    <div id="s-lc-app-s1" class="col-md-4" style="" aria-live="polite">
+
+<h2 class="s-lc-app-s1h3" aria-label="Step 1. Select a staff member:">1. Select a staff member:</h2>
+
+<input type="hidden" name="cid" id="cid">
+
+<div class="row">
+    <div class="col-md-10">
+                                
+            <div id="s-lc-app-slist">
+                                    
+                    
+<div class="radio">
+    <div class="s-lc-appointment-staff-member margin-bottom-sm">
+        <label>
+            <input type="radio" name="staff" class="s-lc-app-sl" value="23911" data-uid="23911" data-gid="0" data-n="Business/SPEA Library Research Consultations" data-virtual="0" data-libauth="0" checked="checked">
+            Business/SPEA Library Research Consultations
+        </label>
+
+                    <a href="#" role="button" class="margin-left-sm" onclick="return showStaffMemberInfo(23911);" data-original-title="" title="">
+                <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>
+                <span class="icon-label sr-only">More info about  Business/SPEA Library Research Consultations</span>
+            </a>
+            </div>
+</div>
+                            </div>
+            </div>
+</div>
+
+
+        <div id="s-lc-staff-member-info-23911" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+
+                    <h2 class="modal-title">
+                        Business/SPEA Library Research Consultations
+                    </h2>
+                </div>
+
+                <div class="modal-body">
+                    <p>Let a Business/SPEA Library consultant&nbsp;help you or your team refine your information needs, gain access to credible research or hard-to-find data and statistics, and lead you through the research process. Appointments are 30 minutes long and conducted via Zoom. Once you have booked your appointment, one of our consultants will email you with the information for your Zoom session. If the dates/times available do not work for your schedule, contact <a href="mailto:libbus@indiana.edu"> libbus@indiana.edu </a> or 812-855-1957&nbsp;for alternatives.</p>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                    <div aria-live="polite">
+                        <div id="select-date-sr-message"><h2 class="sr-only">Step 2. Showing calendar for month 10 2026</h2></div>
+                    </div>
+                    <div id="s-lc-app-s2" class="col-md-4" style=""><h2 class="s-lc-app-s1h3" tabindex="0" aria-label="Step 2. Select Date:">2. Select Date:</h2><div id="s-lc-app-dp" class="s-lc-datepicker-contrast" tabindex="0"><div class="datepicker datepicker-inline"><div class="datepicker-days" style=""><table class="table-condensed" aria-label="Date Picker"><thead><tr></tr><tr><th class="prev disabled" scope="col">«</th><th colspan="5" class="datepicker-switch" scope="col">November 2026</th><th class="next" scope="col">»</th></tr><tr><th class="dow" scope="col">Su</th><th class="dow" scope="col">Mo</th><th class="dow" scope="col">Tu</th><th class="dow" scope="col">We</th><th class="dow" scope="col">Th</th><th class="dow" scope="col">Fr</th><th class="dow" scope="col">Sa</th></tr></thead><tbody><tr><td class="old disabled day disabled" title="Not Available" data-date="1792886400000" aria-disabled="true">25</td><td class="old disabled day disabled" title="Not Available" data-date="1792972800000" aria-disabled="true">26</td><td class="old disabled day disabled" title="Not Available" data-date="1793059200000" aria-disabled="true">27</td><td class="old disabled day disabled" title="Not Available" data-date="1793145600000" aria-disabled="true">28</td><td class="old disabled day disabled" title="Not Available" data-date="1793232000000" aria-disabled="true">29</td><td class="old disabled day disabled" title="Not Available" data-date="1793318400000" aria-disabled="true">30</td><td class="old disabled day disabled" title="Not Available" data-date="1793404800000" aria-disabled="true">31</td></tr><tr><td class="day" title="Available" data-date="1793491200000">1</td><td class="day" title="Available" data-date="1793577600000">2</td><td class="day" title="Available" data-date="1793664000000">3</td><td class="day" title="Available" data-date="1793750400000">4</td><td class="day" title="Available" data-date="1793836800000">5</td><td class="disabled disabled-date day disabled" title="Not Available" data-date="1793923200000" aria-disabled="true">6</td><td class="disabled disabled-date day disabled" title="Not Available" data-date="1794009600000" aria-disabled="true">7</td></tr><tr><td class="day" title="Available" data-date="1794096000000">8</td><td class="day" title="Available" data-date="1794182400000">9</td><td class="day" title="Available" data-date="1794268800000">10</td><td class="day" title="Available" data-date="1794355200000">11</td><td class="day" title="Available" data-date="1794441600000">12</td><td class="disabled disabled-date day disabled" title="Not Available" data-date="1794528000000" aria-disabled="true">13</td><td class="disabled disabled-date day disabled" title="Not Available" data-date="1794614400000" aria-disabled="true">14</td></tr><tr><td class="day" title="Available" data-date="1794700800000">15</td><td class="day" title="Available" data-date="1794787200000">16</td><td class="day" title="Available" data-date="1794873600000">17</td><td class="day" title="Available" data-date="1794960000000">18</td><td class="day" title="Available" data-date="1795046400000">19</td><td class="disabled disabled-date day disabled" title="Not Available" data-date="1795132800000" aria-disabled="true">20</td><td class="disabled disabled-date day disabled" title="Not Available" data-date="1795219200000" aria-disabled="true">21</td></tr><tr><td class="disabled disabled-date day disabled" title="Not Available" data-date="1795305600000" aria-disabled="true">22</td><td class="disabled disabled-date day disabled" title="Not Available" data-date="1795392000000" aria-disabled="true">23</td><td class="disabled disabled-date day disabled" title="Not Available" data-date="1795478400000" aria-disabled="true">24</td><td class="disabled disabled-date day disabled" title="Not Available" data-date="1795564800000" aria-disabled="true">25</td><td class="disabled disabled-date day disabled" title="Not Available" data-date="1795651200000" aria-disabled="true">26</td><td class="disabled disabled-date day disabled" title="Not Available" data-date="1795737600000" aria-disabled="true">27</td><td class="disabled disabled-date day disabled" title="Not Available" data-date="1795824000000" aria-disabled="true">28</td></tr><tr><td class="day" title="Available" data-date="1795910400000">29</td><td class="day" title="Available" data-date="1795996800000">30</td><td class="new day" title="Available" data-date="1796083200000">1</td><td class="new day" title="Available" data-date="1796169600000">2</td><td class="new day" title="Available" data-date="1796256000000">3</td><td class="new disabled disabled-date day disabled" title="Not Available" data-date="1796342400000" aria-disabled="true">4</td><td class="new disabled disabled-date day disabled" title="Not Available" data-date="1796428800000" aria-disabled="true">5</td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datepicker-months" style="display: none;"><table class="table-condensed" aria-label="Date Picker"><thead><tr></tr><tr><th class="prev disabled" scope="col">«</th><th colspan="5" class="datepicker-switch" scope="col">Months</th><th class="next" scope="col">»</th></tr></thead><tbody><tr><td colspan="7"><span class="month disabled">Jan</span><span class="month disabled">Feb</span><span class="month disabled">Mar</span><span class="month disabled">Apr</span><span class="month disabled">May</span><span class="month disabled">Jun</span><span class="month disabled">Jul</span><span class="month disabled">Aug</span><span class="month disabled">Sep</span><span class="month disabled">Oct</span><span class="month focused">Nov</span><span class="month">Dec</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datepicker-years" style="display: none;"><table class="table-condensed" aria-label="Date Picker"><thead><tr></tr><tr><th class="prev disabled" scope="col">«</th><th colspan="5" class="datepicker-switch" scope="col">2020-2029</th><th class="next" scope="col">»</th></tr></thead><tbody><tr><td colspan="7"><span class="year old disabled">2019</span><span class="year disabled">2020</span><span class="year disabled">2021</span><span class="year disabled">2022</span><span class="year disabled">2023</span><span class="year disabled">2024</span><span class="year disabled">2025</span><span class="year focused">2026</span><span class="year disabled">2027</span><span class="year disabled">2028</span><span class="year disabled">2029</span><span class="year new disabled">2030</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datepicker-decades" style="display: none;"><table class="table-condensed" aria-label="Date Picker"><thead><tr></tr><tr><th class="prev disabled" scope="col">«</th><th colspan="5" class="datepicker-switch" scope="col">2000-2090</th><th class="next" scope="col">»</th></tr></thead><tbody><tr><td colspan="7"><span class="decade old disabled">1990</span><span class="decade disabled">2000</span><span class="decade disabled">2010</span><span class="decade disabled focused">2020</span><span class="decade disabled">2030</span><span class="decade disabled">2040</span><span class="decade disabled">2050</span><span class="decade disabled">2060</span><span class="decade disabled">2070</span><span class="decade disabled">2080</span><span class="decade disabled">2090</span><span class="decade new disabled">2100</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datepicker-centuries" style="display: none;"><table class="table-condensed" aria-label="Date Picker"><thead><tr></tr><tr><th class="prev disabled" scope="col">«</th><th colspan="5" class="datepicker-switch" scope="col">2000-2900</th><th class="next" scope="col">»</th></tr></thead><tbody><tr><td colspan="7"><span class="century old disabled">1900</span><span class="century disabled focused">2000</span><span class="century disabled">2100</span><span class="century disabled">2200</span><span class="century disabled">2300</span><span class="century disabled">2400</span><span class="century disabled">2500</span><span class="century disabled">2600</span><span class="century disabled">2700</span><span class="century disabled">2800</span><span class="century disabled">2900</span><span class="century new disabled">3000</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div></div></div></div>
+                    <div id="s-lc-app-s3" class="col-md-4" style="" aria-live="polite"><h2 class="s-lc-app-s1h3" aria-label="Step 3: Select Time:">3. Select Time:</h2><p id="s-lc-app-timeh">Sunday, November 1, 2026</p><div class="s-lc-timezone-container s-lc-app-change-tz-cont pad-top-med pad-bottom-med">Time Zone: Eastern Time - US &amp; Canada (<a href="#" class="s-lc-app-change-tz-modal">change</a>)</div><button class="btn btn-default btn-sm s-lc-app-timeslot s-lc-app-timeb" aria-pressed="false" data-uid="23911" data-st="2026-11-01 18:00:00" data-date="2026-11-01" data-crc="00a2aa3f6b6582c1a2c508cf1ca67985">6:00pm<span class="s-lc-app-timeb-et"> - <span class="sr-only s-lc-app-timeb-et">until </span>6:30pm</span><span class="s-lc-app-timeb-date sr-only">Sunday, November 1, 2026</span></button><span class="sr-only">, </span><button class="btn btn-default btn-sm s-lc-app-timeslot s-lc-app-timeb" aria-pressed="false" data-uid="23911" data-st="2026-11-01 18:30:00" data-date="2026-11-01" data-crc="e2d5e771fa2fa04271eb91f0a93d8ffc">6:30pm<span class="s-lc-app-timeb-et"> - <span class="sr-only s-lc-app-timeb-et">until </span>7:00pm</span><span class="s-lc-app-timeb-date sr-only">Sunday, November 1, 2026</span></button><span class="sr-only">, </span><button class="btn btn-default btn-sm s-lc-app-timeslot s-lc-app-timeb" aria-pressed="false" data-uid="23911" data-st="2026-11-01 19:00:00" data-date="2026-11-01" data-crc="a218ba7a2247fddd06f09e0e904dd953">7:00pm<span class="s-lc-app-timeb-et"> - <span class="sr-only s-lc-app-timeb-et">until </span>7:30pm</span><span class="s-lc-app-timeb-date sr-only">Sunday, November 1, 2026</span></button><span class="sr-only">, </span><button class="btn btn-default btn-sm s-lc-app-timeslot s-lc-app-timeb" aria-pressed="false" data-uid="23911" data-st="2026-11-01 19:30:00" data-date="2026-11-01" data-crc="615cc81802cdf93525d7c9a75b8a5848">7:30pm<span class="s-lc-app-timeb-et"> - <span class="sr-only s-lc-app-timeb-et">until </span>8:00pm</span><span class="s-lc-app-timeb-date sr-only">Sunday, November 1, 2026</span></button><span class="sr-only">, </span><button class="btn btn-default btn-sm s-lc-app-timeslot s-lc-app-timeb" aria-pressed="false" data-uid="23911" data-st="2026-11-01 20:00:00" data-date="2026-11-01" data-crc="85bc4928c5e30980869f0fd295b25d46">8:00pm<span class="s-lc-app-timeb-et"> - <span class="sr-only s-lc-app-timeb-et">until </span>8:30pm</span><span class="s-lc-app-timeb-date sr-only">Sunday, November 1, 2026</span></button><span class="sr-only">, </span><button class="btn btn-default btn-sm s-lc-app-timeslot s-lc-app-timeb" aria-pressed="false" data-uid="23911" data-st="2026-11-01 20:30:00" data-date="2026-11-01" data-crc="63985582c321809b787162e877190a47">8:30pm<span class="s-lc-app-timeb-et"> - <span class="sr-only s-lc-app-timeb-et">until </span>9:00pm</span><span class="s-lc-app-timeb-date sr-only">Sunday, November 1, 2026</span></button><span class="sr-only">, </span><div class="text-center"><button type="button" id="s-lc-app-continue" class="btn btn-primary margin-top-med s-lc-app-s3-alignment" disabled="disabled">Continue</button></div></div>
+                </div>
+                <div id="s-lc-app-form-aria-live" aria-live="assertive" aria-atomic="true">
+                    <div id="s-lc-app-s4" style="display:none;">
+                    </div>
+                </div>
+
+                <div id="s-lc-app-success-intro" class="s-lc-appointment-success-intro" role="status" aria-live="polite" aria-atomic="true">
+                                    </div>
+
+                <div id="s-lc-app-results" style="display:none;">
+                    <div class="row">
+    <div class="col-md-12">
+        <div id="alert-register-success-msg" role="region" aria-live="polite" aria-labelledby="s-lc-app-success-intro">
+            <dl class="dl-horizontal margin-bottom-med">
+                <dt>Appointment with:</dt>
+                <dd class="margin-bottom-med"><span id="s-lc-app-success-name"></span></dd>
+
+                <dt>Date:</dt>
+                <dd class="margin-bottom-med"><span id="s-lc-app-success-date"></span></dd>
+
+                <dt>Start Time:</dt>
+                <dd class="margin-bottom-med"><span id="s-lc-app-success-time"></span></dd>
+
+                <dt>Time Zone:</dt>
+                <dd class="s-lc-timezone-container margin-bottom-med"><span id="s-lc-app-success-timezone"></span></dd>
+
+                <div id="s-lc-appointment-category" style="display:none;">
+                    <dt>Type:</dt>
+                    <dd class="margin-bottom-med"><span id="s-lc-app-success-category"></span></dd>
+                </div>
+
+                <dt>Location:</dt>
+                <dd class="margin-bottom-med"><span id="s-lc-app-success-location"></span></dd>
+
+                <div id="s-lc-appointment-online-meeting" style="display:none;">
+                    <dt>Online Meeting URL:</dt>
+                    <dd class="margin-bottom-med">
+                        <span id="s-lc-app-success-online-url">
+                                                    </span>
+                    </dd>
+                </div>
+
+                <dt id="s-lc-app-success-directions-label">Directions:</dt>
+                <dd class="margin-bottom-med"><span id="s-lc-app-success-directions"></span></dd>
+            </dl>
+
+            <p>
+                <span id="s-lc-app-success-sms-confirmation"></span>
+            </p>
+        </div>
+
+        <p>
+            <button class="btn btn-default margin-top-xlg" id="s-lc-ms-sobtn" onclick="return startOver();">
+                Start Over
+            </button>
+
+                    </p>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+
+    <footer id="s-lc-public-footer" class="row s-lc-public-footer">
+        <div id="s-lc-public-footer-brand">
+    <span title="libcal-us-4">Powered by</span> <a href="https://www.springshare.com" class="s-lc-link-in-text">Springshare</a>.
+</div>
+
+<div id="s-lc-public-footer-rights">
+    All rights reserved.
+</div>
+
+    <div id="s-lc-footer-support-link">
+        <a href="mailto:libref@iu.edu">Report a tech support issue.</a>
+    </div>
+
+                
+        <div id="s-lc-public-footer-admin-links" role="navigation" aria-label="Admin Footer">
+                            <a id="s-lc-sign-in" href="https://iub.libapps.com/libapps/login.php?site_id=4318&amp;target=">Login to LibApps</a>
+                    </div>
+
+        <div class="s-lc-public-footer-actions">
+    
+<div id="s-lc-language">
+    <select id="s-lc-language-selector" aria-label="Select Language">
+                <option value="ca">català</option>
+                <option value="cy">Cymraeg</option>
+                <option value="en" selected="">English</option>
+                <option value="es">español</option>
+                <option value="fr">français</option>
+                <option value="ga">Irish</option>
+                <option value="ja">日本語 Nihongo</option>
+                <option value="nl">Nederlands</option>
+                <option value="sl">slovenski jezik</option>
+                <option value="vi">Tiếng Việt</option>
+                <option value="zh">中文 Zhōngwén</option>
+            </select>
+</div>
+</div>
+    </footer>
+
+    <!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JNV3QTLPRV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JNV3QTLPRV');
+</script>
+</div>
+
+<div id="s-lc-public-cust-footer"><!-- FOOTER BEGIN -->
+<div aria-labelledby="social-heading" class="rvt-footer-social rvt-c-region rvt-c-region--footer-social" role="complementary"><h2 class="rvt-sr-only" id="social-heading">Social media</h2><div class="rvt-c-region__inner rvt-container-xl"><div class="settings-tray-editable block block-menu-block block-menu-blockmenu-footer-social-media" data-drupal-settingstray="editable"><ul class="rvt-footer-social__list"><li><a href="https://twitter.com/iulibraries" target="_self" class="icon-twitter" title="IU Libraries on Twitter"><span class="rvt-sr-only rvt-color-white">Twitter</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" height="40" viewBox="0 0 40 40" width="40"><path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="#7A1705"></path><path d="M30.0002 13.7998C29.3002 14.0998 28.5002 14.2998 27.6002 14.3998C28.4002 13.8998 29.1002 13.0998 29.4002 12.0998C28.6002 12.5998 27.7002 12.8998 26.8002 13.0998C26.1002 12.2998 25.0002 11.7998 23.8002 11.7998C21.5002 11.7998 19.7002 13.5998 19.7002 15.8998C19.7002 16.1998 19.7002 16.4998 19.8002 16.7998C16.4002 16.5998 13.4002 14.9998 11.3002 12.4998C10.9002 13.0998 10.7002 13.7998 10.7002 14.5998C10.7002 15.9998 11.4002 17.2998 12.5002 17.9998C11.8002 17.9998 11.2002 17.7998 10.6002 17.4998C10.6002 17.4998 10.6002 17.4998 10.6002 17.5998C10.6002 19.5998 12.0002 21.1998 13.9002 21.5998C13.6002 21.6998 13.2002 21.6998 12.8002 21.6998C12.5002 21.6998 12.3002 21.6998 12.0002 21.5998C12.5002 23.1998 14.0002 24.3998 15.8002 24.3998C14.4002 25.4998 12.6002 26.1998 10.7002 26.1998C10.4002 26.1998 10.0002 26.1998 9.7002 26.0998C11.5002 27.2998 13.7002 27.8998 16.0002 27.8998C23.5002 27.8998 27.7002 21.5998 27.7002 16.1998C27.7002 15.9998 27.7002 15.7998 27.7002 15.6998C28.8002 15.2998 29.4002 14.5998 30.0002 13.7998Z" fill="#F7F7F8"></path></svg></a></li><li><a href="https://www.instagram.com/hermanbwells/" target="_self" class="icon-instagram" title="Herman B Wells Library on Instagram"><span class="rvt-sr-only rvt-color-white">Instagram</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" height="40" viewBox="0 0 40 40" width="40"><path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="#7A1705"></path><path d="M24.3004 29.9999H15.6004C12.5004 29.9999 9.90039 27.4999 9.90039 24.2999V15.5999C9.90039 12.4999 12.4004 9.8999 15.6004 9.8999H24.3004C27.4004 9.8999 30.0004 12.3999 30.0004 15.5999V24.2999C30.0004 27.4999 27.5004 29.9999 24.3004 29.9999ZM24.3004 28.4999C25.4004 28.4999 26.5004 28.0999 27.2004 27.2999C27.9004 26.4999 28.4004 25.4999 28.4004 24.3999V15.6999C28.4004 14.5999 28.0004 13.4999 27.2004 12.7999C26.4004 11.9999 25.4004 11.5999 24.3004 11.5999H15.6004C14.5004 11.5999 13.4004 11.9999 12.7004 12.7999C11.9004 13.5999 11.5004 14.5999 11.5004 15.6999V24.3999C11.5004 25.4999 11.9004 26.5999 12.7004 27.2999C13.5004 27.9999 14.5004 28.4999 15.6004 28.4999H24.3004Z" fill="#F7F7F8"></path><path d="M25.4006 19.9C25.4006 22.9 23.0006 25.3 20.0006 25.3C17.0006 25.3 14.6006 22.9 14.6006 19.9C14.6006 16.9 17.0006 14.5 20.0006 14.5C23.0006 14.5 25.4006 17 25.4006 19.9ZM20.0006 16.4C18.1006 16.4 16.5006 18 16.5006 19.9C16.5006 21.8 18.1006 23.4 20.0006 23.4C21.9006 23.4 23.5006 21.8 23.5006 19.9C23.5006 18 21.9006 16.4 20.0006 16.4Z" fill="#F7F7F8"></path><path d="M25.5002 15.8002C26.2182 15.8002 26.8002 15.2182 26.8002 14.5002C26.8002 13.7822 26.2182 13.2002 25.5002 13.2002C24.7822 13.2002 24.2002 13.7822 24.2002 14.5002C24.2002 15.2182 24.7822 15.8002 25.5002 15.8002Z" fill="#F7F7F8"></path></svg></a></li><li><a href="https://www.facebook.com/pages/IU-Libraries/237699996274633" target="_self" class="icon-facebook" title="IU Libraries on Facebook"><span class="rvt-sr-only rvt-color-white">Facebook</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" height="40" viewBox="0 0 40 40" width="40"><path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="#7A1705"></path><path d="M24.8996 9.99982V13.1998H23.0996C23.0996 13.1998 21.4996 12.9998 21.4996 14.4998V16.9998H24.7996L24.3996 20.3998H21.4996V29.9998H17.6996V20.2998H15.0996V16.9998H17.7996V14.0998C17.7996 14.0998 17.4996 12.4998 18.8996 11.1998C20.2996 9.89982 22.1996 9.99982 22.1996 9.99982H24.8996Z" fill="#F7F7F8"></path></svg></a></li><li><a href="/news-events/rss.xml" target="_self" class="icon-rss" title="IU Libraries - All News &amp; Events content (rss feed)"><span class="rvt-sr-only rvt-color-white">RSS</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" height="40" viewBox="0 0 40 40" width="40"><path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="#7A1705"></path><path d="M26.8665 26.9734C26.8857 27.5472 27.3574 27.9998 27.9269 27.9998C27.9397 27.9998 27.9524 27.9998 27.9641 27.9987C28.5506 27.9796 29.0107 27.4887 28.9894 26.9012C28.6983 18.2811 21.7177 11.3005 13.0976 11.0104C12.5313 10.9679 12.0202 11.4492 12 12.0357C11.9798 12.6222 12.4388 13.1131 13.0253 13.1333C20.5319 13.3872 26.6126 19.4658 26.8665 26.9734Z" fill="#F7F7F8"></path><path d="M22.6102 27.9998C22.0492 27.9998 21.5795 27.5599 21.5498 26.9925C21.3097 22.3632 17.6366 18.6902 13.0073 18.45C12.4208 18.4182 11.9714 17.9199 12.0011 17.3334C12.0319 16.7469 12.5292 16.2942 13.1178 16.3272C18.8383 16.6247 23.3752 21.1626 23.6737 26.8831C23.7035 27.4696 23.253 27.9679 22.6675 27.9998H22.6102Z" fill="#F7F7F8"></path><path d="M14.6563 27.9998C16.1233 27.9998 17.3125 26.8106 17.3125 25.3436C17.3125 23.8765 16.1233 22.6873 14.6563 22.6873C13.1893 22.6873 12 23.8765 12 25.3436C12 26.8106 13.1893 27.9998 14.6563 27.9998Z" fill="#F7F7F8"></path></svg></a></li></ul></div></div></div>
+
+
+<div aria-labelledby="resources-heading" class="rvt-footer-resources rvt-c-region rvt-c-region--footer-resources" role="complementary"><h2 class="rvt-sr-only" id="resources-heading">Additional resources</h2><div class="rvt-container-xl"><div class="rvt-row"><div class="rvt-c-region__inner rvt-cols-md"><div id="block-rivet-iul-featured-databases" class="settings-tray-editable" data-drupal-settingstray="editable"><h3 class="rvt-footer-resources__heading">
+Featured Databases
+</h3><div class="rvt-prose rvt-flow clearfix rvt-c-field rvt-c-field--body rvt-c-field--text-with-summary"><div class="rvt-row rvt-m-tb-xxs"><div class="rvt-cols-lg"><ul class="rvt-footer-resources__list rvt-m-top-none rvt-m-bottom-none"><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/databases/onesearch">OneSearch@IU</a></li><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/databases/googlescholar">Google Scholar</a></li><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/databases/jstor">JSTOR</a></li></ul></div><div class="rvt-cols-lg"><ul class="rvt-footer-resources__list rvt-m-top-none rvt-m-bottom-none"><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/databases/worldcat">WorldCat</a></li><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/databases/nexisuni">Nexis Uni</a></li><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/databases/hathitrust">HathiTrust Digital Library</a></li></ul></div></div><div><a class="rvt-button rvt-button--small rvt-c-footer-resources__button rvt-button--plain" href="https://libraries.indiana.edu/databases">Databases A-Z</a></div></div></div></div><div class="rvt-c-region__inner rvt-cols-md"><div id="block-rivet-iul-footer-resources" class="settings-tray-editable" data-drupal-settingstray="editable"><h3 class="rvt-footer-resources__heading">
+IU Libraries
+</h3><div class="rvt-prose rvt-flow clearfix rvt-c-field rvt-c-field--body rvt-c-field--text-with-summary"><div class="rvt-row rvt-m-tb-xxs"><div class="rvt-cols-lg"><ul class="rvt-footer-resources__list rvt-m-top-none rvt-m-bottom-none"><li class="rvt-footer-resources__list-item"><a href="https://iub.libcal.com/reserve/wells">Spaces</a></li><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/team">Our Team</a></li><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/departments">Our Departments</a></li></ul></div><div class="rvt-cols-lg"><ul class="rvt-footer-resources__list rvt-m-top-none rvt-m-bottom-none"><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/contact-us">Contact Us</a></li><li class="rvt-footer-resources__list-item"><a href="https://indiana.sharepoint.com/sites/iub-libraries/SitePages/Home.aspx">Intranet SharePoint (Staff)</a></li><li class="rvt-footer-resources__list-item"></li></ul></div></div><div><a class="rvt-button rvt-button--small rvt-c-footer-resources__button rvt-button--plain" href="https://give.myiu.org/givenow?account=I320004179%2CP370008414%2CI320004210&amp;sc=IU21GAN1IUOTGNWE00024&amp;utm_source=Indiana_University&amp;utm_medium=referral&amp;utm_campaign=give_now&amp;utm_content=IU21GAN1IUOTGNWE00024">Give Now</a></div></div></div></div></div></div></div>
+
+<!-- Base footer -->
+<footer class="rvt-footer-base ">
+  <div class="rvt-container-xl">
+    <div class="rvt-footer-base__inner">
+      <!-- IU trident -->
+      <div class="rvt-footer-base__logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <polygon fill="currentColor" points="15.3 3.19 15.3 5 16.55 5 16.55 15.07 13.9 15.07 13.9 1.81 15.31 1.81 15.31 0 8.72 0 8.72 1.81 10.12 1.81 10.12 15.07 7.45 15.07 7.45 5 8.7 5 8.7 3.19 2.5 3.19 2.5 5 3.9 5 3.9 16.66 6.18 18.98 10.12 18.98 10.12 21.67 8.72 21.67 8.72 24 15.3 24 15.3 21.67 13.9 21.67 13.9 18.98 17.82 18.98 20.09 16.66 20.09 5 21.5 5 21.5 3.19 15.3 3.19"></polygon>
+        </svg>
+      </div>
+       <!-- List of links -->
+      <ul class="rvt-footer-base__list">
+        <li class="rvt-footer-base__item" style="font-size:14px;">
+          <a class="rvt-footer-base__link" href="https://accessibility.iu.edu/assistance/">Accessibility</a>
+        </li>
+       <li class="rvt-footer-base__item" style="font-size:14px;">
+        <a class="rvt-footer-base__link" href="https://www.iu.edu/college-scorecard.html">College Scorecard</a>
+       </li>
+       <li class="rvt-footer-base__item" style="font-size:14px;">
+         <a class="rvt-footer-base__link" href="https://www.iu.edu/open-to-all.html">Open to All</a>
+      </li>
+        <li class="rvt-footer-base__item" style="font-size:14px;">
+          <a class="rvt-footer-base__link" href="https://libraries.indiana.edu/privacy">Privacy Notice</a>
+        </li>
+        <li class="rvt-footer-base__item" style="font-size:14px;">
+          <a class="rvt-footer-base__link" href="https://www.iu.edu/copyright/index.html">Copyright</a> ©2026 The Trustees of <a class="rvt-footer-base__link" href="https://www.iu.edu">Indiana University</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</div>
+<!-- FOOTER END -->
+    <script defer="" src="https://static-assets-us.libcal.com/js_165/datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://static-assets-us.libcal.com/css_165/datepicker.min.css">
+    <script defer="" src="https://static-assets-us.libcal.com/js_165/selectpicker.min.js"></script>
+    <script defer="" src="https://static-assets-us.libcal.com/js_165/direct/public/appointments/appointments-common.min.js"></script>
+    <script defer="" src="https://static-assets-us.libcal.com/js_165/direct/public/appointments/success.min.js"></script>
+        <script>
+        var dateTimeRequestInProgress = false;
+
+        var springyPage = {
+            classPrefix: "s-lc-app",
+            fadeInDuration: 200,
+            loadingDisplay: "<p class='text-center'><br/><br/><br/><br/><i class='fa fa-spinner fa-spin fa-2x' aria-hidden='true'></i></p>",
+            publicTimezone: 'America\/Detroit',
+            publicTimezoneDisplay: 'Eastern\u0020Time\u0020\u002D\u0020US\u0020\u0026\u0020Canada',
+            availableDates: [],
+            lang: {
+                timezone: "Time\u0020Zone",
+                changeTimezone: "change",
+                continueButtonText: "Continue",
+                mapLinkLabel: 'Map',
+                mapLinkTooltip: 'Open\u0020map\u0020for\u0020\u0025name\u0025',
+                successMessage: '\u003Cstrong\u003ESuccess\u0021\u003C\/strong\u003E\u0020You\u0020are\u0020all\u0020set.',
+                successConfirmEmail: 'A\u0020confirmation\u0020email\u0020with\u0020relevant\u0020appointment\u0020details\u0020was\u0020sent\u0020to\u0020\u003Cspan\u0020id\u003D\u0022s\u002Dlc\u002Dapp\u002Dsuccess\u002Duser\u002Demail\u0022\u003E\u003C\/span\u003E.\u0020Check\u0020your\u0020spam\u0020folder\u0020if\u0020you\u0020don\u0027t\u0020see\u0020the\u0020email\u0020in\u0020your\u0020inbox.',
+                datepickerPrevMonth: "Previous Month",
+                datepickerNextMonth: "Next Month",
+                datepickerSelectMonth: "Select a Month",
+                showMonth: "Step 2. Showing calendar for month",
+            },
+        };
+
+        function getStaffList() {
+            hideAll();
+            jQuery("#s-lc-app-s1").html(springyPage.loadingDisplay).fadeIn(springyPage.fadeInDuration);
+
+            jQuery.ajax({
+                type: "get",
+                url: "/widget/appointments/staff",
+                data: {
+                    iid: 3021,
+                    lid: 895,
+                    uid: 23911,
+                    gid: 0,
+                    cid: 0,
+                },
+                dataType: "json",
+                success: function (data) {
+                    var html = data.html ? data.html : '<div class="alert alert-danger" tabindex="0">Sorry,\u0020there\u0020are\u0020no\u0020times\u0020available.</div>';
+                    jQuery("#s-lc-app-s1").html(html).fadeIn(springyPage.fadeInDuration);
+
+                    showSpecificGroup();
+
+                    var staffRadioButtonElements = jQuery('.s-lc-app-sl');
+                    staffRadioButtonElements.on('click', onStaffMemberClicked);
+
+                    // Move focus on datepicker when enter or space is pressed on staff member radio button
+                    springyCommon.bindAccessibleKeyPress(staffRadioButtonElements, moveFocusOnDatepicker);
+
+                    catGroupListen();
+                    groupPanelsSetupArrows();
+                    accessibleIcons();
+                    jQuery(".panel-heading").on("click", onPanelHeadingClick).on("keypress", onPanelHeadingKeypress);
+                    catListen();
+
+                    if (!data.fetchDates) {
+                        return;
+                    }
+
+                    getDatesAndTimes();
+                },
+            });
+
+            return false;
+        }
+
+        function moveFocusOnDatepicker() {
+            jQuery('#s-lc-app-dp').find('.datepicker').focus();
+        }
+
+        function onPanelHeadingClick() {
+            // this function makes a group active
+            var section = jQuery(this).attr("aria-controls");
+
+            // select the first user (or no preference) in this group by default
+            var firstUser = jQuery("#" + section).find("input[type=radio]").first();
+            firstUser.prop("checked", true);
+
+            var cid = categoryGetVisibleId(jQuery("#" + section + " .groupcat_filtering"));
+            if (cid > 0) {
+                jQuery("#cid").val(cid);
+            }
+
+            getDatesAndTimes();
+
+            return true;
+        }
+
+        function showSpecificGroup() {
+            var groupId = 0;
+            if (groupId < 1) {
+                return true;
+            }
+
+            jQuery(".group_panel").hide();
+            jQuery("#collapse" + groupId).addClass("in");
+
+            jQuery(".group_" + groupId + " input[name=staff]").first().trigger("click");
+
+            jQuery(".group_" + groupId).show();
+            jQuery(".groupnt_" + groupId).show();
+
+            if (jQuery(".groupnt_" + groupId).is(":visible")) {
+                jQuery("#s-lc-app-s1date, #s-lc-app-s1time").remove();
+            }
+
+            return true;
+        }
+
+        function onStaffMemberClicked(event) {
+            // this prevents people clicking a staff member and then clicking a different one
+            // quickly before the datetime request completes
+            if (dateTimeRequestInProgress) {
+                event.preventDefault();
+                return false;
+            }
+
+            dateTimeRequestInProgress = true;
+            getDatesAndTimes();
+
+            return true;
+        }
+
+        function getSelectedUserElement() {
+            return jQuery("input[name=staff]:checked", "#s-lc-app-slist");
+        }
+
+        function getDatesAndTimes() {
+            jQuery("#s-lc-app-s2, #s-lc-app-s3").hide().html(springyPage.loadingDisplay).fadeIn(springyPage.fadeInDuration);
+
+            var selectedUser = getSelectedUserElement();
+            var uid = selectedUser.data("uid");
+            var gid = selectedUser.data("gid");
+            var cid = jQuery("#cid").val();
+
+            jQuery.ajax({
+                type: "get",
+                url: "/widget/appointments/datetime",
+                data: {
+                    iid: 3021,
+                    lid: 895,
+                    uid: uid,
+                    gid: gid,
+                    cid: cid,
+                    timezone: springyPage.publicTimezone,
+                    logging: window.location.search.includes('springy'),
+                },
+                dataType: "json",
+                success: function (data) {
+                    springyPage.availableDates = data.dates;
+
+                    jQuery("#s-lc-app-s2").html('<h2 class="s-lc-app-s1h3" tabindex=0 aria-label="Step 2. Select\u0026\u0023x20\u003BDate\u0026\u0023x3A\u003B">2. Select\u0020Date\u003A</h2><div id="s-lc-app-dp" class="s-lc-datepicker-contrast" tabindex="0"></div>').fadeIn(springyPage.fadeInDuration);
+
+                    if (data.times) {
+                        var timeslots = data.times;
+                        var date = data.date;
+                        var html = '<h2 class="s-lc-app-s1h3" aria-label="Step 3: Select\u0026\u0023x20\u003BTime\u0026\u0023x3A\u003B">3. Select\u0020Time\u003A</h2>';
+
+                        html += '<p id="s-lc-app-timeh">' + moment(date).format(springSpace.dateFormat) + '</p>';
+                        html += getTimezoneDisplay();
+
+                        for (var i=0; i < timeslots.length; i++) {
+                            html += formatTimeslotHtml(timeslots[i], date);
+                        }
+
+                        html += createTimeslotContinueButton();
+
+                        jQuery("#s-lc-app-s3").hide().html(html).fadeIn(springyPage.fadeInDuration);
+                        jQuery(".s-lc-app-timeb").on("click", onTimeslotClicked);
+                        jQuery('#s-lc-app-continue').on('click', progressToBookingForm);
+                        bindTimezoneModal();
+                    } else {
+                        jQuery("#s-lc-app-s3").hide();
+                    }
+
+                    var viewDate = (data.dates && data.dates.length > 0) ? data.dates[0] : moment().format(springSpace.phpDateFormat);
+                    setupDatepicker(viewDate);
+                    datePickerAccessibilityFix(jQuery("#s-lc-app-dp"));
+
+                    dateTimeRequestInProgress = false;
+                },
+            });
+
+            return false;
+        }
+
+        function getTimezoneDisplay() {
+            return '<div class="s-lc-timezone-container s-lc-app-change-tz-cont pad-top-med pad-bottom-med">'
+                + springyPage.lang.timezone + ': ' + springyPage.publicTimezoneDisplay
+                + ' (<a href="#" class="s-lc-app-change-tz-modal">' + springyPage.lang.changeTimezone + '</a>)'
+                + '</div>';
+        }
+
+        function bindTimezoneModal() {
+            jQuery('.s-lc-app-change-tz-modal').off('click').on('click', springyPublic.showTimezoneModal);
+        }
+
+        function setupDatepicker(dateDefault) {
+            var datePicker = springyDatepicker.setupInline('#s-lc-app-dp', Object.assign({
+                todayHighlight: false,
+                defaultViewDate: dateDefault,
+                maxViewMode: 0 // days
+            }, buildDatepickerOptions(springyPage.availableDates)));
+
+            datePicker.on('changeMonth', calChangeMonthYear);
+            datePicker.on('changeYear', calChangeMonthYear);
+            datePicker.on('changeDate', datePickerSelectDate);
+
+            updateSelectDateMessage(new Date(dateDefault));
+            moveFocusOnDatepicker();
+        }
+
+        function calChangeMonthYear(e) {
+            var date = e.date;
+
+            updateSelectDateMessage(date);
+        }
+
+        function updateSelectDateMessage(date) {
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
+
+            jQuery("#select-date-sr-message").html("<h2 class=\"sr-only\">" + springyPage.lang.showMonth + " " + month + " " + year + "</h2>");
+        }
+
+        function datePickerSelectDate() {
+            var date = springyDatepicker.getMoment('#s-lc-app-dp').format(springSpace.phpDateFormat);
+            var selectedUser = getSelectedUserElement();
+            var uid = selectedUser.data("uid");
+            var gid = selectedUser.data("gid");
+            var cid = jQuery("#cid").val();
+
+            jQuery("#s-lc-app-s3").html(springyPage.loadingDisplay).fadeIn(springyPage.fadeInDuration);
+
+            jQuery.ajax({
+                type: "get",
+                url: "/widget/appointments/times",
+                data: {
+                    iid: 3021,
+                    lid: 895,
+                    uid: uid,
+                    gid: gid,
+                    cid: cid,
+                    date: date,
+                    timezone: springyPage.publicTimezone,
+                    logging: window.location.search.includes('springy'),
+                },
+                dataType: "json",
+                success: function (data) {
+                    var html = '<h2 class="s-lc-app-s1h3" aria-label="Step 3. Select\u0026\u0023x20\u003BTime\u0026\u0023x3A\u003B">3. Select\u0020Time\u003A</h2>';
+                    var timeslots = data.times;
+
+                    if (!timeslots || (timeslots.length === 0)) {
+                        html += '<div class="alert alert-danger" tabindex="0">Sorry,\u0020there\u0020are\u0020no\u0020times\u0020available.</div>';
+                    } else {
+                        html += '<p id="s-lc-app-timeh">' + moment(date).format(springSpace.dateFormat) + '</p>';
+                        html += getTimezoneDisplay();
+
+                        for (var i=0; i < timeslots.length; i++) {
+                            html += formatTimeslotHtml(timeslots[i], date);
+                        }
+
+                        html += createTimeslotContinueButton();
+                    }
+
+                    jQuery("#s-lc-app-s3").hide().html(html).fadeIn(springyPage.fadeInDuration).focus();
+
+                    var timeSlotElements = jQuery('.s-lc-app-timeb');
+                    timeSlotElements.on('click', onTimeslotClicked);
+                    timeSlotElements.first().trigger('focus');
+                    jQuery('#s-lc-app-continue').on('click', progressToBookingForm);
+                    bindTimezoneModal();
+                },
+            });
+
+            return false;
+        }
+
+        function onTimeslotClicked() {
+            jQuery('#s-lc-app-continue').prop('disabled', false).focus();
+            jQuery('.s-lc-app-timeslot').removeClass('active').attr('aria-pressed', false);
+            jQuery(this).addClass('active').attr('aria-pressed', true);
+
+            return false;
+        }
+
+        function redirectToLibAuthLogin(clickedSlot, userId, groupId, categoryId) {
+            window.location = '/appointments-auth/prepare?' + jQuery.param({
+                iid: 3021,
+                lid: 895,
+                uid: userId,
+                gid: groupId,
+                cid: categoryId,
+                startTime: clickedSlot.data('st'),
+                checksum: clickedSlot.data('crc'),
+                method: 22,
+            });
+
+            return false;
+        }
+
+        function isUserLibAuthEnabled(selectedStaffElement, userId) {
+            // if the selected staff member is an actual user
+            // then we can use the libauth attribute from that element
+            var selectedStaffId = selectedStaffElement.data('uid');
+            if (selectedStaffId === userId) {
+                return selectedStaffElement.data('libauth');
+            }
+
+            // otherwise it means that the selected staff option is either 'no preference' or a group nickname
+            // try to get the selected users libauth setting by looking up their id
+            var userElement = jQuery('input[name=staff][data-uid=' + userId + ']', '#s-lc-app-slist');
+            if (userElement.length > 0) {
+                return userElement.data('libauth');
+            }
+
+            // if we couldn't look them up it means the group is using group nicknames
+            // in this case we return false here and the booking form step
+            // will determine the libauth settings of the user
+            return false;
+        }
+
+        function progressToBookingForm() {
+            var clickedSlot = jQuery('.s-lc-app-timeslot.active');
+            var userId = clickedSlot.data("uid");
+
+            var selectedUser = getSelectedUserElement();
+            var groupId = selectedUser.data("gid");
+            var isLibAuth = isUserLibAuthEnabled(selectedUser, userId);
+            var categoryId = jQuery("#cid").val();
+
+            if (isLibAuth) {
+                return redirectToLibAuthLogin(clickedSlot, userId, groupId, categoryId);
+            }
+
+            hideAll();
+
+            /* Hide page title on mobile view on the final step */
+            jQuery('#s-lc-public-title').addClass('s-lc-desktop-only');
+
+            jQuery("#s-lc-app-s4").html(springyPage.loadingDisplay).fadeIn(springyPage.fadeInDuration);
+
+            jQuery.ajax({
+                type: "get",
+                url: "/widget/appointments/form",
+                data: {
+                    iid: 3021,
+                    lid: 895,
+                    uid: userId,
+                    gid: groupId,
+                    cid: categoryId,
+                    startTime: clickedSlot.data('st'),
+                    checksum: clickedSlot.data('crc'),
+                    timezone: springyPage.publicTimezone,
+                    nocache: true,
+                    method: 22,
+                },
+                dataType: "html",
+                success: function (html) {
+                    jQuery("#s-lc-app-s4").html(html).fadeIn(springyPage.fadeInDuration);
+                    springyCommon.setupCustomRequiredValidation();
+                    accessibleIcons();
+                    jQuery('#s-lc-public-pd').hide();
+                    jQuery('#s-lc-app-back-to-step1').on('click', backToStep1);
+                },
+            });
+
+            return false;
+        }
+
+        function catListen() {
+            jQuery("#cid").on("change", getDatesAndTimes);
+        }
+
+        function catGroupListen() {
+            var cid = categoryGetVisibleId(jQuery("#s-lc-app-slist").find(".groupcat_filtering").filter(":visible").first());
+            if (cid > 0) {
+                jQuery("#cid").val(cid);
+            }
+
+            jQuery(".groupcat_filtering").change(function () {
+                var cid = parseInt(jQuery(this).val(), 10);
+                jQuery("#cid").val(cid);
+                getDatesAndTimes();
+            });
+        }
+
+        function backToStep1() {
+            hideAll();
+
+            /* Unhide page title on mobile view */
+            jQuery('#s-lc-public-title').removeClass('s-lc-desktop-only');
+
+            jQuery("#s-lc-app-s1").fadeIn(springyPage.fadeInDuration);
+            jQuery('#s-lc-public-pd').show();
+
+            jQuery('#s-lc-app-s2').show();
+            var date = jQuery(this).data('date');
+            jQuery('#s-lc-app-dp').val(date);
+            datePickerSelectDate(date);
+
+            return false;
+        }
+
+        jQuery(function() {
+            jQuery('#s-lc-app-location').selectpicker().on('change', springyPublic.goToSelectedUrl);
+
+            getStaffList();
+        });
+    </script>
+    
+
+
+
+
+</body></html>

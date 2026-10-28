@@ -23,6 +23,8 @@
 @import url("components/footer.css");
 @import url("components/dialog.css");
 @import url("components/loading.css");
+@import url("components/libcal.css");
+@import url("components/libcal-error.css");
 
 @import url("components/test-card-feed.css");
 /* @import url("components/test-link-hub.css") */

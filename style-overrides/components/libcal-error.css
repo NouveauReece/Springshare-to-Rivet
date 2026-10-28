@@ -1,0 +1,157 @@
+/* LibCal error page (index17.html: the stock LibCal 404, `main > h1#errorcode + #message > ul#links`) -> Rivet "Page not found" layout (rivet.iu.edu/layouts/preview/error-page/page-not-found/).
+   Rivet: a full-width black-000 band with a black-100 rule under it (`rvt-bg-black-000 rvt-border-bottom rvt-p-tb-xxl`) holding a crimson uppercase "HTTP 404" eyebrow, the h1
+   "Page not found" and an 18px black-500 paragraph inside `.rvt-container-sm`; below it, clickable raised cards (`.rvt-card--clickable.rvt-card--raised`, two per row) for the suggested links.
+   LibCal's own inline styles (pink #9F1F63 text and frame, 60px centred code, blue links) use ID selectors, so ID selectors are used here too.
+   Not reproducible with CSS: the global Rivet header / footer, the search box and the browser-magnifying-glass sticker, which are not in LibCal's error markup. */
+body:has(#errorcode) {
+   background-color: var(--rvt-color-white-base);
+   color: var(--rvt-color-black-500);
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-16);
+   line-height: var(--rvt-line-height-base);
+   margin: 0;
+}
+
+/* .rvt-container-sm, with the band's 4rem top / bottom padding as the page's own padding */
+body:has(#errorcode) > main {
+   display: grid;
+   grid-template-columns: minmax(0, 1fr);
+   margin: 0 auto;
+   padding: 4rem 0;
+   position: relative;
+   row-gap: var(--rvt-spacing-md);
+   width: min(100% - 2rem, 52rem);
+}
+
+/* the band: spans rows 1-2 (title + paragraph) and bleeds to both viewport edges (box-shadow + clip-path), 4rem above and below the text */
+body:has(#errorcode) > main::before,
+body:has(#errorcode) > main::after {
+   background-color: var(--rvt-color-black-000);
+   box-shadow: 0 0 0 100vmax var(--rvt-color-black-000);
+   clip-path: inset(0 -100vmax);
+   content: "";
+   grid-column: 1;
+   grid-row: 1 / 3;
+   inset: -4rem 0 -4rem;
+   position: absolute;
+   z-index: -1;
+}
+
+/* the rule under the band (border-bottom: 1px black-100) */
+body:has(#errorcode) > main::after {
+   background-color: var(--rvt-color-black-100);
+   box-shadow: 0 0 0 100vmax var(--rvt-color-black-100);
+   grid-row: 1 / 3;
+   height: 1px;
+   inset: auto 0 -4rem;
+}
+
+/* eyebrow + h1: "404" becomes "HTTP 404" (rvt-ts-xs, crimson, uppercase), then the title */
+#errorcode {
+   color: var(--rvt-color-crimson-500);
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-regular);
+   letter-spacing: 0;
+   line-height: var(--rvt-line-height-base);
+   margin: 0;
+   text-align: left;
+   text-transform: uppercase;
+}
+
+#errorcode i {
+   display: none;
+}
+
+#errorcode::before {
+   content: "HTTP ";
+}
+
+#errorcode::after {
+   color: var(--rvt-color-black-500);
+   content: "Page not found";
+   display: block;
+   font-size: var(--rvt-ts-36);
+   font-weight: var(--rvt-font-weight-regular);
+   line-height: 1.2;
+   margin-top: var(--rvt-spacing-xs);
+   text-transform: none;
+}
+
+/* the paragraph: LibCal's text sits directly in #message, so the box is dropped and the text becomes the second grid row; 18px black-500 */
+#message {
+   border: 0;
+   color: var(--rvt-color-black-500);
+   display: contents;
+   font-size: var(--rvt-ts-18);
+   font-weight: var(--rvt-font-weight-regular);
+   padding: 0;
+   text-align: left;
+}
+
+#message br {
+   display: none;
+}
+
+/* suggested links: .rvt-row of .rvt-cols-6-md cards */
+#links {
+   display: grid;
+   gap: var(--rvt-spacing-md);
+   grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+   list-style: none;
+   margin: calc(8rem - var(--rvt-spacing-md)) 0 0;
+   padding: 0;
+}
+
+#links li {
+   background-color: var(--rvt-color-white-base);
+   border-radius: var(--rvt-border-radius-lg);
+   box-shadow: var(--rvt-shadow-heavy);
+   padding: var(--rvt-spacing-md) var(--rvt-spacing-xl) var(--rvt-spacing-md) var(--rvt-spacing-md);
+   position: relative;
+}
+
+/* __title: 1.25rem black-500, underline + blue on hover; the whole card is the link (`rvt-card--clickable`) */
+#links a:link,
+#links a:visited {
+   color: var(--rvt-color-black-500);
+   font-size: var(--rvt-ts-20);
+   line-height: 1.3;
+   text-decoration: none;
+}
+
+#links a:hover {
+   color: var(--rvt-color-blue-500);
+   text-decoration: underline;
+}
+
+#links a::after {
+   content: "";
+   inset: 0;
+   position: absolute;
+}
+
+/* the circled arrow at the card's right edge (__title a::before) */
+#links a::before {
+   background-color: var(--rvt-color-blue-000);
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 1rem 1rem;
+   border-radius: 999rem;
+   box-sizing: content-box;
+   content: "";
+   display: block;
+   height: 1rem;
+   padding: var(--rvt-spacing-xs);
+   position: absolute;
+   right: var(--rvt-spacing-xs);
+   top: var(--rvt-spacing-xs);
+   transition: all .2s ease;
+   width: 1rem;
+}
+
+#links a:hover::before {
+   background-color: var(--rvt-color-blue-100);
+   transform: translate(var(--rvt-spacing-xs), 0);
+}

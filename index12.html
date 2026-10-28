@@ -1,0 +1,893 @@
+<html lang="en"><head>
+    <!-- iid: 3021 -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            
+            <link href="https://static-assets-us.libcal.com/bootstrap_23/bootstrap3_16.min.css" rel="stylesheet">
+    
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://static-assets-us.libcal.com/css_165/LibCal_public.min.css" rel="stylesheet">
+    <link href="https://static-assets-us.libcal.com/css_165/print.min.css" rel="stylesheet" media="print">
+    
+<script src="https://static-assets-us.libcal.com/jquery_16/jquery.min.js"></script>
+
+
+    <script src="https://static-assets-us.libcal.com/bootstrap_23/bootstrap3.min.js"></script>
+    <script src="https://static-assets-us.libcal.com/js_165/LibCal_public.min.js"></script>
+        <script>
+    springSpace.dateFormat = "dddd, MMMM D, YYYY";
+    springSpace.dateShortFormat = "dddd, MMMM D, YYYY";
+    springSpace.timeFormat = "h:mma";
+    springSpace.timezone = 'America/Detroit';
+    springSpace.currency = "USD";
+
+    springSpace.language = 'en'; // en
+    springSpace.locale = 'en-US'; // en-US
+
+    springSpace.phpTimeFormat = 'g:ia';
+
+    springSpace.bootstrapAsset = 'https://static-assets-us.libcal.com/bootstrap_23/bootstrap3_16.min.css';
+    springSpace.publicCssAsset = 'https://static-assets-us.libcal.com/css_165/LibCal_public.min.css';
+    springSpace.adminCssAsset = 'https://static-assets-us.libcal.com/css_165/LibCal_admin.min.css';
+</script>
+        <title>
+                Space Booking  -
+        IU Libraries
+    </title>
+    <style>
+            #s-lc-public-banner {
+            padding: 0;
+            margin: 0;
+        }
+
+        .s-lc-public-footer {
+            margin: 0;
+        }
+    </style>
+        <link rel="stylesheet" href="https://static-assets-us.libcal.com/fullcalendar_16/fullcalendar.min.css">
+    <link rel="stylesheet" type="text/css" href="https://webapp1.dlib.indiana.edu/libapps/springshare/css/rivet-core-2.9.1.css">
+<link rel="stylesheet" type="text/css" href="https://webapp1.dlib.indiana.edu/libapps/springshare/css/rivet-custom-libcal.css">
+<style>.s-lc-public-footer {background-color:#ffffff;}</style>
+<style>#s-lib-admin-main .dataTables_paginate > ul.pagination > li.paginate_button:not(.disabled):not(.active) > a, #s-lib-public-main .dataTables_paginate > ul.pagination > li.paginate_button:not(.disabled):not(.active) > a, .s-lg-link-contrast, .ui-widget-content a, a { color: #2d699e; } .form-inline > span { display:none; } #s-lib-footer-login-link a, #s-lib-footer-support-link a { color: #2d699e; }.rvt-footer-resources__list-item a { font-size: 14px; }</style>
+<link rel="shortcut icon" href="https://www.iu.edu/favicon.ico">
+<script src="https://webapp1.dlib.indiana.edu/libapps/springshare/js/rivet-2.9.1.js"></script>
+<script>Rivet.init();</script>
+
+<!-- Overrides -->
+<link rel="stylesheet" href="./style-overrides/new-overrides.css">
+</head>
+<body id="index_php" class="s-lc-public s-lc-public-page-5">
+
+
+<a id="s-lc-public-skiplink" class="s-lc-skiplink alert-info" href="#s-lc-public-title-area">Skip to Main Content</a>
+
+<div id="s-lc-public-cust-header" role="banner"><!-- HEADER BEGIN -->
+<header class="rvt-header-wrapper">
+<div class="rvt-header-global">
+  <div class="rvt-container-xl">
+    <div class="rvt-header-global__inner">
+     <div class="rvt-header-global__logo-slot [ rvt-m-right-lg ]">       
+    <a class="rvt-lockup" href="https://libraries.indiana.edu" rel="home">
+    <div class="rvt-lockup__tab">
+      <svg xmlns="http://www.w3.org/2000/svg" class="rvt-lockup__trident" viewBox="0 0 28 34">
+        <path d="M-3.34344e-05 4.70897H8.83308V7.174H7.1897V21.1426H10.6134V2.72321H8.83308V0.121224H18.214V2.65476H16.2283V21.1426H19.7889V7.174H18.214V4.64047H27.0471V7.174H25.0614V23.6761L21.7746 26.8944H16.2967V30.455H18.214V33.8787H8.76463V30.592H10.6819V26.8259H5.20403L1.91726 23.6077V7.174H-3.34344e-05V4.70897Z" fill="currentColor"></path>
+      </svg>
+    </div>
+        <div class="rvt-lockup__body [ rvt-text-nobr ]">
+      <span class="rvt-lockup__title">Libraries</span>
+            <span class="rvt-lockup__subtitle">Indiana University Bloomington</span>
+        </div>
+      </a>
+  </div>
+    <div class="rvt-header-global__controls">
+          <div data-rvt-disclosure="menu" data-rvt-close-click-outside="">
+            <button aria-expanded="false" class="rvt-global-toggle rvt-global-toggle--menu rvt-hide-lg-up" data-rvt-disclosure-toggle="menu">
+              <span class="rvt-sr-only">Menu</span>
+              <svg class="rvt-global-toggle__open" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" focusable="false">
+                <path d="M15 4H1V2h14v2Zm0 5H1V7h14v2ZM1 14h14v-2H1v2Z"></path>
+              </svg>
+              <svg class="rvt-global-toggle__close" fill="currentColor" width="16" height="16" viewBox="0 0 16 16">
+                <path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"></path>
+              </svg>
+            </button>
+        <nav aria-label="Main" class="rvt-header-menu rvt-c-header-menu" data-rvt-disclosure-target="menu" hidden="">
+            
+            <h2 class="rvt-sr-only">Main navigation</h2>
+                <ul class="rvt-header-menu__list">
+                    <li class="rvt-header-menu__item">
+                        <a href="https://libraries.indiana.edu/finding-borrowing" target="_self" class="rvt-header-menu__link" title="Finding &amp; Borrowing">Finding <br>&amp; Borrowing</a>
+                    </li>
+                    <li class="rvt-header-menu__item">
+                        <a href="https://libraries.indiana.edu/researching-teaching" target="_self" class="rvt-header-menu__link" title="Researching &amp; Teaching">Researching <br>&amp; Teaching</a>
+                    </li>
+                    <li class="rvt-header-menu__item">
+                        <a href="https://libraries.indiana.edu/visiting-studying" target="_self" class="rvt-header-menu__link" title="Visiting &amp; Studying">Visiting <br>&amp; Studying</a>
+                    </li>
+                    <li class="rvt-header-menu__item">
+                        <a href="https://libraries.indiana.edu/news-events" target="_self" class="rvt-header-menu__link" title="News &amp; Events">News <br>&amp; Events</a>
+                    </li>
+                    <li class="rvt-header-menu__item">
+                        <a href="https://libraries.indiana.edu/about-us" target="_self" class="rvt-header-menu__link" title="About Us">About Us</a>
+                    </li>
+                    <li class="rvt-header-menu__item">
+                        <a href="https://libraries.indiana.edu/need-help" target="_self" class="rvt-header-menu__link">Need Help?</a>
+                    </li>
+                    <li class="rvt-header-menu__item">
+                        <a href="https://iucat.iu.edu/" target="_blank" class="rvt-cta rvt-cta--button rvt-header-menu__link">IUCAT</a>
+                    </li>
+                </ul>
+        </nav>
+      </div>
+     </div>
+   </div>
+  </div>
+ </div>
+</header>
+<!-- HEADER END --></div>
+<div class="container">
+    
+    <div id="s-lc-public-bc" class="row">
+        <div class="col-md-12">
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="https://libraries.indiana.edu/">IU Libraries</a></li>
+
+                    <li class="s-lc-desktop-only"><a href="https://iub.libcal.com" aria-current="page">Space Booking </a></li>
+
+                    
+                    
+                                                        </ol>
+            </nav>
+        </div>
+    </div>
+
+    <noscript>
+        <div class="alert alert-danger" id="noscript">Your browser has javascript disabled. Without javascript some functions will not work.</div>
+    </noscript>
+
+    <main aria-label="Main Content">
+        <div id="s-lc-public-title-area">
+                        </div>
+
+            <div id="s-lc-page-maincontent"><div class="s-lc-row row">
+			<div id="s-lc-page-column-0" class="s-lc-column-top col-md-12"></div>
+		</div><div class="s-lc-row row"><div id="s-lc-page-column-1" class="s-lc-page-column col-md-6"><div id="s-lc-box-1495-container" class="s-lc-box-container s-lc-color-bars-border  s-lc-box-type-1 s-lc-box-position-1">
+				<div id="s-lc-box-1495" class="s-lc-box s-lc-box-html" role="region" aria-label="Reserve Rooms, Seats, &amp; Desktop Computers">
+					<div class="s-lc-box-title s-lc-color-bars s-lc-color-bars-border"><h1>Reserve Rooms, Seats, &amp; Desktop Computers </h1></div>
+					<div class="s-lc-box-content clearfix"><div id="" class="s-lc-content-sp-eqlist s-lc-content">
+    
+
+    
+    <div class="s-lc-content-eqlist-intro">
+        <p>Rooms, seats, &amp; desktop computers may be reserved by IU Bloomington faculty, staff, and students as well as non-affiliates. View available spaces by library location:</p>
+    </div>
+
+    <div>
+            <ul class="s-lc-content-eqlist-ul cf">
+                    <li><a href="/reserve/spaces/wells">Wells Library</a></li>
+                    <li><a href="/reserve/spaces/bsic">Business/SPEA Library</a></li>
+                    <li><a href="/reserve/spaces/creator-commons">Creator Commons Makerspace</a></li>
+                    <li><a href="/reserve/spaces/bloomberg">Business/SPEA Bloomberg Computers</a></li>
+                    <li><a href="/reserve/spaces/education">Education Library</a></li>
+                    <li><a href="/reserve/spaces/nealmarshall">Neal Marshall Black Culture Center Library</a></li>
+                    <li><a href="/spaces?lid=14001">Music Library Group Study Rooms</a></li>
+                    <li><a href="/reserve/spaces/sciences">Sciences Library</a></li>
+                </ul>
+        </div>
+</div>
+<div id="s-lc-content-text-58392" class="s-lc-content-text s-lc-content cf">
+			<p style="text-align: center;"><span style="font-size:20px;">View all <a href="https://libraries.indiana.edu/directory">Campus Library Locations</a> on the IU Libraries website.</span></p>
+
+
+		</div></div>
+					
+				</div>
+			</div></div><div id="s-lc-page-column-2" class="s-lc-page-column col-md-6"><div id="s-lc-box-7079-container" class="s-lc-box-container s-lc-color-bars-border  s-lc-box-type-1 s-lc-box-position-1">
+				<div id="s-lc-box-7079" class="s-lc-box s-lc-box-html" role="region" aria-label="Scholars' Commons Programming">
+					<div class="s-lc-box-title s-lc-color-bars s-lc-color-bars-border"><h1>Scholars' Commons Programming </h1></div>
+					<div class="s-lc-box-content clearfix"><div id="s-lc-content-text-5132" class="s-lc-content-text s-lc-content cf">
+			<p>We offer programming in the Scholars' Commons on topics of interest to scholars. These include sessions co-hosted with Writing Tutorial Services, and others.</p>
+
+<h3><a href="/calendar/workshops">View the full calendar of workshops</a></h3>
+
+
+		</div><div id="s-lc-content-ev-cal-58393" class="s-lc-content-ev-cal s-lc-content">
+<div class="s-lc-hp-calendar-container">
+    <p class="s-lc-timezone-container pull-left s-lc-hp-calendar-timezone s-lc-timezone">
+    Time Zone:
+    <span id="s-lc-timezone-name">Eastern Time - US &amp; Canada</span>
+            (<a href="#" class="s-lc-timezone-change">change</a>)
+    </p>
+
+    <div id="s-lc-hp-calendar-filters-58393" class="s-lc-row-nomargin s-lc-hp-calendar-filters">
+        <form id="s-lc-hp-calendar-filter-form-58393" class="form-inline" autocomplete="off">
+            <div class="form-group" role="region" aria-label="Category, Audience and Campus calendar filtering">
+                                                <span class="sr-only"><label for="category-58393-dd">Series</label></span>
+                    <div class="dropdown bootstrap-select show-tick bs3" style="width: 130px;"><select name="category-58393[]" id="category-58393-dd" aria-required="false" class="selectpicker" multiple="" data-size="15" data-selected-text-format="count&gt;2">
+                                                    <option value="24090" data-bgcolor="#F1BE48" data-content="&lt;span class='label' style='background-color:#F1BE48'&gt;&nbsp;&lt;/span&gt; Academic Publishing &amp; Open Scholarship&lt;/span&gt;">
+                                Academic Publishing &amp; Open Scholarship
+                            </option>
+                                                    <option value="41573" data-bgcolor="#4A3C31" data-content="&lt;span class='label' style='background-color:#4A3C31'&gt;&nbsp;&lt;/span&gt; Archives &amp; Records Management&lt;/span&gt;">
+                                Archives &amp; Records Management
+                            </option>
+                                                    <option value="24087" data-bgcolor="#008264" data-content="&lt;span class='label' style='background-color:#008264'&gt;&nbsp;&lt;/span&gt; CartoShop: Workshops on Digital Mapping&lt;/span&gt;">
+                                CartoShop: Workshops on Digital Mapping
+                            </option>
+                                                    <option value="29395" data-bgcolor="#ACA39A" data-content="&lt;span class='label' style='background-color:#ACA39A'&gt;&nbsp;&lt;/span&gt; Citing, Writing &amp; Research Tools&lt;/span&gt;">
+                                Citing, Writing &amp; Research Tools
+                            </option>
+                                                    <option value="30044" data-bgcolor="#285C4D" data-content="&lt;span class='label' style='background-color:#285C4D'&gt;&nbsp;&lt;/span&gt; Digital Scholarship Lab&lt;/span&gt;">
+                                Digital Scholarship Lab
+                            </option>
+                                                    <option value="41936" data-bgcolor="#66435A" data-content="&lt;span class='label' style='background-color:#66435A'&gt;&nbsp;&lt;/span&gt; Genealogy Research&lt;/span&gt;">
+                                Genealogy Research
+                            </option>
+                                                    <option value="24121" data-bgcolor="#DD0031" data-content="&lt;span class='label' style='background-color:#DD0031'&gt;&nbsp;&lt;/span&gt; Makerspace Workshops&lt;/span&gt;">
+                                Makerspace Workshops
+                            </option>
+                                                    <option value="24066" data-bgcolor="#DC8823" data-content="&lt;span class='label' style='background-color:#DC8823'&gt;&nbsp;&lt;/span&gt; Monday Motivators&lt;/span&gt;">
+                                Monday Motivators
+                            </option>
+                                                    <option value="35273" data-bgcolor="#649ACC" data-content="&lt;span class='label' style='background-color:#649ACC'&gt;&nbsp;&lt;/span&gt; Scholars' Commons Consulting&lt;/span&gt;">
+                                Scholars' Commons Consulting
+                            </option>
+                                                    <option value="40187" data-bgcolor="#00C496" data-content="&lt;span class='label' style='background-color:#00C496'&gt;&nbsp;&lt;/span&gt; STEM Tech2Teach&lt;/span&gt;">
+                                STEM Tech2Teach
+                            </option>
+                                                    <option value="45462" data-bgcolor="#66435A" data-content="&lt;span class='label' style='background-color:#66435A'&gt;&nbsp;&lt;/span&gt; Thriving in Grad School&lt;/span&gt;">
+                                Thriving in Grad School
+                            </option>
+                                                    <option value="22312" data-bgcolor="#006298" data-content="&lt;span class='label' style='background-color:#006298'&gt;&nbsp;&lt;/span&gt; Wednesday Noon Digital Scholarship Series&lt;/span&gt;">
+                                Wednesday Noon Digital Scholarship Series
+                            </option>
+                                            </select><button type="button" tabindex="-1" class="btn dropdown-toggle bs-placeholder btn-default btn-sm" data-toggle="dropdown" role="combobox" aria-owns="bs-select-1" aria-haspopup="listbox" aria-expanded="false" data-id="category-58393-dd" title="Series"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">Series</div></div> </div><span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open dropdown-menu-right" style="padding-top: 0px; overflow: hidden;"><div class="popover-title"><button type="button" class="close" aria-hidden="true">×</button>Filter by Series:</div><div class="inner open" role="listbox" id="bs-select-1" tabindex="-1" aria-multiselectable="true" style="overflow-y: auto;"><ul class="dropdown-menu inner " role="presentation" style="margin-top: 0px; margin-bottom: 0px;"><li><a role="option" class="dropdown-item" id="bs-select-1-0" tabindex="0" aria-selected="false"><span class="fa fa-check check-mark"></span><span class="text"><span class="label" style="background-color:#F1BE48">&nbsp;</span> Academic Publishing &amp; Open Scholarship</span></a></li><li><a role="option" class="dropdown-item" id="bs-select-1-1" tabindex="0" aria-selected="false"><span class="fa fa-check check-mark"></span><span class="text"><span class="label" style="background-color:#4A3C31">&nbsp;</span> Archives &amp; Records Management</span></a></li><li><a role="option" class="dropdown-item" id="bs-select-1-2" tabindex="0" aria-selected="false"><span class="fa fa-check check-mark"></span><span class="text"><span class="label" style="background-color:#008264">&nbsp;</span> CartoShop: Workshops on Digital Mapping</span></a></li><li><a role="option" class="dropdown-item" id="bs-select-1-3" tabindex="0" aria-selected="false"><span class="fa fa-check check-mark"></span><span class="text"><span class="label" style="background-color:#ACA39A">&nbsp;</span> Citing, Writing &amp; Research Tools</span></a></li><li><a role="option" class="dropdown-item" id="bs-select-1-4" tabindex="0" aria-selected="false"><span class="fa fa-check check-mark"></span><span class="text"><span class="label" style="background-color:#285C4D">&nbsp;</span> Digital Scholarship Lab</span></a></li><li><a role="option" class="dropdown-item" id="bs-select-1-5" tabindex="0" aria-selected="false"><span class="fa fa-check check-mark"></span><span class="text"><span class="label" style="background-color:#66435A">&nbsp;</span> Genealogy Research</span></a></li><li><a role="option" class="dropdown-item" id="bs-select-1-6" tabindex="0" aria-selected="false"><span class="fa fa-check check-mark"></span><span class="text"><span class="label" style="background-color:#DD0031">&nbsp;</span> Makerspace Workshops</span></a></li><li><a role="option" class="dropdown-item" id="bs-select-1-7" tabindex="0" aria-selected="false"><span class="fa fa-check check-mark"></span><span class="text"><span class="label" style="background-color:#DC8823">&nbsp;</span> Monday Motivators</span></a></li><li><a role="option" class="dropdown-item" id="bs-select-1-8" tabindex="0" aria-selected="false"><span class="fa fa-check check-mark"></span><span class="text"><span class="label" style="background-color:#649ACC">&nbsp;</span> Scholars' Commons Consulting</span></a></li><li><a role="option" class="dropdown-item" id="bs-select-1-9" tabindex="0" aria-selected="false"><span class="fa fa-check check-mark"></span><span class="text"><span class="label" style="background-color:#00C496">&nbsp;</span> STEM Tech2Teach</span></a></li><li><a role="option" class="dropdown-item" id="bs-select-1-10" tabindex="0" aria-selected="false"><span class="fa fa-check check-mark"></span><span class="text"><span class="label" style="background-color:#66435A">&nbsp;</span> Thriving in Grad School</span></a></li><li><a role="option" class="dropdown-item" id="bs-select-1-11" tabindex="0" aria-selected="false"><span class="fa fa-check check-mark"></span><span class="text"><span class="label" style="background-color:#006298">&nbsp;</span> Wednesday Noon Digital Scholarship Series</span></a></li></ul></div></div></div>
+            
+            
+                        </div>
+        </form>
+    </div>
+
+    <div id="s-lc-hp-calendar-header-58393" class="row s-lc-row-nomargin s-lc-hp-calendar-header-toolbar">
+        <div class="pull-right margin-top-sm">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default btn-sm" aria-label="prev" id="s-lc-hp-prev-58393">
+                    <span class="fc-icon fc-icon-chevron-left"></span>
+                </button>
+
+                <button type="button" class="btn btn-default btn-sm" aria-label="next" id="s-lc-hp-next-58393">
+                    <span class="fc-icon fc-icon-chevron-right"></span>
+                </button>
+            </div>
+
+            <button type="button" class="btn btn-default btn-sm s-lc-desktop-only" id="s-lc-hp-today-58393">
+                Today
+            </button>
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-default btn-sm" id="s-lc-hp-monthly-58393">
+                    Month
+                </button>
+
+                <button type="button" class="btn btn-default btn-sm active" id="s-lc-hp-weekly-58393">
+                    Week
+                </button>
+            </div>
+        </div>
+
+        <h2 class="s-lc-hp-calendar-header s-lc-c-erh">
+            Scholars' Commons Programming -
+            <span id="s-lc-hp-calendar-header-58393-month">26 October 2026 - 1 November 2026</span>
+        </h2>
+    </div>
+</div>
+
+<div id="s-lc-hp-calendar-content-58393" class="row s-lc-row-nomargin">
+
+<p class="help-block s-lc-mobile-only">Click on the events link on any date below to see the event listing.</p>
+<table id="s-lc-monthly-event-calendar-58393" class="s-lc-mc" aria-label="Monthly Event Calendar">
+    <tbody><tr class="s-lc-mc-rdays">
+                                                    
+                            <th class="s-lc-mc-h" scope="col">
+                    <span class="s-lc-desktop-only">Monday</span>
+                    <span class="s-lc-mobile-only">Mon</span>
+                </th>
+                                                        
+                            <th class="s-lc-mc-h" scope="col">
+                    <span class="s-lc-desktop-only">Tuesday</span>
+                    <span class="s-lc-mobile-only">Tue</span>
+                </th>
+                                                        
+                            <th class="s-lc-mc-h" scope="col">
+                    <span class="s-lc-desktop-only">Wednesday</span>
+                    <span class="s-lc-mobile-only">Wed</span>
+                </th>
+                                                        
+                            <th class="s-lc-mc-h" scope="col">
+                    <span class="s-lc-desktop-only">Thursday</span>
+                    <span class="s-lc-mobile-only">Thu</span>
+                </th>
+                                                        
+                            <th class="s-lc-mc-h" scope="col">
+                    <span class="s-lc-desktop-only">Friday</span>
+                    <span class="s-lc-mobile-only">Fri</span>
+                </th>
+                                                        
+                            <th class="s-lc-mc-h" scope="col">
+                    <span class="s-lc-desktop-only">Saturday</span>
+                    <span class="s-lc-mobile-only">Sat</span>
+                </th>
+                                                        
+                            <th class="s-lc-mc-h" scope="col">
+                    <span class="s-lc-desktop-only">Sunday</span>
+                    <span class="s-lc-mobile-only">Sun</span>
+                </th>
+                        </tr>
+
+            <tr class="s-lc-mc-date-row s-lc-desktop-only">
+                                                                                            
+                                    <td class="s-lc-mc-day-num">
+                                                Oct 26
+                    </td>
+                                                                                                            
+                                    <td class="s-lc-mc-day-num">
+                                                Oct 27
+                    </td>
+                                                                                                            
+                                    <td class="s-lc-mc-day-num s-lc-mc-today">
+                                                Oct 28
+                    </td>
+                                                                                                            
+                                    <td class="s-lc-mc-day-num">
+                                                Oct 29
+                    </td>
+                                                                                                            
+                                    <td class="s-lc-mc-day-num">
+                                                Oct 30
+                    </td>
+                                                                                                            
+                                    <td class="s-lc-mc-day-num">
+                                                Oct 31
+                    </td>
+                                                                                                            
+                                    <td class="s-lc-mc-day-num s-lc-mc-other-month">
+                                                Nov 1
+                    </td>
+                                    </tr>
+
+        <tr class="s-lc-mc-date-row s-lc-mobile-only">
+                                                            
+                                    <td>
+                        <strong>
+                            26
+                        </strong>
+                    </td>
+                                                                            
+                                    <td>
+                        <strong>
+                            27
+                        </strong>
+                    </td>
+                                                                            
+                                    <td>
+                        <strong>
+                            28
+                        </strong>
+                    </td>
+                                                                            
+                                    <td>
+                        <strong>
+                            29
+                        </strong>
+                    </td>
+                                                                            
+                                    <td>
+                        <strong>
+                            30
+                        </strong>
+                    </td>
+                                                                            
+                                    <td>
+                        <strong>
+                            31
+                        </strong>
+                    </td>
+                                                                            
+                                    <td>
+                        <strong>
+                            01
+                        </strong>
+                    </td>
+                                    </tr>
+
+        
+        <tr class="s-lc-mobile-only">
+            <td colspan="7">
+                <div id="s-lc-mobile-event-info-58393-0" class="collapse collapse-week">
+                </div>
+            </td>
+        </tr>
+
+        <tr class="s-lc-mc-r s-lc-mc-r-single-day">
+                                                                                            
+                                                        
+                    
+                    <td class="s-lc-mc-day s-lc-desktop-only">
+                        
+
+                        <div class="s-lc-mc-evt-bot-pad"></div>
+                    </td>
+
+                    <td class="s-lc-mc-day s-lc-mobile-only">
+                        
+                        <div class="s-lc-mc-evt-bot-pad"></div>
+                    </td>
+                                                                                                            
+                                                        
+                    
+                    <td class="s-lc-mc-day s-lc-desktop-only">
+                        
+
+                        <div class="s-lc-mc-evt-bot-pad"></div>
+                    </td>
+
+                    <td class="s-lc-mc-day s-lc-mobile-only">
+                        
+                        <div class="s-lc-mc-evt-bot-pad"></div>
+                    </td>
+                                                                                                            
+                                                        
+                                                                                        
+                    <td class="s-lc-mc-day s-lc-desktop-only">
+                        <div class="s-lc-mc-evt" style="border-left: 3px solid #649ACC">
+<a href="https://iub.libcal.com/event/17367764" data-toggle="popover" data-placement="top" data-container="body" data-html="true" data-trigger="hover focus" title="" data-content="&lt;dl class='dl-horizontal'&gt;
+              &lt;dt&gt;Time&lt;/dt&gt;&lt;dd&gt;12:00pm 1:30pm&lt;/dd&gt;
+              
+              
+              &lt;dt&gt;Categories&lt;/dt&gt;&lt;dd&gt;&lt;span class=label style='background-color:#649ACC'&gt;Scholars' Commons Consulting&lt;/span&gt;&nbsp;&lt;/dd&gt;
+              
+              
+              &lt;dt&gt;Description&lt;/dt&gt;&lt;dd&gt;Make an appointment now! https://iub.libcal.com/appointments/csr
+
+You have the option to schedule on Zoom or in-person.
+
+The Center for Survey Research consults with faculty, staff, and students...&lt;/dd&gt;
+            &lt;/dl&gt;" data-original-title="Center for Survey Research Consultations">Center for Survey Research Consultations</a><br>
+<div class="s-lc-mc-evt-loc"></div>
+<div class="s-lc-mc-evt-time">12:00pm</div>
+</div>
+
+                        <div class="s-lc-mc-evt-bot-pad"></div>
+                    </td>
+
+                    <td class="s-lc-mc-day s-lc-mobile-only">
+                                                    <button class="btn-link s-lc-monthly-calendar-event-count s-lc-align-self-center" data-html="&lt;div class=&quot;s-lc-mc-evt&quot; style=&quot;border-left: 3px solid #649ACC&quot;&gt;
+&lt;a href=&quot;https://iub.libcal.com/event/17367764&quot; data-toggle=&quot;popover&quot; data-placement=&quot;top&quot; data-container=&quot;body&quot; data-html=&quot;true&quot; data-trigger=&quot;hover focus&quot; title=&quot;Center for Survey Research Consultations&quot;
+data-content=&quot;&lt;dl class='dl-horizontal'&gt;
+              &lt;dt&gt;Time&lt;/dt&gt;&lt;dd&gt;12:00pm 1:30pm&lt;/dd&gt;
+              
+              
+              &lt;dt&gt;Categories&lt;/dt&gt;&lt;dd&gt;&lt;span class=label style='background-color:#649ACC'&gt;Scholars' Commons Consulting&lt;/span&gt;&nbsp;&lt;/dd&gt;
+              
+              
+              &lt;dt&gt;Description&lt;/dt&gt;&lt;dd&gt;Make an appointment now! https://iub.libcal.com/appointments/csr
+
+You have the option to schedule on Zoom or in-person.
+
+The Center for Survey Research consults with faculty, staff, and students...&lt;/dd&gt;
+            &lt;/dl&gt;&quot;&gt;Center for Survey Research Consultations&lt;/a&gt;&lt;br&gt;
+&lt;div class=&quot;s-lc-mc-evt-loc&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;s-lc-mc-evt-time&quot;&gt;12:00pm&lt;/div&gt;
+&lt;/div&gt;" data-date="Wed Oct 28" data-id="58393" data-week="0">
+                                1
+                                event
+                            </button>
+                        
+                        <div class="s-lc-mc-evt-bot-pad"></div>
+                    </td>
+                                                                                                            
+                                                        
+                                                                                        
+                    <td class="s-lc-mc-day s-lc-desktop-only">
+                        <div class="s-lc-mc-evt" style="border-left: 3px solid #ACA39A">
+<a href="https://iub.libcal.com/event/17492324" data-toggle="popover" data-placement="top" data-container="body" data-html="true" data-trigger="hover focus" title="" data-content="&lt;dl class='dl-horizontal'&gt;
+              &lt;dt&gt;Time&lt;/dt&gt;&lt;dd&gt;1:00pm 4:00pm&lt;/dd&gt;
+              
+              
+              &lt;dt&gt;Categories&lt;/dt&gt;&lt;dd&gt;&lt;span class=label style='background-color:#ACA39A'&gt;Citing, Writing &amp; Research Tools&lt;/span&gt;&nbsp;&lt;/dd&gt;
+              
+              
+              &lt;dt&gt;Description&lt;/dt&gt;&lt;dd&gt;Write and work in solidarity with other IU scholars. We offer a silent work environment with coffee and natural light. The write-in is open to all graduate students (at any stage of their degree...&lt;/dd&gt;
+            &lt;/dl&gt;" data-original-title="Scholarly Write-In">Scholarly Write-In</a><br>
+<div class="s-lc-mc-evt-loc">IQ Wall- E157H</div>
+<div class="s-lc-mc-evt-time">1:00pm</div>
+</div>
+
+                        <div class="s-lc-mc-evt-bot-pad"></div>
+                    </td>
+
+                    <td class="s-lc-mc-day s-lc-mobile-only">
+                                                    <button class="btn-link s-lc-monthly-calendar-event-count s-lc-align-self-center" data-html="&lt;div class=&quot;s-lc-mc-evt&quot; style=&quot;border-left: 3px solid #ACA39A&quot;&gt;
+&lt;a href=&quot;https://iub.libcal.com/event/17492324&quot; data-toggle=&quot;popover&quot; data-placement=&quot;top&quot; data-container=&quot;body&quot; data-html=&quot;true&quot; data-trigger=&quot;hover focus&quot; title=&quot;Scholarly Write-In&quot;
+data-content=&quot;&lt;dl class='dl-horizontal'&gt;
+              &lt;dt&gt;Time&lt;/dt&gt;&lt;dd&gt;1:00pm 4:00pm&lt;/dd&gt;
+              
+              
+              &lt;dt&gt;Categories&lt;/dt&gt;&lt;dd&gt;&lt;span class=label style='background-color:#ACA39A'&gt;Citing, Writing &amp;amp; Research Tools&lt;/span&gt;&nbsp;&lt;/dd&gt;
+              
+              
+              &lt;dt&gt;Description&lt;/dt&gt;&lt;dd&gt;Write and work in solidarity with other IU scholars. We offer a silent work environment with coffee and natural light. The write-in is open to all graduate students (at any stage of their degree...&lt;/dd&gt;
+            &lt;/dl&gt;&quot;&gt;Scholarly Write-In&lt;/a&gt;&lt;br&gt;
+&lt;div class=&quot;s-lc-mc-evt-loc&quot;&gt;IQ Wall- E157H&lt;/div&gt;
+&lt;div class=&quot;s-lc-mc-evt-time&quot;&gt;1:00pm&lt;/div&gt;
+&lt;/div&gt;" data-date="Thu Oct 29" data-id="58393" data-week="0">
+                                1
+                                event
+                            </button>
+                        
+                        <div class="s-lc-mc-evt-bot-pad"></div>
+                    </td>
+                                                                                                            
+                                                        
+                    
+                    <td class="s-lc-mc-day s-lc-desktop-only">
+                        
+
+                        <div class="s-lc-mc-evt-bot-pad"></div>
+                    </td>
+
+                    <td class="s-lc-mc-day s-lc-mobile-only">
+                        
+                        <div class="s-lc-mc-evt-bot-pad"></div>
+                    </td>
+                                                                                                            
+                                                        
+                    
+                    <td class="s-lc-mc-day s-lc-desktop-only">
+                        
+
+                        <div class="s-lc-mc-evt-bot-pad"></div>
+                    </td>
+
+                    <td class="s-lc-mc-day s-lc-mobile-only">
+                        
+                        <div class="s-lc-mc-evt-bot-pad"></div>
+                    </td>
+                                                                                                            
+                                                        
+                    
+                    <td class="s-lc-mc-day s-lc-mc-day-other-month s-lc-desktop-only">
+                        
+
+                        <div class="s-lc-mc-evt-bot-pad"></div>
+                    </td>
+
+                    <td class="s-lc-mc-day s-lc-mc-day-other-month s-lc-mobile-only">
+                        
+                        <div class="s-lc-mc-evt-bot-pad"></div>
+                    </td>
+                                    </tr>
+    </tbody></table>
+    <script>
+        var springyMonthly = {
+            eventText: 'Event\u0020for',
+        };
+    </script>
+<script defer="" src="https://static-assets-us.libcal.com/js_165/direct/public/events/monthly-event-calendar.min.js"></script>
+</div>
+
+<script defer="" src="https://static-assets-us.libcal.com/js_165/direct/public/events/calendar.min.js"></script>
+<script defer="" src="https://static-assets-us.libcal.com/js_165/direct/public/events/calendar-homepage.min.js"></script>
+<script>
+    var componentVars_58393 = {
+        id: 58393,
+        calendarId: 1228,
+        date: null,
+        isMonthly: 0,
+        weekFormat: 'isoWeek',
+    };
+
+    jQuery(function () {
+        componentVars_58393.date = moment();
+
+        jQuery('#audience-58393-dd, #category-58393-dd, #campus-58393-dd').on('change', function() {
+            return calendarComponent.refreshCalendar(componentVars_58393);
+        });
+
+        jQuery('#s-lc-hp-prev-58393').on('click', function() {
+            return calendarComponent.adjustDateBy(componentVars_58393, -1);
+        });
+
+        jQuery('#s-lc-hp-next-58393').on('click', function() {
+            return calendarComponent.adjustDateBy(componentVars_58393, 1);
+        });
+
+        jQuery('#s-lc-hp-today-58393').on('click', function() {
+            componentVars_58393.date = moment();
+
+            return calendarComponent.refreshCalendar(componentVars_58393);
+        });
+
+        jQuery('#s-lc-hp-monthly-58393').on('click', function() {
+            return calendarComponent.setMonthlyViewActive(componentVars_58393, true);
+        });
+
+        jQuery('#s-lc-hp-weekly-58393').on('click', function() {
+            return calendarComponent.setMonthlyViewActive(componentVars_58393, false);
+        });
+
+        jQuery("#category-58393-dd").selectpicker({
+            countSelectedText: "Series",
+            header: "Filter\u0020by Series:",
+            noneSelectedText: "Series",
+            width: "130px",
+            style: "btn-default btn-sm",
+            dropdownAlignRight: 'auto',
+        });
+
+        jQuery("#audience-58393-dd").selectpicker({
+            countSelectedText: "Audience",
+            header: "Filter\u0020by Audience:",
+            noneSelectedText: "Audience",
+            width: "130px",
+            style: "btn-default btn-sm",
+            dropdownAlignRight: 'auto',
+        });
+
+        jQuery("#campus-58393-dd").selectpicker({
+            countSelectedText: "",
+            header: "Filter\u0020by :",
+            noneSelectedText: "",
+            width: "130px",
+            style: "btn-default btn-sm",
+            dropdownAlignRight: 'auto',
+        });
+
+        jQuery('.s-lc-hp-calendar-container .selectpicker').selectpicker('refresh');
+
+        calendarComponent.refreshCalendar(componentVars_58393);
+
+        jQuery('.s-lc-timezone-change').off('click').on('click', springyPublic.showTimezoneModal);
+    });
+</script>
+</div></div>
+					
+				</div>
+			</div></div></div><div class="s-lc-row row">
+			<div id="s-lc-page-column-4" class="s-lc-column-bottom col-md-12"><div id="s-lc-box-22427-container" class="s-lc-box-container s-lc-color-bars-border  s-lc-box-type-1 s-lc-box-position-1">
+				<div id="s-lc-box-22427" class="s-lc-box s-lc-box-html" role="region" aria-label="Schedule an Appointment With a Librarian or Service">
+					<div class="s-lc-box-title s-lc-color-bars s-lc-color-bars-border"><h1>Schedule an Appointment With a Librarian or Service </h1></div>
+					<div class="s-lc-box-content clearfix"><div id="s-lc-content-mysched-25430" class="s-lc-content-mysched s-lc-content"><ul class="s-lc-content-mysched-ul cf"><li class="s-lc-content-viewall"><a href="/appointments/">View All Staff</a></li><li><a href="/appointment/58033">Adam Crandell</a></li><li><a href="/appointments/alyssadenneler">Alyssa Denneler</a></li><li><a href="/appointments/arindler">Amanda Rindler</a></li><li><a href="/appointment/66051">Amy Minix</a></li><li><a href="/appointment/23911">Business/SPEA Library Research Consultations</a></li><li><a href="/appointment/42357">Carey Champion</a></li><li><a href="/appointments/Carter">Carter</a></li><li><a href="/appointments/edlibjones">Christina Jones</a></li><li><a href="/appointment/104063">Chuck Morrow</a></li><li><a href="/appointments/csr">CSR Center for Survey Research</a></li><li><a href="/appointments/DigiConsult">Digitization Consultation and Production Services</a></li><li><a href="/appointment/56776">Dina Kellams</a></li><li><a href="/appointment/31181">Edwin Cheek</a></li><li><a href="/appointment/187182">Elizabeth Houser</a></li><li><a href="/appointments/garave">G Arave</a></li><li><a href="/appointments/gskirk">Gwendolyn Kirk</a></li><li><a href="/appointments/JamesHenrySmith">James Henry Smith</a></li><li><a href="/appointment/40270">Jennifer Simms</a></li><li><a href="/appointment/158987">Jennifer Muse</a></li><li><a href="/appointments/jenny-christie">Jenny Christie</a></li><li><a href="/appointment/105074">Jeremy Floyd</a></li><li><a href="/appointment/112183">Joe Hiland</a></li><li><a href="/appointments/leannenay">Leanne Nay</a></li><li><a href="/appointments/libstudy">Library Assessment Group</a></li><li><a href="/appointments/galasso">Meg Galasso</a></li><li><a href="/appointments/Nada-Abdelrahim">Nada Abdelrahim</a></li><li><a href="/appointments/archive-reading-room">Reading Room Indiana University Archives</a></li><li><a href="/appointments/researchdesk">Research Desk</a></li><li><a href="/appointments/ted-polley">Ted Polley</a></li><li><a href="/appointments/DUX">Testing for Discovery and User Experience</a></li><li><a href="/appointments/thea-atwood">Thea Atwood</a></li><li><a href="/appointment/70917">Vern Wilkins</a></li><li><a href="/appointments/creatorcommons">Wells Library Creator Commons</a></li><li><a href="/appointments/willa">Willa Liburd</a></li><li><a href="/appointment/71463">Wylie House</a></li></ul></div></div>
+					
+				</div>
+			</div></div>
+		</div></div>
+    </main>
+
+    <footer id="s-lc-public-footer" class="row s-lc-public-footer">
+        <div id="s-lc-public-footer-brand">
+    <span title="libcal-us-4">Powered by</span> <a href="https://www.springshare.com" class="s-lc-link-in-text">Springshare</a>.
+</div>
+
+<div id="s-lc-public-footer-rights">
+    All rights reserved.
+</div>
+
+    <div id="s-lc-footer-support-link">
+        <a href="mailto:libref@iu.edu">Report a tech support issue.</a>
+    </div>
+
+                
+        <div id="s-lc-public-footer-admin-links" role="navigation" aria-label="Admin Footer">
+                            <a id="s-lc-sign-in" href="https://iub.libapps.com/libapps/login.php?site_id=4318&amp;target=">Login to LibApps</a>
+                    </div>
+
+        <div class="s-lc-public-footer-actions">
+    
+<div id="s-lc-language">
+    <select id="s-lc-language-selector" aria-label="Select Language">
+                <option value="ca">català</option>
+                <option value="cy">Cymraeg</option>
+                <option value="en" selected="">English</option>
+                <option value="es">español</option>
+                <option value="fr">français</option>
+                <option value="ga">Irish</option>
+                <option value="ja">日本語 Nihongo</option>
+                <option value="nl">Nederlands</option>
+                <option value="sl">slovenski jezik</option>
+                <option value="vi">Tiếng Việt</option>
+                <option value="zh">中文 Zhōngwén</option>
+            </select>
+</div>
+</div>
+    </footer>
+
+    <!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JNV3QTLPRV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JNV3QTLPRV');
+</script>
+</div>
+
+<div id="s-lc-public-cust-footer"><!-- FOOTER BEGIN -->
+<div aria-labelledby="social-heading" class="rvt-footer-social rvt-c-region rvt-c-region--footer-social" role="complementary"><h2 class="rvt-sr-only" id="social-heading">Social media</h2><div class="rvt-c-region__inner rvt-container-xl"><div class="settings-tray-editable block block-menu-block block-menu-blockmenu-footer-social-media" data-drupal-settingstray="editable"><ul class="rvt-footer-social__list"><li><a href="https://twitter.com/iulibraries" target="_self" class="icon-twitter" title="IU Libraries on Twitter"><span class="rvt-sr-only rvt-color-white">Twitter</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" height="40" viewBox="0 0 40 40" width="40"><path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="#7A1705"></path><path d="M30.0002 13.7998C29.3002 14.0998 28.5002 14.2998 27.6002 14.3998C28.4002 13.8998 29.1002 13.0998 29.4002 12.0998C28.6002 12.5998 27.7002 12.8998 26.8002 13.0998C26.1002 12.2998 25.0002 11.7998 23.8002 11.7998C21.5002 11.7998 19.7002 13.5998 19.7002 15.8998C19.7002 16.1998 19.7002 16.4998 19.8002 16.7998C16.4002 16.5998 13.4002 14.9998 11.3002 12.4998C10.9002 13.0998 10.7002 13.7998 10.7002 14.5998C10.7002 15.9998 11.4002 17.2998 12.5002 17.9998C11.8002 17.9998 11.2002 17.7998 10.6002 17.4998C10.6002 17.4998 10.6002 17.4998 10.6002 17.5998C10.6002 19.5998 12.0002 21.1998 13.9002 21.5998C13.6002 21.6998 13.2002 21.6998 12.8002 21.6998C12.5002 21.6998 12.3002 21.6998 12.0002 21.5998C12.5002 23.1998 14.0002 24.3998 15.8002 24.3998C14.4002 25.4998 12.6002 26.1998 10.7002 26.1998C10.4002 26.1998 10.0002 26.1998 9.7002 26.0998C11.5002 27.2998 13.7002 27.8998 16.0002 27.8998C23.5002 27.8998 27.7002 21.5998 27.7002 16.1998C27.7002 15.9998 27.7002 15.7998 27.7002 15.6998C28.8002 15.2998 29.4002 14.5998 30.0002 13.7998Z" fill="#F7F7F8"></path></svg></a></li><li><a href="https://www.instagram.com/hermanbwells/" target="_self" class="icon-instagram" title="Herman B Wells Library on Instagram"><span class="rvt-sr-only rvt-color-white">Instagram</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" height="40" viewBox="0 0 40 40" width="40"><path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="#7A1705"></path><path d="M24.3004 29.9999H15.6004C12.5004 29.9999 9.90039 27.4999 9.90039 24.2999V15.5999C9.90039 12.4999 12.4004 9.8999 15.6004 9.8999H24.3004C27.4004 9.8999 30.0004 12.3999 30.0004 15.5999V24.2999C30.0004 27.4999 27.5004 29.9999 24.3004 29.9999ZM24.3004 28.4999C25.4004 28.4999 26.5004 28.0999 27.2004 27.2999C27.9004 26.4999 28.4004 25.4999 28.4004 24.3999V15.6999C28.4004 14.5999 28.0004 13.4999 27.2004 12.7999C26.4004 11.9999 25.4004 11.5999 24.3004 11.5999H15.6004C14.5004 11.5999 13.4004 11.9999 12.7004 12.7999C11.9004 13.5999 11.5004 14.5999 11.5004 15.6999V24.3999C11.5004 25.4999 11.9004 26.5999 12.7004 27.2999C13.5004 27.9999 14.5004 28.4999 15.6004 28.4999H24.3004Z" fill="#F7F7F8"></path><path d="M25.4006 19.9C25.4006 22.9 23.0006 25.3 20.0006 25.3C17.0006 25.3 14.6006 22.9 14.6006 19.9C14.6006 16.9 17.0006 14.5 20.0006 14.5C23.0006 14.5 25.4006 17 25.4006 19.9ZM20.0006 16.4C18.1006 16.4 16.5006 18 16.5006 19.9C16.5006 21.8 18.1006 23.4 20.0006 23.4C21.9006 23.4 23.5006 21.8 23.5006 19.9C23.5006 18 21.9006 16.4 20.0006 16.4Z" fill="#F7F7F8"></path><path d="M25.5002 15.8002C26.2182 15.8002 26.8002 15.2182 26.8002 14.5002C26.8002 13.7822 26.2182 13.2002 25.5002 13.2002C24.7822 13.2002 24.2002 13.7822 24.2002 14.5002C24.2002 15.2182 24.7822 15.8002 25.5002 15.8002Z" fill="#F7F7F8"></path></svg></a></li><li><a href="https://www.facebook.com/pages/IU-Libraries/237699996274633" target="_self" class="icon-facebook" title="IU Libraries on Facebook"><span class="rvt-sr-only rvt-color-white">Facebook</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" height="40" viewBox="0 0 40 40" width="40"><path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="#7A1705"></path><path d="M24.8996 9.99982V13.1998H23.0996C23.0996 13.1998 21.4996 12.9998 21.4996 14.4998V16.9998H24.7996L24.3996 20.3998H21.4996V29.9998H17.6996V20.2998H15.0996V16.9998H17.7996V14.0998C17.7996 14.0998 17.4996 12.4998 18.8996 11.1998C20.2996 9.89982 22.1996 9.99982 22.1996 9.99982H24.8996Z" fill="#F7F7F8"></path></svg></a></li><li><a href="/news-events/rss.xml" target="_self" class="icon-rss" title="IU Libraries - All News &amp; Events content (rss feed)"><span class="rvt-sr-only rvt-color-white">RSS</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" height="40" viewBox="0 0 40 40" width="40"><path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="#7A1705"></path><path d="M26.8665 26.9734C26.8857 27.5472 27.3574 27.9998 27.9269 27.9998C27.9397 27.9998 27.9524 27.9998 27.9641 27.9987C28.5506 27.9796 29.0107 27.4887 28.9894 26.9012C28.6983 18.2811 21.7177 11.3005 13.0976 11.0104C12.5313 10.9679 12.0202 11.4492 12 12.0357C11.9798 12.6222 12.4388 13.1131 13.0253 13.1333C20.5319 13.3872 26.6126 19.4658 26.8665 26.9734Z" fill="#F7F7F8"></path><path d="M22.6102 27.9998C22.0492 27.9998 21.5795 27.5599 21.5498 26.9925C21.3097 22.3632 17.6366 18.6902 13.0073 18.45C12.4208 18.4182 11.9714 17.9199 12.0011 17.3334C12.0319 16.7469 12.5292 16.2942 13.1178 16.3272C18.8383 16.6247 23.3752 21.1626 23.6737 26.8831C23.7035 27.4696 23.253 27.9679 22.6675 27.9998H22.6102Z" fill="#F7F7F8"></path><path d="M14.6563 27.9998C16.1233 27.9998 17.3125 26.8106 17.3125 25.3436C17.3125 23.8765 16.1233 22.6873 14.6563 22.6873C13.1893 22.6873 12 23.8765 12 25.3436C12 26.8106 13.1893 27.9998 14.6563 27.9998Z" fill="#F7F7F8"></path></svg></a></li></ul></div></div></div>
+
+
+<div aria-labelledby="resources-heading" class="rvt-footer-resources rvt-c-region rvt-c-region--footer-resources" role="complementary"><h2 class="rvt-sr-only" id="resources-heading">Additional resources</h2><div class="rvt-container-xl"><div class="rvt-row"><div class="rvt-c-region__inner rvt-cols-md"><div id="block-rivet-iul-featured-databases" class="settings-tray-editable" data-drupal-settingstray="editable"><h3 class="rvt-footer-resources__heading">
+Featured Databases
+</h3><div class="rvt-prose rvt-flow clearfix rvt-c-field rvt-c-field--body rvt-c-field--text-with-summary"><div class="rvt-row rvt-m-tb-xxs"><div class="rvt-cols-lg"><ul class="rvt-footer-resources__list rvt-m-top-none rvt-m-bottom-none"><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/databases/onesearch">OneSearch@IU</a></li><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/databases/googlescholar">Google Scholar</a></li><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/databases/jstor">JSTOR</a></li></ul></div><div class="rvt-cols-lg"><ul class="rvt-footer-resources__list rvt-m-top-none rvt-m-bottom-none"><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/databases/worldcat">WorldCat</a></li><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/databases/nexisuni">Nexis Uni</a></li><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/databases/hathitrust">HathiTrust Digital Library</a></li></ul></div></div><div><a class="rvt-button rvt-button--small rvt-c-footer-resources__button rvt-button--plain" href="https://libraries.indiana.edu/databases">Databases A-Z</a></div></div></div></div><div class="rvt-c-region__inner rvt-cols-md"><div id="block-rivet-iul-footer-resources" class="settings-tray-editable" data-drupal-settingstray="editable"><h3 class="rvt-footer-resources__heading">
+IU Libraries
+</h3><div class="rvt-prose rvt-flow clearfix rvt-c-field rvt-c-field--body rvt-c-field--text-with-summary"><div class="rvt-row rvt-m-tb-xxs"><div class="rvt-cols-lg"><ul class="rvt-footer-resources__list rvt-m-top-none rvt-m-bottom-none"><li class="rvt-footer-resources__list-item"><a href="https://iub.libcal.com/reserve/wells">Spaces</a></li><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/team">Our Team</a></li><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/departments">Our Departments</a></li></ul></div><div class="rvt-cols-lg"><ul class="rvt-footer-resources__list rvt-m-top-none rvt-m-bottom-none"><li class="rvt-footer-resources__list-item"><a href="https://libraries.indiana.edu/contact-us">Contact Us</a></li><li class="rvt-footer-resources__list-item"><a href="https://indiana.sharepoint.com/sites/iub-libraries/SitePages/Home.aspx">Intranet SharePoint (Staff)</a></li><li class="rvt-footer-resources__list-item"></li></ul></div></div><div><a class="rvt-button rvt-button--small rvt-c-footer-resources__button rvt-button--plain" href="https://give.myiu.org/givenow?account=I320004179%2CP370008414%2CI320004210&amp;sc=IU21GAN1IUOTGNWE00024&amp;utm_source=Indiana_University&amp;utm_medium=referral&amp;utm_campaign=give_now&amp;utm_content=IU21GAN1IUOTGNWE00024">Give Now</a></div></div></div></div></div></div></div>
+
+<!-- Base footer -->
+<footer class="rvt-footer-base ">
+  <div class="rvt-container-xl">
+    <div class="rvt-footer-base__inner">
+      <!-- IU trident -->
+      <div class="rvt-footer-base__logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <polygon fill="currentColor" points="15.3 3.19 15.3 5 16.55 5 16.55 15.07 13.9 15.07 13.9 1.81 15.31 1.81 15.31 0 8.72 0 8.72 1.81 10.12 1.81 10.12 15.07 7.45 15.07 7.45 5 8.7 5 8.7 3.19 2.5 3.19 2.5 5 3.9 5 3.9 16.66 6.18 18.98 10.12 18.98 10.12 21.67 8.72 21.67 8.72 24 15.3 24 15.3 21.67 13.9 21.67 13.9 18.98 17.82 18.98 20.09 16.66 20.09 5 21.5 5 21.5 3.19 15.3 3.19"></polygon>
+        </svg>
+      </div>
+       <!-- List of links -->
+      <ul class="rvt-footer-base__list">
+        <li class="rvt-footer-base__item" style="font-size:14px;">
+          <a class="rvt-footer-base__link" href="https://accessibility.iu.edu/assistance/">Accessibility</a>
+        </li>
+       <li class="rvt-footer-base__item" style="font-size:14px;">
+        <a class="rvt-footer-base__link" href="https://www.iu.edu/college-scorecard.html">College Scorecard</a>
+       </li>
+       <li class="rvt-footer-base__item" style="font-size:14px;">
+         <a class="rvt-footer-base__link" href="https://www.iu.edu/open-to-all.html">Open to All</a>
+      </li>
+        <li class="rvt-footer-base__item" style="font-size:14px;">
+          <a class="rvt-footer-base__link" href="https://libraries.indiana.edu/privacy">Privacy Notice</a>
+        </li>
+        <li class="rvt-footer-base__item" style="font-size:14px;">
+          <a class="rvt-footer-base__link" href="https://www.iu.edu/copyright/index.html">Copyright</a> ©2026 The Trustees of <a class="rvt-footer-base__link" href="https://www.iu.edu">Indiana University</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</div>
+<!-- FOOTER END -->
+    <script defer="" src="https://static-assets-us.libcal.com/js_165/selectpicker.min.js"></script>
+    <script defer="" src="https://static-assets-us.libcal.com/fullcalendar_16/fullcalendar.min.js"></script>
+    <script>
+    var springyFullCalendar = {
+        commonOptions: {
+            schedulerLicenseKey: '0391239527-fcs-1659132663',
+            now: '2026\u002D10\u002D28\u002012\u003A20',
+            nowIndicator: true,
+            scrollTime: '11\u003A00\u003A00',
+            lazyFetching: false,
+            locale: springSpace.language,
+            themeSystem: 'bootstrap',
+            eventTextColor: '#222',
+            eventDisplay: 'block',
+            eventOrder: 'start,duration,allDay,title', // https://fullcalendar.io/docs/eventOrder
+            moreLinkClick: 'day',
+            bootstrapFontAwesome: {
+                goToDate: 'fa-calendar',
+                goToNextAvailable: 'fa-fast-forward',
+                refresh: 'fa-refresh',
+            },
+            navLinks: true, // https://fullcalendar.io/docs/navLinks
+            resourceOrder: false, // https://fullcalendar.io/docs/resourceOrder
+            stickyHeaderDates: false, // https://fullcalendar.io/docs/stickyHeaderDates && https://github.com/springshare/LibCal/issues/11801
+            views: {
+                day: {
+                    dayHeaderFormat: 'dddd',
+                    titleFormat: springSpace.dateFormat,
+                },
+                week: {
+                    dayHeaderFormat: 'ddd,\u0020MMM\u0020D',
+                    titleFormat: springSpace.dateFormat,
+                },
+                month: {
+                    titleFormat: 'MMMM\u0020YYYY',
+                    dayCellContent: function (info) {
+                        // regardless of language, show the day as a number with no extra characters
+                        return info.date.getDate();
+                    },
+                },
+            },
+        },
+        timelineOptions: {
+            height: 'auto',
+            refetchResourcesOnNavigate: false,
+            eventOverlap: false,
+            displayEventTime: false,
+            slotDuration: '01\u003A00',
+            titleFormat: springSpace.dateFormat,
+            views: {
+                timelineSingleDay: {
+                    type: 'resourceTimeline',
+                    buttonText: 'Day\u0020View',
+                    duration: {days: 1},
+                    slotLabelFormat: springSpace.timeFormat,
+                },
+                timelineHourlyShort: {
+                    type: 'resourceTimeline',
+                    duration: {days: 3},
+                    slotLabelFormat: [springSpace.dateFormat, springSpace.timeFormat],
+                },
+                timelineHourlyLong: {
+                    type: 'resourceTimeline',
+                    duration: {days: 7},
+                    slotLabelFormat: [springSpace.dateFormat, springSpace.timeFormat],
+                },
+                timelineDailyLong: {
+                    type: 'resourceTimeline',
+                    slotDuration: '24:00',
+                    duration: {days: 28},
+                    slotLabelFormat: ['dd D'],
+                    nowIndicator: false
+                },
+                resourceTimeGridWeek: {
+                    buttonText: 'Week\u0020View',
+                    slotLabelFormat: springSpace.timeFormat,
+                },
+            },
+        },
+        publicTexts: {
+            allDay: 'All\u0020Day',
+            available: 'Available',
+            dayGridMonth: 'Month',
+            dayGridWeek: 'Agenda',
+            goToDate: 'Go\u0020To\u0020Date',
+            goToNextAvailable: 'Next\u0020Available',
+            next: 'Next',
+            prev: 'Previous',
+            timeGridDay: 'Day',
+            timeGridWeek: 'Week',
+            today: 'Today',
+            unavailable: 'Unavailable\/Padding',
+            yourBooking: 'Your\u0020Booking',
+            listWeek: 'Week\u0020List',
+        },
+        adminTexts: {
+            goToDate: 'Go\u0020To\u0020Date',
+            refresh: 'Refresh',
+            prev: 'Previous',
+            next: 'Next',
+            today: 'Today',
+            week: 'Week',
+            month: 'Month',
+            day: 'Day',
+            dayGridWeek: 'Agenda',
+            allDay: 'All\u0020Day',
+            atLocation: '\u0025title\u0025\u0020at\u0020\u0025location\u0025',
+        },
+    };
+
+    // placeholder for dynamic content boxes with a full calendar
+    var calendarList = {};
+
+    function reRenderCalendarList() {
+        for (var calId in calendarList) {
+            calendarList[calId].render();
+        }
+    }
+</script>
+<script defer="" src="https://static-assets-us.libcal.com/js_165/direct/full-calendar-common.min.js"></script>
+
+            <script>
+            jQuery(function() {
+                                jQuery('a[data-toggle="tab"]').on('shown.bs.tab', reRenderCalendarList);
+
+                                                    hit(3021, 'home', 'r');
+                            });
+        </script>
+    
+
+
+
+
+</body></html>

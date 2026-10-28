@@ -73,3 +73,49 @@
   border-color: var(--rvt-color-black-300);
   cursor: not-allowed;
 }
+/* Radio inputs -> .rvt-radio (radio-input/_base.scss), for every radio on every page. Rivet hides the native input and draws 1rem circle on the label's ::before; the markup here has the input
+   inside (or next to) its label, so the input itself is drawn: 1rem, 2px black-300 border, a .1875rem white inner ring (so the checked fill reads as a dot), blue-500 when checked, the
+   blue-200 halo on focus, black-100 fill when disabled. Context rules (e.g. libcal.css `.radio`) position it; Rivet's own `.rvt-radio` markup is left alone. */
+input[type="radio"]:not(.rvt-radio input[type="radio"]) {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--rvt-color-white-base);
+  border: .125rem solid var(--rvt-color-black-300);
+  border-radius: 999rem;
+  box-shadow: inset 0 0 0 .1875rem var(--rvt-color-white-base);
+  box-sizing: border-box;
+  cursor: pointer;
+  flex: none;
+  height: var(--rvt-spacing-sm);
+  margin: 0 var(--rvt-spacing-xs) 0 0;
+  vertical-align: middle;
+  width: var(--rvt-spacing-sm);
+}
+
+input[type="radio"]:not(.rvt-radio input[type="radio"]):checked {
+  background-color: var(--rvt-color-blue-500);
+  border-color: var(--rvt-color-blue-500);
+}
+
+input[type="radio"]:not(.rvt-radio input[type="radio"]):focus {
+  border-color: var(--rvt-color-blue-500);
+  box-shadow: inset 0 0 0 .1875rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-200);
+  outline: none;
+}
+
+input[type="radio"]:not(.rvt-radio input[type="radio"]):disabled {
+  background-color: var(--rvt-color-black-100);
+  box-shadow: inset 0 0 0 .1875rem var(--rvt-color-black-100);
+  cursor: default;
+}
+
+input[type="radio"]:not(.rvt-radio input[type="radio"]):disabled:checked {
+  background-color: var(--rvt-color-black-300);
+}
+
+/* the site's forced focus outline (rivet-custom stylesheet: `input:focus-visible { outline: #101010 solid 2px !important }`) is replaced by the halo above */
+body input[type="radio"]:not(.rvt-radio input[type="radio"]):focus-visible {
+  border-color: var(--rvt-color-blue-500) !important;
+  box-shadow: inset 0 0 0 .1875rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-200) !important;
+  outline: none !important;
+}

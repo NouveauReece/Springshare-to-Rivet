@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Whoops! - LibCal</title>
+    
+            <link href="https://static-assets-us.libcal.com/bootstrap_23/bootstrap3_16.min.css" rel="stylesheet">
+    
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        .s-lc-skiplink {
+            padding: 10px;
+            position: absolute;
+            top: -50px;
+            left: 0px;
+            border-right: 1px solid rgb(255, 255, 255);
+            border-bottom: 1px solid rgb(255, 255, 255);
+            border-bottom-right-radius: 8px;
+            transition: top 1s ease-out, background 1s linear;
+            z-index: 1040; /* needs to be greater than the bootstrap navbar z-index */
+        }
+
+        .s-lc-skiplink:focus {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            outline: 0;
+            transition: top .1s ease-in, background .5s linear;
+        }
+
+        a:link, a:visited {
+            color: blue;
+        }
+
+        body {
+            margin-top: 10vh;
+            color: #9F1F63;
+            margin-left: 10vw;
+            margin-right: 10vw;
+        }
+
+        #message {
+            font-weight: bold;
+            text-align: left;
+            border: 2px solid #9F1F63;
+            padding: 2vh 2vh 2vw 2vw;
+        }
+
+        #errorcode {
+            text-align: center;
+            font-size: 60px;
+        }
+
+        #links {
+            font-weight: normal;
+            margin-top: 10px;
+        }
+
+        #links li {
+            padding: 2px;
+        }
+    </style>
+
+<!-- Overrides -->
+<link rel="stylesheet" href="./style-overrides/new-overrides.css">
+</head>
+
+<body>
+<a id="s-lc-error-skiplink" class="s-lc-skiplink alert-info" href="#errorcode">
+    Skip to Main Content
+</a>
+<main>
+            <!-- failed to read cookie -->
+    
+    <h1 id="errorcode">
+        <i class="fa fa-question-circle" aria-hidden="true"></i> 404
+    </h1>
+
+    <div id="message">
+        Oops! The page you are trying to access does not exist.<br/><br/>
+        This could be because the link you clicked was not formed properly, or because the requested page has been deleted.
+        <ul id="links">
+            <li>
+                <a href="/">
+                    Return to the LibCal Homepage                </a>
+            </li>
+            <li>
+                <a href="https://ask.springshare.com/ask">
+                    Contact the Site Administrator for Assistance                </a>
+            </li>
+        </ul>
+    </div>
+</main>
+</body>
+</html>

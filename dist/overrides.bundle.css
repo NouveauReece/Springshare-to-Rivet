@@ -16455,6 +16455,693 @@ body .ui-dialog .ui-dialog-titlebar-close:focus-visible {
   transform: translate(-50%, -50%);
 }
 
+/* style-overrides/components/libcal.css */
+/* LibCal public pages (index12.html space booking home, index13.html appointments). LibCal's markup is not LibGuides', so the shared Rivet look is repeated here for the `s-lc-*` classes:
+   boxes -> .rvt-card (same as boxes.css), buttons -> .rvt-button (small), tables/inputs -> Rivet table/form. The header, footer, breadcrumb and page title already come from
+   header.css / footer.css / breadcrumbs.css / typography.css. Bootstrap 3 (`bootstrap3_16.min.css`) and LibCal_public.min.css load before this file. */
+
+/* ---- boxes (index12): .s-lc-box-container > .s-lc-box > .s-lc-box-title (h1) + .s-lc-box-content ---- */
+/* `.s-lc-color-bars-border` paints a second (coloured) border on the container and the title; the card has one 1px black-100 border */
+.s-lc-box-container,
+.s-lc-box-container.s-lc-color-bars-border {
+   border: 0;
+   margin-bottom: var(--rvt-spacing-md);
+}
+
+.s-lc-box {
+   background-color: var(--rvt-color-white-base);
+   border: 1px solid var(--rvt-color-black-100);
+   border-radius: var(--rvt-border-radius-md);
+   box-shadow: none;
+   overflow: hidden;
+}
+
+.s-lc-box .s-lc-box-title {
+   background-color: var(--rvt-color-black-000);
+   background-image: none;
+   border: 0;
+   border-bottom: 1px solid var(--rvt-color-black-100);
+   border-radius: 0;
+   box-shadow: none;
+   color: var(--rvt-color-black-500);
+   padding: var(--rvt-spacing-sm);
+}
+
+/* the LibCal box title is an <h1>; it is a card title here (.rvt-card__title: 1.25rem, regular, 1.3) */
+.s-lc-box .s-lc-box-title h1 {
+   color: var(--rvt-color-black-500);
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-20);
+   font-weight: var(--rvt-font-weight-regular);
+   line-height: 1.3;
+   margin: 0;
+}
+
+.s-lc-box .s-lc-box-content {
+   color: var(--rvt-color-black-500);
+   font-size: var(--rvt-ts-16);
+   font-weight: var(--rvt-font-weight-regular);
+   padding: var(--rvt-spacing-sm);
+}
+
+.s-lc-box .s-lc-box-content p {
+   font-size: var(--rvt-ts-16);
+   font-weight: var(--rvt-font-weight-regular);
+   margin: 0 0 var(--rvt-spacing-sm);
+}
+
+.s-lc-box .s-lc-box-content p:last-child {
+   margin-bottom: 0;
+}
+
+.s-lc-box .s-lc-content-text,
+.s-lc-box .s-lc-content-text p {
+   text-align: left;
+}
+
+.s-lc-box .s-lc-content-eqlist-intro {
+   margin-bottom: var(--rvt-spacing-sm);
+}
+
+.s-lc-box .s-lc-content-eqlist-ul + .s-lc-content-text,
+.s-lc-box .s-lc-content-sp-eqlist + .s-lc-content-text {
+   margin-top: var(--rvt-spacing-sm);
+}
+
+/* lists of spaces / staff: .rvt-list-plain with a link per row */
+.s-lc-box .s-lc-content-eqlist-ul,
+.s-lc-box .s-lc-content-mysched-ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+.s-lc-box .s-lc-content-eqlist-ul li,
+.s-lc-box .s-lc-content-mysched-ul li {
+   float: none;
+   margin: 0;
+   padding: 0;
+}
+
+.s-lc-box .s-lc-content-eqlist-ul li + li,
+.s-lc-box .s-lc-content-mysched-ul li + li {
+   margin-top: var(--rvt-spacing-xs);
+}
+
+/* the staff list is ~40 names: flow it into columns instead of one long strip */
+.s-lc-box .s-lc-content-mysched-ul {
+   column-gap: var(--rvt-spacing-lg);
+   columns: 16rem;
+}
+
+.s-lc-box .s-lc-content-mysched-ul li {
+   break-inside: avoid;
+}
+
+.s-lc-box .s-lc-box-content a {
+   font-weight: var(--rvt-font-weight-regular);
+}
+
+.s-lc-box .s-lc-content-eqlist-ul a,
+.s-lc-box .s-lc-content-mysched-ul a {
+   font-weight: var(--rvt-font-weight-medium);
+}
+
+/* headings inside a box (e.g. "View the full calendar of workshops") */
+.s-lc-box .s-lc-box-content h2,
+.s-lc-box .s-lc-box-content h3 {
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-20);
+   font-weight: var(--rvt-font-weight-regular);
+   line-height: 1.3;
+   margin: 0 0 var(--rvt-spacing-sm);
+}
+
+.s-lc-timezone-container {
+   color: var(--rvt-color-black-500);
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-regular);
+   margin-bottom: var(--rvt-spacing-sm);
+}
+
+/* ---- other grey panels -> the same card as the boxes above (and as LibGuides' `.s-lib-box`): white, 1px black-100 border, md radius, no shadow ----
+   `.well` (appointment details, index14) and `.s-lc-c-l` (the grey filter sidebar on the event list pages, index15, #eee in LibCal). */
+.s-lc-public .well,
+.s-lc-public .s-lc-c-l {
+   background-color: var(--rvt-color-white-base);
+   background-image: none;
+   border: 1px solid var(--rvt-color-black-100);
+   border-radius: var(--rvt-border-radius-md);
+   box-shadow: none;
+   padding: var(--rvt-spacing-sm);
+}
+
+.s-lc-public .s-lc-c-l {
+   padding-bottom: var(--rvt-spacing-sm);
+}
+
+/* ---- buttons: Bootstrap 3 .btn-default / .btn-primary / .btn-sm -> .rvt-button (.rvt-button--secondary for default) ---- */
+.s-lc-public .btn {
+   background-image: none;
+   border-radius: var(--rvt-border-radius-md);
+   box-shadow: none;
+   font-family: var(--rvt-font-base);
+   font-weight: var(--rvt-font-weight-medium);
+   text-shadow: none;
+   transition: none;
+}
+
+.s-lc-public .btn.btn-sm {
+   font-size: var(--rvt-ts-14);
+   line-height: 1.25rem;
+   padding: .125rem var(--rvt-spacing-xs);
+}
+
+.s-lc-public .btn.btn-default {
+   background-color: var(--rvt-color-white-base);
+   border: .125rem solid var(--rvt-color-blue-100);
+   color: var(--rvt-color-blue-500);
+}
+
+.s-lc-public .btn.btn-default:hover,
+.s-lc-public .btn.btn-default:focus,
+.s-lc-public .btn.btn-default:active,
+.s-lc-public .btn.btn-default.active,
+.s-lc-public .open > .btn.btn-default.dropdown-toggle {
+   background-color: var(--rvt-color-blue-000);
+   border-color: var(--rvt-color-blue-100);
+   box-shadow: none;
+   color: var(--rvt-color-blue-600);
+}
+
+/* Selection buttons (time slots, Month / Week, ...) are secondary until chosen; the chosen one (`.active`, set by LibCal's JS) becomes primary (.rvt-button) */
+.s-lc-public .btn.btn-default.active,
+.s-lc-public .btn.btn-default.active:hover,
+.s-lc-public .btn.btn-default.active:focus,
+.s-lc-public .btn.btn-default.active:active,
+.s-lc-public .btn.btn-default[aria-pressed="true"],
+.s-lc-public .btn.btn-default[aria-pressed="true"]:hover {
+   background-color: var(--rvt-color-blue-500);
+   border-color: var(--rvt-color-blue-500);
+   box-shadow: none;
+   color: var(--rvt-color-white-base);
+}
+
+.s-lc-public .btn.btn-default.active:hover {
+   background-color: var(--rvt-color-blue-600);
+   border-color: var(--rvt-color-blue-600);
+}
+
+.s-lc-public .btn.btn-primary {
+   background-color: var(--rvt-color-blue-500);
+   background-image: none;
+   border: .125rem solid var(--rvt-color-blue-500);
+   color: var(--rvt-color-white-base);
+}
+
+.s-lc-public .btn.btn-primary:hover,
+.s-lc-public .btn.btn-primary:focus {
+   background-color: var(--rvt-color-blue-600);
+   border-color: var(--rvt-color-blue-600);
+   color: var(--rvt-color-white-base);
+}
+
+.s-lc-public .btn.btn-primary:active {
+   background-color: var(--rvt-color-blue-700);
+   border-color: var(--rvt-color-blue-700);
+}
+
+.s-lc-public .btn.btn-primary[disabled],
+.s-lc-public .btn.btn-primary.disabled {
+   background-color: var(--rvt-color-blue-500);
+   border-color: var(--rvt-color-blue-500);
+   color: var(--rvt-color-white-base);
+   opacity: .5;
+}
+
+/* ---- calendar filter (bootstrap-select "Series") ---- */
+.s-lc-public .bootstrap-select > .dropdown-toggle {
+   background-color: var(--rvt-color-white-base);
+   background-image: none;
+   border: 1px solid var(--rvt-color-black-400);
+   border-radius: var(--rvt-border-radius-md);
+   box-shadow: none;
+   color: var(--rvt-color-black-500);
+   font-weight: var(--rvt-font-weight-regular);
+   text-shadow: none;
+}
+
+.s-lc-public .dropdown-menu {
+   border: 1px solid var(--rvt-color-black-100);
+   border-radius: var(--rvt-border-radius-md);
+   box-shadow: 0 .25rem 1rem rgba(36, 49, 66, .2);
+}
+
+.s-lc-public .dropdown-menu > li > a,
+.s-lc-public .dropdown-menu .dropdown-item {
+   color: var(--rvt-color-black-500);
+   font-weight: var(--rvt-font-weight-regular);
+}
+
+.s-lc-public .dropdown-menu > li > a:hover,
+.s-lc-public .dropdown-menu > li > a:focus,
+.s-lc-public .dropdown-menu > .active > a {
+   background-color: var(--rvt-color-blue-000);
+   background-image: none;
+   color: var(--rvt-color-blue-600);
+}
+
+/* ---- calendar heading + monthly/weekly table (.s-lc-mc) -> Rivet table: black-000 header row, black-100 rules ---- */
+.s-lc-hp-calendar-header {
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-20);
+   font-weight: var(--rvt-font-weight-regular);
+   line-height: 1.3;
+}
+
+.s-lc-mc {
+   border-collapse: collapse;
+   width: 100%;
+}
+
+.s-lc-mc th.s-lc-mc-h {
+   background-color: var(--rvt-color-black-000);
+   border: 1px solid var(--rvt-color-black-100);
+   color: var(--rvt-color-black-500);
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-bold);
+   padding: var(--rvt-spacing-xs);
+   text-align: left;
+}
+
+.s-lc-mc td {
+   border: 1px solid var(--rvt-color-black-100);
+}
+
+.s-lc-mc .s-lc-mc-date-row th,
+.s-lc-mc .s-lc-mc-date-row td {
+   background-color: var(--rvt-color-white-base);
+   color: var(--rvt-color-black-500);
+}
+
+.s-lc-mc .s-lc-mc-day-num {
+   color: var(--rvt-color-black-500);
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-medium);
+}
+
+.s-lc-mc .s-lc-mc-day-other-month .s-lc-mc-day-num {
+   color: var(--rvt-color-black-300);
+}
+
+.s-lc-mc .s-lc-mc-evt a {
+   color: var(--rvt-color-blue-500);
+   font-weight: var(--rvt-font-weight-regular);
+}
+
+.s-lc-mc .s-lc-mc-evt-time,
+.s-lc-mc .s-lc-mc-evt-loc {
+   color: var(--rvt-color-black-400);
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-regular);
+}
+
+/* ---- appointments (index13) ---- */
+.s-lc-app-s1h3,
+.s-lc-app-booking-header {
+   color: var(--rvt-color-black-500);
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-23);
+   font-weight: var(--rvt-font-weight-regular);
+   line-height: 1.25;
+   margin: 0 0 var(--rvt-spacing-sm);
+}
+
+/* bootstrap-datepicker (.datepicker) -> Rivet date-picker look: black-100 frame, blue-500 selected, blue-000 hover; days you can book are bordered cells */
+/* LibCal draws a dark (#595959) frame on `.s-lc-datepicker-contrast` itself */
+.s-lc-public .s-lc-datepicker-contrast {
+   border: 1px solid var(--rvt-color-black-100);
+   border-radius: var(--rvt-border-radius-md);
+}
+
+.s-lc-datepicker-contrast .datepicker {
+   border: 0;
+   font-family: var(--rvt-font-base);
+   padding: var(--rvt-spacing-xs);
+}
+
+.s-lc-datepicker-contrast .datepicker table {
+   border-collapse: separate;
+   border-spacing: 2px;
+}
+
+.s-lc-datepicker-contrast .datepicker th {
+   color: var(--rvt-color-black-500);
+   font-weight: var(--rvt-font-weight-bold);
+}
+
+.s-lc-datepicker-contrast .datepicker .datepicker-switch:hover,
+.s-lc-datepicker-contrast .datepicker .prev:hover,
+.s-lc-datepicker-contrast .datepicker .next:hover {
+   background-color: var(--rvt-color-blue-000);
+}
+
+.s-lc-datepicker-contrast .datepicker table {
+   width: 100%;
+}
+
+/* !important: LibCal's high-contrast datepicker paints bookable days grey (#e0e0e0) with a dark inset ring */
+.s-lc-datepicker-contrast .datepicker table tr td.day {
+   background-color: var(--rvt-color-white-base) !important;
+   border: 1px solid var(--rvt-color-blue-200);
+   border-radius: var(--rvt-border-radius-md);
+   box-shadow: none !important;
+   color: var(--rvt-color-blue-500) !important;
+   font-weight: var(--rvt-font-weight-medium);
+}
+
+.s-lc-datepicker-contrast .datepicker table tr td.day:hover,
+.s-lc-datepicker-contrast .datepicker table tr td.day.focused {
+   background-color: var(--rvt-color-blue-000) !important;
+}
+
+.s-lc-datepicker-contrast .datepicker table tr td.disabled,
+.s-lc-datepicker-contrast .datepicker table tr td.disabled:hover {
+   background-color: transparent !important;
+   border-color: transparent;
+   box-shadow: none !important;
+   color: var(--rvt-color-black-300) !important;
+   font-weight: var(--rvt-font-weight-regular);
+}
+
+.s-lc-datepicker-contrast .datepicker table tr td.active,
+.s-lc-datepicker-contrast .datepicker table tr td.active:hover,
+.s-lc-datepicker-contrast .datepicker table tr td.active.day {
+   background-color: var(--rvt-color-blue-500) !important;
+   background-image: none;
+   border-color: var(--rvt-color-blue-500);
+   box-shadow: none !important;
+   color: var(--rvt-color-white-base) !important;
+   text-shadow: none;
+}
+
+/* time slots: Bootstrap .btn.btn-default.btn-sm.s-lc-app-timeb -> small button (rules above); the chosen one is `.active` */
+.s-lc-app-timeb {
+   margin: 0 var(--rvt-spacing-xs) var(--rvt-spacing-xs) 0;
+}
+
+/* alerts: Bootstrap .alert-* -> .rvt-alert (alert/_base.scss): black-000 fill, .25rem coloured bar on the left, 1rem padding, 14px message; info = blue-000 / blue-500 / blue-700,
+   success = green, warning = gold, danger = orange (Rivet's "danger" is orange, not crimson). No radius. */
+.s-lc-public .alert {
+   background-color: var(--rvt-color-black-000);
+   background-image: none;
+   border: 0;
+   border-left: .25rem solid var(--rvt-color-black-500);
+   border-radius: 0;
+   box-shadow: none;
+   color: var(--rvt-color-black-500);
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-regular);
+   padding: var(--rvt-spacing-sm);
+   text-shadow: none;
+}
+
+.s-lc-public .alert-info {
+   background-color: var(--rvt-color-blue-000);
+   border-left-color: var(--rvt-color-blue-500);
+   color: var(--rvt-color-blue-700);
+}
+
+.s-lc-public .alert-success {
+   background-color: var(--rvt-color-green-000);
+   border-left-color: var(--rvt-color-green-500);
+   color: var(--rvt-color-green-700);
+}
+
+.s-lc-public .alert-warning {
+   background-color: var(--rvt-color-gold-000);
+   border-left-color: var(--rvt-color-gold-500);
+   color: var(--rvt-color-gold-700);
+}
+
+.s-lc-public .alert-danger {
+   background-color: var(--rvt-color-orange-000);
+   border-left-color: var(--rvt-color-orange-500);
+   color: var(--rvt-color-orange-700);
+}
+
+.s-lc-public .alert a {
+   color: inherit;
+   font-weight: var(--rvt-font-weight-medium);
+}
+
+/* modal ("change time zone"): .modal-content -> .rvt-dialog */
+.s-lc-public .modal-content {
+   border: 0;
+   border-radius: var(--rvt-border-radius-md);
+   box-shadow: 0 .25rem 1rem rgba(36, 49, 66, .2);
+}
+
+.s-lc-public .modal-header {
+   border-bottom: 1px solid var(--rvt-color-black-100);
+}
+
+.s-lc-public .modal-title {
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-20);
+   font-weight: var(--rvt-font-weight-regular);
+}
+
+.s-lc-public .modal-footer {
+   border-top: 1px solid var(--rvt-color-black-100);
+}
+
+
+/* ---- loading indicators -> .rvt-loader (loading-indicator/_base.scss: border-width ~1/6 of the size, blue-500 on three sides, .8s linear infinite) ----
+   LibCal shows Font Awesome spinners (`i.fa.fa-spinner.fa-spin|fa-pulse` + `fa-lg|2x|4x`). The icon glyph is dropped and the <i> itself becomes the ring; the
+   `fa-spin` / `fa-pulse` steps animation is replaced with the Rivet rotation (@keyframes rvt-loader-spin lives in loading.css). Sizes: default 1.25rem (xs),
+   fa-lg 1.75rem (sm), fa-2x 2.75rem (lg), fa-4x 4rem (xxl). */
+i.fa.fa-spinner,
+i.fa.fa-circle-o-notch {
+   animation: .8s linear infinite rvt-loader-spin !important;
+   border: .15625rem solid transparent;
+   border-bottom-color: var(--rvt-color-blue-500);
+   border-radius: 50%;
+   border-right-color: var(--rvt-color-blue-500);
+   border-top-color: var(--rvt-color-blue-500);
+   box-sizing: border-box;
+   display: inline-block;
+   font-size: 0;
+   height: 1.25rem;
+   line-height: 0;
+   vertical-align: middle;
+   width: 1.25rem;
+}
+
+i.fa.fa-spinner::before,
+i.fa.fa-circle-o-notch::before {
+   content: none;
+}
+
+i.fa.fa-spinner.fa-lg {
+   border-width: .21875rem;
+   height: 1.75rem;
+   width: 1.75rem;
+}
+
+i.fa.fa-spinner.fa-2x {
+   border-width: .34375rem;
+   height: 2.75rem;
+   width: 2.75rem;
+}
+
+i.fa.fa-spinner.fa-4x {
+   border-width: .5rem;
+   height: 4rem;
+   width: 4rem;
+}
+
+/* inside a button the ring takes the button's text colour so it stays visible on the blue (primary) fill */
+.btn.btn-primary i.fa.fa-spinner {
+   border-bottom-color: var(--rvt-color-white-base);
+   border-right-color: var(--rvt-color-white-base);
+   border-top-color: var(--rvt-color-white-base);
+}
+
+/* search field + button (`.input-group`): the group is a flex row here, but Bootstrap 3 sets `.input-group-btn { width: 1% }`, which squeezed the button's wrapper to 2px and let the button spill out of the sidebar */
+.s-lc-public .input-group {
+   align-items: stretch;
+   display: flex;
+}
+
+.s-lc-public .input-group .form-control {
+   flex: 1 1 auto;
+   min-width: 0;
+   width: 1%;
+}
+
+.s-lc-public .input-group-btn {
+   display: flex;
+   flex: none;
+   width: auto;
+}
+
+/* .rvt-input-group: the input loses its right radius, the button its left radius, and the button overlaps the input's border by 1px */
+.s-lc-public .input-group .form-control:not(:last-child) {
+   border-bottom-right-radius: 0;
+   border-top-right-radius: 0;
+}
+
+.s-lc-public .input-group-btn {
+   margin-left: -1px;
+}
+
+.s-lc-public .input-group-btn .btn {
+   border-bottom-left-radius: 0;
+   border-top-left-radius: 0;
+}
+
+/* ---- event lists (index15): `.media.s-lc-c-evt` -> horizontal card feed (rivet.iu.edu horizontal-card-feed, same mapping as test-card-feed.css):
+   image first (25%, max 180px, .5rem radius), title 1.25rem with the circled arrow, description under a black-100 rule, details as 14px meta. ---- */
+#s-lc-c-list-cont {
+   display: flex;
+   flex-direction: column;
+   gap: var(--rvt-spacing-lg);
+}
+
+.s-lc-c-evt.media {
+   border: 0;
+   display: flex;
+   flex-direction: row;
+   gap: var(--rvt-spacing-md);
+   margin: 0;
+   padding: 0;
+   position: relative;
+}
+
+.s-lc-c-evt .media-right {
+   flex: 0 0 25%;
+   max-width: 180px;
+   order: -1;
+   padding: 0;
+}
+
+.s-lc-c-evt .media-right a,
+.s-lc-c-evt .media-right img {
+   display: block;
+}
+
+.s-lc-c-evt .media-right img.img-thumbnail {
+   background-color: transparent;
+   border: 0;
+   border-radius: .5rem;
+   box-shadow: none;
+   max-width: 100%;
+   padding: 0;
+   width: 100%;
+}
+
+.s-lc-c-evt .media-body {
+   flex: 1 1 auto;
+   padding-right: var(--rvt-spacing-xl);
+   width: auto;
+}
+
+/* __title */
+.s-lc-c-evt .media-heading {
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-20);
+   font-weight: var(--rvt-font-weight-regular);
+   line-height: 1.3;
+   margin: 0;
+}
+
+.s-lc-c-evt .media-heading a {
+   color: var(--rvt-color-black-500);
+   text-decoration: none !important;
+}
+
+.s-lc-c-evt .media-heading a:hover {
+   color: var(--rvt-color-blue-500);
+   text-decoration: underline !important;
+}
+
+.s-lc-c-evt .media-heading a::before {
+   background-color: var(--rvt-color-blue-000);
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 1rem 1rem;
+   border-radius: 999rem;
+   box-sizing: content-box;
+   content: "";
+   display: block;
+   height: 1rem;
+   padding: var(--rvt-spacing-xs);
+   position: absolute;
+   right: var(--rvt-spacing-xs);
+   top: 0;
+   transition: all .2s ease;
+   width: 1rem;
+}
+
+.s-lc-c-evt .media-heading a:hover::before {
+   background-color: var(--rvt-color-blue-100);
+   transform: translate(var(--rvt-spacing-xs), 0);
+}
+
+/* __content */
+.s-lc-c-evt .s-lc-c-evt-des {
+   border-top: 1px solid var(--rvt-color-black-100);
+   color: var(--rvt-color-black-400);
+   margin-top: var(--rvt-spacing-md);
+   padding-top: var(--rvt-spacing-md);
+}
+
+/* __meta: label / value pairs (Bootstrap's `dl-horizontal` floats a 160px right-aligned <dt>) */
+.s-lc-c-evt dl.dl-horizontal {
+   column-gap: var(--rvt-spacing-sm);
+   display: grid;
+   font-size: var(--rvt-ts-14);
+   grid-template-columns: max-content 1fr;
+   margin: var(--rvt-spacing-md) 0 0;
+   row-gap: var(--rvt-spacing-xxs);
+}
+
+.s-lc-c-evt dl.dl-horizontal dt {
+   clear: none;
+   color: var(--rvt-color-black-400);
+   float: none;
+   font-weight: var(--rvt-font-weight-medium);
+   overflow: visible;
+   text-align: left;
+   width: auto;
+}
+
+.s-lc-c-evt dl.dl-horizontal dd {
+   margin: 0;
+}
+
+/* hide a label whose value is empty (and LibCal's trailing empty pair) so the label/value grid stays paired */
+.s-lc-c-evt dl.dl-horizontal dt:has(+ dd:empty),
+.s-lc-c-evt dl.dl-horizontal dd:empty,
+.s-lc-c-evt dl.dl-horizontal dt:empty,
+.s-lc-c-evt dl.dl-horizontal dt:empty + dd {
+   display: none;
+}
+
+/* Rivet: below 30em a horizontal card stacks (image above the body) */
+@media screen and (max-width: 30em) {
+   .s-lc-c-evt.media {
+      flex-direction: column;
+   }
+
+   .s-lc-c-evt .media-right {
+      flex-basis: auto;
+   }
+}
+
+
 
 /* style-overrides/components/test-card-feed.css */
 /* TEST (index11.html): link / database / book lists as the Rivet horizontal card feed (rivet.iu.edu/components/preview/horizontal-card-feed/).

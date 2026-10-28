@@ -1,0 +1,2576 @@
+/* LibCal public pages (index12.html space booking home, index13.html appointments). LibCal's markup is not LibGuides', so the shared Rivet look is repeated here for the `s-lc-*` classes:
+   boxes -> .rvt-card (same as boxes.css), buttons -> .rvt-button (small), tables/inputs -> Rivet table/form. The header, footer, breadcrumb and page title already come from
+   header.css / footer.css / breadcrumbs.css / typography.css. Bootstrap 3 (`bootstrap3_16.min.css`) and LibCal_public.min.css load before this file. */
+
+/* ---- boxes (index12): .s-lc-box-container > .s-lc-box > .s-lc-box-title (h1) + .s-lc-box-content ---- */
+/* `.s-lc-color-bars-border` paints a second (coloured) border on the container and the title; the card has one 1px black-100 border */
+.s-lc-box-container,
+.s-lc-box-container.s-lc-color-bars-border {
+   border: 0;
+   margin-bottom: var(--rvt-spacing-md);
+}
+
+.s-lc-box {
+   background-color: var(--rvt-color-white-base);
+   border: 1px solid var(--rvt-color-black-100);
+   border-radius: var(--rvt-border-radius-md);
+   box-shadow: none;
+   overflow: hidden;
+}
+
+.s-lc-box .s-lc-box-title {
+   background-color: var(--rvt-color-black-000);
+   background-image: none;
+   border: 0;
+   border-bottom: 1px solid var(--rvt-color-black-100);
+   border-radius: 0;
+   box-shadow: none;
+   color: var(--rvt-color-black-500);
+   padding: var(--rvt-spacing-sm);
+}
+
+/* the LibCal box title is an <h1>; it is a card title here (.rvt-card__title: 1.25rem, regular, 1.3) */
+.s-lc-box .s-lc-box-title h1 {
+   color: var(--rvt-color-black-500);
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-20);
+   font-weight: var(--rvt-font-weight-regular);
+   line-height: 1.3;
+   margin: 0;
+}
+
+.s-lc-box .s-lc-box-content {
+   color: var(--rvt-color-black-500);
+   font-size: var(--rvt-ts-16);
+   font-weight: var(--rvt-font-weight-regular);
+   padding: var(--rvt-spacing-sm);
+}
+
+.s-lc-box .s-lc-box-content p {
+   font-size: var(--rvt-ts-16);
+   font-weight: var(--rvt-font-weight-regular);
+   margin: 0 0 var(--rvt-spacing-sm);
+}
+
+.s-lc-box .s-lc-box-content p:last-child {
+   margin-bottom: 0;
+}
+
+.s-lc-box .s-lc-content-text,
+.s-lc-box .s-lc-content-text p {
+   text-align: left;
+}
+
+.s-lc-box .s-lc-content-eqlist-intro {
+   margin-bottom: var(--rvt-spacing-sm);
+}
+
+.s-lc-box .s-lc-content-eqlist-ul + .s-lc-content-text,
+.s-lc-box .s-lc-content-sp-eqlist + .s-lc-content-text {
+   margin-top: var(--rvt-spacing-sm);
+}
+
+/* lists of spaces / staff: .rvt-list-plain with a link per row */
+.s-lc-box .s-lc-content-eqlist-ul,
+.s-lc-box .s-lc-content-mysched-ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+.s-lc-box .s-lc-content-eqlist-ul li,
+.s-lc-box .s-lc-content-mysched-ul li {
+   float: none;
+   margin: 0;
+   padding: 0;
+}
+
+.s-lc-box .s-lc-content-eqlist-ul li + li,
+.s-lc-box .s-lc-content-mysched-ul li + li {
+   margin-top: var(--rvt-spacing-xs);
+}
+
+/* the staff list is ~40 names: flow it into columns instead of one long strip */
+.s-lc-box .s-lc-content-mysched-ul {
+   column-gap: var(--rvt-spacing-lg);
+   columns: 16rem;
+}
+
+.s-lc-box .s-lc-content-mysched-ul li {
+   break-inside: avoid;
+}
+
+.s-lc-box .s-lc-box-content a {
+   font-weight: var(--rvt-font-weight-regular);
+}
+
+.s-lc-box .s-lc-content-eqlist-ul a,
+.s-lc-box .s-lc-content-mysched-ul a {
+   font-weight: var(--rvt-font-weight-medium);
+}
+
+/* headings inside a box (e.g. "View the full calendar of workshops") */
+.s-lc-box .s-lc-box-content h2,
+.s-lc-box .s-lc-box-content h3 {
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-20);
+   font-weight: var(--rvt-font-weight-regular);
+   line-height: 1.3;
+   margin: 0 0 var(--rvt-spacing-sm);
+}
+
+.s-lc-timezone-container {
+   color: var(--rvt-color-black-500);
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-regular);
+   margin-bottom: var(--rvt-spacing-sm);
+}
+
+/* ---- other grey panels -> the same card as the boxes above (and as LibGuides' `.s-lib-box`): white, 1px black-100 border, md radius, no shadow ----
+   `.well` (appointment details, index14) and `.s-lc-c-l` (the grey filter sidebar on the event list pages, index15, #eee in LibCal). */
+.s-lc-public .well,
+.s-lc-public .s-lc-c-l {
+   background-color: var(--rvt-color-white-base);
+   background-image: none;
+   border: 1px solid var(--rvt-color-black-100);
+   border-radius: var(--rvt-border-radius-md);
+   box-shadow: none;
+   padding: var(--rvt-spacing-sm);
+}
+
+.s-lc-public .s-lc-c-l {
+   padding-bottom: var(--rvt-spacing-sm);
+}
+
+/* ---- buttons: Bootstrap 3 .btn-default / .btn-primary / .btn-sm -> .rvt-button (.rvt-button--secondary for default) ---- */
+.s-lc-public .btn {
+   background-image: none;
+   border-radius: var(--rvt-border-radius-md);
+   box-shadow: none;
+   font-family: var(--rvt-font-base);
+   font-weight: var(--rvt-font-weight-medium);
+   text-shadow: none;
+   transition: none;
+}
+
+.s-lc-public .btn.btn-sm {
+   font-size: var(--rvt-ts-14);
+   line-height: 1.25rem;
+   padding: .125rem var(--rvt-spacing-xs);
+}
+
+.s-lc-public .btn.btn-default {
+   background-color: var(--rvt-color-white-base);
+   border: .125rem solid var(--rvt-color-blue-100);
+   color: var(--rvt-color-blue-500);
+}
+
+.s-lc-public .btn.btn-default:hover,
+.s-lc-public .btn.btn-default:focus,
+.s-lc-public .btn.btn-default:active,
+.s-lc-public .btn.btn-default.active,
+.s-lc-public .open > .btn.btn-default.dropdown-toggle {
+   background-color: var(--rvt-color-blue-000);
+   border-color: var(--rvt-color-blue-100);
+   box-shadow: none;
+   color: var(--rvt-color-blue-600);
+}
+
+/* Selection buttons (time slots, Month / Week, ...) are secondary until chosen; the chosen one (`.active`, set by LibCal's JS) becomes primary (.rvt-button) */
+.s-lc-public .btn.btn-default.active,
+.s-lc-public .btn.btn-default.active:hover,
+.s-lc-public .btn.btn-default.active:focus,
+.s-lc-public .btn.btn-default.active:active,
+.s-lc-public .btn.btn-default[aria-pressed="true"],
+.s-lc-public .btn.btn-default[aria-pressed="true"]:hover {
+   background-color: var(--rvt-color-blue-500);
+   border-color: var(--rvt-color-blue-500);
+   box-shadow: none;
+   color: var(--rvt-color-white-base);
+}
+
+.s-lc-public .btn.btn-default.active:hover {
+   background-color: var(--rvt-color-blue-600);
+   border-color: var(--rvt-color-blue-600);
+}
+
+.s-lc-public .btn.btn-primary {
+   background-color: var(--rvt-color-blue-500);
+   background-image: none;
+   border: .125rem solid var(--rvt-color-blue-500);
+   color: var(--rvt-color-white-base);
+}
+
+.s-lc-public .btn.btn-primary:hover,
+.s-lc-public .btn.btn-primary:focus {
+   background-color: var(--rvt-color-blue-600);
+   border-color: var(--rvt-color-blue-600);
+   color: var(--rvt-color-white-base);
+}
+
+.s-lc-public .btn.btn-primary:active {
+   background-color: var(--rvt-color-blue-700);
+   border-color: var(--rvt-color-blue-700);
+}
+
+.s-lc-public .btn.btn-primary[disabled],
+.s-lc-public .btn.btn-primary.disabled {
+   background-color: var(--rvt-color-blue-500);
+   border-color: var(--rvt-color-blue-500);
+   color: var(--rvt-color-white-base);
+   opacity: .5;
+}
+
+/* ---- calendar filter (bootstrap-select "Series") ---- */
+.s-lc-public .bootstrap-select > .dropdown-toggle {
+   background-color: var(--rvt-color-white-base);
+   background-image: none;
+   border: 1px solid var(--rvt-color-black-400);
+   border-radius: var(--rvt-border-radius-md);
+   box-shadow: none;
+   color: var(--rvt-color-black-500);
+   font-weight: var(--rvt-font-weight-regular);
+   text-shadow: none;
+}
+
+.s-lc-public .dropdown-menu {
+   border: 1px solid var(--rvt-color-black-100);
+   border-radius: var(--rvt-border-radius-md);
+   box-shadow: 0 .25rem 1rem rgba(36, 49, 66, .2);
+}
+
+.s-lc-public .dropdown-menu > li > a,
+.s-lc-public .dropdown-menu .dropdown-item {
+   color: var(--rvt-color-black-500);
+   font-weight: var(--rvt-font-weight-regular);
+}
+
+.s-lc-public .dropdown-menu > li > a:hover,
+.s-lc-public .dropdown-menu > li > a:focus,
+.s-lc-public .dropdown-menu > .active > a {
+   background-color: var(--rvt-color-blue-000);
+   background-image: none;
+   color: var(--rvt-color-blue-600);
+}
+
+/* ---- calendar heading + monthly/weekly table (.s-lc-mc) -> Rivet table: black-000 header row, black-100 rules ---- */
+.s-lc-hp-calendar-header {
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-20);
+   font-weight: var(--rvt-font-weight-regular);
+   line-height: 1.3;
+}
+
+.s-lc-mc {
+   border-collapse: collapse;
+   width: 100%;
+}
+
+.s-lc-mc th.s-lc-mc-h {
+   background-color: var(--rvt-color-black-000);
+   border: 1px solid var(--rvt-color-black-100);
+   color: var(--rvt-color-black-500);
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-bold);
+   padding: var(--rvt-spacing-xs);
+   text-align: left;
+}
+
+.s-lc-mc td {
+   border: 1px solid var(--rvt-color-black-100);
+}
+
+.s-lc-mc .s-lc-mc-date-row th,
+.s-lc-mc .s-lc-mc-date-row td {
+   background-color: var(--rvt-color-white-base);
+   color: var(--rvt-color-black-500);
+}
+
+.s-lc-mc .s-lc-mc-day-num {
+   color: var(--rvt-color-black-500);
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-medium);
+}
+
+.s-lc-mc .s-lc-mc-day-other-month .s-lc-mc-day-num {
+   color: var(--rvt-color-black-300);
+}
+
+.s-lc-mc .s-lc-mc-evt a {
+   color: var(--rvt-color-blue-500);
+   font-weight: var(--rvt-font-weight-regular);
+}
+
+.s-lc-mc .s-lc-mc-evt-time,
+.s-lc-mc .s-lc-mc-evt-loc {
+   color: var(--rvt-color-black-400);
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-regular);
+}
+
+/* ---- appointments (index13) ---- */
+.s-lc-app-s1h3,
+.s-lc-app-booking-header {
+   color: var(--rvt-color-black-500);
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-23);
+   font-weight: var(--rvt-font-weight-regular);
+   line-height: 1.25;
+   margin: 0 0 var(--rvt-spacing-sm);
+}
+
+/* bootstrap-datepicker (`.datepicker` > `table.table-condensed`): LibCal draws a dark (#595959) frame on `.s-lc-datepicker-contrast` itself and grey bordered cells.
+   Rivet look: black-100 frame; each day is a plain button (.rvt-button--plain: no fill/border, blue-500 text, blue-000 hover, blue-100 pressed); the chosen day is a primary
+   button; days that can't be picked are black-300 text; the month label is a plain button; previous / next are plain icon buttons with the Rivet chevrons. */
+.s-lc-public .s-lc-datepicker-contrast {
+   border: 1px solid var(--rvt-color-black-100);
+   border-radius: var(--rvt-border-radius-md);
+}
+
+.s-lc-datepicker-contrast .datepicker {
+   border: 0;
+   font-family: var(--rvt-font-base);
+   padding: var(--rvt-spacing-xs);
+}
+
+.s-lc-datepicker-contrast .datepicker table {
+   border-collapse: separate;
+   border-spacing: 2px;
+   width: 100%;
+}
+
+.s-lc-datepicker-contrast .datepicker th.dow {
+   color: var(--rvt-color-black-500);
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-bold);
+}
+
+/* !important: LibCal's high-contrast datepicker paints days #e0e0e0 with a dark inset ring */
+.s-lc-datepicker-contrast .datepicker table tr td.day,
+.s-lc-datepicker-contrast .datepicker table tr td span.month,
+.s-lc-datepicker-contrast .datepicker table tr td span.year,
+.s-lc-datepicker-contrast .datepicker table tr td span.decade,
+.s-lc-datepicker-contrast .datepicker table tr td span.century {
+   background-color: transparent !important;
+   background-image: none !important;
+   border: .125rem solid transparent;
+   border-radius: var(--rvt-border-radius-md);
+   box-shadow: none !important;
+   color: var(--rvt-color-blue-500) !important;
+   font-weight: var(--rvt-font-weight-medium);
+   text-shadow: none;
+}
+
+.s-lc-datepicker-contrast .datepicker table tr td.day:hover,
+.s-lc-datepicker-contrast .datepicker table tr td span:hover {
+   background-color: var(--rvt-color-blue-000) !important;
+   color: var(--rvt-color-blue-600) !important;
+}
+
+.s-lc-datepicker-contrast .datepicker table tr td.day:active {
+   background-color: var(--rvt-color-blue-100) !important;
+}
+
+.s-lc-datepicker-contrast .datepicker table tr td.day.focused {
+   background-color: var(--rvt-color-blue-000) !important;
+   box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-400) !important;
+}
+
+/* days outside the month / not bookable */
+.s-lc-datepicker-contrast .datepicker table tr td.old,
+.s-lc-datepicker-contrast .datepicker table tr td.new,
+.s-lc-datepicker-contrast .datepicker table tr td.disabled,
+.s-lc-datepicker-contrast .datepicker table tr td.disabled:hover {
+   background-color: transparent !important;
+   box-shadow: none !important;
+   color: var(--rvt-color-black-300) !important;
+   font-weight: var(--rvt-font-weight-regular);
+}
+
+/* chosen day = primary button */
+.s-lc-datepicker-contrast .datepicker table tr td.active,
+.s-lc-datepicker-contrast .datepicker table tr td.active:hover,
+.s-lc-datepicker-contrast .datepicker table tr td.active.day,
+.s-lc-datepicker-contrast .datepicker table tr td span.active {
+   background-color: var(--rvt-color-blue-500) !important;
+   border-color: var(--rvt-color-blue-500);
+   box-shadow: none !important;
+   color: var(--rvt-color-white-base) !important;
+   font-weight: var(--rvt-font-weight-medium);
+}
+
+/* "Select Date:" (#s-lc-app-dp, the appointment picker): the days you can book are secondary buttons (.rvt-button--secondary: white fill, 2px blue-100 border, blue-500 text,
+   blue-000 hover, blue-100 pressed); days that can't be picked stay plain muted text and the chosen day stays primary. The other mini calendars (event filters) keep plain days. */
+#s-lc-app-dp .datepicker table tr td.day:not(.disabled):not(.active) {
+   background-color: var(--rvt-color-white-base) !important;
+   border-color: var(--rvt-color-blue-100);
+   color: var(--rvt-color-blue-500) !important;
+}
+
+#s-lc-app-dp .datepicker table tr td.day:not(.disabled):not(.active):hover {
+   background-color: var(--rvt-color-blue-000) !important;
+   border-color: var(--rvt-color-blue-100);
+   color: var(--rvt-color-blue-600) !important;
+}
+
+#s-lc-app-dp .datepicker table tr td.day:not(.disabled):not(.active):active {
+   background-color: var(--rvt-color-blue-100) !important;
+   border-color: var(--rvt-color-blue-200);
+}
+
+/* month label -> plain button */
+.s-lc-datepicker-contrast .datepicker th.datepicker-switch {
+   border-radius: var(--rvt-border-radius-md);
+   color: var(--rvt-color-blue-500);
+   font-weight: var(--rvt-font-weight-medium);
+}
+
+.s-lc-datepicker-contrast .datepicker th.datepicker-switch:hover {
+   background-color: var(--rvt-color-blue-000);
+}
+
+/* previous / next -> plain icon buttons: the "«" / "»" text is hidden and the Rivet chevron-left / chevron-right (blue-500, 1rem) is drawn instead */
+.s-lc-datepicker-contrast .datepicker th.prev,
+.s-lc-datepicker-contrast .datepicker th.next {
+   background-color: transparent;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 1rem 1rem;
+   border-radius: var(--rvt-border-radius-md);
+   cursor: pointer;
+   font-size: 0;
+   height: var(--rvt-spacing-lg);
+   min-width: var(--rvt-spacing-lg);
+   text-shadow: none;
+}
+
+.s-lc-datepicker-contrast .datepicker th.prev {
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16"><path d="M9.737.854 3.69 8l6.047 7.146 1.526-1.292L6.31 8l4.953-5.854L9.737.854Z"></path></svg>');
+}
+
+.s-lc-datepicker-contrast .datepicker th.next {
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16"><path d="M6.263 15.146 12.31 8 6.263.854 4.737 2.146 9.69 8l-4.953 5.854 1.526 1.292Z"></path></svg>');
+}
+
+.s-lc-datepicker-contrast .datepicker th.prev:hover,
+.s-lc-datepicker-contrast .datepicker th.next:hover {
+   background-color: var(--rvt-color-blue-000);
+}
+
+.s-lc-datepicker-contrast .datepicker th.prev:active,
+.s-lc-datepicker-contrast .datepicker th.next:active {
+   background-color: var(--rvt-color-blue-100);
+}
+
+.s-lc-datepicker-contrast .datepicker th.prev.disabled,
+.s-lc-datepicker-contrast .datepicker th.next.disabled {
+   cursor: default;
+   opacity: .4;
+   visibility: visible;
+}
+
+/* time slots: Bootstrap .btn.btn-default.btn-sm.s-lc-app-timeb -> small button (rules above); the chosen one is `.active` */
+.s-lc-app-timeb {
+   margin: 0 var(--rvt-spacing-xs) var(--rvt-spacing-xs) 0;
+}
+
+/* alerts: Bootstrap .alert-* -> .rvt-alert (alert/_base.scss): black-000 fill, .25rem coloured bar on the left, 1rem padding, 14px message; info = blue-000 / blue-500 / blue-700,
+   success = green, warning = gold, danger = orange (Rivet's "danger" is orange, not crimson). No radius. */
+.s-lc-public .alert {
+   background-color: var(--rvt-color-black-000);
+   background-image: none;
+   border: 0;
+   border-left: .25rem solid var(--rvt-color-black-500);
+   border-radius: 0;
+   box-shadow: none;
+   color: var(--rvt-color-black-500);
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-regular);
+   padding: var(--rvt-spacing-sm);
+   text-shadow: none;
+}
+
+.s-lc-public .alert-info {
+   background-color: var(--rvt-color-blue-000);
+   border-left-color: var(--rvt-color-blue-500);
+   color: var(--rvt-color-blue-700);
+}
+
+.s-lc-public .alert-success {
+   background-color: var(--rvt-color-green-000);
+   border-left-color: var(--rvt-color-green-500);
+   color: var(--rvt-color-green-700);
+}
+
+.s-lc-public .alert-warning {
+   background-color: var(--rvt-color-gold-000);
+   border-left-color: var(--rvt-color-gold-500);
+   color: var(--rvt-color-gold-700);
+}
+
+.s-lc-public .alert-danger {
+   background-color: var(--rvt-color-orange-000);
+   border-left-color: var(--rvt-color-orange-500);
+   color: var(--rvt-color-orange-700);
+}
+
+.s-lc-public .alert a {
+   color: inherit;
+   font-weight: var(--rvt-font-weight-medium);
+}
+
+/* modal ("change time zone"): .modal-content -> .rvt-dialog */
+.s-lc-public .modal-content {
+   border: 0;
+   border-radius: var(--rvt-border-radius-md);
+   box-shadow: 0 .25rem 1rem rgba(36, 49, 66, .2);
+}
+
+.s-lc-public .modal-header {
+   border-bottom: 1px solid var(--rvt-color-black-100);
+}
+
+.s-lc-public .modal-title {
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-20);
+   font-weight: var(--rvt-font-weight-regular);
+}
+
+.s-lc-public .modal-footer {
+   border-top: 1px solid var(--rvt-color-black-100);
+}
+
+
+/* ---- loading indicators -> .rvt-loader (loading-indicator/_base.scss: border-width ~1/6 of the size, blue-500 on three sides, .8s linear infinite) ----
+   LibCal shows Font Awesome spinners (`i.fa.fa-spinner.fa-spin|fa-pulse` + `fa-lg|2x|4x`). The icon glyph is dropped and the <i> itself becomes the ring; the
+   `fa-spin` / `fa-pulse` steps animation is replaced with the Rivet rotation (@keyframes rvt-loader-spin lives in loading.css). Sizes: default 1.25rem (xs),
+   fa-lg 1.75rem (sm), fa-2x 2.75rem (lg), fa-4x 4rem (xxl). */
+i.fa.fa-spinner,
+i.fa.fa-circle-o-notch {
+   animation: .8s linear infinite rvt-loader-spin !important;
+   border: .15625rem solid transparent;
+   border-bottom-color: var(--rvt-color-blue-500);
+   border-radius: 50%;
+   border-right-color: var(--rvt-color-blue-500);
+   border-top-color: var(--rvt-color-blue-500);
+   box-sizing: border-box;
+   display: inline-block;
+   font-size: 0;
+   height: 1.25rem;
+   line-height: 0;
+   vertical-align: middle;
+   width: 1.25rem;
+}
+
+i.fa.fa-spinner::before,
+i.fa.fa-circle-o-notch::before {
+   content: none;
+}
+
+i.fa.fa-spinner.fa-lg {
+   border-width: .21875rem;
+   height: 1.75rem;
+   width: 1.75rem;
+}
+
+i.fa.fa-spinner.fa-2x {
+   border-width: .34375rem;
+   height: 2.75rem;
+   width: 2.75rem;
+}
+
+i.fa.fa-spinner.fa-4x {
+   border-width: .5rem;
+   height: 4rem;
+   width: 4rem;
+}
+
+/* inside a button the ring takes the button's text colour so it stays visible on the blue (primary) fill */
+.btn.btn-primary i.fa.fa-spinner {
+   border-bottom-color: var(--rvt-color-white-base);
+   border-right-color: var(--rvt-color-white-base);
+   border-top-color: var(--rvt-color-white-base);
+}
+
+/* search field + button (`.input-group`): the group is a flex row here, but Bootstrap 3 sets `.input-group-btn { width: 1% }`, which squeezed the button's wrapper to 2px and let the button spill out of the sidebar */
+.s-lc-public .input-group {
+   align-items: stretch;
+   display: flex;
+}
+
+.s-lc-public .input-group .form-control {
+   flex: 1 1 auto;
+   min-width: 0;
+   width: 1%;
+}
+
+.s-lc-public .input-group-btn {
+   display: flex;
+   flex: none;
+   width: auto;
+}
+
+/* .rvt-input-group: the input loses its right radius, the button its left radius, and the button overlaps the input's border by 1px */
+.s-lc-public .input-group .form-control:not(:last-child) {
+   border-bottom-right-radius: 0;
+   border-top-right-radius: 0;
+}
+
+.s-lc-public .input-group-btn {
+   margin-left: -1px;
+}
+
+.s-lc-public .input-group-btn .btn {
+   border-bottom-left-radius: 0;
+   border-top-left-radius: 0;
+}
+
+/* ---- event lists (index15): `.media.s-lc-c-evt` -> horizontal card feed (rivet.iu.edu horizontal-card-feed, same mapping as test-card-feed.css):
+   image first (25%, max 180px, .5rem radius), title 1.25rem with the circled arrow, description under a black-100 rule, details as 14px meta. ---- */
+#s-lc-c-list-cont {
+   display: flex;
+   flex-direction: column;
+   gap: var(--rvt-spacing-lg);
+}
+
+.s-lc-c-evt.media {
+   border: 0;
+   display: flex;
+   flex-direction: row;
+   gap: var(--rvt-spacing-md);
+   margin: 0;
+   padding: 0;
+   position: relative;
+}
+
+.s-lc-c-evt .media-right {
+   flex: 0 0 25%;
+   max-width: 180px;
+   order: -1;
+   padding: 0;
+}
+
+.s-lc-c-evt .media-right a,
+.s-lc-c-evt .media-right img {
+   display: block;
+}
+
+.s-lc-c-evt .media-right img.img-thumbnail {
+   background-color: transparent;
+   border: 0;
+   border-radius: .5rem;
+   box-shadow: none;
+   max-width: 100%;
+   padding: 0;
+   width: 100%;
+}
+
+.s-lc-c-evt .media-body {
+   flex: 1 1 auto;
+   padding-right: var(--rvt-spacing-xl);
+   width: auto;
+}
+
+/* __title */
+.s-lc-c-evt .media-heading {
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-20);
+   font-weight: var(--rvt-font-weight-regular);
+   line-height: 1.3;
+   margin: 0;
+}
+
+.s-lc-c-evt .media-heading a {
+   color: var(--rvt-color-black-500);
+   text-decoration: none !important;
+}
+
+.s-lc-c-evt .media-heading a:hover {
+   color: var(--rvt-color-blue-500);
+   text-decoration: underline !important;
+}
+
+.s-lc-c-evt .media-heading a::before {
+   background-color: var(--rvt-color-blue-000);
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 1rem 1rem;
+   border-radius: 999rem;
+   box-sizing: content-box;
+   content: "";
+   display: block;
+   height: 1rem;
+   padding: var(--rvt-spacing-xs);
+   position: absolute;
+   right: var(--rvt-spacing-xs);
+   top: 0;
+   transition: all .2s ease;
+   width: 1rem;
+}
+
+.s-lc-c-evt .media-heading a:hover::before {
+   background-color: var(--rvt-color-blue-100);
+   transform: translate(var(--rvt-spacing-xs), 0);
+}
+
+/* __content */
+.s-lc-c-evt .s-lc-c-evt-des {
+   border-top: 1px solid var(--rvt-color-black-100);
+   color: var(--rvt-color-black-400);
+   margin-top: var(--rvt-spacing-md);
+   padding-top: var(--rvt-spacing-md);
+}
+
+/* __meta: label / value pairs (Bootstrap's `dl-horizontal` floats a 160px right-aligned <dt>) */
+.s-lc-c-evt dl.dl-horizontal {
+   column-gap: var(--rvt-spacing-sm);
+   display: grid;
+   font-size: var(--rvt-ts-14);
+   grid-template-columns: max-content 1fr;
+   margin: var(--rvt-spacing-md) 0 0;
+   row-gap: var(--rvt-spacing-xxs);
+}
+
+.s-lc-c-evt dl.dl-horizontal dt {
+   clear: none;
+   color: var(--rvt-color-black-400);
+   float: none;
+   font-weight: var(--rvt-font-weight-medium);
+   overflow: visible;
+   text-align: left;
+   width: auto;
+}
+
+.s-lc-c-evt dl.dl-horizontal dd {
+   margin: 0;
+}
+
+/* hide a label whose value is empty (and LibCal's trailing empty pair) so the label/value grid stays paired */
+.s-lc-c-evt dl.dl-horizontal dt:has(+ dd:empty),
+.s-lc-c-evt dl.dl-horizontal dd:empty,
+.s-lc-c-evt dl.dl-horizontal dt:empty,
+.s-lc-c-evt dl.dl-horizontal dt:empty + dd {
+   display: none;
+}
+
+/* Rivet: below 30em a horizontal card stacks (image above the body) */
+@media screen and (max-width: 30em) {
+   .s-lc-c-evt.media {
+      flex-direction: column;
+   }
+
+   .s-lc-c-evt .media-right {
+      flex-basis: auto;
+   }
+}
+
+/* ---- Appointment Details (index14): `dl.dl-horizontal` in `#s-lc-app-twell`. No margins on the list or its terms, terms bold; Bootstrap's `dl-horizontal` floats a 160px
+   right-aligned <dt>, which wraps badly in the narrow card, so term and value stack. The `<dd>`s keep their own `margin-bottom-med` so the pairs stay apart. ---- */
+#s-lc-app-twell dl,
+#s-lc-app-twell dl.dl-horizontal {
+   margin: 0;
+}
+
+#s-lc-app-twell dl dt {
+   clear: none;
+   float: none;
+   font-weight: var(--rvt-font-weight-bold);
+   margin: 0;
+   overflow: visible;
+   text-align: left;
+   width: auto;
+}
+
+#s-lc-app-twell dl dd {
+   font-size: var(--rvt-ts-16);
+   margin-left: 0;
+}
+
+#s-lc-app-twell dl dd:last-child {
+   margin-bottom: 0;
+}
+
+/* ---- booking form (index14): Rivet puts the label above its field (`.rvt-label` 14px, `.rvt-label + * { margin-top: .25rem }`) and stacks the fields. Bootstrap's
+   `.form-horizontal` puts a right-aligned label in a 3-column cell beside the field, with negative row margins. ---- */
+.s-lc-public .form-horizontal .form-group {
+   display: block;
+   margin: 0 0 var(--rvt-spacing-md);
+}
+
+.s-lc-public .form-horizontal .form-group [class*="col-"] {
+   float: none;
+   margin-left: 0;
+   padding-left: 0;
+   padding-right: 0;
+   width: 100%;
+}
+
+/* label / legend above the field */
+.s-lc-public .form-horizontal .control-label,
+.s-lc-public .form-horizontal .s-lc-app-lab,
+.s-lc-public .form-horizontal .s-lc-app-flab {
+   border: 0;
+   color: var(--rvt-color-black-500);
+   display: block;
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-regular);
+   margin: 0 0 .25rem;
+   padding: 0;
+   text-align: left;
+   width: 100%;
+}
+
+.s-lc-public .form-horizontal .form-group > .form-group {
+   margin: 0;
+}
+
+/* first / last name side by side under one label */
+.s-lc-public .form-horizontal .s-lc-name {
+   column-gap: var(--rvt-spacing-sm);
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+}
+
+.s-lc-public .form-horizontal .s-lc-name > .control-label {
+   grid-column: 1 / -1;
+}
+
+.s-lc-public .form-horizontal .s-lc-name > [class*="col-"] {
+   min-width: 0;
+}
+
+/* heading row: "Your Details" then "* is required" below it */
+.s-lc-public .form-horizontal .form-group .pull-right.text-muted {
+   color: var(--rvt-color-black-400);
+   float: none !important;
+   font-size: var(--rvt-ts-14);
+   margin: 0 !important;
+   text-align: left;
+}
+
+/* fields fill their row (.rvt-text-input / .rvt-textarea: block, 100%) */
+.s-lc-public .form-horizontal .form-control {
+   display: block;
+   width: 100%;
+}
+
+.s-lc-public .form-horizontal textarea.form-control {
+   height: 7.5rem;
+   line-height: 1.5;
+   padding: var(--rvt-spacing-xs);
+}
+
+/* helper text under a field: 14px black-400, .5rem below the input (.rvt-inline-alert spacing) */
+.s-lc-public .form-horizontal .help-block {
+   color: var(--rvt-color-black-400);
+   font-size: var(--rvt-ts-14);
+   margin: var(--rvt-spacing-xs) 0 0;
+}
+
+/* radios / checkboxes (every `.radio` / `.checkbox`, in forms or not) -> .rvt-radio / .rvt-checkbox. Rivet hides the native input and draws the control on the label's ::before; here the input sits inside the label,
+   so the input itself is drawn: 1rem, 2px black-300 border, a white inner ring so the checked fill reads as a dot, blue-500 when checked, blue-300 focus halo. */
+.s-lc-public .radio,
+.s-lc-public .checkbox {
+   margin: 0;
+   min-height: 0;
+   padding: 0;
+}
+
+.s-lc-public .radio + .radio,
+.s-lc-public .checkbox + .checkbox {
+   margin-top: var(--rvt-spacing-xs);
+}
+
+.s-lc-public .radio label,
+.s-lc-public .checkbox label {
+   cursor: pointer;
+   display: inline-block;
+   font-weight: var(--rvt-font-weight-regular);
+   line-height: var(--rvt-line-height-base);
+   min-height: 0;
+   padding-left: var(--rvt-spacing-lg);
+   position: relative;
+}
+
+.s-lc-public .radio input[type="radio"],
+.s-lc-public .checkbox input[type="checkbox"] {
+   -webkit-appearance: none;
+   appearance: none;
+   background-color: var(--rvt-color-white-base);
+   border: .125rem solid var(--rvt-color-black-300);
+   box-sizing: border-box;
+   cursor: pointer;
+   height: var(--rvt-spacing-sm);
+   left: .125rem;
+   margin: 0;
+   position: absolute;
+   top: .25rem;
+   width: var(--rvt-spacing-sm);
+}
+
+.s-lc-public .radio input[type="radio"] {
+   border-radius: 999rem;
+   box-shadow: inset 0 0 0 .1875rem var(--rvt-color-white-base);
+}
+
+.s-lc-public .checkbox input[type="checkbox"] {
+   border-radius: .125rem;
+}
+
+.s-lc-public .radio input[type="radio"]:checked {
+   background-color: var(--rvt-color-blue-500);
+   border-color: var(--rvt-color-blue-500);
+}
+
+.s-lc-public .checkbox input[type="checkbox"]:checked {
+   background-color: var(--rvt-color-blue-500);
+   background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23ffffff" viewBox="0 0 16 16"><path d="m14.914 4-9.47 9.47L1.09 8.393 2.608 7.09l2.948 3.44L13.5 2.585 14.914 4Z"></path></svg>');
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: .75rem .75rem;
+   border-color: var(--rvt-color-blue-500);
+}
+
+.s-lc-public .radio input[type="radio"]:focus {
+   border-color: var(--rvt-color-blue-500);
+   box-shadow: inset 0 0 0 .1875rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-200);
+   outline: none;
+}
+
+.s-lc-public .checkbox input[type="checkbox"]:focus {
+   box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-400);
+   outline: none;
+}
+
+/* submit row: the button sits under the fields, left-aligned */
+.s-lc-public .form-horizontal .form-group .btn-block {
+   width: auto;
+}
+
+/* ---- event cards (index16, "card" view): `.s-lc-eventcard` -> .rvt-card (white, .5rem radius, 1.5rem padding) with a 1px black-100 border instead of the raised card's shadow with .rvt-cal as the date tile,
+   .rvt-card__title, .rvt-card__content and .rvt-badge tags. The per-category colour bar under the header is dropped (the colour stays on each tag's dot). ---- */
+/* LibCal fixes the card height (276px), absolutely positions the tags at its bottom edge and offsets the grid with negative margins; cards here grow with their
+   content, in two equal columns with a 1.5rem gutter (.rvt-card feed spacing) */
+.s-lc-eventcard-outer-container,
+.s-lc-eventcard-inner-container-condensed {
+   margin: 0;
+}
+
+.s-lc-eventcard-inner-container-condensed {
+   gap: var(--rvt-spacing-md);
+}
+
+.s-lc-eventcard {
+   background-color: var(--rvt-color-white-base);
+   border: 0;
+   border: 1px solid var(--rvt-color-black-100);
+   border-radius: var(--rvt-border-radius-lg);
+   box-shadow: none;
+   flex: 0 0 calc(50% - var(--rvt-spacing-sm) * .75);
+   height: auto;
+   margin: 0;
+   min-height: 0;
+   overflow: hidden;
+}
+
+@media screen and (max-width: 46.25em) {
+   .s-lc-eventcard {
+      flex-basis: 100%;
+   }
+}
+
+/* LibCal draws a second frame here (1px #ccc border, 12px 22px margins) inside the card */
+.s-lc-eventcard .s-lc-eventcard-content {
+   border: 0;
+   border-radius: 0;
+   box-shadow: none;
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   margin: 0;
+   padding: var(--rvt-spacing-md);
+   position: static;
+}
+
+.s-lc-eventcard .s-lc-eventcard-heading {
+   background: transparent;
+   border: 0;
+   height: auto;
+   overflow: visible;
+   padding: 0;
+}
+
+.s-lc-eventcard .s-lc-eventcard-heading-content {
+   align-items: flex-start;
+   display: flex;
+   gap: var(--rvt-spacing-sm);
+   padding: 0;
+}
+
+/* .rvt-cal: black-000 tile, .5rem crimson top rule, month 14px uppercase, day 23px regular */
+.s-lc-evt-date {
+   background-color: var(--rvt-color-black-000);
+   border: 0;
+   border-radius: 0;
+   border-top: .5rem solid var(--rvt-color-crimson-500);
+   box-shadow: none;
+   display: inline-flex;
+   flex: none;
+   flex-direction: column;
+   line-height: 1.1;
+   padding: .75rem var(--rvt-spacing-sm);
+   text-align: center;
+   width: auto;
+}
+
+.s-lc-evt-date-m,
+.s-lc-evt-date-d {
+   background: transparent;
+   border: 0;
+   margin: 0;
+   padding: 0 var(--rvt-spacing-sm);
+   text-transform: uppercase;
+}
+
+.s-lc-evt-date-m {
+   color: var(--rvt-color-black-500);
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-bold);
+}
+
+.s-lc-evt-date-d {
+   color: var(--rvt-color-black-500);
+   font-size: var(--rvt-ts-23);
+   font-weight: var(--rvt-font-weight-regular);
+   margin-top: .25rem;
+}
+
+.s-lc-eventcard-heading-text-group {
+   min-width: 0;
+}
+
+/* LibCal clips these lines to one line with an ellipsis (`.s-lc-hide-long-text`), which cut the "In-Person" pill to "In-P" */
+.s-lc-eventcard .s-lc-hide-long-text {
+   overflow: visible;
+   text-overflow: clip;
+   white-space: normal;
+}
+
+.s-lc-eventcard-heading-text {
+   color: var(--rvt-color-black-500);
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-medium);
+   line-height: var(--rvt-line-height-base);
+}
+
+.s-lc-eventcard-more-dates {
+   font-size: var(--rvt-ts-14);
+}
+
+.s-lc-eventcard-event-color-bar {
+   display: none;
+}
+
+/* __title */
+.s-lc-eventcard-body {
+   flex: 1 1 auto;
+   height: auto;
+   overflow: visible;
+   padding: 0;
+}
+
+.s-lc-eventcard-title {
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-20);
+   font-weight: var(--rvt-font-weight-regular);
+   line-height: 1.3;
+   margin: var(--rvt-spacing-md) 0 0;
+}
+
+.s-lc-eventcard-title a {
+   color: var(--rvt-color-black-500);
+   text-decoration: none !important;
+}
+
+.s-lc-eventcard-title a:hover {
+   color: var(--rvt-color-blue-500);
+   text-decoration: underline !important;
+}
+
+/* __content */
+.s-lc-eventcard-description {
+   border-top: 1px solid var(--rvt-color-black-100);
+   color: var(--rvt-color-black-400);
+   font-size: var(--rvt-ts-16);
+   margin-top: var(--rvt-spacing-md);
+   padding-top: var(--rvt-spacing-md);
+}
+
+/* tags -> .rvt-badge (black-100 pill, 14px medium, .1875rem .5rem), the category colour kept as a small dot */
+.s-lc-eventcard-tags {
+   bottom: auto;
+   left: auto;
+   margin-top: var(--rvt-spacing-md);
+   padding: 0;
+   position: static;
+   width: auto;
+}
+
+.s-lc-eventcard-tags ul {
+   display: flex;
+   flex-wrap: wrap;
+   gap: var(--rvt-spacing-xs);
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+.s-lc-eventcard-tags .s-lc-eventcard-tag {
+   align-items: center;
+   background-color: var(--rvt-color-black-100);
+   border: .125rem solid var(--rvt-color-black-100);
+   border-radius: 999rem;
+   color: var(--rvt-color-black-500);
+   display: inline-flex;
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-medium);
+   gap: .25rem;
+   line-height: 1;
+   margin: 0;
+   flex: 0 0 auto;
+   max-width: none;
+   overflow: visible;
+   padding: .1875rem var(--rvt-spacing-xs);
+   white-space: nowrap;
+   width: auto;
+}
+
+.s-lc-eventcard-tag .s-lc-event-category-color {
+   border-radius: 999rem;
+   display: inline-block;
+   flex: none;
+   font-size: 0;
+   height: .5rem;
+   width: .5rem;
+}
+
+.s-lc-eventcard-tag .s-lc-event-category-link,
+.s-lc-eventcard-tag a {
+   color: inherit;
+   max-width: none;
+   width: auto;
+   display: inline;
+   font-size: inherit;
+   font-weight: inherit;
+   overflow: visible;
+   text-overflow: clip;
+   white-space: nowrap;
+   text-decoration: none !important;
+}
+
+.s-lc-eventcard-tag a:hover {
+   text-decoration: underline !important;
+}
+
+/* "In-Person" / other `.label.label-info` pills -> .rvt-badge.rvt-badge--info (LibCal nudges the pill up with `position: relative; top: -2px`) */
+.s-lc-eventcard-pill {
+   display: inline-block;
+   margin-left: var(--rvt-spacing-xs);
+   position: static;
+   top: auto;
+   vertical-align: middle;
+}
+
+.s-lc-public .label {
+   border: .125rem solid var(--rvt-color-black-100);
+   border-radius: 999rem;
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-medium);
+   letter-spacing: .02rem;
+   line-height: 1;
+   padding: .1875rem var(--rvt-spacing-xs);
+   text-shadow: none;
+}
+
+.s-lc-public .label.label-info {
+   background-color: var(--rvt-color-blue-500);
+   border-color: var(--rvt-color-blue-500);
+   color: var(--rvt-color-white-base);
+}
+
+
+/* ---- badges: Bootstrap 3 `.label` / `.badge` -> .rvt-badge (badge/_base.scss): black-100 pill, 2px border, 14px medium, .02rem tracking, line-height 1, `.1875rem .5rem`.
+   Variants: info = blue-500 fill / white; success = green-500; warning = gold-400 / black; danger = orange-500. `label-default` is the base badge. ---- */
+.s-lc-public .label,
+.s-lc-public .badge {
+   background-color: var(--rvt-color-black-100);
+   border: .125rem solid var(--rvt-color-black-100);
+   border-radius: 999rem;
+   color: var(--rvt-color-black-500);
+   display: inline-block;
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-medium);
+   letter-spacing: .02rem;
+   line-height: 1;
+   min-width: 0;
+   padding: .1875rem var(--rvt-spacing-xs);
+   text-shadow: none;
+   white-space: nowrap;
+}
+
+.s-lc-public .label-primary,
+.s-lc-public .label-info {
+   background-color: var(--rvt-color-blue-500);
+   border-color: var(--rvt-color-blue-500);
+   color: var(--rvt-color-white-base);
+}
+
+.s-lc-public .label-success {
+   background-color: var(--rvt-color-green-500);
+   border-color: var(--rvt-color-green-500);
+   color: var(--rvt-color-white-base);
+}
+
+.s-lc-public .label-warning {
+   background-color: var(--rvt-color-gold-400);
+   border-color: var(--rvt-color-gold-400);
+   color: var(--rvt-color-black-base);
+}
+
+.s-lc-public .label-danger {
+   background-color: var(--rvt-color-orange-500);
+   border-color: var(--rvt-color-orange-500);
+   color: var(--rvt-color-white-base);
+}
+
+/* ---- dropdowns / selects: bootstrap-select (`.bootstrap-select > button.dropdown-toggle` + `.dropdown-menu`) and native `select.form-control` -> .rvt-select + .rvt-dropdown__menu ---- */
+.s-lc-public .bootstrap-select > .dropdown-toggle,
+.s-lc-public select.form-control {
+   -webkit-appearance: none;
+   appearance: none;
+   background-color: var(--rvt-color-white-base);
+   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23333333" viewBox="0 0 16 16"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>');
+   background-position: right var(--rvt-spacing-sm) center;
+   background-repeat: no-repeat;
+   background-size: var(--rvt-spacing-sm) var(--rvt-spacing-sm);
+   border: 1px solid var(--rvt-color-black-300);
+   border-radius: var(--rvt-border-radius-md);
+   box-shadow: none;
+   color: var(--rvt-color-black-500);
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-16);
+   font-weight: var(--rvt-font-weight-regular);
+   height: var(--rvt-spacing-xl);
+   line-height: 1.1;
+   padding: var(--rvt-spacing-xs) var(--rvt-spacing-xl) var(--rvt-spacing-xs) var(--rvt-spacing-xs);
+   text-align: left;
+   text-shadow: none;
+   width: 100%;
+}
+
+.s-lc-public .bootstrap-select > .dropdown-toggle:focus,
+.s-lc-public .bootstrap-select.open > .dropdown-toggle,
+.s-lc-public select.form-control:focus {
+   background-color: var(--rvt-color-white-base);
+   border-color: var(--rvt-color-black-300);
+   box-shadow: 0 0 0 .125rem var(--rvt-color-blue-400);
+   outline: none !important;
+}
+
+.s-lc-public .bootstrap-select > .dropdown-toggle .bs-caret,
+.s-lc-public .bootstrap-select > .dropdown-toggle .caret {
+   display: none;
+}
+
+.s-lc-public .bootstrap-select {
+   width: 100% !important;
+}
+
+.s-lc-public .bootstrap-select > .dropdown-toggle .filter-option,
+.s-lc-public .bootstrap-select > .dropdown-toggle .filter-option-inner,
+.s-lc-public .bootstrap-select > .dropdown-toggle .filter-option-inner-inner {
+   color: inherit;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+/* .rvt-dropdown__menu: white, .25rem radius, standard shadow, .5rem top/bottom padding, items `.375rem 1rem`; hover blue-000 / blue-500 text; the selected item has a .25rem crimson bar on its left, orange-000 fill and crimson text */
+.s-lc-public .dropdown-menu {
+   background-color: var(--rvt-color-white-base);
+   border: 0;
+   border-radius: var(--rvt-border-radius-md);
+   box-shadow: var(--rvt-shadow-standard);
+   font-size: var(--rvt-ts-16);
+   margin-top: var(--rvt-spacing-xs);
+   min-width: 12.5rem;
+   padding: var(--rvt-spacing-xs) 0;
+}
+
+.s-lc-public .bootstrap-select .dropdown-menu {
+   min-width: 100%;
+}
+
+.s-lc-public .dropdown-menu ul,
+.s-lc-public .dropdown-menu.inner {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+.s-lc-public .dropdown-menu li > a,
+.s-lc-public .dropdown-menu .dropdown-item {
+   background-color: transparent;
+   background-image: none;
+   border: 0;
+   box-shadow: none;
+   color: var(--rvt-color-black-500);
+   display: block;
+   font-weight: var(--rvt-font-weight-regular);
+   padding: .375rem var(--rvt-spacing-sm);
+   text-decoration: none !important;
+   white-space: normal;
+}
+
+.s-lc-public .dropdown-menu li > a:hover,
+.s-lc-public .dropdown-menu .dropdown-item:hover {
+   background-color: var(--rvt-color-blue-000);
+   color: var(--rvt-color-blue-500);
+}
+
+.s-lc-public .dropdown-menu li > a:focus,
+.s-lc-public .dropdown-menu .dropdown-item:focus {
+   background-color: var(--rvt-color-blue-000);
+   box-shadow: inset 0 0 0 .125rem var(--rvt-color-blue-500);
+   color: var(--rvt-color-blue-500);
+   outline: none !important;
+}
+
+.s-lc-public .dropdown-menu li.selected > a,
+.s-lc-public .dropdown-menu li.active > a,
+.s-lc-public .dropdown-menu .dropdown-item.active {
+   background-color: var(--rvt-color-orange-000);
+   box-shadow: inset .25rem 0 0 var(--rvt-color-crimson-500);
+   color: var(--rvt-color-crimson-500);
+}
+
+.s-lc-public .dropdown-menu li.selected > a:hover {
+   color: var(--rvt-color-crimson-500);
+}
+
+/* the check mark is replaced by the crimson bar */
+.s-lc-public .dropdown-menu .check-mark {
+   display: none;
+}
+
+.s-lc-public .dropdown-menu .dropdown-header {
+   color: var(--rvt-color-black-400);
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-bold);
+   padding: var(--rvt-spacing-sm) var(--rvt-spacing-sm) .25rem;
+}
+
+.s-lc-public .dropdown-menu .divider {
+   background-color: var(--rvt-color-black-100);
+   height: 1px;
+   margin: var(--rvt-spacing-xs) 0;
+}
+
+/* ---- dialogs: Bootstrap `.modal` -> .rvt-dialog (dialog/_base.scss): white, .5rem radius, heavy shadow, max 37.5rem; header `1.5rem 1rem` with a black-100 rule and a bold 1.25rem title;
+   body 1rem; controls row on black-000 with a black-100 rule, right-aligned, 1rem gap; the page behind is darkened (black-base at .85). ---- */
+.s-lc-public .modal-backdrop,
+.s-lc-public .modal-backdrop.in {
+   background-color: var(--rvt-color-black-base);
+   opacity: .85;
+}
+
+.s-lc-public .modal-dialog {
+   max-width: 37.5rem;
+   width: 90%;
+}
+
+.s-lc-public .modal-content {
+   background-color: var(--rvt-color-white-base);
+   border: 0;
+   border-radius: var(--rvt-border-radius-lg);
+   box-shadow: var(--rvt-shadow-heavy);
+   overflow: hidden;
+}
+
+.s-lc-public .modal-header {
+   background-color: transparent;
+   border-bottom: 1px solid var(--rvt-color-black-100);
+   padding: var(--rvt-spacing-md) var(--rvt-spacing-sm);
+   position: relative;
+}
+
+.s-lc-public .modal-title {
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-20);
+   font-weight: var(--rvt-font-weight-bold);
+   line-height: 1;
+   padding-right: var(--rvt-spacing-lg);
+}
+
+.s-lc-public .modal-header .close {
+   background-color: transparent;
+   border: 0;
+   border-radius: var(--rvt-border-radius-md);
+   color: var(--rvt-color-black-500);
+   font-size: 1.5rem;
+   line-height: .5;
+   margin: 0;
+   opacity: 1;
+   padding: var(--rvt-spacing-xs);
+   position: absolute;
+   right: var(--rvt-spacing-sm);
+   text-shadow: none;
+   top: 1.1rem;
+}
+
+.s-lc-public .modal-header .close:hover {
+   background-color: var(--rvt-color-blue-500);
+   color: var(--rvt-color-white-base);
+}
+
+.s-lc-public .modal-body {
+   padding: var(--rvt-spacing-sm);
+}
+
+.s-lc-public .modal-footer {
+   background-color: var(--rvt-color-black-000);
+   border-top: 1px solid var(--rvt-color-black-100);
+   display: flex;
+   flex-wrap: wrap;
+   gap: var(--rvt-spacing-sm);
+   justify-content: flex-end;
+   padding: var(--rvt-spacing-sm);
+}
+
+.s-lc-public .modal-footer .btn {
+   margin: 0;
+}
+
+/* ---- hover boxes on events (Bootstrap `.popover`, `.tooltip`): Rivet has no popover, so the nearest patterns are used. The popover is a raised card (white, .5rem radius,
+   heavy shadow, title like `.rvt-card__title`, black-400 content, no arrow); the tooltip is a small black-500 box with white 14px text. ---- */
+.s-lc-public .popover,
+.popover {
+   background-color: var(--rvt-color-white-base);
+   border: 0;
+   border-radius: var(--rvt-border-radius-lg);
+   box-shadow: var(--rvt-shadow-heavy);
+   color: var(--rvt-color-black-500);
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-16);
+   max-width: 22rem;
+   padding: 0;
+}
+
+.popover > .arrow,
+.popover > .arrow::after {
+   display: none;
+}
+
+.popover-title {
+   background-color: transparent;
+   border: 0;
+   border-radius: 0;
+   color: var(--rvt-color-black-500);
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-20);
+   font-weight: var(--rvt-font-weight-regular);
+   line-height: 1.3;
+   padding: var(--rvt-spacing-md) var(--rvt-spacing-xl) 0 var(--rvt-spacing-md);
+   position: relative;
+}
+
+.popover-title .close {
+   background-color: transparent;
+   border: 0;
+   border-radius: var(--rvt-border-radius-md);
+   color: var(--rvt-color-black-500);
+   opacity: 1;
+   padding: var(--rvt-spacing-xs);
+   position: absolute;
+   right: var(--rvt-spacing-xs);
+   text-shadow: none;
+   top: var(--rvt-spacing-sm);
+}
+
+.popover-title .close:hover {
+   background-color: var(--rvt-color-blue-500);
+   color: var(--rvt-color-white-base);
+}
+
+.popover-content {
+   color: var(--rvt-color-black-400);
+   font-size: var(--rvt-ts-14);
+   padding: var(--rvt-spacing-xs) var(--rvt-spacing-md) var(--rvt-spacing-md);
+}
+
+.popover-content a {
+   font-weight: var(--rvt-font-weight-regular);
+}
+
+.tooltip.in {
+   opacity: 1;
+}
+
+.tooltip-inner {
+   background-color: var(--rvt-color-black-500);
+   border-radius: var(--rvt-border-radius-md);
+   color: var(--rvt-color-white-base);
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-14);
+   padding: .25rem var(--rvt-spacing-xs);
+}
+
+.tooltip .tooltip-arrow {
+   display: none;
+}
+
+/* ---- log out: secondary destructive (.rvt-button--danger-secondary): white fill, orange-100 border, orange-500 text; hover orange-000 / orange-600; pressed orange-100; focus ring orange-400.
+   LibCal's markup for it isn't in the local pages, so the usual ids / classes / hrefs are matched. ---- */
+.s-lc-public a.btn[href*="logout" i],
+.s-lc-public button[id*="logout" i],
+.s-lc-public a[id*="logout" i].btn,
+.s-lc-public .btn[class*="logout" i],
+.s-lc-public .btn[class*="signout" i],
+.s-lc-public a.btn[href*="signout" i],
+.s-lc-public a.btn[href*="logoff" i],
+.btn-logout {
+   background-color: var(--rvt-color-white-base) !important;
+   background-image: none !important;
+   border: .125rem solid var(--rvt-color-orange-100) !important;
+   color: var(--rvt-color-orange-500) !important;
+}
+
+.s-lc-public a.btn[href*="logout" i]:hover,
+.s-lc-public button[id*="logout" i]:hover,
+.s-lc-public a[id*="logout" i].btn:hover,
+.s-lc-public .btn[class*="logout" i]:hover,
+.s-lc-public .btn[class*="signout" i]:hover,
+.s-lc-public a.btn[href*="signout" i]:hover,
+.s-lc-public a.btn[href*="logoff" i]:hover,
+.btn-logout:hover {
+   background-color: var(--rvt-color-orange-000) !important;
+   border-color: var(--rvt-color-orange-100) !important;
+   color: var(--rvt-color-orange-600) !important;
+}
+
+.s-lc-public a.btn[href*="logout" i]:active,
+.s-lc-public button[id*="logout" i]:active,
+.s-lc-public a[id*="logout" i].btn:active,
+.s-lc-public .btn[class*="logout" i]:active,
+.btn-logout:active {
+   background-color: var(--rvt-color-orange-100) !important;
+   border-color: var(--rvt-color-orange-200) !important;
+   color: var(--rvt-color-orange-600) !important;
+}
+
+body .s-lc-public a.btn[href*="logout" i]:focus-visible,
+body .s-lc-public button[id*="logout" i]:focus-visible,
+body .s-lc-public .btn[class*="logout" i]:focus-visible,
+body .btn-logout:focus-visible {
+   box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-orange-400) !important;
+   outline: none !important;
+}
+
+/* ---- file upload (`.s-ui-filedrop`, LibCal's drag-and-drop field). The real markup (a staff member's booking form, e.g. Carter):
+   div.form-group.s-ui-filedrop.has-advanced-upload > input#filesupload.sr-only[type=file][multiple] + label.btn.btn-default (div > i.fa-upload.fa-3x, span.filetext > strong
+   "Click to choose files" + span.s-ui-filedrop-dragtext, p "Maximum file size") + div.s-ui-filedrop-filenames.hidden (strong "Selected Files:" + ul) + button.s-ui-filedrop-clear.
+   Rivet's file input (file-input/_base.scss, `.rvt-file`) hides the native input and shows its label as a button, with the chosen names in bold beside it and a focus ring on the
+   button when the input is focused. Rivet has no drop zone, so the zone is a black-000 panel with a 2px dashed black-300 outline (blue-500 / blue-000 while a file is dragged over
+   it); inside it the "Click to choose files" text is the Rivet secondary button, the drag hint and the size limit are small grey text. LibCal paints the zone #eee with a heavy
+   black dashed outline and wraps everything in one big Bootstrap button. ---- */
+.s-lc-public .form-horizontal .form-group.s-ui-filedrop,
+.s-ui-filedrop {
+   align-items: center;
+   background-color: var(--rvt-color-black-000);
+   border: .125rem dashed var(--rvt-color-black-300);
+   border-radius: var(--rvt-border-radius-lg);
+   box-sizing: border-box;
+   color: var(--rvt-color-black-500);
+   display: flex;
+   flex-direction: column;
+   gap: var(--rvt-spacing-sm);
+   margin: 0 0 var(--rvt-spacing-md);
+   outline: 0;
+   padding: var(--rvt-spacing-md);
+   position: relative;
+   text-align: center;
+   width: 100%;
+}
+
+.s-ui-filedrop.has-advanced-upload {
+   background-color: var(--rvt-color-black-000);
+   outline: 0;
+   outline-offset: 0;
+   padding: var(--rvt-spacing-md);
+   text-align: center;
+}
+
+.s-ui-filedrop.is-dragover {
+   background-color: var(--rvt-color-blue-000);
+   border-color: var(--rvt-color-blue-500);
+}
+
+/* the zone sits in a `.col-md-offset-3.col-md-9` cell (the horizontal-form grid, indented to the old label column); stacked fields use the full width */
+.s-lc-public .form-horizontal [class*="col-"]:has(> .s-ui-filedrop) {
+   float: none;
+   margin-left: 0;
+   padding-left: 0;
+   padding-right: 0;
+   width: 100%;
+}
+
+/* the label is only a wrapper now: no button chrome (that is drawn on the text inside) */
+.s-ui-filedrop label,
+.s-ui-filedrop label.btn,
+.s-ui-filedrop.has-advanced-upload label {
+   align-items: center;
+   background: transparent !important;
+   border: 0 !important;
+   box-shadow: none !important;
+   color: var(--rvt-color-black-500);
+   cursor: pointer;
+   display: flex;
+   flex-direction: column;
+   gap: var(--rvt-spacing-xs);
+   height: auto;
+   margin: 0;
+   padding: 0;
+   white-space: normal;
+   width: 100%;
+}
+
+/* upload icon: Rivet blue-500, a little smaller than Font Awesome's 3x */
+.s-ui-filedrop label .fa-upload {
+   color: var(--rvt-color-blue-500);
+   font-size: 2.5rem;
+   line-height: 1;
+}
+
+.s-ui-filedrop .filetext {
+   align-items: center;
+   display: flex;
+   flex-wrap: wrap;
+   gap: var(--rvt-spacing-xs);
+   justify-content: center;
+}
+
+/* .rvt-file label -> .rvt-button.rvt-button--secondary (bold, 2.5rem tall, white fill, 2px blue-100 border, blue-500 text) */
+.s-ui-filedrop .filetext strong {
+   align-items: center;
+   background-color: var(--rvt-color-white-base);
+   border: .125rem solid var(--rvt-color-blue-100);
+   border-radius: var(--rvt-border-radius-md);
+   color: var(--rvt-color-blue-500);
+   display: inline-flex;
+   font-size: var(--rvt-ts-16);
+   font-weight: var(--rvt-font-weight-bold);
+   height: var(--rvt-spacing-xl);
+   line-height: 1.1;
+   padding: 0 .75rem;
+   white-space: nowrap;
+}
+
+.s-ui-filedrop label:hover .filetext strong {
+   background-color: var(--rvt-color-blue-000);
+   color: var(--rvt-color-blue-600);
+}
+
+.s-ui-filedrop label:active .filetext strong {
+   background-color: var(--rvt-color-blue-100);
+   border-color: var(--rvt-color-blue-200);
+}
+
+/* `.rvt-file input[type=file]:focus + label`: the ring is drawn on the button */
+.s-ui-filedrop input[type="file"]:focus + label .filetext strong,
+.s-ui-filedrop input[type="file"].has-focus + label .filetext strong {
+   box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-400);
+}
+
+.s-ui-filedrop .s-ui-filedrop-dragtext {
+   color: var(--rvt-color-black-400);
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-regular);
+}
+
+.s-ui-filedrop label p {
+   color: var(--rvt-color-black-400);
+   font-size: var(--rvt-ts-14);
+   margin: 0;
+}
+
+/* .rvt-file__preview: chosen file names, bold */
+.s-ui-filedrop .s-ui-filedrop-filenames {
+   font-size: var(--rvt-ts-14);
+   line-height: var(--rvt-line-height-base);
+   text-align: left;
+   width: 100%;
+}
+
+.s-ui-filedrop .s-ui-filedrop-filenames strong {
+   color: var(--rvt-color-black-400);
+   font-weight: var(--rvt-font-weight-bold);
+}
+
+.s-ui-filedrop .s-ui-filedrop-filenames ul {
+   font-weight: var(--rvt-font-weight-bold);
+   list-style: none;
+   margin: .25rem 0 0;
+   padding: 0;
+}
+
+.s-ui-filedrop .s-ui-filedrop-filenames li {
+   overflow-wrap: anywhere;
+}
+
+/* clear: small danger-secondary button (.rvt-button--small.rvt-button--danger-secondary) */
+.s-ui-filedrop.has-advanced-upload .s-ui-filedrop-clear,
+.s-ui-filedrop .s-ui-filedrop-clear {
+   background-color: var(--rvt-color-white-base);
+   border: .125rem solid var(--rvt-color-orange-100);
+   border-radius: var(--rvt-border-radius-md);
+   bottom: auto;
+   color: var(--rvt-color-orange-500);
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-medium);
+   height: var(--rvt-spacing-md);
+   line-height: 1.25rem;
+   padding: 0 .375rem;
+   position: static;
+   right: auto;
+}
+
+/* "Clear Files" only makes sense once files are listed: the file list carries `.hidden` until then */
+.s-ui-filedrop .s-ui-filedrop-filenames.hidden ~ .s-ui-filedrop-clear {
+   display: none;
+}
+
+.s-ui-filedrop .s-ui-filedrop-clear:hover {
+   background-color: var(--rvt-color-orange-000);
+   color: var(--rvt-color-orange-600);
+}
+
+/* upload progress: black-100 track, blue-500 fill (LibCal: a 20px grey pill with a green striped, animated fill) */
+.s-ui-filedrop-progress {
+   width: 100%;
+}
+
+.s-ui-filedrop-progress > .s-ui-filedrop-progbar {
+   background: var(--rvt-color-black-100);
+   border-radius: 999rem;
+   box-shadow: none;
+   height: .75rem;
+   margin: var(--rvt-spacing-xs) 0 0;
+   overflow: hidden;
+   padding: 0;
+}
+
+.s-ui-filedrop-progress > .s-ui-filedrop-progbar > span {
+   background-color: var(--rvt-color-blue-500);
+   border-radius: 999rem;
+   box-shadow: none;
+}
+
+.s-ui-filedrop-progress > .s-ui-filedrop-progbar > span::after {
+   animation: none;
+   background-image: none;
+}
+
+/* errors use the Rivet alert (`.alert.alert-danger`) */
+.s-ui-filedrop .s-ui-filedrop-error {
+   margin: 0;
+   text-align: left;
+   width: 100%;
+}
+
+/* ---- event cards, live page (iub.libcal.com/calendar/workshops): LibCal sets the card text in Arial, so the description, time, "Show more dates" and tags did not use the Rivet font ---- */
+.s-lc-eventcard,
+.s-lc-eventcard .s-lc-eventcard-description,
+.s-lc-eventcard .s-lc-eventcard-heading-text,
+.s-lc-eventcard .s-lc-eventcard-more-dates,
+.s-lc-eventcard .s-lc-eventcard-tag {
+   font-family: var(--rvt-font-base);
+}
+
+/* badge text uses the .rvt-badge letter-spacing too */
+.s-lc-eventcard .s-lc-eventcard-tag {
+   letter-spacing: .02rem;
+}
+
+/* ---- event filter sidebar (`.s-lc-c-l form`): fields are labelled and spaced like Rivet's stacked fields. `.rvt-label` is 14px with .25rem to its field; a group heading
+   ("Filter by") is the same size in bold; fields in the sidebar are 1rem apart; the select text is 16px like `.rvt-select` (LibCal shrinks it to .8em); the menu is at least 16rem
+   wide so names like "Wednesday Noon Digital Scholarship Series" don't wrap letter by letter in a 15rem sidebar. ---- */
+.s-lc-c-l .form-group {
+   margin: 0 0 var(--rvt-spacing-sm);
+}
+
+.s-lc-c-l .form-group > label:not(.sr-only),
+.s-lc-c-l .s-lc-bold {
+   color: var(--rvt-color-black-500);
+   display: block;
+   font-size: var(--rvt-ts-14);
+   margin: 0 0 .25rem;
+}
+
+.s-lc-c-l .s-lc-bold {
+   font-weight: var(--rvt-font-weight-bold);
+}
+
+.s-lc-c-l .form-group > label:not(.sr-only) {
+   font-weight: var(--rvt-font-weight-regular);
+}
+
+.s-lc-c-l .form-group > div + div {
+   margin-top: var(--rvt-spacing-sm);
+}
+
+.s-lc-c-l .bootstrap-select > .dropdown-toggle .filter-option-inner-inner,
+.s-lc-c-l .bootstrap-select > .dropdown-toggle {
+   font-size: var(--rvt-ts-16);
+}
+
+.s-lc-c-l .bootstrap-select .dropdown-menu {
+   min-width: max(100%, 16rem);
+}
+
+.s-lc-c-l .bootstrap-select .dropdown-menu li > a {
+   align-items: center;
+   display: flex;
+   gap: var(--rvt-spacing-xs);
+}
+
+/* ---- popovers = Rivet dropdown menu (dropdown/_base.scss). The popover that opens from "Show more dates" holds `h5` (title) + `p` rows, so it is laid out as a menu:
+   white, .25rem radius, the standard (menu) shadow, `.5rem` top/bottom padding and `.5rem` away from its trigger; the h5 is `.rvt-dropdown__menu-heading` (14px bold black-400,
+   `0 1rem .25rem`); rows and links have the menu item padding (`.375rem 1rem`) and the blue-000 / blue-500 hover. These rules replace the card-style popover above. ---- */
+.s-lc-public .popover,
+.popover {
+   border-radius: var(--rvt-border-radius-md);
+   box-shadow: var(--rvt-shadow-standard);
+   min-width: 12.5rem;
+   padding: var(--rvt-spacing-xs) 0;
+}
+
+.popover.bottom { margin-top: var(--rvt-spacing-xs); }
+.popover.top { margin-top: calc(var(--rvt-spacing-xs) * -1); }
+.popover.left { margin-left: calc(var(--rvt-spacing-xs) * -1); }
+.popover.right { margin-left: var(--rvt-spacing-xs); }
+
+.popover-title {
+   color: var(--rvt-color-black-400);
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-bold);
+   line-height: var(--rvt-line-height-base);
+   padding: 0 var(--rvt-spacing-xl) .25rem var(--rvt-spacing-sm);
+}
+
+.popover-title .close {
+   top: -.25rem;
+}
+
+.popover-content {
+   color: var(--rvt-color-black-500);
+   font-size: var(--rvt-ts-16);
+   padding: 0;
+}
+
+.popover-content h5,
+.popover-content h4,
+.popover-content h6 {
+   color: var(--rvt-color-black-400);
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-bold);
+   line-height: var(--rvt-line-height-base);
+   margin: 0;
+   padding: 0 var(--rvt-spacing-sm) .25rem;
+}
+
+.popover-content p,
+.popover-content li {
+   margin: 0;
+   padding: .375rem var(--rvt-spacing-sm);
+}
+
+.popover-content ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+.popover-content li {
+   padding: 0;
+}
+
+.popover-content a {
+   color: var(--rvt-color-black-500);
+   display: block;
+   padding: .375rem var(--rvt-spacing-sm);
+   text-decoration: none !important;
+}
+
+.popover-content a:hover,
+.popover-content a:focus {
+   background-color: var(--rvt-color-blue-000);
+   color: var(--rvt-color-blue-500);
+}
+
+.popover-content a:focus {
+   box-shadow: inset 0 0 0 .125rem var(--rvt-color-blue-500);
+   outline: none !important;
+}
+
+/* bootstrap-select menu details that kept it from reading as `.rvt-dropdown__menu`: LibCal's CSS zeroes the menu's top padding (Rivet: .5rem above and below the items), reserves
+   room on the right of each item for a check mark (`span.text { margin-right / padding-right }`, which made names wrap at half the menu's width) and leaves the list unbounded, so a
+   long list (13 series) ran off the screen. The list scrolls inside the menu past 20rem. */
+.s-lc-public .bootstrap-select .dropdown-menu {
+   padding: var(--rvt-spacing-xs) 0 !important;
+}
+
+.s-lc-public .bootstrap-select .dropdown-menu li a span.text,
+.s-lc-public .bootstrap-select.show-tick .dropdown-menu li a span.text {
+   display: block;
+   margin: 0;
+   overflow: visible;
+   padding: 0;
+}
+
+.s-lc-public .bootstrap-select .dropdown-menu.inner {
+   max-height: 20rem;
+   overflow-y: auto;
+}
+
+/* ---- checked item in a dropdown menu: Rivet marks the selected row only with the crimson bar, orange-000 fill and crimson text (`a[aria-checked=true]` / `.rvt-is-selected`), no check
+   mark. bootstrap-select's `show-tick` draws a check on the right with a rule that out-ranks the one above, so it needs `!important`. ---- */
+.s-lc-public .dropdown-menu .check-mark,
+.s-lc-public .bootstrap-select.show-tick .dropdown-menu li.selected a span.check-mark {
+   display: none !important;
+}
+
+.s-lc-public .bootstrap-select .dropdown-menu li.selected > a,
+.s-lc-public .bootstrap-select .dropdown-menu li.selected > a:focus {
+   background-color: var(--rvt-color-orange-000);
+   box-shadow: inset .25rem 0 0 var(--rvt-color-crimson-500);
+   color: var(--rvt-color-crimson-500);
+}
+
+.s-lc-public .bootstrap-select .dropdown-menu li.selected > a:hover {
+   color: var(--rvt-color-crimson-500);
+}
+
+.s-lc-public .bootstrap-select .dropdown-menu li.selected > a:focus-visible {
+   box-shadow: inset .25rem 0 0 var(--rvt-color-blue-500), inset 0 0 0 .125rem var(--rvt-color-blue-500);
+}
+
+/* ---- selected-filter pills ("Series: [Genealogy Research x] ..."): `a.no-deco > span.label` with the category colour set inline as its background, white-on-colour text and a
+   white Font Awesome x. Rivet badge (.rvt-badge): black-100 pill, 2px border, 14px medium black-500 text. The category colour is kept as a small dot: the inline background
+   stays underneath and a black-100 layer with a round hole is painted over it (a radial-gradient), so the colour only shows through the dot. The x is a small black-400 icon. ---- */
+.s-lc-c-erc a.no-deco > .label {
+   align-items: center;
+   background-image: radial-gradient(circle at .875rem 50%, transparent .25rem, var(--rvt-color-black-100) calc(.25rem + .5px));
+   border: .125rem solid var(--rvt-color-black-100);
+   border-radius: 999rem;
+   color: var(--rvt-color-black-500);
+   display: inline-flex;
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-medium);
+   gap: .25rem;
+   letter-spacing: .02rem;
+   line-height: 1;
+   padding: .1875rem var(--rvt-spacing-xs) .1875rem var(--rvt-spacing-md);
+   vertical-align: middle;
+   white-space: nowrap;
+}
+
+.s-lc-c-erc a.no-deco > .label .fa-times {
+   color: var(--rvt-color-black-400) !important;
+   font-size: var(--rvt-ts-14);
+   line-height: 1;
+}
+
+.s-lc-c-erc a.no-deco:hover > .label {
+   border-color: var(--rvt-color-black-300);
+}
+
+.s-lc-c-erc a.no-deco:hover > .label .fa-times {
+   color: var(--rvt-color-black-500) !important;
+}
+
+.s-lc-c-erc .s-lc-c-e-cat-lab {
+   color: var(--rvt-color-black-500);
+   font-size: var(--rvt-ts-16);
+   font-weight: var(--rvt-font-weight-bold);
+}
+
+/* ---- multi-select menus (bootstrap-select on a `select[multiple]`, e.g. the Series filter): each option is a Rivet checkbox row (.rvt-checkbox: 1rem box, 2px black-300 border, .125rem radius;
+   checked = blue-500 fill with the white Rivet check; keyboard focus = white .125rem + blue-400 .25rem ring) instead of the single-select crimson "selected" row. ---- */
+.s-lc-public .bootstrap-select:has(> select[multiple]) .dropdown-menu li > a {
+   align-items: center;
+   display: flex;
+   gap: var(--rvt-spacing-sm);
+}
+
+.s-lc-public .bootstrap-select:has(> select[multiple]) .dropdown-menu li > a::before {
+   background-color: var(--rvt-color-white-base);
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: .75rem .75rem;
+   border: .125rem solid var(--rvt-color-black-300);
+   border-radius: .125rem;
+   box-sizing: border-box;
+   content: "";
+   flex: none;
+   height: var(--rvt-spacing-sm);
+   width: var(--rvt-spacing-sm);
+}
+
+.s-lc-public .bootstrap-select:has(> select[multiple]) .dropdown-menu li.selected > a::before {
+   background-color: var(--rvt-color-blue-500);
+   background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23ffffff" viewBox="0 0 16 16"><path d="m14.914 4-9.47 9.47L1.09 8.393 2.608 7.09l2.948 3.44L13.5 2.585 14.914 4Z"></path></svg>');
+   border-color: var(--rvt-color-blue-500);
+}
+
+/* the row itself is not highlighted when checked (the box carries the state) */
+.s-lc-public .bootstrap-select:has(> select[multiple]) .dropdown-menu li.selected > a,
+.s-lc-public .bootstrap-select:has(> select[multiple]) .dropdown-menu li.selected > a:focus {
+   background-color: transparent;
+   box-shadow: none;
+   color: var(--rvt-color-black-500);
+}
+
+.s-lc-public .bootstrap-select:has(> select[multiple]) .dropdown-menu li.selected > a:hover,
+.s-lc-public .bootstrap-select:has(> select[multiple]) .dropdown-menu li > a:hover {
+   background-color: var(--rvt-color-blue-000);
+   color: var(--rvt-color-blue-500);
+}
+
+.s-lc-public .bootstrap-select:has(> select[multiple]) .dropdown-menu li > a:focus-visible {
+   box-shadow: inset 0 0 0 .125rem var(--rvt-color-blue-500);
+}
+
+.s-lc-public .bootstrap-select:has(> select[multiple]) .dropdown-menu li > a:focus-visible::before {
+   box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-400);
+}
+
+/* ---- audit fixes (focus, targets, overflow, small screens) ---- */
+
+/* The date picker (`#s-lc-app-dp`, `.s-lc-datepicker-contrast`) is the one element in it that takes keyboard focus (`tabindex="0"`; arrow keys move the `.focused` day), so the
+   frame shows Rivet's ring (white .125rem + blue-400 .25rem) when it is reached by keyboard. */
+.s-lc-datepicker-contrast:focus-visible,
+body .s-lc-datepicker-contrast:focus-visible {
+   box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-400) !important;
+   outline: none !important;
+}
+
+/* touch targets: the staff "more info" icon links are 18px wide; WCAG 2.2 / Rivet buttons need at least 24px */
+.s-lc-appointment-staff-member > a {
+   align-items: center;
+   display: inline-flex;
+   justify-content: center;
+   min-height: var(--rvt-spacing-md);
+   min-width: var(--rvt-spacing-md);
+}
+
+/* month view: "1 event" links under each date (9px text, ~16px tall) -> 14px with a 24px target; event names are kept inside their cell instead of running past the colour bar */
+.s-lc-monthly-calendar-event-count,
+.s-lc-monthly-calendar-event-count a {
+   font-size: var(--rvt-ts-14);
+}
+
+.s-lc-monthly-calendar-event-count {
+   line-height: 1.2;
+   min-height: var(--rvt-spacing-md);
+   min-width: var(--rvt-spacing-md);
+   padding: .125rem .25rem;
+   text-align: center;
+   white-space: normal;
+}
+
+.s-lc-mc .s-lc-mc-evt,
+.s-lc-mc .s-lc-mc-evt a,
+.s-lc-mc .s-lc-mc-evt-time,
+.s-lc-mc .s-lc-mc-evt-loc {
+   hyphens: auto;
+   min-width: 0;
+   overflow-wrap: break-word;
+}
+
+/* events / appointments on small screens */
+@media screen and (max-width: 46.25em) {
+   /* month cells are 60px wide with 16px padding on each side, which left 28px for "1 event" and clipped it */
+   .s-lc-mc td.s-lc-mc-day {
+      padding: var(--rvt-spacing-xs) 0;
+   }
+
+   /* the list / card / month / week buttons sit above the title instead of squeezing it into four lines */
+   .s-lc-c-view-modes {
+      float: none !important;
+      margin: 0 0 var(--rvt-spacing-sm);
+      text-align: left;
+      width: auto;
+   }
+
+   .s-lc-c-view-modes .btn-group {
+      display: inline-flex;
+   }
+}
+
+/* appointment steps stack below 992px (Bootstrap's md breakpoint): space the step headings from what is above them */
+@media screen and (max-width: 61.99em) {
+   #s-lc-app-s2,
+   #s-lc-app-s3,
+   #s-lc-appointment-form-container {
+      margin-top: var(--rvt-spacing-md);
+   }
+}
+
+/* dialog position: Rivet centres its dialog (`top: 40%; transform: translateY(-40%)`); Bootstrap drops the modal 30px from the top of the page */
+.s-lc-public .modal.in .modal-dialog,
+.s-lc-public .modal.show .modal-dialog {
+   margin: 0 auto;
+   top: 40%;
+   transform: translateY(-40%);
+}
+
+@media screen and (max-height: 30em) {
+   .s-lc-public .modal.in .modal-dialog {
+      top: 0;
+      transform: none;
+   }
+}
+
+/* ---- detail rows on the event page (Date / Time / Location / Categories): `.row > .col-md-2.s-lc-event-label + .col-md-10`. Same label / value pairs as the event cards: LibCal's right-aligned
+   #999 label (about 2.8:1 contrast, below WCAG's 4.5:1) becomes a medium black-400 label, left-aligned, in a fixed 8rem column, and the block sits 1rem under the text above it. ---- */
+.s-lc-box-content .row:has(> .s-lc-event-label) {
+   column-gap: var(--rvt-spacing-sm);
+   display: grid;
+   grid-template-columns: 8rem 1fr;
+   margin: 0;
+}
+
+.s-lc-box-content .row:has(> .s-lc-event-label):first-of-type,
+.s-lc-box-content :not(.row:has(> .s-lc-event-label)) + .row:has(> .s-lc-event-label) {
+   margin-top: var(--rvt-spacing-sm);
+}
+
+/* Bootstrap's clearfix pseudo-elements on `.row` would become grid cells and push the label into the second column */
+.s-lc-box-content .row:has(> .s-lc-event-label)::before,
+.s-lc-box-content .row:has(> .s-lc-event-label)::after {
+   display: none;
+}
+
+.s-lc-box-content .row:has(> .s-lc-event-label) > [class*="col-"] {
+   float: none;
+   margin: 0;
+   padding: 0;
+   width: auto;
+}
+
+.s-lc-event-label {
+   color: var(--rvt-color-black-400);
+   font-weight: var(--rvt-font-weight-medium);
+   text-align: left;
+}
+
+/* a label with nothing after it (Location here) is dropped */
+.s-lc-box-content .row:has(> .s-lc-event-label + :empty) {
+   display: none;
+}
+
+/* ---- validation states: Bootstrap 3 `.has-error` / `.has-warning` / `.has-success` on a `.form-group` -> Rivet's `.rvt-validation-danger` / `-warning` / `-success` inputs (inputs/_validation.scss)
+   with an `.rvt-inline-alert` message. Rivet's "danger" is orange: 1px orange-500 ring, orange-000 fill; focus = white .125rem + orange-500 .25rem ring. Success is green, warning gold.
+   Bootstrap's red (#a94442) text, borders and inset shadows are replaced. ---- */
+.s-lc-public .has-error .form-control,
+.s-lc-public .has-error .form-control:focus {
+   background-color: var(--rvt-color-orange-000);
+   border-color: var(--rvt-color-orange-500);
+   box-shadow: 0 0 0 .0625rem var(--rvt-color-orange-500);
+}
+
+.s-lc-public .has-error .form-control:focus {
+   border-color: var(--rvt-color-orange-400);
+   box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-orange-500);
+}
+
+.s-lc-public .has-success .form-control,
+.s-lc-public .has-success .form-control:focus {
+   background-color: var(--rvt-color-green-000);
+   border-color: var(--rvt-color-green-500);
+   box-shadow: 0 0 0 .0625rem var(--rvt-color-green-500);
+}
+
+.s-lc-public .has-success .form-control:focus {
+   border-color: var(--rvt-color-green-400);
+   box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-green-500);
+}
+
+.s-lc-public .has-warning .form-control,
+.s-lc-public .has-warning .form-control:focus {
+   background-color: var(--rvt-color-gold-000);
+   border-color: var(--rvt-color-gold-500);
+   box-shadow: 0 0 0 .0625rem var(--rvt-color-gold-500);
+}
+
+.s-lc-public .has-warning .form-control:focus {
+   border-color: var(--rvt-color-gold-400);
+   box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-gold-400);
+}
+
+/* labels keep the normal text colour; the message under the field carries the state (`.rvt-inline-alert__message`: 14px, .5rem below) */
+.s-lc-public .has-error .control-label,
+.s-lc-public .has-success .control-label,
+.s-lc-public .has-warning .control-label,
+.s-lc-public .has-error .radio,
+.s-lc-public .has-error .checkbox,
+.s-lc-public .has-error label {
+   color: var(--rvt-color-black-500);
+}
+
+.s-lc-public .has-error .help-block,
+.s-lc-public .has-error .text-danger,
+.s-lc-public .text-danger {
+   color: var(--rvt-color-orange-600);
+}
+
+.s-lc-public .has-success .help-block {
+   color: var(--rvt-color-green-600);
+}
+
+.s-lc-public .has-warning .help-block {
+   color: var(--rvt-color-gold-700);
+}
+
+.s-lc-public .has-error .help-block,
+.s-lc-public .has-success .help-block,
+.s-lc-public .has-warning .help-block {
+   font-size: var(--rvt-ts-14);
+   margin: var(--rvt-spacing-xs) 0 0;
+}
+
+/* a group of radios / checkboxes in error: `.rvt-inline-alert--standalone.rvt-inline-alert--danger` (orange-500 bar, orange-000 fill) around the message */
+.s-lc-public .has-error fieldset .help-block {
+   background-color: var(--rvt-color-orange-000);
+   border-left: .25rem solid var(--rvt-color-orange-500);
+   color: var(--rvt-color-orange-700);
+   padding: var(--rvt-spacing-xs);
+}
+
+/* ---- LibCal home page (iub.libcal.com): boxes hold a calendar and text at half page width ---- */
+
+/* LibCal swaps the "desktop" and "mobile" versions of the calendar (full day names + event blocks vs. abbreviations + "1 event" buttons) with *viewport* media queries, so the
+   embedded calendar in a half-width box got the desktop table squeezed into ~500px: "Wednesd" cut off and event names broken a letter at a time ("Cen/ter/for/Sur/vey"). Each box is a
+   size container, and the mobile version is used whenever the box itself is under 40rem wide (`display: revert` gives the elements back their own table-row / table-cell / inline). */
+.s-lc-box-content {
+   container: lcbox / inline-size;
+}
+
+@container lcbox (max-width: 40rem) {
+   .s-lc-mc .s-lc-desktop-only {
+      display: none !important;
+   }
+
+   .s-lc-mc .s-lc-mobile-only {
+      display: revert !important;
+   }
+
+   .s-lc-mc td.s-lc-mc-day {
+      padding: var(--rvt-spacing-xs) 0;
+   }
+}
+
+/* cells in every width: .5rem, not 16px, so event names have room */
+.s-lc-mc td.s-lc-mc-day {
+   padding: var(--rvt-spacing-xs);
+}
+
+/* day names that still don't fit are clipped with an ellipsis instead of cut mid-letter */
+.s-lc-mc th.s-lc-mc-h {
+   overflow: hidden;
+   padding-left: var(--rvt-spacing-xs);
+   padding-right: var(--rvt-spacing-xs);
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+/* text pasted into boxes keeps inline `text-align: center` and bigger `font-size`, which made one line in the box look like a different component; boxes use one left-aligned 16px body */
+.s-lc-box .s-lc-content-text [style*="text-align"],
+.s-lc-box .s-lc-content-text p {
+   text-align: left !important;
+}
+
+.s-lc-box .s-lc-content-text [style*="font-size"] {
+   font-size: inherit !important;
+}
+
+/* calendar toolbar (prev / next / Today / Month / Week next to the heading): wraps under the heading instead of overlapping it */
+.s-lc-hp-calendar-header-toolbar {
+   align-items: center;
+   column-gap: var(--rvt-spacing-sm);
+   display: flex;
+   flex-direction: row-reverse;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   margin: 0 0 var(--rvt-spacing-sm);
+}
+
+.s-lc-hp-calendar-header-toolbar > .pull-right {
+   float: none !important;
+   margin: 0 !important;
+}
+
+.s-lc-hp-calendar-header-toolbar .s-lc-hp-calendar-header {
+   flex: 1 1 12rem;
+   margin: 0;
+   min-width: 0;
+}
+
+/* the toolbar is a Bootstrap `.row` (negative side margins, 15px column padding), which pushed the calendar title 15px right of the text above it */
+.s-lc-hp-calendar-header-toolbar,
+.s-lc-hp-calendar-header-toolbar.row,
+.s-lc-hp-calendar-header-toolbar .s-lc-hp-calendar-header {
+   margin-left: 0;
+   margin-right: 0;
+   padding-left: 0;
+   padding-right: 0;
+}
+
+/* Bootstrap's `.row::before` / `::after` clearfix pseudo-elements became flex items in the toolbar, which put a 1rem gap before the calendar title */
+.s-lc-hp-calendar-header-toolbar::before,
+.s-lc-hp-calendar-header-toolbar::after {
+   display: none;
+}
+
+/* the day chosen with "1 event" is highlighted with Bootstrap's warning yellow (#fcf8e3); Rivet's selected / hover fill is blue-000 */
+.s-lc-mc td.s-lc-mc-selected-day,
+.s-lc-mc td.s-lc-mc-selected-day:hover {
+   background-color: var(--rvt-color-blue-000);
+}
+
+/* the "Event for Wed Oct 28" panel that opens under the week: left-aligned 16px bold title (LibCal centres an 18px one), a Rivet plain icon button to close it */
+.collapse-week h4 {
+   align-items: center;
+   display: flex;
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-16);
+   justify-content: space-between;
+   line-height: var(--rvt-line-height-base);
+   margin: var(--rvt-spacing-xs) 0 0;
+   text-align: left;
+}
+
+.collapse-week h4 strong {
+   font-size: inherit;
+   font-weight: var(--rvt-font-weight-bold);
+}
+
+.collapse-week hr {
+   border-color: var(--rvt-color-black-100);
+   margin-top: var(--rvt-spacing-xs);
+}
+
+/* .rvt-button--plain icon button: 2rem square, blue-500 icon, blue-000 hover, blue-100 pressed; the button has no text, so "Close" is added as hidden generated text for screen readers */
+.collapse-week .close {
+   align-items: center;
+   background-color: transparent;
+   border: .125rem solid transparent;
+   border-radius: var(--rvt-border-radius-md);
+   color: var(--rvt-color-blue-500);
+   display: inline-flex;
+   flex: none;
+   float: none;
+   height: var(--rvt-spacing-lg);
+   justify-content: center;
+   margin: 0;
+   opacity: 1;
+   padding: 0;
+   position: relative;
+   text-shadow: none;
+   width: var(--rvt-spacing-lg);
+}
+
+.collapse-week .close .fa {
+   color: inherit;
+   font-size: 1rem;
+}
+
+.collapse-week .close:hover {
+   background-color: var(--rvt-color-blue-000);
+   color: var(--rvt-color-blue-600);
+}
+
+.collapse-week .close:active {
+   background-color: var(--rvt-color-blue-100);
+}
+
+.collapse-week .close::after {
+   clip: rect(0 0 0 0);
+   content: "Close";
+   height: 1px;
+   overflow: hidden;
+   position: absolute;
+   white-space: nowrap;
+   width: 1px;
+}
+
+/* in a half-width box the title and the buttons would share one row and squeeze the title to four lines: title first, buttons under it */
+@container lcbox (max-width: 40rem) {
+   .s-lc-hp-calendar-header-toolbar {
+      align-items: flex-start;
+      flex-direction: column-reverse;
+      row-gap: var(--rvt-spacing-xs);
+   }
+
+   .s-lc-hp-calendar-header-toolbar .s-lc-hp-calendar-header {
+      flex: none;
+      width: 100%;
+   }
+}
+
+/* ---- hover states: list links (spaces, staff), calendar event links and the "View the full calendar" link had no visible change on hover. Rivet's links go to blue-600 and are underlined on hover
+   (link-hub: `__link:hover .__text { text-decoration: underline }`). ---- */
+.s-lc-box .s-lc-content-eqlist-ul a:hover,
+.s-lc-box .s-lc-content-mysched-ul a:hover,
+.s-lc-box .s-lc-content-text a:hover,
+.s-lc-box-content h2 a:hover,
+.s-lc-box-content h3 a:hover,
+.s-lc-mc a:hover,
+.collapse-week a:hover {
+   color: var(--rvt-color-blue-600);
+   text-decoration: underline !important;
+}
+
+.s-lc-box .s-lc-content-eqlist-ul a:active,
+.s-lc-box .s-lc-content-mysched-ul a:active,
+.s-lc-mc a:active {
+   color: var(--rvt-color-blue-700);
+}
+
+/* ---- space availability (iub.libcal.com/reserve/spaces/...): filter row, the FullCalendar timeline grid and its legend ---- */
+
+/* Location / Category / Capacity: three equal columns on one row (they were 434px, 428px and 282px wide, so Capacity wrapped to its own line), labels like `.rvt-label` */
+.form-inline:has(> .form-group-sm) {
+   column-gap: var(--rvt-spacing-md);
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+   row-gap: var(--rvt-spacing-sm);
+}
+
+.form-inline > .form-group-sm {
+   margin: 0;
+   width: auto;
+}
+
+.form-inline > .form-group-sm > label {
+   color: var(--rvt-color-black-500);
+   display: block;
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-regular);
+   margin: 0 0 .25rem;
+}
+
+.form-inline > .form-group-sm .bootstrap-select,
+.form-inline > .form-group-sm select.form-control {
+   width: 100% !important;
+}
+
+/* availability colours -> Rivet: available = green-500, unavailable / padding = orange-500 (Rivet's "danger"), your booking = gold-400. LibCal's #14951f / #c91908 / amber are not
+   Rivet colours; the hatching on unavailable and pending cells (a gradient over the fill) is kept so the state is not carried by colour alone. */
+.fc-event.s-lc-eq-avail,
+.label-eq-avail {
+   background-color: var(--rvt-color-green-500) !important;
+   border-color: var(--rvt-color-white-base) !important;
+}
+
+.fc-event.s-lc-eq-checkout,
+.label-eq-unavailable {
+   background-color: var(--rvt-color-orange-500) !important;
+   border-color: var(--rvt-color-white-base) !important;
+}
+
+.fc-event.s-lc-eq-pending,
+.label-eq-pending {
+   background-color: var(--rvt-color-gold-400) !important;
+   border-color: var(--rvt-color-white-base) !important;
+}
+
+/* available slots are links: hover and keyboard focus were not visible. Hover = green-600; focus = the white .125rem + blue-400 .25rem ring drawn inside the cell */
+.fc-event.s-lc-eq-avail:hover {
+   background-color: var(--rvt-color-green-600) !important;
+}
+
+.fc-event.s-lc-eq-avail:focus-visible,
+.fc-event.s-lc-eq-pending:focus-visible,
+body .fc-event:focus-visible {
+   box-shadow: inset 0 0 0 .125rem var(--rvt-color-white-base), inset 0 0 0 .25rem var(--rvt-color-blue-400) !important;
+   outline: none !important;
+}
+
+/* "Info" link next to each space (SPAN.s-lc-info-label: 11px text in a 28x21 blue rectangle) -> .rvt-badge.rvt-badge--info; the badge darkens when its link is hovered (a.rvt-badge--info:hover) */
+.s-lc-info-label {
+   background-color: var(--rvt-color-blue-500);
+   border: .125rem solid var(--rvt-color-blue-500);
+   border-radius: 999rem;
+   color: var(--rvt-color-white-base);
+   display: inline-block;
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-14);
+   font-weight: var(--rvt-font-weight-medium);
+   letter-spacing: .02rem;
+   line-height: 1;
+   padding: .1875rem var(--rvt-spacing-xs);
+}
+
+.s-lc-item-more-info {
+   text-decoration: none !important;
+}
+
+.s-lc-item-more-info:hover .s-lc-info-label {
+   background-color: var(--rvt-color-blue-600);
+   border-color: var(--rvt-color-blue-600);
+}
+
+.s-lc-item-more-info:focus-visible .s-lc-info-label {
+   box-shadow: 0 0 0 .125rem var(--rvt-color-white-base), 0 0 0 .25rem var(--rvt-color-blue-400);
+}
+
+/* legend: Rivet text size, the swatches stay round, evenly spaced */
+.s-lc-time-grid-legend {
+   align-items: center;
+   column-gap: var(--rvt-spacing-md);
+   display: flex;
+   flex-wrap: wrap;
+   font-size: var(--rvt-ts-14);
+   justify-content: center;
+   row-gap: var(--rvt-spacing-xs);
+}
+
+/* space info dialog: the photo is a Bootstrap `.img-thumbnail` (white padding, grey frame, drop shadow) -> a plain image with Rivet's .5rem radius (card image); headings inside the body are 1rem bold like a dialog's section labels */
+.s-lc-public .modal-body img.img-thumbnail,
+.s-lc-public .modal-body img {
+   background: transparent;
+   border: 0;
+   border-radius: var(--rvt-border-radius-lg);
+   box-shadow: none;
+   padding: 0;
+}
+
+.s-lc-public .modal-body h3,
+.s-lc-public .modal-body h4,
+.s-lc-public .modal-body h5 {
+   font-family: var(--rvt-font-base);
+   font-size: var(--rvt-ts-16);
+   font-weight: var(--rvt-font-weight-bold);
+   line-height: var(--rvt-line-height-base);
+   margin: var(--rvt-spacing-sm) 0 .25rem;
+}
+
+.s-lc-public .modal-body small {
+   color: var(--rvt-color-black-400);
+   font-size: var(--rvt-ts-14);
+}
